@@ -98,6 +98,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     connection.on("UserName", function (number) {
+
+        console.log("UserName : " + number );
         const parts = number.split(".");
         const initials = parts.map(p => p.charAt(0).toUpperCase()).join("");
         const email = number + "@1point1.in";
@@ -108,6 +110,21 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".user-avatar, .profile-avatar").forEach(el => el.innerText = initials);
         document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
     });
+
+    connection.on("AutoWrap", function (number) {
+
+        connection.on("AutoWrap", function (number) {
+            Swal.fire({
+                icon: 'success',
+                title: 'Record Saved Successfully',
+                text:  + number
+            }).then(result => {
+                
+            });
+        });
+
+    });
+
 
     connection.on("ReceiveStatus", handleStatusUpdate);
     connection.on("ReceiveAttachedDataUserEvent", handleAttachedDataUserEvent);
@@ -251,44 +268,49 @@ function updateSubDisposition() {
     subDispoSelect.innerHTML = '<option value="">-- Select Sub Disposition --</option>';
     if (subDispositions[dispoId]) subDispositions[dispoId].forEach(sub => {
         const option = document.createElement("option");
-        option.value = sub.id;
         option.textContent = sub.name;
         subDispoSelect.appendChild(option);
     });
 }
-
 async function submitDisposition() {
     const dispoId = parseInt(document.getElementById("disposition").value);
     const subDispoId = parseInt(document.getElementById("subDisposition").value);
-    if (!dispoId || !subDispoId) { alert("Select both disposition and sub-disposition."); return; }
+    const username = document.getElementById("username").value;
+    const address = document.getElementById("address").value;
+    const callBackDateValue = document.getElementById("callBackDate").value;
+
+ 
+
+    const callBackDate = new Date(callBackDateValue).toISOString();
+
+    console.log("Request Body: ", JSON.stringify({
+        dispositionId: dispoId,
+        subDispositionId: subDispoId,
+        username,
+        address,
+        callBackDate
+    }));
 
     try {
         const response = await fetch('/api/Genesys/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ dispositionId: dispoId, subDispositionId: subDispoId })
+            body: JSON.stringify({
+                dispositionId: dispoId,
+                subDispositionId: subDispoId,
+                username:username,
+                address: address,
+                callBackDate: callBackDate
+            })
         });
 
         if (response.ok) {
             const result = await response.json();
             Swal.fire({ icon: 'success', title: 'Success', text: result.message });
-        } else Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to submit disposition.' });
+        } else {
+            Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to submit disposition.' });
+        }
     } catch (error) {
         Swal.fire({ icon: 'error', title: 'Exception', text: error?.message || 'An unexpected error occurred.' });
     }
-}
-
-
-async function updateStatus() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const agentId = urlParams.get('empCode');
-    if (!agentId) { console.error("No agent ID found in URL."); return; }
-
-    try {
-        await fetch('/api/Genesys/status', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ empCode: agentId })
-        });
-    } catch (err) { console.error("Failed to get agent status:", agentId); }
 }

@@ -83,7 +83,7 @@ $(function () {
         ringtone.play().then(() => ringtone.pause());
     }, { once: true });
 
-    // Register
+ 
     $('#btnRegister').click(async function () {
         const username = $username.val().trim();
         const password = $password.val().trim();
@@ -102,6 +102,7 @@ $(function () {
                 uri: "sip:" + username + "@@" + sipServer,
                 password: password,
                 session_timers: false
+
             };
 
             userAgent = new JsSIP.UA(configuration);
@@ -136,7 +137,6 @@ $(function () {
         }
     });
 
-    // Outgoing call
     $('#btnCall').click(function () {
         if (!userAgent) { logStatus("Register first"); return; }
         if (firstCall) { logStatus("Already in a call"); return; }
@@ -144,35 +144,46 @@ $(function () {
         if (!target) { logStatus("Enter target number"); return; }
         const uri = "sip:" + PREFIX + target + "@@" + $sipServer.val().trim();
 
-        firstCall = userAgent.call(uri, { mediaConstraints: { audio: true, video: false }, pcConfig: { iceServers: [] } });
+                firstCall = userAgent.call(uri, { mediaConstraints: { audio: true, video: false }, mediaStream: localStream,       pcConfig: { iceServers: [] } });
         firstCall.on('peerconnection', e => { e.peerconnection.ontrack = ev => { remoteAudio1.srcObject = ev.streams[0]; }; });
         logStatus("Calling " + target);
     });
 
-    // Hangup
+  
     $('#btnHangup').click(function () {
         if (secondCall) { secondCall.terminate(); secondCall = null; }
         if (firstCall) { firstCall.terminate(); firstCall = null; }
         logStatus("All calls terminated");
     });
 
-    // Answer
+ 
     $('#btnAnswer').click(function () {
         if (firstCall && firstCall.isInProgress()) { firstCall.answer({ mediaConstraints: { audio: true, video: false } }); stopRingtone(); logStatus("First call answered"); }
         else if (secondCall && secondCall.isInProgress()) { secondCall.answer({ mediaConstraints: { audio: true, video: false } }); stopRingtone(); logStatus("Second call answered"); }
     });
 
-    // Reject
+   
     $('#btnReject').click(function () {
         if (firstCall && firstCall.isInProgress()) { firstCall.terminate(); firstCall = null; stopRingtone(); logStatus("First call rejected"); }
         else if (secondCall && secondCall.isInProgress()) { secondCall.terminate(); secondCall = null; stopRingtone(); logStatus("Second call rejected"); }
     });
 
-    // Hold / Unhold
-    $('#btnHold').click(function () { if (firstCall) { firstCall.hold({ useUpdate: true }); logStatus("First call on hold"); } });
-    $('#btnUnhold').click(function () { if (firstCall) { firstCall.unhold({ useUpdate: true }); logStatus("First call resumed"); } });
 
-    // New Call
+           $('#btnHold').click(function () {
+            if (firstCall && localStream) {
+                localStream.getAudioTracks().forEach(track => track.enabled = false);
+                logStatus("Call on hold (muted)");
+            }
+        });
+
+        
+        $('#btnUnhold').click(function () {
+            if (firstCall && localStream) {
+                localStream.getAudioTracks().forEach(track => track.enabled = true);
+                logStatus("Call resumed (unmuted)");
+            }
+        });
+
     $('#btnNewCall').click(function () {
         if (!firstCall) { logStatus("No active call to start new one"); return; }
         const target = prompt("Enter number for new call:");
@@ -184,13 +195,13 @@ $(function () {
         logStatus("Second call started");
     });
 
-    // Merge Conference (simple: just unhold both)
+    
     $('#btnMerge').click(function () {
         if (firstCall && secondCall) { firstCall.unhold({ useUpdate: true }); secondCall.unhold({ useUpdate: true }); logStatus("Calls merged"); }
         else logStatus("Need 2 calls to merge");
     });
 
-    // Remove Conference
+ 
     $('#btnRemoveConf').click(function () {
         if (secondCall) { secondCall.terminate(); secondCall = null; if (firstCall) firstCall.unhold({ useUpdate: true }); logStatus("Conference removed"); }
         else logStatus("No conference to remove");

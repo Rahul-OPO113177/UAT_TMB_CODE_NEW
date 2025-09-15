@@ -544,7 +544,7 @@
             return;
         }
 
-        // --- Check login credentials ---
+      
         let loginResponse;
         try {
             loginResponse = await fetch('/api/Genesys/checkUser', {
@@ -552,6 +552,8 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ empCode, password })
             });
+            const data = await loginResponse.json();
+            console.log('Login successful:', data);
         } catch (err) {
             Swal.fire({
                 icon: 'error',
@@ -560,7 +562,7 @@
             });
             return;
         }
-
+       
         if (!loginResponse.ok) {
             const error = await loginResponse.text();
             Swal.fire({
@@ -571,44 +573,51 @@
             return;
         }
 
-        // --- Genesys CRM ---
+  
         if (crmstatus === 1) {
             try {
-                const dialerResponse = await fetch('/api/Genesys/dialer', {
+             
+                let dialerResponse = await fetch('/api/Genesys/dialer', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ empCode })
                 });
 
-                if (!dialerResponse.ok) {
-                    const error = await dialerResponse.text();
+        
+                let data = await dialerResponse.json();
+                console.log('Dialer response:', data);
+
+              
+                if (dialerResponse.status !== 200) {
+                    const error = data.message || 'Invalid credentials';
                     Swal.fire({
                         icon: 'error',
                         title: 'Login Failed',
-                        text: error || 'Invalid credentials'
+                        text: error
                     });
                     return;
                 }
 
-                const result = await dialerResponse.json();
-                console.log("Genesys Result:", result);
-
-                await Swal.fire({
-                    icon: 'success',
-                    title: 'Login Successful',
-                    text: result.message || 'Welcome!',
-                    confirmButtonText: 'Continue'
-                });
-
-                location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(result.logincode)}`;
-
+                if (data.message === 'Agent logged in successfully') {
+                    location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}`;
+                } else {
+                   
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: 'Agent login failed, please try again.'
+                    });
+                }
             } catch (err) {
+              
+                console.error('Error:', err);
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
                     text: 'Unable to connect to Genesys server. Please try again.'
                 });
             }
+
         }
 
         // --- FreeSwitch CRM ---

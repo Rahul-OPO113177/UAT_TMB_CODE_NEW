@@ -872,17 +872,17 @@
     </style>
 </head>
 <body>
-    
+
     <header class="header">
         <div class="header-content">
-         
+
             <div class="hamburger-menu">
                 <svg class="w-full h-full" fill="none" viewBox="0 0 34 34">
                     <path d="M28 23.6065C28 24.3914 27.3637 25.0278 26.5787 25.0278H10.9447C10.1597 25.0278 9.52338 24.3914 9.52338 23.6065V23.6065C9.52338 22.8215 10.1597 22.1852 10.9447 22.1852H26.5787C27.3637 22.1852 28 22.8215 28 23.6065V23.6065ZM28 16.5001C28 17.285 27.3637 17.9214 26.5787 17.9214H15.2085C14.4235 17.9214 13.7872 17.285 13.7872 16.5001V16.5001C13.7872 15.7151 14.4235 15.0788 15.2085 15.0788H26.5787C27.3637 15.0788 28 15.7151 28 16.5001V16.5001ZM26.5787 7.97241C27.3637 7.97241 28 8.60874 28 9.39369V9.39369C28 10.1786 27.3637 10.815 26.5787 10.815H10.9447C10.1597 10.815 9.52338 10.1786 9.52338 9.39369V9.39369C9.52338 8.60874 10.1597 7.97241 10.9447 7.97241H26.5787ZM3.41829 22.6038C2.86507 22.0505 2.86444 21.1538 3.4169 20.5998L7.50517 16.5001L3.4169 12.4004C2.86444 11.8464 2.86506 10.9496 3.41829 10.3964V10.3964C3.97207 9.84261 4.86992 9.84261 5.4237 10.3964L11.5274 16.5001L5.42369 22.6038C4.86992 23.1576 3.97207 23.1575 3.41829 22.6038V22.6038Z" fill="rgba(255,255,255,0.79)" />
                 </svg>
             </div>
 
-           
+
             <div class="logo-section">
                 <div class="logo-icon">
                     <img style=" width: 49px;" src="../img/Logo 1 Connect.png" />
@@ -892,7 +892,7 @@
                 </div>
             </div>
 
-          
+
             <div class="header-right">
                 <div class="user-call-section">
 
@@ -986,11 +986,11 @@
         </div>
     </header>
 
-   
+
     <div class="main-content">
 
 
-      
+
         <div class="agent-profile-section">
             <div class="profile-content">
 
@@ -1110,12 +1110,12 @@
 
 
                     <div class="dialer-content">
-                     
+
 
                         <div class="form-section">
                             <div class="receiving-header">
                                 <div class="form-label">Mobile Number</div>
-                           
+
                             </div>
 
                             <div class="recipient-card">
@@ -1130,7 +1130,7 @@
                             </div>
                         </div>
 
-                       
+
                     </div>
                 </div>
 
@@ -1149,7 +1149,7 @@
                         </div>
 
                         <div style="display: flex; flex-direction: column; gap: 18px;">
-                          
+
                             <div class="waveform-container">
                                 <div class="waveform">
                                     <div class="waveform-bar" style="height: 35px;"></div>
@@ -1197,7 +1197,7 @@
                                 </div>
                             </div>
 
-                         
+
                             <div class="transcript-text">
                                 <p style="font-weight: 500; margin-bottom: 8px;">The dialogue features two primary speakers:</p>
                                 <ul class="transcript-list">
@@ -1220,7 +1220,7 @@
         </div>
         <div class="main-content-area" style="padding-left: 0px;">
             <div class="main-content-container" style="font-family:Arial, sans-serif; max-width:1002px; margin:auto;">
-             
+
                 <div class="nav-tabs">
                     <div class="nav-tab active">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab1')">Customer Info</span>
@@ -1242,7 +1242,7 @@
                     </div>
                 </div>
 
-             
+
                 <div id="tab1" class="tab-content" style="display:block;">
                     <div style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
@@ -1251,6 +1251,24 @@
                         </h6>
 
                         <div style="display:flex; flex-wrap:wrap; gap:15px; align-items:flex-end;">
+                            <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:20px;">
+                        
+                                <div style="display:flex; flex-direction:column;">
+                                    <label for="username" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Username</label>
+                                    <input id="username" type="text" placeholder="Enter username"
+                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
+                                </div>
+                                <div style="display:flex; flex-direction:column;">
+                                    <label for="address" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Address</label>
+                                    <input id="address" type="text" placeholder="Enter address"
+                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
+                                </div>
+                                <div style="display:flex; flex-direction:column;">
+                                    <label for="callBackDate" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Call Back Date</label>
+                                    <input id="callBackDate" type="date"
+                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
+                                </div>
+                            </div>
                             <div style="display:flex; flex-direction:column;">
                                 <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition</label>
                                 <select id="disposition" onchange="updateSubDisposition()"
@@ -1263,7 +1281,7 @@
                             </div>
 
                             <div style="display:flex; flex-direction:column;">
-                                <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition</label>
+                                <label for="subDisposition2" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition</label>
                                 <select id="subDisposition"
                                         style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                     <option value="">-- Select Sub Disposition --</option>
@@ -1280,7 +1298,7 @@
                     </div>
                 </div>
 
-         
+
                 <div id="tab2" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
@@ -1291,7 +1309,7 @@
                     </div>
                 </div>
 
-               
+
                 <div id="tab3" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
@@ -1302,7 +1320,7 @@
                     </div>
                 </div>
 
-            
+
                 <div id="tab4" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
@@ -1313,7 +1331,7 @@
                     </div>
                 </div>
 
-         
+
                 <div id="tab5" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
@@ -1324,7 +1342,7 @@
                     </div>
                 </div>
 
-              
+
                 <div id="tab6" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
@@ -1348,12 +1366,30 @@
 
 
 
-
+    <script src="../js/Genesys/Genesys.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/signalr.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.genesys.com/webrtc-sdk.js"></script>
-    <script src="../js/Genesys/Genesys.js"></script>
 
+    <script>
+
+        async function updateStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const agentId = urlParams.get('empCode');
+            if (!agentId) { console.error("No agent ID found in URL."); return; }
+
+            console.log("AgentID : " + agentId);
+
+            try {
+                await fetch('/api/Genesys/status', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ empCode: agentId })
+                });
+            } catch (err) { console.error("Failed to get agent status:", agentId); }
+        }
+
+    </script>
 </body>
 </html>

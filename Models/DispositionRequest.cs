@@ -2,7 +2,9 @@
 {
     public class DispositionRequest
     {
-        public int DispositionId { get; set; }
-        public int SubDispositionId { get; set; }
+        public int dispositionId { get; set; }
+        public int? subDispositionId { get; set; }   // nullable to avoid 400
+        public string address { get; set; }
+        public DateTime callBackDate { get; set; }
     }
 }

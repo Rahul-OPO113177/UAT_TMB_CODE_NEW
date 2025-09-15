@@ -67,7 +67,7 @@ namespace ServerCRM.FreeSwitchSer
 
             if (string.IsNullOrEmpty(callUuid)) return;
 
-            LogToFile($"Event Name: {eventName} | UUID: {callUuid} | CallerId: {callerId} | LoginCode: {loginCode}", "FreeSwitchEvents");
+            LogToFile($"Event Name: {eventName} | UUID: {callUuid}", "FreeSwitchEvents");
 
             string normalLeg1Uuid = string.Empty;
             string normalLeg2Uuid = string.Empty;
@@ -179,6 +179,8 @@ namespace ServerCRM.FreeSwitchSer
             });
         }
 
+
+
         public async Task<UserCallInfo?> GetUserCallInfoAsync(string loginCode)
         {
             _userCallInfos.TryGetValue(loginCode, out var info);
@@ -264,7 +266,7 @@ namespace ServerCRM.FreeSwitchSer
             if (info == null || string.IsNullOrEmpty(info.Leg1Uuid)) return;
 
             var client = await GetOrCreateConnectionAsync(loginCode);
-            await client.SendCommandAsync($"api uuid_hold {info.Leg1Uuid} on");
+            await client.SendCommandAsync($"api uuid_hold {info.Leg1Uuid}");
             info.Status = "On Hold";
         }
 
@@ -274,7 +276,8 @@ namespace ServerCRM.FreeSwitchSer
             if (info == null || string.IsNullOrEmpty(info.Leg1Uuid)) return;
 
             var client = await GetOrCreateConnectionAsync(loginCode);
-            await client.SendCommandAsync($"api uuid_hold {info.Leg1Uuid} off");
+            await client.SendCommandAsync($"api uuid_hold off {info.Leg1Uuid}");
+
             info.Status = "Talking";
         }
 
@@ -300,12 +303,12 @@ namespace ServerCRM.FreeSwitchSer
         public async Task HangupCallAsync(string loginCode)
         {
             var info = await GetUserCallInfoAsync(loginCode);
-            if (info == null || string.IsNullOrEmpty(info.Leg1Uuid)) return;
+            if (info == null || string.IsNullOrEmpty(info.Leg2Uuid)) return;
 
             var client = await GetOrCreateConnectionAsync(loginCode);
-            await client.SendCommandAsync($"api uuid_kill {info.Leg1Uuid} NORMAL_CLEARING");
+            await client.SendCommandAsync($"api uuid_kill {info.Leg2Uuid} NORMAL_CLEARING");
             info.Status = "Disconnected";
-            _activeCalls.TryRemove(info.Leg1Uuid, out _);
+            _activeCalls.TryRemove(info.Leg2Uuid, out _);
         }
 
         public async Task<bool> MergeToConferenceAsync(string userId)
@@ -315,9 +318,7 @@ namespace ServerCRM.FreeSwitchSer
 
             if (string.IsNullOrEmpty(info?.Leg1Uuid) || string.IsNullOrEmpty(info.Leg2Uuid))
                 return false;
-
             await client.SendCommandAsync($"api uuid_bridge {info.Leg1Uuid} {info.Leg2Uuid}");
-
 
             return true;
         }
@@ -326,7 +327,9 @@ namespace ServerCRM.FreeSwitchSer
         {
             var client = await GetOrCreateConnectionAsync(userId);
             var info = await GetUserCallInfoAsync(userId);
-            string cmd = $"api originate {{origination_caller_id_name={callerId},origination_caller_id_number={callerId}}}sofia/gateway/{gateway}/{phoneNumber} &conference({conferenceName})";
+         
+            string cmd = $"api originate {{origination_caller_id_name={callerId},origination_caller_id_number={callerId}}}sofia/gateway/{gateway}/{phoneNumber} &conference({conferenceName}@default|mintwo|moderator)";
+    
             var response = await client.SendCommandAsync(cmd);
 
             UpdateUserCallInfo(logincodedn, callerId, info?.Leg1Uuid, info?.Leg2Uuid, null, conferenceName, conferenceName, null, null);
@@ -339,7 +342,16 @@ namespace ServerCRM.FreeSwitchSer
                 UpdateUserCallInfo(logincodedn, callerId, info.Leg1Uuid, info.Leg2Uuid, null, conferenceName, conferenceName, callUuid, null);
 
             }
-
+            if (!string.IsNullOrEmpty(info.Leg2Uuid))
+            {
+                await client.SendCommandAsync($"api uuid_hold {info.Leg2Uuid}");
+                Console.WriteLine($"Leg2 ({info.Leg2Uuid}) unheld.");
+            }
+            if (!string.IsNullOrEmpty(info.Leg1Uuid))
+            {
+                await client.SendCommandAsync($"api uuid_hold off {info.Leg1Uuid}");
+                Console.WriteLine($"Leg1 ({info.Leg1Uuid}) placed on hold.");
+            }
 
         }
 
@@ -347,7 +359,7 @@ namespace ServerCRM.FreeSwitchSer
         {
             var info = await GetUserCallInfoAsync(userId);
             var client = await GetOrCreateConnectionAsync(userId);
-            string targetUuid = !string.IsNullOrEmpty(info.Leg2Uuid) ? info.Leg2Uuid : info.Leg2Uuid;
+            string targetUuid = !string.IsNullOrEmpty(info.Leg1Uuid) ? info.Leg1Uuid : info.Leg1Uuid;
             if (string.IsNullOrEmpty(targetUuid))
                 return false;
             var response = await client.SendCommandAsync($"api uuid_kill {targetUuid}");

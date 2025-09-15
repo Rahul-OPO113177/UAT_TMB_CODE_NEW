@@ -52,7 +52,7 @@ namespace ServerCRM.Controllers
 
             string error;
             bool success = CTIConnectionManager.LoginAgent(agent,
-                Convert.ToString(agent.login_code), agent.dn, agent.TserverIP_OFFICE, agent.TserverPort, out error
+                Convert.ToString(agent.login_code), agent.dn, agent.TserverIP_OFFICE, agent.TserverPort, agent.Location , agent.opoid , agent.ProcessName , out error
             );
 
             if (!success)
@@ -262,8 +262,9 @@ namespace ServerCRM.Controllers
         [HttpPost("submit")]
         public async Task<IActionResult> SubmitDisposition([FromBody] DispositionRequest request)
         {
+            string str3 = $"Record Saved Successfully...,Disposition:{1},SubDisposition:{1},CBTime:{request.callBackDate},CBType:GEN";
             string login_code = HttpContext.Session.GetString("login_code");
-            var status = await CTIConnectionManager.DisposeCall(login_code, request.DispositionId, request.SubDispositionId);
+            var status =  CTIConnectionManager.savedata(str3 , login_code);
 
             return Ok(new { message = status });
 

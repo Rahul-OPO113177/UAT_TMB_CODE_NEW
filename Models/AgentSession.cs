@@ -11,8 +11,10 @@ namespace ServerCRM.Models
         public bool IsRunning { get; set; }
         public ConnectionId? ConnID { get; set; }
         public ConnectionId? IVRConnID { get; set; }
-
         public string? ConforenceNumber { get; set; }
+        public string? Location { get; set; }
+        public string? OPOID { get; set; }
+        public string? ProcessName { get; set; }
         public string? CampaignPhone { get; set; }
         public string? partyFirstPhone { get; set; }
         public string? CampaignMode { get; set; }
@@ -30,10 +32,13 @@ namespace ServerCRM.Models
         public string? MasterPhone { get; set; }
         public string? Prifix { get; set; }
         public  double MyCode = 0;
+        public double PCBMyCode = 0;
         public bool isOnCall { get; set; }
         public bool isMarge { get; set; }
         public bool isConforence { get; set; }
         public int CurrentStatusID { get; set; }
+        public int IsAutoWrap { get; set; }
+        public int AutoWrapTime { get; set; }
         public  string? DialAccess { get; set; }
         public object LockObj { get; } = new object();
     }

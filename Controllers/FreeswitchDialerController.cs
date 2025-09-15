@@ -250,9 +250,9 @@ namespace ServerCRM.Controllers
         public async Task<IActionResult> SubmitDisposition([FromBody] DispositionRequest request)
         {
             string login_code = HttpContext.Session.GetString("login_code");
-            var status = await CTIConnectionManager.DisposeCall(login_code, request.DispositionId, request.SubDispositionId);
+            //var status =  CTIConnectionManager.DisposeCall(login_code, request.dispositionId, request.dispositionId);
 
-            return Ok(new { message = status });
+            return Ok(new { message = "" });
 
 
         }

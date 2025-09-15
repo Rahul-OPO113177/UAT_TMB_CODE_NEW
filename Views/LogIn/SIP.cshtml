@@ -169,12 +169,14 @@
 
                 if (session.direction === 'incoming') {
                   logStatus("Incoming call from " + session.remote_identity.uri.toString());
-
+                  session.answer({
+                mediaConstraints: { audio: true, video: false }
+              });
                   session.on('peerconnection', e => {
                     console.log("🔗 Peer connection event", e);
                     const pc = e.peerconnection;
                     pc.ontrack = ev => {
-                      console.log("🎧 Remote track received", ev.streams);
+                      console.log("Remote track received", ev.streams);
                       if (ev.streams && ev.streams[0]) {
                         remoteAudio.srcObject = ev.streams[0];
                       }
@@ -195,54 +197,50 @@
             }
           });
 
-          // Make Call
-          $('#btnCall').click(function () {
+        
+        $('#btnCall').click(async function () {
+    if (!userAgent) {
+        logStatus("Register first");
+        return;
+    }
 
-            if (!userAgent) {
-              logStatus("Register first");
-              return;
-            }
+    const target = $target.val().trim();
+    const sipServer = $sipServer.val().trim();
 
-            const target = $target.val().trim();
-            const sipServer = $sipServer.val().trim();
-            console.log("📲 Dial request", { target, sipServer });
+    if (!target) {
+        logStatus("Enter target number");
+        return;
+    }
 
-            if (!target) {
-              logStatus("Enter target number");
-              return;
-            }
+    const targetUri = "sip:" + PREFIX + target + "@@" + sipServer;
+    console.log("☎️ Calling URI:", targetUri);
 
+    const eventHandlers = {
+        progress: () => logStatus("Calling..."),
+        failed: e => logStatus("Call failed", e),
+        ended: () => logStatus("Call ended"),
+        confirmed: () => logStatus("Call confirmed")
+    };
 
-            const targetUri = "sip:" + PREFIX + target + "@@" + sipServer;
-            console.log("☎️ Calling URI:", targetUri);
+    const options = {
+        eventHandlers,
+        mediaConstraints: { audio: true, video: false },
+        rtcOfferConstraints: { offerToReceiveAudio: 1, offerToReceiveVideo: 0 }
+    };
 
-            const eventHandlers = {
-              progress: () => logStatus("Calling..."),
-              failed: e => logStatus("Call failed", e),
-              ended: () => logStatus("Call ended"),
-              confirmed: () => logStatus("Call confirmed")
-            };
-
-            const options = {
-              eventHandlers: eventHandlers,
-              mediaConstraints: { audio: true, video: false }
-            };
-
-            try {
-              session = userAgent.call(targetUri, options);
-              console.log("📞 Outgoing session", session);
-
-              if (localStream) {
-                localStream.getTracks().forEach(track => {
-                  console.log("🎤 Adding local track", track);
-                  session.connection.addTrack(track, localStream);
-                });
-              }
-            } catch (err) {
-              console.error("❌ Call Error:", err.stack || err);
-              logStatus("Call setup failed", err);
-            }
-          });
+    try {
+        session = userAgent.call(targetUri, options);
+     
+        if (localStream) {
+            localStream.getTracks().forEach(track => {
+                session.connection.addTrack(track, localStream);
+            });
+        }
+    } catch (err) {
+        console.error("❌ Call Error:", err.stack || err);
+        logStatus("Call setup failed", err);
+    }
+});
 
           // Hangup
           $('#btnHangup').click(function () {

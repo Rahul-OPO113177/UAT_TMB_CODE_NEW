@@ -870,7 +870,6 @@
 
                     });
                     userAgent.start();
-
                     refreshFsStatus();
 
                 } catch (err) {
@@ -878,13 +877,16 @@
                 }
             }
 
-
+            function playRingtone() {
+                ringtone.play().catch(err => console.log("Ringtone blocked", err));
+            }
             
             function logStatus(msg) {
                 console.log("[Softphone] " + msg || "");
                 
             }
          
+
 
             function StartRingtone() {
                 ringtone.play().catch(err => console.log("Ringtone blocked", err));
@@ -932,11 +934,11 @@
                 callAPI("disconnect");
             }
             function holdCall() {
-                if (session) session.hold();
+                
                 callAPI("hold");
             }
             function unholdCall() {
-                if (session) session.unhold();
+              
                 callAPI("unhold");
 
             }
@@ -969,7 +971,6 @@
 
         <script>
             const apiBase = "http://localhost:5008/api/InfoPage";
-
 
             async function loadProcesses(empcode1) {
                 try {
