@@ -492,5 +492,42 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.OmniController",
+    "Method": "SendEmail",
+    "RelativePath": "api/Omni/send",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ServerCRM.Models.Omni.EmailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.OmniController",
+    "Method": "SendMessage",
+    "RelativePath": "api/Omni/SendMessage",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
   }
 ]

@@ -48,15 +48,7 @@ namespace ServerCRM.Services
         private static readonly ConcurrentDictionary<string, TServerProtocol> agentConnections = new();
         private static readonly object syncLock = new();
         private static readonly ConcurrentDictionary<string, AgentSession> agentSessions = new();
-        private static string StartTime;
-        private static string EndTime;
-        private static string RecordingPath = "";
-        private static string distype = "";
-       static DataTable dt_EntityType;
-       static String finishCode = "GEN";
         private static Timer _autoWrapTimer;
-
-        public static string AgentID= "";
 
         public static bool LoginAgent(CL_AgentDet agentvalue, string agentId, string dn, string tServerIp, string tServerPort, string Location , string OPOID , string ProcessName, out string errorMessage)
         {
@@ -94,7 +86,7 @@ namespace ServerCRM.Services
                                 IMessage readyResponse = tServer.Request(ready);
                                 if (readyResponse.Name == "EventAgentReady")
                                 {
-                                    AgentID = agentId;
+                                    
                                     agentConnections[agentId] = tServer;
                                     var agentSession = new AgentSession
                                     {
@@ -129,7 +121,15 @@ namespace ServerCRM.Services
                                         OPOID= OPOID,
                                         ProcessName= ProcessName,
                                         AutoWrapTime = Convert.ToInt32(agentvalue.AutoWrapTime),
-                                        IsAutoWrap = Convert.ToInt32(agentvalue.IsAutoWrap)
+                                        IsAutoWrap = Convert.ToInt32(agentvalue.IsAutoWrap),
+                                        StartTime=null,
+                                        EndTime = null,
+                                        RecordingPath = null,
+                                        distype = null,
+                                        AgentGroup = null,
+                                        finishCode = null,
+                                        dt_EntityType = new DataTable()
+
                                     };
                                     agentSessions[agentId] = agentSession;
                                     Task.Run(() => ReceiveLoop(agentSession));
@@ -290,8 +290,8 @@ namespace ServerCRM.Services
                             {
                                 if (established.UserData.Keys[i] == "GSIP_REC_FN")
                                 {
-                                    RecordingPath = established.UserData[i].ToString();
-                                    RecordingPath = RecordingPath + "_pcmu.wav";
+                                    session.RecordingPath = established.UserData[i].ToString();
+                                    session.RecordingPath = session.RecordingPath + "_pcmu.wav";
 
                                 }
                             }
@@ -301,7 +301,7 @@ namespace ServerCRM.Services
 
                             int ts = established.Time.TimeinSecs;
                             DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(ts).ToLocalTime();
-                            StartTime = dt.ToString("yyyy-MM-dd hh:mm:ss tt");
+                            session.StartTime = dt.ToString("yyyy-MM-dd hh:mm:ss tt");
 
                         }
                         catch (Exception)
@@ -348,7 +348,8 @@ namespace ServerCRM.Services
                                         session.CurrentStatusID = 3;
                                         CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.partyFirstPhone);
                                     }
-                                    distype = "Customer";
+                                    session.distype = "Customer";
+                                    CTIConnectionManager.InsertCallLogApi(session.AgentId);
 
                                 }
                                 else
@@ -368,7 +369,7 @@ namespace ServerCRM.Services
                             TimeStamp sdt1 = released.Time;
                             int ts = released.Time.TimeinSecs;
                             DateTime dt = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(ts).ToLocalTime();
-                            EndTime = dt.ToString("yyyy-MM-dd hh:mm:ss tt");
+                            session.EndTime = dt.ToString("yyyy-MM-dd hh:mm:ss tt");
 
                         }
                         catch (Exception)
@@ -376,7 +377,7 @@ namespace ServerCRM.Services
                         }
                         if (session.IsAutoWrap == 1)
                         {
-                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime);
+                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime , session.AgentId);
 
                         }
                        
@@ -588,9 +589,9 @@ namespace ServerCRM.Services
 
                                 if (eventattacheddatachanged.UserData.Keys[i] == "GSIP_REC_FN")
                                 {
-                                    RecordingPath = "";
-                                    RecordingPath = eventattacheddatachanged.UserData[i].ToString();
-                                    RecordingPath = RecordingPath + "_pcmu.wav";
+                                    session.RecordingPath = "";
+                                    session.RecordingPath = eventattacheddatachanged.UserData[i].ToString();
+                                    session.RecordingPath = session.RecordingPath + "_pcmu.wav";
 
 
                                 }
@@ -822,11 +823,11 @@ namespace ServerCRM.Services
                             }
                             else
                             {
-                                dt_EntityType = (DataTable)JsonConvert.DeserializeObject(result, (typeof(DataTable)));
-                                if (dt_EntityType.Rows.Count > 0)
+                                session.dt_EntityType = (DataTable)JsonConvert.DeserializeObject(result, (typeof(DataTable)));
+                                if (session.dt_EntityType.Rows.Count > 0)
                                 {
-                                    session.MyCode = Convert.ToDouble(dt_EntityType.Rows[0][0]);
-                                    session.CampaignPhone = Convert.ToString(dt_EntityType.Rows[0][1]);
+                                    session.MyCode = Convert.ToDouble(session.dt_EntityType.Rows[0][0]);
+                                    session.CampaignPhone = Convert.ToString(session.dt_EntityType.Rows[0][1]);
 
                                 }
                                 return session.MyCode;
@@ -1334,11 +1335,12 @@ namespace ServerCRM.Services
                             session.isOnCall = false;
                             session.isMarge = false;
                             session.partyFirstPhone = null;
-                            EndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
-                            distype = "Agent";
+                            session.EndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
+                            session.distype = "Agent";
+                            InsertCallLogApi(session.AgentId);
                             if (session.IsAutoWrap == 1)
                             {
-                                CTIConnectionManager.StartAutoWrap(session.AutoWrapTime);
+                                CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
 
                             }
 
@@ -1364,11 +1366,12 @@ namespace ServerCRM.Services
                         session.isOnCall = false;
                         session.isMarge = false;
                         session.partyFirstPhone = null;
-                        EndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
-                        distype = "Agent";
+                        session.EndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
+                        session.distype = "Agent";
+                        InsertCallLogApi(session.AgentId);
                         if (session.IsAutoWrap == 1)
                         {
-                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime);
+                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
 
                         }
 
@@ -1390,12 +1393,12 @@ namespace ServerCRM.Services
                 {
                     if (session.PCBMyCode == session.MyCode)
                     {
-                        return ("starttime=" + StartTime + ",endtime=" + EndTime + ",DisconnectType=" + distype + ",RecPath=" + RecordingPath + ",CampaignName=" + session.CampaignName);
+                        return ("starttime=" + session.StartTime + ",endtime=" + session.EndTime + ",DisconnectType=" + session.distype + ",RecPath=" + session.RecordingPath + ",CampaignName=" + session.CampaignName);
 
                     }
                     else
                     {
-                        return ("starttime=" + StartTime + ",endtime=" + EndTime + ",DisconnectType=" + distype + ",RecPath=" + RecordingPath + ",CampaignName=" + session.CampaignName);
+                        return ("starttime=" + session.StartTime + ",endtime=" + session.EndTime + ",DisconnectType=" + session.distype + ",RecPath=" + session.RecordingPath + ",CampaignName=" + session.CampaignName);
 
                     }
                 }
@@ -1428,7 +1431,7 @@ namespace ServerCRM.Services
                         }
                         if (disp[0].ToString().ToUpper() == "CBTYPE")
                         {
-                            finishCode = disp[1].ToString();
+                                session.finishCode = disp[1].ToString();
                         }
                         if (disp[0].ToString().ToUpper() == "CBTIME")
                         {
@@ -1473,14 +1476,14 @@ namespace ServerCRM.Services
             }
 
         }
-        public static  string DisposeCall(string logincode, int dispo, int sub_dispo , string cbtime)
+        public static string DisposeCall(string logincode, int dispo, int sub_dispo, string cbtime)
         {
 
-            string CBTypeFormatted = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"); 
-            string finishCode = "GEN"; 
+            string CBTypeFormatted = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+            string finishCode = "GEN";
 
             string str3 = $"Record Saved Successfully...,Disposition:{dispo},SubDisposition:{sub_dispo},CBTime:{CBTypeFormatted},CBType:{finishCode}";
-    
+
 
 
             AgentSession session = GetAgentSession(logincode);
@@ -1493,7 +1496,7 @@ namespace ServerCRM.Services
                 {
                     if (finishCode == "PCB")
                     {
-                        CTIConnectionManager.InsertPCB(cbtime , logincode , dispo , sub_dispo);
+                        CTIConnectionManager.InsertPCB(cbtime, logincode, dispo, sub_dispo);
                         KeyValueCollection kvp = new KeyValueCollection();
                         kvp.Add("Disposition", dispo.ToString());
                         kvp.Add("Sub_Disposition", sub_dispo.ToString());
@@ -1593,7 +1596,7 @@ namespace ServerCRM.Services
                 else
                 {
                     CTIConnectionManager.StopAutoWrap();
-                    var str =  AgentReady(session.AgentId);
+                    var str = AgentReady(session.AgentId);
                     return "Record Saved Successfully";
                 }
             }
@@ -1602,6 +1605,139 @@ namespace ServerCRM.Services
                 return "You current state is  : " + valueresoon + "Please make on Wrap";
             }
         }
+
+        private static void InsertCallLogApi(string AgentID)
+        {
+            try
+            {
+                AgentSession session = GetAgentSession(AgentID);
+
+                string url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/InsertCallLog";
+                if (session.Location == "GGN" || session.Location == "CHN")
+                {
+                    url = "http://172.24.11.93:8088/API/AgentDetailAPI_NewSetup_GGN/Api/InsertCallLog";
+                }
+                else
+                {
+                    url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/InsertCallLog";
+                }
+
+
+                var json = "";
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    json = "{\"Phonenumber\":\"" + session.CampaignPhone + "\",\"DialTime\":\"" + session.StartTime + "\",\"ConnectTime\":\"" + session.StartTime + "\",\"DisconnectTime\":\"" + session.EndTime + "\",\"DisconnectType\":\"" + session.distype + "\",\"AgentID\":\"" + session.OPOID + "\",\"Process\":\"" + session.ProcessName + "\",\"Location\":\"" + session.Location + "\",\"TconnID\":\"" + session.ConnID + "\",\"CampaignName\":\"" + session.CampaignName + "\",\"CampaignMode\":\"" + session.CampaignMode+ "\",\"agentgroup\":\"" + session.AgentGroup + "\",\"VoiceFilePath\":\"" + session.RecordingPath.Replace("\\", "/") + "\",\"Mycode\":\"" + session.MyCode + "\"}";
+
+                    streamWriter.Write(json);
+                }
+
+                var httpresponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamreader = new StreamReader(httpresponse.GetResponseStream()))
+                {
+                    var result = streamreader.ReadToEnd();
+                    result = result.Replace("\"", "");
+                    result = result.Replace(":", "\":\"");
+                    result = result.Replace("{\\", "{\\\"");
+                    result = result.Replace("}", "\"}");
+                    result = result.Replace(",", "\",\"");
+                    result = result.Replace("\"{", "{");
+                    result = result.Replace("}\"", "}");
+                    result = result.Replace("\\", "");
+                    result = result.Replace("T00\":\"00\":\"00", "");
+
+                    try
+                    {
+                        if (result == "Failure")
+                        {
+                            
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                      
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+              
+            }
+        }
+        public static void UpdateAgentStatusApi(string AgentID)
+        {
+            try
+            {
+                AgentSession session = GetAgentSession(AgentID);
+                string url = "";
+                if (session.Location == "GGN" || session.Location == "CHN")
+                {
+                    url = "http://172.24.11.93:8088/API/AgentDetailAPI_NewSetup_GGN/Api/UpdateAgentStatus";
+                }
+                else
+                {
+                    url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/UpdateAgentStatus";
+                }
+
+                var json = "";
+                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+                httpWebRequest.ContentType = "application/json";
+                httpWebRequest.Method = "POST";
+
+                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+                {
+                    json = "{\"Opoid\":\"" + session.OPOID + "\",\"AgentStatus\":\"" + session.CurrentStatusID + "\"}";
+
+                    streamWriter.Write(json);
+                }
+
+                var httpresponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                using (var streamreader = new StreamReader(httpresponse.GetResponseStream()))
+                {
+                    var result = streamreader.ReadToEnd();
+                    result = result.Replace("\"", "");
+                    result = result.Replace(":", "\":\"");
+                    result = result.Replace("{\\", "{\\\"");
+                    result = result.Replace("}", "\"}");
+                    result = result.Replace(",", "\",\"");
+                    result = result.Replace("\"{", "{");
+                    result = result.Replace("}\"", "}");
+                    result = result.Replace("\\", "");
+                    result = result.Replace("T00\":\"00\":\"00", "");
+
+                    try
+                    {
+                        if (result == "Failure")
+                        {
+                           
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        
+                    }
+                }
+            }
+
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+
         private static void InsertPCB(string callbackdatetime , string AgetID , int dispo , int subdispo)
         {
             try
@@ -1865,13 +2001,17 @@ namespace ServerCRM.Services
             }
         }
 
-        public static void StartAutoWrap(int durationInSeconds)
+        public static void StartAutoWrap(int durationInSeconds , string logincode)
         {
             StopAutoWrap(); 
 
             _autoWrapTimer = new Timer(durationInSeconds * 1000);
-            _autoWrapTimer.Elapsed += AutoWrapTimerElapsed;
-            _autoWrapTimer.AutoReset = false; 
+           
+            _autoWrapTimer.AutoReset = false;
+            _autoWrapTimer.Elapsed += (sender, e) =>
+            {
+                AutoWrapTimerElapsed(sender, e, logincode);
+            };
             _autoWrapTimer.Start();
 
             Console.WriteLine($"[CTI] Auto Wrap timer started for {durationInSeconds} seconds.");
@@ -1888,12 +2028,13 @@ namespace ServerCRM.Services
             }
         }
 
-        private static void AutoWrapTimerElapsed(object sender, ElapsedEventArgs e)
+        private static void AutoWrapTimerElapsed(object sender, ElapsedEventArgs e , string loginCode)
         {
             string str3 = $"Record Saved Successfully...,Disposition:{0},SubDisposition:{0},CBTime:{""},CBType:GEN";
-            var status = CTIConnectionManager.savedata(str3, AgentID);
+        
+            var status = CTIConnectionManager.savedata(str3, loginCode);
 
-            CTIConnectionManager.HubContext.Clients.Group(AgentID).SendAsync("AutoWrap", status);
+            CTIConnectionManager.HubContext.Clients.Group(loginCode).SendAsync("AutoWrap", status);
         }
 
     }

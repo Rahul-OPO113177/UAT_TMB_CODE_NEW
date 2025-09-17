@@ -18,6 +18,7 @@ D:\OneDialer\ServerCRM\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
 D:\OneDialer\ServerCRM\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
 D:\OneDialer\ServerCRM\bin\Debug\net6.0\Microsoft.Extensions.WebEncoders.dll
 D:\OneDialer\ServerCRM\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+D:\OneDialer\ServerCRM\bin\Debug\net6.0\MySqlConnector.dll
 D:\OneDialer\ServerCRM\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\OneDialer\ServerCRM\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 D:\OneDialer\ServerCRM\bin\Debug\net6.0\System.Data.SqlClient.dll

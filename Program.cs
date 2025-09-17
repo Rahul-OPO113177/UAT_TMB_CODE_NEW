@@ -11,6 +11,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddTransient<ApiService>();
 builder.Services.AddTransient<AuthService>();
 builder.Services.AddSingleton<FreeSwitchManager>();
+
 builder.Services.AddSingleton(typeof(ServerCRM.FreeSwitchService.CallEventsHub));
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>

@@ -1,6 +1,10 @@
+wwwroot\css\Common\Dialer.css
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\img\Logo 1 Connect.png
+wwwroot\js\Common\Common.js
+wwwroot\js\Common\CommonSoftPhone.js
+wwwroot\js\Genesys\Genesys.js
 wwwroot\js\jssip.min.js
 wwwroot\js\signalr.min.js
 wwwroot\js\site.js
@@ -63,5 +67,7 @@ wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js
 wwwroot\lib\jquery-validation-unobtrusive\LICENSE.txt
 wwwroot\Pages\CRM.html
 wwwroot\Pages\CTI.html
+wwwroot\Pages\Freeswitch.html
 wwwroot\Pages\LogIn.html
 wwwroot\Pages\sip.html
+wwwroot\Ringtone\ringin.wav

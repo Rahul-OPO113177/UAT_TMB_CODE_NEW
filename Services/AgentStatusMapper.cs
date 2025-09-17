@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using MySqlConnector;
 using ServerCRM.Models;
+using ServerCRM.Models.CTI;
 using System.Collections.Concurrent;
 
 namespace ServerCRM.Services
 {
     public static class AgentStatusMapper
     {
+        private static readonly ConcurrentDictionary<string, AgentStat> AgentStats = new();
+
         public static readonly Dictionary<int, string> StatusMap = new()
         {
             [0] = "",
@@ -40,12 +44,73 @@ namespace ServerCRM.Services
 
         public static void UpdateAgentStatus(int statusId, AgentSession session, IHubContext<CtiHub> hubContext)
         {
+            var agentId = session.AgentId;
+            var now = DateTime.UtcNow;
+
+            var agentStat = AgentStats.GetOrAdd(agentId, id => new AgentStat
+            {
+                AgentId = id,
+                CurrentStatusID = statusId,
+                StatusStartTime = now
+            });
+
+            if (agentStat.StatusStartTime != default && agentStat.CurrentStatusID != 0)
+            {
+                var history = new AgentStatusHistory
+                {
+                    AgentId = agentStat.AgentId,
+                    StatusId = agentStat.CurrentStatusID,
+                    StatusLabel = StatusMap.GetValueOrDefault(agentStat.CurrentStatusID, "UNKNOWN"),
+                    StartTime = agentStat.StatusStartTime,
+                    EndTime = now
+                };
+
+                SaveStatusHistoryToDatabase(history);
+                agentStat.StatusHistory.Add(history);
+            }
+
+           
+            agentStat.CurrentStatusID = statusId;
+            agentStat.StatusStartTime = now;
+
+            CTIConnectionManager.UpdateAgentStatusApi(session.AgentId);
             session.CurrentStatusID = statusId;
             if (hubContext != null && StatusMap.TryGetValue(statusId, out var statusLabel))
             {
                  hubContext.Clients.Group(session.AgentId).SendAsync("ReceiveStatus", statusLabel);
             }
         }
+
+        public static void SaveStatusHistoryToDatabase(AgentStatusHistory history)
+        {
+            try
+            {
+                const string connectionString = "server=20.20.20.82;user=dba;password=Opo@1234;database=DATAMART;";
+
+                using var connection = new MySqlConnection(connectionString);
+                using var command = new MySqlCommand(@"
+            INSERT INTO AgentStatusHistories (AgentId, StatusId, StatusLabel, StartTime, EndTime , CreateDate)
+            VALUES (@AgentId, @StatusId, @StatusLabel, @StartTime, @EndTime , @CreateTime)", connection);
+
+                command.Parameters.AddWithValue("@AgentId", history.AgentId);
+                command.Parameters.AddWithValue("@StatusId", history.StatusId);
+                command.Parameters.AddWithValue("@StatusLabel", history.StatusLabel);
+                command.Parameters.AddWithValue("@StartTime", history.StartTime);
+                command.Parameters.AddWithValue("@EndTime", history.EndTime);
+                command.Parameters.AddWithValue("@CreateTime", history.EndTime);
+
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error saving history: {ex.Message}");
+                if (ex.InnerException != null)
+                    Console.WriteLine($"Inner exception: {ex.InnerException.Message}");
+                throw;
+            }
+        }
+
     }
 
 

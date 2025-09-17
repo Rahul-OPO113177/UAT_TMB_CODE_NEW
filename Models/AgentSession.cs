@@ -1,4 +1,5 @@
 ﻿using Genesyslab.Platform.Voice.Protocols;
+using System.Data;
 
 namespace ServerCRM.Models
 {
@@ -40,6 +41,16 @@ namespace ServerCRM.Models
         public int IsAutoWrap { get; set; }
         public int AutoWrapTime { get; set; }
         public  string? DialAccess { get; set; }
+
+        public string? StartTime { get; set; }
+        public string? EndTime   { get; set; }
+        public string? RecordingPath { get; set; }
+        public string? distype { get; set; }
+        public string? AgentGroup { get; set; }
+
+        public string? finishCode { get; set; }
+        public DataTable dt_EntityType { get; set; }
+
         public object LockObj { get; } = new object();
     }
 }

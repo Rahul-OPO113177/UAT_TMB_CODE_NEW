@@ -18,6 +18,7 @@ namespace ServerCRM.Controllers
         private readonly ApiService _apiService;
         private readonly AuthService _auth;
 
+
         public GenesysController(ApiService apiService , AuthService authService)
         {
             _apiService = apiService;

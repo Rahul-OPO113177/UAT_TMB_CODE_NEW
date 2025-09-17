@@ -1,0 +1,1098 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="../css/Common/Dialer.css" rel="stylesheet" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+
+            <div class="hamburger-menu">
+                <svg class="w-full h-full" fill="none" viewBox="0 0 34 34">
+                    <path d="M28 23.6065C28 24.3914 27.3637 25.0278 26.5787 25.0278H10.9447C10.1597 25.0278 9.52338 24.3914 9.52338 23.6065V23.6065C9.52338 22.8215 10.1597 22.1852 10.9447 22.1852H26.5787C27.3637 22.1852 28 22.8215 28 23.6065V23.6065ZM28 16.5001C28 17.285 27.3637 17.9214 26.5787 17.9214H15.2085C14.4235 17.9214 13.7872 17.285 13.7872 16.5001V16.5001C13.7872 15.7151 14.4235 15.0788 15.2085 15.0788H26.5787C27.3637 15.0788 28 15.7151 28 16.5001V16.5001ZM26.5787 7.97241C27.3637 7.97241 28 8.60874 28 9.39369V9.39369C28 10.1786 27.3637 10.815 26.5787 10.815H10.9447C10.1597 10.815 9.52338 10.1786 9.52338 9.39369V9.39369C9.52338 8.60874 10.1597 7.97241 10.9447 7.97241H26.5787ZM3.41829 22.6038C2.86507 22.0505 2.86444 21.1538 3.4169 20.5998L7.50517 16.5001L3.4169 12.4004C2.86444 11.8464 2.86506 10.9496 3.41829 10.3964V10.3964C3.97207 9.84261 4.86992 9.84261 5.4237 10.3964L11.5274 16.5001L5.42369 22.6038C4.86992 23.1576 3.97207 23.1575 3.41829 22.6038V22.6038Z" fill="rgba(255,255,255,0.79)" />
+                </svg>
+            </div>
+
+
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <img style=" width: 49px;" src="../img/Logo 1 Connect.png" />
+                </div>
+                <div class="logo-text">
+
+                </div>
+            </div>
+
+
+            <div class="header-right">
+                <div class="user-call-section">
+
+                    <div class="user-profile-timer">
+                        <div class="user-avatar"></div>
+                        <div class="user-info">
+                            <div class="user-name" id="status"></div>
+                            <div class="call-timer" id="callTimer"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="call-controls">
+                        <div class="control-group">
+
+                            <div title="Call" class="control-btn" id="dialGroup">
+                                <svg viewBox="0 0 32 32" onclick="makeCall()">
+                                    <path d="M10.0502 10.8932C10.0502 10.3143 10.5194 9.84508 11.0983 9.84508H13.3546C13.867 9.84508 14.3042 10.2155 14.3885 10.7208L15.1633 15.37C15.2389 15.8238 15.0097 16.2739 14.5982 16.4797L12.9756 17.291C14.1456 20.1983 16.4662 22.5188 19.3734 23.6888L20.1847 22.0662C20.3905 21.6547 20.8406 21.4255 21.2945 21.5011L25.9436 22.276C26.449 22.3602 26.8194 22.7975 26.8194 23.3098V25.5662C26.8194 26.145 26.3501 26.6143 25.7713 26.6143H23.6751C16.1503 26.6143 10.0502 20.5142 10.0502 12.9893V10.8932Z" fill="#06C270" />
+                                </svg>
+                            </div>
+                            <div title="Disconnect" class="control-btn">
+                                <svg viewBox="0 0 32 32" onclick="callAPI('disconnect')">
+                                    <path d="M30.0015 19.8085C30.4202 20.2082 30.4355 20.8716 30.0357 21.2903L28.4775 22.9222C28.1237 23.2927 27.5538 23.3532 27.1302 23.0651L23.2326 20.4148C22.8521 20.1561 22.6849 19.6795 22.8203 19.2397L23.3541 17.5059C20.4434 16.3443 17.1626 16.4201 14.3086 17.7148L14.9218 19.4221C15.0774 19.8551 14.9323 20.339 14.5642 20.6149L10.7931 23.4423C10.3831 23.7496 9.8111 23.7155 9.44059 23.3617L7.80867 21.8034C7.39002 21.4037 7.37471 20.7403 7.77446 20.3216L9.22205 18.8056C14.4187 13.3634 23.0432 13.1642 28.4855 18.3609L30.0015 19.8085Z" fill="#FF2C02" />
+                                </svg>
+                            </div>
+
+                            <div class="control-btn" id="Hold" style="display: none !important;">
+                                <div class="pause-bars" onclick="callAPI('hold')">
+                                    <div class="pause-bar"></div>
+                                    <div class="pause-bar"></div>
+                                </div>
+                            </div>
+
+                            <div title="Un-Hold" class="control-btn" id="unhold" style="display: none !important;">
+                                <svg width="19.548" height="19.548" fill="none" viewBox="0 0 20 20" onclick="callAPI('unhold')">
+                                    <path d="M16.8332 8.48601C17.8463 9.04294 17.8463 10.4986 16.8332 11.0556L7.05951 16.4284C6.08242 16.9655 4.88712 16.2585 4.88712 15.1436V4.39804C4.88712 3.28303 6.08242 2.57612 7.05951 3.11324L16.8332 8.48601Z" fill="url(#paint0_linear_1_3733)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear_1_3733" x1="15.0747" y1="8.66146" x2="4.59348" y2="11.6127" gradientUnits="userSpaceOnUse">
+                                            <stop stopColor="#22A7FF" />
+                                            <stop offset="1" stopColor="#2567FF" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </div>
+                            <div title="Conference" class="control-btn" id="confo" style="display: none !important;">
+                                <svg width="16" height="16" fill="none" viewBox="0 0 18 16" onclick="openConferencePrompt()">
+                                    <path d="M6.93319 8.16425C8.9724 8.16425 10.6308 6.50589 10.6308 4.46667C10.6308 2.42745 8.9724 0.769082 6.93319 0.769082C4.89397 0.769082 3.2356 2.42745 3.2356 4.46667C3.2356 6.50589 4.89397 8.16425 6.93319 8.16425ZM8.31978 9.08865H5.54659C2.48776 9.08865 0.000212848 11.5762 0.000212848 14.635V15.5594H13.8662V14.635C13.8662 11.5762 11.3786 9.08865 8.31978 9.08865Z" fill="#BE5ADC" />
+                                    <path d="M13.5002 7.28423C14.0632 6.32478 14.3063 5.21109 14.1944 4.1043C14.0289 2.45518 13.1082 0.997407 11.6033 -1.68085e-05L10.5818 1.54003C11.6162 2.22593 12.2458 3.20302 12.3548 4.28918C12.4051 4.79399 12.3423 5.30367 12.1709 5.78114C11.9995 6.25861 11.7238 6.69188 11.3639 7.04943L10.262 8.15131L11.7577 8.5904C15.6697 9.73665 15.715 13.6709 15.715 13.7106H17.5638C17.5638 12.0569 16.6801 8.82519 13.5002 7.28423Z" fill="#BE5ADC" />
+                                </svg>
+                            </div>
+
+
+
+
+
+                            <div title="Merge" class="control-btn" id="merge" style="display: none !important;">
+                                <svg width="20" height="12" fill="none" viewBox="0 0 20 12" onclick="callAPI('merge')">
+                                    <path d="M18.3246 6.75117H12.1521C11.0912 6.75117 10.0303 6.46184 9.06586 5.97961C8.10141 5.49738 7.32984 4.72582 6.65473 3.85781C5.78672 2.70047 4.34004 1.92891 2.79691 1.92891H0.964453C0.385781 1.92891 0 1.54313 0 0.964453C0 0.385781 0.385781 0 0.964453 0H2.79691C4.91871 0 6.94406 1.0609 8.19785 2.79691C8.58363 3.37559 9.1623 3.95426 9.83742 4.24359C10.5125 4.62937 11.2841 4.72582 11.9592 4.72582H18.3246C18.9033 4.72582 19.2891 5.1116 19.2891 5.69027C19.2891 6.26895 18.9033 6.75117 18.3246 6.75117Z" fill="#7A7CA6" />
+                                    <path d="M2.89336 11.5734H0.964453C0.385781 11.5734 0 11.1876 0 10.609C0 10.0303 0.385781 9.64452 0.964453 9.64452H2.89336C3.66492 9.64452 4.43648 9.45163 5.01516 9.16229C5.69027 8.77651 6.26895 8.29428 6.65473 7.71561C7.2334 6.8476 8.10141 6.17249 9.06586 5.59382C10.0303 5.11159 11.0912 4.82225 12.1521 4.82225H17.3602C17.9388 4.82225 18.3246 5.20803 18.3246 5.78671C18.3246 6.36538 17.9388 6.75116 17.3602 6.75116H12.0557C11.2841 6.75116 10.5125 6.94405 9.93387 7.23339C9.25875 7.61917 8.68008 8.10139 8.2943 8.68007C7.71563 9.54807 6.84762 10.2232 5.88316 10.8019C4.91871 11.2841 3.85781 11.5734 2.89336 11.5734Z" fill="#7A7CA6" />
+                                    <path d="M15.4313 9.64446C15.1419 9.64446 14.949 9.54802 14.7561 9.35513C14.3704 8.96935 14.3704 8.39067 14.7561 8.00489L16.9744 5.78665L14.7561 3.56841C14.3704 3.18263 14.3704 2.60396 14.7561 2.21817C15.1419 1.83239 15.7206 1.83239 16.1064 2.21817L18.9997 5.11153C19.3855 5.49732 19.3855 6.07599 18.9997 6.46177L16.1064 9.35513C15.9135 9.54802 15.7206 9.64446 15.4313 9.64446Z" fill="#7A7CA6" />
+                                </svg>
+                            </div>
+
+                            <div class="control-btn" id="party" style="display: none !important;">
+                                <div title="Remove Conference" onclick="callAPI('party')">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="#FF3B30">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <line x1="15" y1="9" x2="9" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                                        <line x1="9" y1="9" x2="15" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="control-btn">
+                                <div title="Logout" onclick="callAPI('LogOut'">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="19" viewBox="0 0 24 24" fill="none" stroke="#FF3B30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                                        <polyline points="16 17 21 12 16 7" />
+                                        <line x1="21" y1="12" x2="9" y2="12" />
+                                    </svg>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="control-group">
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="main-content">
+
+
+
+        <div class="agent-profile-section">
+            <div class="profile-content">
+
+                <div class="user-profile">
+                    <div class="profile-header">
+                        <div class="user-avatar"></div>
+                        <div class="profile-info">
+                            <div class="profile-name" id="username"></div>
+                            <div class="profile-role">Agent</div>
+                            <div class="profile-email"></div>
+                        </div>
+                    </div>
+
+
+                    <div class="action-buttons">
+                        <div class="action-btn" id="btnAnswer">
+                            <div class="action-btn-icon">
+                                <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
+                                    <path d="M8.925 2.1C8.23923 2.1 7.65583 2.53827 7.43962 3.15H5.775C4.90515 3.15 4.2 3.85515 4.2 4.725V17.325C4.2 18.1948 4.90515 18.9 5.775 18.9H15.225C16.0948 18.9 16.8 18.1948 16.8 17.325V4.725C16.8 3.85515 16.0948 3.15 15.225 3.15H13.5603C13.3441 2.53827 12.7608 2.1 12.075 2.1H8.925ZM8.4 3.675C8.4 3.38505 8.63505 3.15 8.925 3.15H12.075C12.3649 3.15 12.6 3.38505 12.6 3.675C12.6 3.96495 12.3649 4.2 12.075 4.2H8.925C8.63505 4.2 8.4 3.96495 8.4 3.675ZM13.4963 10.3462L9.82123 14.0213C9.6162 14.2262 9.2838 14.2262 9.07877 14.0213L7.50377 12.4463C7.29874 12.2412 7.29874 11.9088 7.50377 11.7037C7.7088 11.4988 8.0412 11.4988 8.24623 11.7037L9.45 12.9075L12.7537 9.60377C12.9588 9.39874 13.2912 9.39874 13.4963 9.60377C13.7012 9.8088 13.7012 10.1412 13.4963 10.3462Z" fill="#7993A5" />
+                                </svg>
+                            </div>
+                            <div class="action-btn-label">Notes</div>
+                        </div>
+
+                        <div class="action-btn" id="getnext">
+                            <div class="action-btn-icon" onclick="callAPI('GetNext')">
+                                <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
+                                    <path d="M16.8262 13.3525L14.6038 13.0987C14.07 13.0375 13.545 13.2212 13.1688 13.5975L11.5588 15.2075C9.0825 13.9475 7.0525 11.9262 5.7925 9.44125L7.41125 7.8225C7.7875 7.44625 7.97125 6.92125 7.91 6.3875L7.65625 4.1825C7.55125 3.29875 6.8075 2.63375 5.915 2.63375H4.40125C3.4125 2.63375 2.59 3.45625 2.65125 4.445C3.115 11.9175 9.09125 17.885 16.555 18.3487C17.5438 18.41 18.3662 17.5875 18.3662 16.5987V15.085C18.375 14.2012 17.71 13.4575 16.8262 13.3525Z" fill="#7993A5" />
+                                </svg>
+                            </div>
+                            <div class="action-btn-label">Next Call</div>
+                        </div>
+                        <div id="break" class="action-btn" style="position:relative;" onclick="toggleBreakDropdown(event)">
+
+                            <div class="action-btn-icon">
+                                <svg width="21" height="21" fill="none" viewBox="0 0 24 24">
+                                    <path d="M18 8H20C21.1 8 22 8.9 22 10V12C22 14.21 20.21 16 18 16H18C18 18.21 16.21 20 14 20H6C3.79 20 2 18.21 2 16V8H18V8ZM20 10H18V14H20C20.55 14 21 13.55 21 13V11C21 10.45 20.55 10 20 10Z" fill="#7993A5" />
+                                </svg>
+                            </div>
+
+
+                            <div class="action-btn-label">Break</div>
+
+                            <div id="breakDropdown"
+                                 style="display:none; position:absolute; top:30px; left:0; background:#fff; border:1px solid #ddd; border-radius:6px;
+                box-shadow:0 2px 6px rgba(0,0,0,0.15); font-size:14px; min-width:150px; z-index:1000;">
+                                <div onclick="sendBreak(5)" style="padding:8px 12px; cursor:pointer;">🍵 Tea</div>
+                                <div onclick="sendBreak(6)" style="padding:8px 12px; cursor:pointer;">🍽 Lunch</div>
+                                <div onclick="sendBreak(7)" style="padding:8px 12px; cursor:pointer;">📘 Training</div>
+                                <div onclick="sendBreak(8)" style="padding:8px 12px; cursor:pointer;">🕵️ Quality</div>
+                                <div onclick="sendBreak(9)" style="padding:8px 12px; cursor:pointer;">🚻 Bio</div>
+                                <div onclick="sendBreak(26)" style="padding:8px 12px; cursor:pointer;">🧑‍💼 TL Feedback</div>
+                            </div>
+                        </div>
+
+
+                        <div class="action-btn" style="position: relative; display:inline-block;">
+                            <div class="action-btn-icon" onclick="toggleScheduleDropdown()" style="cursor:pointer;">
+                                <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
+                                    <path d="M14 8.75H7C6.51875 8.75 6.125 9.14375 6.125 9.625C6.125 10.1063 6.51875 10.5 7 10.5H14C14.4813 10.5 14.875 10.1063 14.875 9.625C14.875 9.14375 14.4813 8.75 14 8.75ZM16.625 2.625H15.75V1.75C15.75 1.26875 15.3563 0.875 14.875 0.875C14.3937 0.875 14 1.26875 14 1.75V2.625H7V1.75C7 1.26875 6.60625 0.875 6.125 0.875C5.64375 0.875 5.25 1.26875 5.25 1.75V2.625H4.375C3.40375 2.625 2.625 3.4125 2.625 4.375V16.625C2.625 17.5875 3.40375 18.375 4.375 18.375H16.625C17.5875 18.375 18.375 17.5875 18.375 16.625V4.375C18.375 3.4125 17.5875 2.625 16.625 2.625ZM15.75 16.625H5.25C4.76875 16.625 4.375 16.2313 4.375 15.75V7H16.625V15.75C16.625 16.2313 16.2313 16.625 15.75 16.625ZM11.375 12.25H7C6.51875 12.25 6.125 12.6437 6.125 13.125C6.125 13.6063 6.51875 14 7 14H11.375C11.8563 14 12.25 13.6063 12.25 13.125C12.25 12.6437 11.8563 12.25 11.375 12.25Z" fill="#7993A5" />
+                                </svg>
+                            </div>
+                            <div class="action-btn-label">Route</div>
+                            <div id="scheduleDropdown" style="display:none;position:absolute;top:34px;left:0;background:#ffffff;border:1px solid #e0e6eb;border-radius:8px;box-shadow:0 4px 10px rgba(0,0,0,0.08);font-size:14px;
+                                                min-width:180px;padding:10px 12px;z-index:1000;color:#333;">
+                                <label style="font-size: 12px; color: #7993A5; font-weight: 500; margin-top: 5px; display:block;">
+                                    📌 Route
+                                </label>
+                                <select class="form-select form-select-sm" style="width:100%;padding:6px 8px;border:1px solid #cfd9e3;border-radius:6px;font-size:13px;color:#444;
+                                background:#f9fbfd;outline:none;transition:0.2s;" onchange="sendTransfer(this)">
+                                    <option disabled selected>⏬ Select route</option>
+                                    <option value="3000002">3000002</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="action-btn">
+                            <div class="action-btn-icon" onclick="callAPI('ready')">
+                                <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
+                                    <circle cx="10.5" cy="10.5" r="9" stroke="#7993A5" stroke-width="1.5" fill="none" />
+                                    <path d="M7.5 10.5L9.5 12.5L13.5 8.5" stroke="#7993A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <div class="action-btn-label">Ready</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+
+                <div class="dialer-section">
+                    <div style="width:300px;">
+                        <div class="section-header"
+                             onclick="toggleAccordion()"
+                             style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-weight:bold;font-size:18px;padding:10px;">
+
+                            <div class="form-label">Dialer</div>
+                            <svg id="arrowIcon" width="20" height="20" fill="none" viewBox="0 0 20 20" style="transition:transform 0.3s;">
+                                <path d="M10.5893 13.0893C10.2638 13.4147 9.73618 13.4147 9.41074 13.0893L5.24408 8.92259C4.91864 8.59715 4.91864 8.06951 5.24408 7.74408C5.56951 7.41864 6.09715 7.41864 6.42259 7.74408L10 11.3215L13.5774 7.74408C13.9028 7.41864 14.4305 7.41864 14.7559 7.74408C15.0814 8.06951 15.0814 8.59715 14.7559 8.92259L10.5893 13.0893Z" fill="#0E0E11" />
+                            </svg>
+                        </div>
+                        <div id="dialer-details"
+                             style="max-height:0;overflow:hidden;transition:max-height 0.3s ease-out;margin-top:5px;padding:0 10px;border:1px solid #ddd;border-radius:6px;background:#fafafa;">
+                            <div style="padding:10px 0;">
+                                <div style="margin-top:3px;"><strong style="color:gray;">Batch ID:</strong> <span id="batchId"></span></div>
+                                <div style="margin-top:3px;"><strong style="color:gray;">Campaign Name:</strong> <span id="campaignName">-</span></div>
+
+                                <div style="margin-top:3px;"> <strong style="color:gray;">Mode: </strong><span id="mode">-</span></div>
+                                <div style="margin-top:3px;"> <strong style="color:gray;">MyCode:</strong> <span id="mycode">-</span></div>
+                                <div style="margin-top:3px;"><strong style="color:gray;">Event:</strong> <span id="eventType"></span></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="dialer-content">
+
+
+                        <div class="form-section">
+                            <div class="receiving-header">
+                                <div class="form-label">Mobile Number</div>
+
+                            </div>
+
+                            <div class="recipient-card">
+                                <div class="recipient-content">
+
+                                    <div class="recipient-info">
+                                        <div class="recipient-name" id="status"> </div>
+                                        <input id="phoneInput" style="height:34px; border:none; border-radius:10px; text-align:center; width:290px; font-size:16px;" pattern="[0-9]*" inputmode="numeric" style="height: 34px; border: none; border-radius: 10px;" class="recipient-phone" placeholder="  Enter Phone Number" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+                <div class="ai-transcript">
+                    <div class="transcript-content">
+                        <div class="transcript-header">
+                            <div class="transcript-title">
+                                <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path d="M12 4.19436C12.322 4.19436 12.5828 4.4554 12.583 4.77737V18.7774C12.583 19.0995 12.3222 19.3614 12 19.3614C11.6778 19.3614 11.417 19.0995 11.417 18.7774V4.77737C11.4172 4.4554 11.678 4.19436 12 4.19436ZM8.88867 7.30569C9.21077 7.30569 9.47254 7.56663 9.47266 7.8887V15.667C9.47248 15.989 9.21073 16.25 8.88867 16.25C8.56671 16.2499 8.30584 15.989 8.30566 15.667V7.8887C8.30578 7.56671 8.56668 7.30581 8.88867 7.30569ZM15.1113 7.30569C15.4333 7.30581 15.6942 7.5667 15.6943 7.8887V15.667C15.6942 15.989 15.4333 16.2499 15.1113 16.25C14.7893 16.25 14.5275 15.989 14.5273 15.667V7.8887C14.5275 7.56663 14.7892 7.30569 15.1113 7.30569ZM5.77734 10.417C6.09951 10.417 6.36133 10.6779 6.36133 11V12.5557C6.36127 12.8778 6.09947 13.1387 5.77734 13.1387C5.45541 13.1385 5.19439 12.8777 5.19434 12.5557V11C5.19434 10.678 5.45538 10.4173 5.77734 10.417ZM18.2227 10.417C18.5446 10.4173 18.8057 10.678 18.8057 11V12.5557C18.8056 12.8777 18.5446 13.1385 18.2227 13.1387C17.9005 13.1387 17.6387 12.8778 17.6387 12.5557V11C17.6387 10.6779 17.9005 10.417 18.2227 10.417Z" fill="#4094F7" stroke="#4094F7" strokeWidth="0.388889" />
+                                </svg>
+                                <div class="transcript-title-text">AI Transcript</div>
+                            </div>
+                            <svg width="20" height="20" fill="none" viewBox="0 0 20 20">
+                                <path d="M10.5893 13.0893C10.2638 13.4147 9.73618 13.4147 9.41074 13.0893L5.24408 8.92259C4.91864 8.59715 4.91864 8.06951 5.24408 7.74408C5.56951 7.41864 6.09715 7.41864 6.42259 7.74408L10 11.3215L13.5774 7.74408C13.9028 7.41864 14.4305 7.41864 14.7559 7.74408C15.0814 8.06951 15.0814 8.59715 14.7559 8.92259L10.5893 13.0893Z" fill="#0E0E11" />
+                            </svg>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 18px;">
+
+                            <div class="waveform-container">
+                                <div class="waveform">
+                                    <div class="waveform-bar" style="height: 35px;"></div>
+                                    <div class="waveform-bar" style="height: 42px;"></div>
+                                    <div class="waveform-bar" style="height: 28px;"></div>
+                                    <div class="waveform-bar" style="height: 51px;"></div>
+                                    <div class="waveform-bar" style="height: 38px;"></div>
+                                    <div class="waveform-bar" style="height: 45px;"></div>
+                                    <div class="waveform-bar" style="height: 32px;"></div>
+                                    <div class="waveform-bar" style="height: 48px;"></div>
+                                    <div class="waveform-bar" style="height: 26px;"></div>
+                                    <div class="waveform-bar" style="height: 55px;"></div>
+                                    <div class="waveform-bar" style="height: 41px;"></div>
+                                    <div class="waveform-bar" style="height: 36px;"></div>
+                                    <div class="waveform-bar" style="height: 49px;"></div>
+                                    <div class="waveform-bar" style="height: 33px;"></div>
+                                    <div class="waveform-bar" style="height: 44px;"></div>
+                                    <div class="waveform-bar" style="height: 29px;"></div>
+                                    <div class="waveform-bar" style="height: 52px;"></div>
+                                    <div class="waveform-bar" style="height: 37px;"></div>
+                                    <div class="waveform-bar" style="height: 46px;"></div>
+                                    <div class="waveform-bar" style="height: 31px;"></div>
+                                    <div class="waveform-bar" style="height: 50px;"></div>
+                                    <div class="waveform-bar" style="height: 39px;"></div>
+                                    <div class="waveform-bar" style="height: 43px;"></div>
+                                    <div class="waveform-bar" style="height: 27px;"></div>
+                                    <div class="waveform-bar" style="height: 54px;"></div>
+                                    <div class="waveform-bar" style="height: 40px;"></div>
+                                    <div class="waveform-bar" style="height: 47px;"></div>
+                                    <div class="waveform-bar" style="height: 34px;"></div>
+                                    <div class="waveform-bar" style="height: 53px;"></div>
+                                    <div class="waveform-bar" style="height: 30px;"></div>
+                                </div>
+                            </div>
+
+                       
+                            <div class="tabs">
+                                <div class="tab active">
+                                    <span class="tab-text active">Summary</span>
+                                </div>
+                                <div class="tab inactive">
+                                    <span class="tab-text inactive">Analysis</span>
+                                </div>
+                                <div class="tab inactive">
+                                    <span class="tab-text inactive">Breakdown</span>
+                                </div>
+                            </div>
+
+                            
+                            <div class="transcript-text">
+                                <p style="font-weight: 500; margin-bottom: 8px;">The dialogue features two primary speakers:</p>
+                                <ul class="transcript-list">
+                                    <li>
+                                        <span class="speaker">SPEAKER 00:</span>
+                                        <span> Presumably a Domino's customer service agent</span>
+                                    </li>
+                                    <li>
+                                        <span class="speaker">SPEAKER 01:</span>
+                                        <span> A customer attempting to resolve issues with a delayed or unclear delivery</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div >
+
+      
+          
+            <div style="padding: 20px;width:1114px;">
+                <div style="display: flex; border-bottom: 2px solid #ddd; margin-bottom: 15px;">
+                    <button id="defaultTab" class="tab-link" onclick="openTab(event, 'display')"
+                            style="flex:1; padding:12px; cursor:pointer; border:none; outline:none; background:#f1f1f1; font-size:15px;">
+                        Display Info
+                    </button>
+                    <button class="tab-link" onclick="openTab(event, 'capture')"
+                            style="flex:1; padding:12px; cursor:pointer; border:none; outline:none; background:#f1f1f1; font-size:15px;">
+                        Capture Info
+                    </button>
+                    <button class="tab-link" onclick="openTab(event, 'history')"
+                            style="flex:1; padding:12px; cursor:pointer; border:none; outline:none; background:#f1f1f1; font-size:15px;">
+                        History
+                    </button>
+                </div>
+
+                <div id="display" class="tab-content" style="display:none;">
+                    <form id="displayForm" style="display:grid; grid-template-columns:repeat(3,1fr); gap:15px;">
+                     
+                    </form>
+                </div>
+
+            
+                <div id="capture" class="tab-content" style="display:none;">
+                    <div style="display:grid; grid-template-columns: repeat(3,1fr); gap:15px;">
+                        <div>
+                            <label style="font-weight:bold;">Disposition</label>
+                            <select id="ddlDisposition" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px;">
+                                <option value="">-- Select --</option>
+                                <option value="Interested">Interested</option>
+                                <option value="Not Interested">Not Interested</option>
+                                <option value="Callback">Callback</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label style="font-weight:bold;">Sub Disposition</label>
+                            <select id="ddlSubDisposition" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px;"></select>
+                        </div>
+                        <div>
+                            <label style="font-weight:bold;">Callback</label>
+                            <input type="datetime-local" id="txtCallback" style="width:100%; padding:8px; border:1px solid #ccc; border-radius:6px;" />
+                        </div>
+                        <div style="grid-column: span 3;">
+                            <label style="font-weight:bold;">Remarks</label>
+                            <textarea id="txtRemarks" rows="3" style="width:100%; padding:10px; border:1px solid #ccc; border-radius:6px;"></textarea>
+                        </div>
+                    </div>
+                    <div style="text-align:right; margin-top:15px;">
+                        <button id="btnSubmit" style="background:#28a745; color:white; padding:10px 25px; border:none; border-radius:6px; font-weight:bold; cursor:pointer;">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+
+           
+                <div id="history" class="tab-content" style="display:none;">
+                    <table style="width:100%; border-collapse:collapse; margin-top:10px; border:1px solid #ccc;">
+                        <thead>
+                            <tr style="background:#f1f1f1; text-align:left;">
+                                <th style="padding:10px; border:1px solid #ccc;">Disposition</th>
+                                <th style="padding:10px; border:1px solid #ccc;">SubDisposition</th>
+                                <th style="padding:10px; border:1px solid #ccc;">Callback</th>
+                                <th style="padding:10px; border:1px solid #ccc;">Remarks</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      
+        <audio id="localAudio" autoplay muted></audio>
+        <audio id="remoteAudio" autoplay></audio>
+
+        <audio id="ringtone"src="../Ringtone/ringin.wav" loop></audio>
+        <audio id="remoteAudio2" autoplay></audio>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../js/signalr.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.genesys.com/webrtc-sdk.js"></script>
+
+        <script src="../js/jssip.min.js"></script>
+        <script>
+
+            function openTab(evt, tabName) {
+                var i, tabcontent, tablinks;
+
+            
+                tabcontent = document.getElementsByClassName("tab-content");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+
+           
+                tablinks = document.getElementsByClassName("tab-link");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].style.backgroundColor = "#f1f1f1";
+                    tablinks[i].style.fontWeight = "normal";
+                }
+
+  
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.style.backgroundColor = "#007bff";
+                evt.currentTarget.style.color = "#fff";
+                evt.currentTarget.style.fontWeight = "bold";
+            }
+
+         
+            window.onload = function () {
+                document.getElementById("defaultTab").click();
+            };
+
+            let timerInterval = null;
+            let seconds = 0;
+            let CRM_Status = null;
+
+            function startTimer() {
+                stopTimer();
+                seconds = 0;
+                
+                timerInterval = setInterval(() => {
+                    seconds++;
+                    document.getElementById("callTimer").innerText = formatTime(seconds);
+                }, 1000);
+            }
+
+            function stopTimer() {
+                if (timerInterval) clearInterval(timerInterval);
+                timerInterval = null;
+                seconds = 0;
+                document.getElementById("callTimer").innerText = "00:00:00";
+             
+            }
+
+            function formatTime(sec) {
+                const hours = Math.floor(sec / 3600).toString().padStart(2, '0');
+                const minutes = Math.floor((sec % 3600) / 60).toString().padStart(2, '0');
+                const seconds = (sec % 60).toString().padStart(2, '0');
+                return `${hours}:${minutes}:${seconds}`;
+            }
+
+
+            function toggleAccordion() {
+                const content = document.getElementById("dialer-details");
+                const arrow = document.getElementById("arrowIcon");
+                if (content.style.maxHeight && content.style.maxHeight !== "0px") {
+                    content.style.maxHeight = "0";
+                    arrow.style.transform = "rotate(0deg)";
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    arrow.style.transform = "rotate(180deg)";
+                }
+            }
+
+            function toggleBreakDropdown() {
+                const dd = document.getElementById("breakDropdown");
+                dd.style.display = (dd.style.display === "block") ? "none" : "block";
+            }
+
+            function toggleScheduleDropdown() {
+                const dd = document.getElementById("scheduleDropdown");
+                dd.style.display = (dd.style.display === "none" || dd.style.display === "") ? "block" : "none";
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const urlParams = new URLSearchParams(window.location.search);
+                const agentId = urlParams.get('empCode');
+                CRM_Status = urlParams.get('crmstatus');
+                if (!agentId) {
+                    console.error("Agent ID (empCode) is missing in the URL.");
+                    return;
+                }
+
+                const connection = new signalR.HubConnectionBuilder()
+                    .withUrl("/callEventsHub")
+                    .withAutomaticReconnect()
+                    .configureLogging(signalR.LogLevel.Information)
+                    .build();
+
+                connection.onreconnecting(error => {
+                    console.warn("SignalR reconnecting...", error);
+                    const statusElem = document.getElementById("status");
+                    if (statusElem) statusElem.innerText = "Reconnecting...";
+                });
+
+                connection.onreconnected(() => {
+                    connection.invoke("JoinGroup", agentId)
+                        .then(() => console.log("Rejoined group after reconnect"))
+                        .catch(err => console.error("Error rejoining group:", err));
+                });
+
+
+
+                connection.on("UserName", data => {
+                    if (!data.userName) return;
+                    const parts = data.userName.split(".");
+                    const initials = parts.map(p => p.charAt(0).toUpperCase()).join("");
+                    const email = data.userName + "@1point1.in";
+                    document.getElementById("username").innerText = data.userName;
+                    document.querySelectorAll(".user-avatar, .profile-avatar").forEach(el => el.innerText = initials);
+                    document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
+                });
+
+                connection.onclose(error => {
+                    console.error("SignalR connection closed permanently:", error);
+                    const statusElem = document.getElementById("status");
+                    if (statusElem) statusElem.innerText = "Disconnected. Please refresh the page.";
+                });
+                let lastFsStatus = "";
+
+                connection.on("OnFsEvent", message => {
+                    const statusElem = document.getElementById("status");
+                    if (!statusElem) return;
+
+                    let currentStatus = message.status ? message.status.trim() : "";
+
+                    if (currentStatus === "") {
+                        currentStatus = lastFsStatus;
+                    } else {
+                        lastFsStatus = currentStatus;
+                    }
+
+                    statusElem.innerText = currentStatus;
+                    let msg = currentStatus.toLowerCase();
+
+                    console.log("SignalR FreeSWITCH status:", msg);
+
+
+                    ["#dialGroup", "#Hold", "#unhold", "#confo", "#merge", "#party"].forEach(sel => $(sel).hide());
+                    ["#break", "#getnext"].forEach(sel =>
+                        $(sel).addClass("disabled").css({ "pointer-events": "none", "opacity": 0.5 })
+                    );
+
+
+                    if (msg.includes("waiting")) {
+
+                        $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": 1 });
+                        $("#dialGroup").css("display", "flex");
+                        $("#getnext").removeClass("disabled").css({ "pointer-events": "auto", "opacity": 1 });
+                    }
+
+
+                    if (msg.includes("talking")) {
+                        stopRingtone();
+                        $("#Hold, #confo, #merge, #party").attr("style", "display: flex !important");
+                        $("#dialGroup, #getnext").attr("style", "display: none !important");
+                    }
+
+
+                    if (msg.includes("hold")) {
+                        $("#unhold").attr("style", "display: flex !important");
+                    }
+
+
+                    if (msg.includes("wraping")) {
+                        $("#dialGroup").css("display", "flex");
+                        ["#hold", "#unhold", "#confo", "#merge", "#party"].forEach(sel =>
+                            $(sel).attr("style", "display: none !important")
+                        );
+                        $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": 1 });
+                        $("#getnext").addClass("disabled").css({ "pointer-events": "none", "opacity": 0.5 });
+                    }
+
+
+                    if (
+                        ["talking", "wraping", "dialing", "waiting", "established", "outbound call established", "inbound call established", "break"].some(s => msg.includes(s))
+                    ) {
+                        startTimer();
+                    } else if (
+                        ["call ended", "disconnected", "hangup", "idle"].some(s => msg.includes(s))
+                    ) {
+                        stopTimer();
+                        stopRingtone();
+                    }
+            
+                    if (msg.includes("dialing")) {
+                        StartRingtone();
+                    }
+                    else {
+                        stopRingtone();
+                    }
+                   
+
+                    
+                });
+
+
+                async function startConnection() {
+                    try {
+                        await connection.start();
+                        console.log("SignalR connected");
+                        await connection.invoke("JoinGroup", agentId);
+                    } catch (err) {
+                        console.error("SignalR connection error:", err);
+                        setTimeout(startConnection, 5000);
+                    }
+                }
+                startConnection();
+                updateStatus();
+            });
+
+            async function updateStatus() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const agentId = urlParams.get('empCode');
+              
+                if (!agentId) return;
+                try {
+                    await fetch('/api/FreeswitchDialer/SetAgentStatus', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ Status: agentId })
+                    });
+                } catch (err) {
+                    console.error("Failed to get agent status:", agentId);
+                }
+
+                loadProcesses(agentId);
+            }
+
+
+            function callAPI(action, method = 'POST', data = {}) {
+
+                let controller = (CRM_Status === 1) ? 'Genesys' : 'FreeswitchDialer';
+
+                console.log("CRM_Status" + CRM_Status);
+                console.log("controller" + controller);
+                let url = `/api/${controller}/${action}`;
+
+                fetch(url, {
+                    method,
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    .then(async res => {
+                        if (!res.ok) {
+                            const errorText = await res.text();
+                            if (errorText === "Agent ready for next call." || errorText === "Agent successfully logged out") {
+                                Swal.fire({ icon: 'success', title: 'Success', text: errorText })
+                                    .then(result => {
+                                        if (errorText.includes("logged out") && result.isConfirmed)
+                                            location.href = "/Pages/login.html";
+                                    });
+                            } else throw new Error(errorText || "API call failed");
+                        } else {
+                          
+                        }
+                    })
+                    .catch(err => Swal.fire({ icon: 'warning', title: 'Oops...', text: err.message || "Something went wrong!" }));
+            }
+           
+
+            function openConferencePrompt() {
+
+                Swal.fire({
+                    title: 'Enter conference number',
+                    input: 'text',
+                    inputPlaceholder: 'e.g. 7058053821',
+                    showCancelButton: true,
+                    confirmButtonText: 'Join',
+                    inputValidator: value => {
+                        if (!value) return 'You must enter a number!';
+                        if (!/^\d{10}$/.test(value)) return 'Phone number must be exactly 10 digits.';
+                        return null;
+                    }
+                }).then(result => {
+                    if (result.isConfirmed) callAPI('conference', 'POST', { Phone: result.value });
+                });
+            }
+          
+
+
+            const subDispositions = {
+                1: [{ id: 101, name: "Not Available" }, { id: 102, name: "Client Requested" }, { id: 103, name: "Wrong Time" }],
+                2: [{ id: 201, name: "Customer Hung Up" }, { id: 202, name: "Agent Hung Up" }, { id: 203, name: "Network Issue" }],
+                3: [{ id: 301, name: "Customer Busy" }, { id: 302, name: "On Another Call" }, { id: 303, name: "Will Call Later" }]
+            };
+            function submitDispositionAPI(dispoId, subDispoId) {
+                if (!dispoId || !subDispoId) return alert("Please select both disposition and sub-disposition.");
+                callAPI("submit", "POST", { dispositionId: dispoId, subDispositionId: subDispoId });
+            }
+
+            function updateSubDisposition() {
+                const dispoId = document.getElementById("disposition").value;
+                const subDispoSelect = document.getElementById("subDisposition");
+                subDispoSelect.innerHTML = '<option value="">-- Select Sub Disposition --</option>';
+                if (subDispositions[dispoId]) subDispositions[dispoId].forEach(sub => {
+                    const option = document.createElement("option");
+                    option.value = sub.id;
+                    option.textContent = sub.name;
+                    subDispoSelect.appendChild(option);
+                });
+            }
+
+            async function submitDisposition() {
+                const dispoId = parseInt(document.getElementById("disposition").value);
+                const subDispoId = parseInt(document.getElementById("subDisposition").value);
+                if (!dispoId || !subDispoId) return alert("Please select both disposition and sub-disposition.");
+                try {
+                    const response = await fetch('/api/Genesys/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ dispositionId: dispoId, subDispositionId: subDispoId })
+                    });
+                    if (response.ok) {
+                        const result = await response.json();
+                        Swal.fire({ icon: 'success', title: 'Success', text: result.message });
+                    } else Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to submit disposition.' });
+                } catch (error) {
+                    Swal.fire({ icon: 'error', title: 'Exception', text: error?.message || 'An unexpected error occurred.' });
+                }
+            }
+
+
+            let userAgent = null;
+            let session = null;
+            const ringtone = document.getElementById('ringtone');
+            async function initSoftphone(config) {
+
+                console.log(JSON.stringify(config));
+
+                if (userAgent) {
+                    console.log("JsSIP already initialized, skipping.");
+                    return;
+                }
+
+                try {
+
+                    let localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    const localAudio = document.getElementById('localAudio');
+                    localAudio.srcObject = localStream;
+
+                    let wsUri = "ws://" + config.sipserver + "/ws";
+                    const socket = new JsSIP.WebSocketInterface(wsUri);
+                    const configuration = {
+                        sockets: [socket],
+                        uri: "sip:" + config.username + "@" + config.sipserver,
+                        password: config.password,
+                    };
+
+                    userAgent = new JsSIP.UA(configuration);
+                    userAgent.on('connected', () => console.log("Connected to SIP server"));
+                    userAgent.on('disconnected', () => console.log("Disconnected from SIP server"));
+                    userAgent.on('registered', () => console.log("Registered as", config.username));
+                    userAgent.on('unregistered', () => console.log("Unregistered"));
+                    userAgent.on('registrationFailed', e => console.error("Registration failed", e));
+
+
+                    userAgent.on('newRTCSession', e => {
+                        session = e.session;
+
+                        $('#btnAnswer').click(function () {
+                            if (session && session.direction === 'incoming') {
+
+                                session.answer({
+                                    mediaConstraints: { audio: true, video: false }
+                                });
+
+                                const statusElem = document.getElementById("status");
+                                if (!statusElem) return;
+
+                                let currentStatus2 = "Incoming call";
+                                statusElem.innerText = currentStatus2;
+                                stopRingtone();
+
+                            } else {
+                               
+                            }
+                        });
+
+                        if (session.direction === 'incoming') {
+
+                            ringtone.play().catch(err => console.log("Ringtone blocked", err));
+                            session.on('peerconnection', e => {
+                                const pc = e.peerconnection;
+                                pc.ontrack = ev => {
+
+                                    if (ev.streams && ev.streams[0]) {
+                                 
+                                        document.getElementById("remoteAudio").srcObject = ev.streams[0];
+
+                                    }
+                                };
+                            });
+
+                            session.answer({
+                                mediaConstraints: { audio: true, video: false }
+                            });
+                            
+                            session.on('ended', () => { stopRingtone(); logStatus("Call ended");  });
+                            session.on('failed', () => { stopRingtone(); logStatus("Call failed"); });
+                            session.on('confirmed', () => { stopRingtone(); logStatus("Call answered"); });
+                        }
+
+
+                        if (session.direction === 'outgoing') {
+                            if (localStream) {
+                                localStream.getTracks().forEach(track => {
+                                    session.connection.addTrack(track, localStream);
+                                });
+
+                            }
+
+                            session.answer({
+                                mediaConstraints: { audio: true, video: false }
+                            });
+                            session.on('confirmed', () => { stopRingtone(); logStatus("Call answered"); });
+                        }
+
+
+                    });
+                    userAgent.start();
+                    refreshFsStatus();
+
+                } catch (err) {
+                    console.error("Softphone init failed", err);
+                }
+            }
+
+            function playRingtone() {
+                ringtone.play().catch(err => console.log("Ringtone blocked", err));
+            }
+            
+            function logStatus(msg) {
+                console.log("[Softphone] " + msg || "");
+                
+            }
+         
+
+
+            function StartRingtone() {
+                ringtone.play().catch(err => console.log("Ringtone blocked", err));
+            }
+            function stopRingtone() {
+                ringtone.pause(); ringtone.currentTime = 0;
+            }
+            $(document).ready(function () {
+                const sipConfig = JSON.parse(sessionStorage.getItem("sipConfig"));
+
+                if (sipConfig) {
+                    console.log("Reusing SIP config from sessionStorage");
+                    initSoftphone(sipConfig);
+                } else {
+                    $.get("/LogIn/GetSipConfig", function (res) {
+                        console.log("Loaded SIP config:", res);
+                        sessionStorage.setItem("sipConfig", JSON.stringify(res));
+                        initSoftphone(res);
+
+                    }).fail(err => console.error("Failed to fetch SIP config", err));
+                }
+            });
+
+            async function refreshFsStatus() {
+                try {
+                    const response = await fetch('/api/FreeswitchDialer/Status');
+                    if (!response.ok) throw new Error("Failed to fetch status");
+                    const data = await response.json();
+                    console.log("Agent status:", data);
+
+                } catch (err) {
+                    console.error("Error refreshing status:", err);
+                }
+            }
+            function makeCall() {
+                const phone = document.getElementById("phoneInput").value.trim();
+                if (!phone) { alert("Please enter a number"); return; }
+                if (!/^\d{10}$/.test(phone)) { alert("Phone number must be exactly 10 digits."); return; }
+                
+                callAPI("makecall", "POST", { phone });
+
+               
+            }
+            function disconnectCall() {
+                callAPI("disconnect");
+            }
+            function holdCall() {
+                
+                callAPI("hold");
+            }
+            function unholdCall() {
+              
+                callAPI("unhold");
+
+            }
+
+            function mergeCall() {
+                callAPI("merge");
+            }
+
+            function partyCall() {
+                callAPI("party");
+            }
+
+            function logOut() {
+                callAPI("LogOut");
+            }
+
+
+            function sendBreak(reasonCode) {
+                if (!reasonCode) return Swal.fire({ icon: 'warning', title: 'No break reason selected', text: 'Please select a valid reason.' });
+                callAPI("break", "POST", { reasonCode });
+            }
+            function sendTransfer(route) {
+                if (!route) return Swal.fire({ icon: 'warning', title: 'No transfer route selected', text: 'Please select a valid route.' });
+                callAPI("transfer", "POST", { route });
+                setTimeout(() => selectElement.selectedIndex = 0, 300);
+            }
+
+
+        </script>
+
+        <script>
+            const apiBase = "http://localhost:5008/api/InfoPage";
+
+            async function loadProcesses(empcode1) {
+                try {
+                    const res = await fetch(`${apiBase}/ProcessName`, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({ Status: empcode1 })  
+                    });
+
+                    if (!res.ok) {
+                        throw new Error("Failed to load process");
+                    }
+
+                    const data = await res.json();
+                    console.log("Process API response:", data);
+
+                    if (data.processname) {
+                       
+                        await loadDisplayFields(data.processname);
+                    } else {
+                        console.warn("No process name found in API response");
+                    }
+                } catch (err) {
+                    console.error("Error in loadProcesses:", err);
+                }
+            }
+
+            async function loadDisplayFields(process) {
+                const res = await fetch(`${apiBase}/displayfields/${process}`);
+                const fields = await res.json();
+
+                console.log("Fields:", fields);
+                const form = document.getElementById("displayForm");
+                form.innerHTML = "";
+
+                fields.forEach(f => {
+                    const col = document.createElement("div");
+                    col.style.display = "inline-block";
+                    col.style.width = "30%";
+                    col.style.minWidth = "250px";
+                    col.style.margin = "10px";
+                    col.style.verticalAlign = "top";
+
+                    const label = `<label style="display:block; font-weight:bold; margin-bottom:6px; font-size:14px; color:#333;">${f.label}</label>`;
+                    let input = "";
+
+                
+                    const inputStyle = "width:100%; padding:8px; font-size:14px; border:1px solid #ccc; border-radius:6px; box-sizing:border-box;";
+
+                    if (f.type === "TextBox") {
+                        input = `<input type="text" id="ctrl${f.fieldName}" style="${inputStyle}" ${f.isRequired ? "required" : ""}>`;
+                    }
+                    else if (f.type === "TextArea") {
+                        input = `<textarea rows="3" id="ctrl${f.fieldName}" style="${inputStyle} resize:vertical;" ${f.isRequired ? "required" : ""}></textarea>`;
+                    }
+                    else if (f.type === "Dropdown") {
+                        let opts = `<option value="">-- Select --</option>`;
+                        if (f.options) f.options.split(",").forEach(o => opts += `<option value="${o.trim()}">${o.trim()}</option>`);
+                        input = `<select id="ctrl${f.fieldName}" style="${inputStyle}" ${f.isRequired ? "required" : ""}>${opts}</select>`;
+                    }
+                    else if (f.type === "DateTimePicker") {
+                        input = `<input type="datetime-local" id="ctrl${f.fieldName}" style="${inputStyle}" ${f.isRequired ? "required" : ""}>`;
+                    }
+                    else {
+                        input = `<input type="text" id="ctrl${f.fieldName}" style="${inputStyle}" ${f.isRequired ? "required" : ""}>`;
+                    }
+
+                    col.innerHTML = label + input;
+                    form.appendChild(col);
+                });
+            }
+
+
+
+            async function loadSubDispositions(disp) {
+                const res = await fetch(`${apiBase}/subdispositions/${disp}`);
+                const subs = await res.json();
+                const ddl = document.getElementById("ddlSubDisposition");
+                ddl.innerHTML = "<option value=''>-- Select --</option>";
+                subs.forEach(s => ddl.innerHTML += `<option value="${s}">${s}</option>`);
+            }
+
+
+            async function loadHistory() {
+                const res = await fetch(`${apiBase}/history`);
+                const data = await res.json();
+                const tbody = document.getElementById("historyBody");
+                tbody.innerHTML = "";
+                data.forEach(h => {
+                    tbody.innerHTML += `<tr><td>${h.disposition}</td><td>${h.subDisposition}</td><td>${h.callback}</td><td>${h.remarks}</td></tr>`;
+                });
+            }
+
+
+            document.getElementById("btnSubmit").addEventListener("click", async (e) => {
+                e.preventDefault();
+                const payload = {
+                    Disposition: document.getElementById("ddlDisposition").value,
+                    SubDisposition: document.getElementById("ddlSubDisposition").value,
+                    Callback: document.getElementById("txtCallback").value,
+                    Remarks: document.getElementById("txtRemarks").value
+                };
+                await fetch(`${apiBase}/submit`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                loadHistory();
+                alert("Saved!");
+            });
+
+
+          
+
+            document.getElementById("ddlDisposition").addEventListener("change", (e) => {
+                if (e.target.value) loadSubDispositions(e.target.value);
+            });
+         
+            loadHistory();
+        </script>
+
+</body>
+</html>
