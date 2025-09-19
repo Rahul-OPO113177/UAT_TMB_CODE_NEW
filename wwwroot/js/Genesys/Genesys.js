@@ -92,10 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (statusElem) statusElem.innerText = "Disconnected. Please refresh the page.";
     });
 
-    connection.on("UpdatePhoneInput", function (number) {
-        let last10 = number.slice(-10);
-        document.getElementById("phoneInput").value = last10;
-    });
+
 
     connection.on("UserName", function (number) {
 
@@ -110,7 +107,131 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".user-avatar, .profile-avatar").forEach(el => el.innerText = initials);
         document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
     });
+    connection.on("infopagedata", function (data) {
+        try {
+            console.log("InfoPage fields:", data);
+            const fields = JSON.parse(data);
 
+            const displayFields = fields.filter(field => field.CapturableField === "Display");
+            const captureFields = fields.filter(field => field.CapturableField === "Capture");
+
+
+            displayFields.forEach(field => {
+                const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+
+                const value = field.DisplaySourceValue || '';
+                $('#tab1').append(`
+        <div class="field" id="${field.FieldName}_container">
+            <label>${field.FieldName} ${required}</label>
+            <input type="${field.FieldType}" name="${field.FieldName}" value="${value}" readonly />
+        </div>
+    `);
+            });
+
+
+            captureFields.forEach(field => {
+                const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+                const isRequiredAttr = field.IsRequired === "YES" ? 'required' : '';
+                let fieldHtml = `<div class="field" id="${field.FieldName}_container">
+                                <label>${field.FieldName} ${required}</label>`;
+
+
+                if (field.FieldType === "DROPDOWN") {
+                    const isDependentTarget = captureFields.some(f => f.FieldDependetName === field.FieldName);
+
+                    fieldHtml += `
+                    <select name="${field.FieldName}" id="${field.FieldName}_dropdown" ${isRequiredAttr}>
+                        <option value="">Select</option>
+                        ${!isDependentTarget && field.DependentData
+                            ? field.DependentData.map(option => `<option value="${option.Value}">${option.Text}</option>`).join('')
+                            : ''
+                        }
+                    </select>
+                `;
+                    fieldHtml += '</div>';
+                    $('#tab3').append(fieldHtml);
+
+
+                    if (field.IsfieldDependent === "YES" && !isDependentTarget) {
+                        $(`#${field.FieldName}_dropdown`).on('change', function () {
+                            const selectedValue = $(this).val();
+                            const dependentFieldName = field.FieldDependetName;
+                            const dependentField = fields.find(f => f.FieldName === dependentFieldName);
+
+                            if (dependentField) {
+                                if (dependentField.DependentData) {
+                                    const filteredOptions = dependentField.DependentData.filter(option => option.Value === selectedValue);
+                                    const dependentDropdown = $(`#${dependentFieldName}_dropdown`);
+                                    dependentDropdown.empty();
+                                    dependentDropdown.append('<option value="">Select</option>');
+                                    filteredOptions.forEach(option => {
+                                        dependentDropdown.append(`<option value="${option.Value}">${option.Text}</option>`);
+                                    });
+                                }
+                            }
+                        });
+                    }
+                } else {
+
+                    switch (field.FieldType.toLowerCase()) {
+                        case "datetime":
+                            fieldHtml += `<input type="datetime-local" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            break;
+
+                        case "radio":
+                            fieldHtml += `
+                            <label><input type="radio" name="${field.FieldName}" value="Yes" ${isRequiredAttr} /> Yes</label>
+                            <label><input type="radio" name="${field.FieldName}" value="No" ${isRequiredAttr} /> No</label>
+                        `;
+                            break;
+
+                        case "checkbox":
+                            fieldHtml += `<input type="checkbox" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            break;
+
+                        default:
+                            fieldHtml += `<input type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            break;
+                    }
+                    fieldHtml += '</div>';
+                    $('#tab3').append(fieldHtml);
+                }
+
+
+                if (field.Isinitaldisplay === "No" && field.DisplaySource && field.DisplaySourceValue) {
+                    const controlField = fields.find(f => f.FieldName === field.DisplaySource);
+                    if (controlField) {
+                        const dropdownId = `#${controlField.FieldName}_dropdown`;
+
+                        $(`#${field.FieldName}_container`).hide();
+
+
+                        $(dropdownId).on('change', function () {
+                            const selectedText = $(this).find('option:selected').text();
+
+
+                            if (selectedText === field.DisplaySourceValue) {
+                                $(`#${field.FieldName}_container`).show();
+                            } else {
+                                $(`#${field.FieldName}_container`).hide();
+                            }
+                        });
+                    }
+                }
+            });
+
+              BindDispositionAndSubDispo();
+
+        } catch (error) {
+            console.error("Error processing the InfoPage data:", error);
+        }
+    });
+
+
+    connection.on("UpdatePhoneInput", function (number) {
+        let last10 = number.slice(-10);
+        document.getElementById("phoneInput").value = last10;
+    });
     connection.on("AutoWrap", function (number) {
 
         connection.on("AutoWrap", function (number) {
@@ -146,6 +267,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+function validateDate() {
+    const selectedDate = document.getElementById('callBackDateOutcome').value;
+    const today = new Date();
+    const selectedDateObj = new Date(selectedDate);
+
+    if (selectedDateObj < today) {
+        alert("The selected date cannot be in the past. Please choose a future date.");
+        document.getElementById('callBackDateOutcome').value = ""; 
+    }
+}
 function handleStatusUpdate(message) {
     const statusElem = document.getElementById("status");
     if (statusElem) statusElem.innerText = message;
@@ -254,33 +385,112 @@ function sendTransfer(selectElement) {
     callAPI('/api/Genesys/transfer', 'POST', { route });
     setTimeout(() => selectElement.selectedIndex = 0, 300);
 }
+var dispo = [];
 
+function BindDispositionAndSubDispo() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const agentId = urlParams.get('empCode'); 
 
-const subDispositions = {
-    1: [{ id: 101, name: "Not Available" }, { id: 102, name: "Client Requested" }, { id: 103, name: "Wrong Time" }],
-    2: [{ id: 201, name: "Customer Hung Up" }, { id: 202, name: "Agent Hung Up" }, { id: 203, name: "Network Issue" }],
-    3: [{ id: 301, name: "Customer Busy" }, { id: 302, name: "On Another Call" }, { id: 303, name: "Will Call Later" }]
-};
+    if (!agentId) {
+        console.error("empCode not found in URL.");
+        return;
+    }
 
+    $.ajax({
+
+        url: '/api/InfoPage/GetDispositions',
+        type: 'GET',
+        data: { empCode: agentId },
+        success: function (response) {
+            const dispositions = response.dispositions || [];
+            dispo = response;
+            const dispositionSelect = $('#disposition');
+            dispositionSelect.empty();
+            dispositionSelect.append('<option value="">-- Select Disposition --</option>');
+
+            dispositions.forEach(disposition => {
+                console.log(disposition.disP_TYPE); 
+                dispositionSelect.append(
+                    `<option value="${disposition.id}" data-disp-type="${disposition.disP_TYPE}">${disposition.name}</option>`
+                );
+            });
+        },
+        error: function (error) {
+            console.error("Error fetching disposition data:", error);
+        }
+    });
+}
 function updateSubDisposition() {
     const dispoId = document.getElementById("disposition").value;
     const subDispoSelect = document.getElementById("subDisposition");
+    const callBackDateDiv = document.getElementById("callBackDateDiv");
+    console.log(JSON.stringify(dispo));
+
     subDispoSelect.innerHTML = '<option value="">-- Select Sub Disposition --</option>';
-    if (subDispositions[dispoId]) subDispositions[dispoId].forEach(sub => {
-        const option = document.createElement("option");
-        option.textContent = sub.name;
-        subDispoSelect.appendChild(option);
-    });
+
+    if (!callBackDateDiv) {
+        console.error("Call Back Date Div not found!");
+        return;
+    }
+
+
+    callBackDateDiv.style.display = "none";
+
+    if (dispoId) {
+    
+        const selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
+        const dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
+
+
+        const selectedDisposition = dispo.dispositions.find(d => d.id === parseInt(dispoId));
+
+        if (selectedDisposition) {
+            const subDispositions = selectedDisposition.subDispositions;
+
+            const uniqueSubDispositions = new Set(subDispositions.map(sub => JSON.stringify(sub)));
+
+            uniqueSubDispositions.forEach(sub => {
+                const subObj = JSON.parse(sub);
+                const option = document.createElement("option");
+                option.value = subObj.id;
+                option.textContent = subObj.name;
+                subDispoSelect.appendChild(option);
+            });
+
+       
+            console.log("Disposition Type: " + dispType);
+
+            if (dispType === "PCB" || dispType === "CCB") {
+           
+                callBackDateDiv.style.display = "flex";
+            }
+        }
+    }
 }
+function toggleCallBackDateField() {
+    const dispoSelect = document.getElementById("disposition");
+    const selectedDisposition = dispoSelect.options[dispoSelect.selectedIndex];
+    const dispType = selectedDisposition ? selectedDisposition.getAttribute('data-disp-type') : '';
+
+    const callBackDateField = document.getElementById("callBackDateOutcome").parentElement;
+    if (dispType === "PCB" || dispType === "CCB") {
+        callBackDateField.style.display = "flex";
+    } else {
+        callBackDateField.style.display = "none";
+    }
+}
+
+
+document.getElementById("disposition").addEventListener("change", function () {
+    updateSubDisposition();
+    toggleCallBackDateField(); 
+});
 async function submitDisposition() {
     const dispoId = parseInt(document.getElementById("disposition").value);
     const subDispoId = parseInt(document.getElementById("subDisposition").value);
     const username = document.getElementById("remark").value;
     const address = document.getElementById("remark").value;
     const callBackDateValue = document.getElementById("callBackDateOutcome").value;
-
- 
-
     const callBackDate = new Date(callBackDateValue).toISOString();
 
     console.log("Request Body: ", JSON.stringify({

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "j2vWTF1Hazj+5QY9uyaCKlEL9N24fz6nrKgeeJ/s+aI=",
+  "Hash": "inv8k8/o1eTgm+3vUwwvBfTIUqpo1tMImRHJTfrHtq4=",
   "Source": "ServerCRM",
   "BasePath": "_content/ServerCRM",
   "Mode": "Default",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "d06hf0tjzo",
-      "Integrity": "U8hcbGTUDRKqtqkjPf99ZNSv/7hDrGXnuK+frHK+kBg=",
+      "Fingerprint": "0gyz87q0jb",
+      "Integrity": "4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Genesys\\Genesys.js"
@@ -1480,8 +1480,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "lu955vjyof",
-      "Integrity": "HXKkL/jVO4dQFVCzeoMF+BIVNJg20i9NtLgepZUQhYU=",
+      "Fingerprint": "4xqa09lloc",
+      "Integrity": "OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\CRM.html"
@@ -2086,7 +2086,7 @@
       ]
     },
     {
-      "Route": "js/Genesys/Genesys.d06hf0tjzo.js",
+      "Route": "js/Genesys/Genesys.0gyz87q0jb.js",
       "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2096,7 +2096,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12482"
+          "Value": "21237"
         },
         {
           "Name": "Content-Type",
@@ -2104,11 +2104,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"U8hcbGTUDRKqtqkjPf99ZNSv/7hDrGXnuK+frHK+kBg=\""
+          "Value": "\"4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 10:59:44 GMT"
+          "Value": "Fri, 19 Sep 2025 13:19:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2118,7 +2118,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "d06hf0tjzo"
+          "Value": "0gyz87q0jb"
         },
         {
           "Name": "label",
@@ -2126,7 +2126,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-U8hcbGTUDRKqtqkjPf99ZNSv/7hDrGXnuK+frHK+kBg="
+          "Value": "sha256-4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4="
         }
       ]
     },
@@ -2141,7 +2141,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "12482"
+          "Value": "21237"
         },
         {
           "Name": "Content-Type",
@@ -2149,11 +2149,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"U8hcbGTUDRKqtqkjPf99ZNSv/7hDrGXnuK+frHK+kBg=\""
+          "Value": "\"4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 10:59:44 GMT"
+          "Value": "Fri, 19 Sep 2025 13:19:54 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2163,7 +2163,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-U8hcbGTUDRKqtqkjPf99ZNSv/7hDrGXnuK+frHK+kBg="
+          "Value": "sha256-4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4="
         }
       ]
     },
@@ -7088,6 +7088,51 @@
       ]
     },
     {
+      "Route": "Pages/CRM.4xqa09lloc.html",
+      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "94012"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 19 Sep 2025 13:17:50 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4xqa09lloc"
+        },
+        {
+          "Name": "label",
+          "Value": "Pages/CRM.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis="
+        }
+      ]
+    },
+    {
       "Route": "Pages/CRM.html",
       "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
       "Selectors": [],
@@ -7098,7 +7143,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "90119"
+          "Value": "94012"
         },
         {
           "Name": "Content-Type",
@@ -7106,11 +7151,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"HXKkL/jVO4dQFVCzeoMF+BIVNJg20i9NtLgepZUQhYU=\""
+          "Value": "\"OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 11:38:42 GMT"
+          "Value": "Fri, 19 Sep 2025 13:17:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7120,52 +7165,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-HXKkL/jVO4dQFVCzeoMF+BIVNJg20i9NtLgepZUQhYU="
-        }
-      ]
-    },
-    {
-      "Route": "Pages/CRM.lu955vjyof.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "90119"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"HXKkL/jVO4dQFVCzeoMF+BIVNJg20i9NtLgepZUQhYU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 11:38:42 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "lu955vjyof"
-        },
-        {
-          "Name": "label",
-          "Value": "Pages/CRM.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-HXKkL/jVO4dQFVCzeoMF+BIVNJg20i9NtLgepZUQhYU="
+          "Value": "sha256-OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis="
         }
       ]
     },
@@ -7602,7 +7602,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 13:04:13 GMT"
+          "Value": "Fri, 19 Sep 2025 13:21:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7639,7 +7639,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 13:04:13 GMT"
+          "Value": "Fri, 19 Sep 2025 13:21:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7684,7 +7684,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 13:04:13 GMT"
+          "Value": "Fri, 19 Sep 2025 13:21:13 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7729,7 +7729,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 13:04:13 GMT"
+          "Value": "Fri, 19 Sep 2025 13:21:13 GMT"
         },
         {
           "Name": "Cache-Control",

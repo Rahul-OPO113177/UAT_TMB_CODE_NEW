@@ -5,6 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #f0f0f0; /* Light gray background */
+            color: #555555; /* Medium dark gray text */
+            text-align: center;
+            border-radius: 6px;
+            padding: 14px 20px;
+            position: fixed;
+            z-index: 9999;
+            left: 63%;
+            bottom: 90px;
+            font-size: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            border: 1px solid #ddd; /* subtle border */
+            font-weight: 500;
+        }
+
+
+            /* Show the toast */
+            #toast.show {
+                visibility: visible;
+                opacity: 1;
+            }
 
         .spinning {
             animation: spin 1s linear infinite;
@@ -115,10 +141,7 @@
                 resize: vertical;
             }
 
-            .email-form textarea {
-                min-height: 50px;
-                max-height: 80px;
-            }
+            
 
         /* Send Button */
         .send-btn {
@@ -199,9 +222,9 @@
         .side-panel {
             position: fixed;
             top: 0;
-            right: -300px;
-            width: 300px;
-            height: 70%;
+            right: -600px;
+            width: 600px;
+            height: 75%;
             background: #f5f7fa;
             box-shadow: -2px 0 6px rgba(0,0,0,0.2);
             transition: right 0.3s ease-in-out;
@@ -1524,10 +1547,10 @@
                     <div class="nav-tab inactive">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab4')">Manual Data</span>
                     </div>
-                    <div class="nav-tab inactive">
+                    <div class="nav-tab inactive" style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab5')">Supervisor Data</span>
                     </div>
-                    <div class="nav-tab inactive">
+                    <div class="nav-tab inactive"  style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab6')">Email CRM</span>
                     </div>
                 </div>
@@ -1546,102 +1569,102 @@
                                 <!-- 1. Username -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="username" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Username</label>
-                                    <input id="username" type="text" placeholder="Enter username"
+                                    <input readonly id="username" type="text" value="Sandesh Bhosale"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 2. Customer ID -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="customerId" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Customer ID</label>
-                                    <input id="customerId" type="text" placeholder="Enter Customer ID"
+                                    <input readonly id="customerId" type="text" value="Ecu76KIY88880"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 3. First Name -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="firstName" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">First Name</label>
-                                    <input id="firstName" type="text" placeholder="Enter First Name"
+                                    <input readonly id="firstName" type="text" value="Sandesh "
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 4. Last Name -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="lastName" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Last Name</label>
-                                    <input id="lastName" type="text" placeholder="Enter Last Name"
+                                    <input readonly id="lastName" type="text" value=" Bhosale"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 5. Email -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="email" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Email</label>
-                                    <input id="email" type="email" placeholder="Enter Email"
+                                    <input readonly id="email" type="email" value="sandesh.bhosale@1point1.in"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 6. Phone -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="phone" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Phone</label>
-                                    <input id="phone" type="text" placeholder="Enter Phone"
+                                    <input readonly id="phone" type="text" value=" 9876854329"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 7. Address -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="address" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Address</label>
-                                    <input id="address" type="text" placeholder="Enter Address"
+                                    <input readonly id="address" type="text" value=" Mumbai"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 8. City -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="city" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">City</label>
-                                    <input id="city" type="text" placeholder="Enter City"
+                                    <input readonly id="city" type="text" value="Thane"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 9. State -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="state" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">State</label>
-                                    <input id="state" type="text" placeholder="Enter State"
+                                    <input readonly id="state" type="text" value="Maharastra"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <!-- 10. Zip Code -->
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="zip" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Zip Code</label>
-                                    <input id="zip" type="text" placeholder="Enter Zip Code"
+                                    <input readonly id="zip" type="text" value="3203"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="country" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Country</label>
-                                    <input id="country" type="text" placeholder="Enter Country"
+                                    <input readonly id="country" type="text" value="India"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="status" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Status</label>
-                                    <input id="status" type="text" placeholder="Enter Status"
+                                    <input readonly id="status" type="text" value="Active"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
 
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="accountType" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Account Type</label>
-                                    <input id="accountType" type="text" placeholder="Enter Account Type"
+                                    <input readonly id="accountType" type="text" value="Saving"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="notes" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Notes</label>
-                                    <input id="notes" type="text" placeholder="Enter Notes"
+                                    <input readonly id="notes" type="text" value="Lone"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
 
                                 <div style="display:flex; flex-direction:column;">
                                     <label for="createdDate" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Created Date</label>
-                                    <input id="createdDate" type="date"
+                                    <input readonly id="createdDate" value="2025/04/09"
                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
                                 </div>
 
@@ -1705,31 +1728,31 @@
                     </div>
                 </div>
 
-
                 <div id="tab2" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
                         <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
                             <i class="fa-solid fa-history" style="margin-right:6px; color:#007bff;"></i>
-                            Call History
+                            Communication History
                         </h6>
-
-
 
                         <div style="overflow-x:auto;">
                             <table style="width:100%; border-collapse:collapse; font-size:13px;">
                                 <thead>
                                     <tr style="background:#f1f1f1;">
+                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Type</th>
                                         <th style="padding:8px; border:1px solid #ccc; text-align:left;">Date</th>
                                         <th style="padding:8px; border:1px solid #ccc; text-align:left;">Time</th>
                                         <th style="padding:8px; border:1px solid #ccc; text-align:left;">Disposition</th>
                                         <th style="padding:8px; border:1px solid #ccc; text-align:left;">Sub Disposition</th>
                                         <th style="padding:8px; border:1px solid #ccc; text-align:left;">Remark</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Call Back Date</th>
+                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Call Back / Follow-up Date</th>
                                     </tr>
                                 </thead>
-                                <tbody id="callHistoryBody">
+                                <tbody id="communicationHistoryBody">
 
+                                    <!-- Call History Rows -->
                                     <tr>
+                                        <td style="padding:8px; border:1px solid #ccc;">Call</td>
                                         <td style="padding:8px; border:1px solid #ccc;">2025-09-17</td>
                                         <td style="padding:8px; border:1px solid #ccc;">14:30</td>
                                         <td style="padding:8px; border:1px solid #ccc;">Call Back</td>
@@ -1738,6 +1761,7 @@
                                         <td style="padding:8px; border:1px solid #ccc;">2025-09-19</td>
                                     </tr>
                                     <tr>
+                                        <td style="padding:8px; border:1px solid #ccc;">Call</td>
                                         <td style="padding:8px; border:1px solid #ccc;">2025-09-19</td>
                                         <td style="padding:8px; border:1px solid #ccc;">17:30</td>
                                         <td style="padding:8px; border:1px solid #ccc;">Call Back</td>
@@ -1746,11 +1770,32 @@
                                         <td style="padding:8px; border:1px solid #ccc;">2025-09-30</td>
                                     </tr>
 
+                                    <!-- Email History Rows -->
+                                    <tr>
+                                        <td style="padding:8px; border:1px solid #ccc;">Email</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-18</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">10:00</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">Sent</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">Follow-up</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">Sent product brochure</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-25</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding:8px; border:1px solid #ccc;">Email</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-20</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">15:45</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">Received</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">Inquiry</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">Client asked about pricing</td>
+                                        <td style="padding:8px; border:1px solid #ccc;">-</td>
+                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
+
 
                 <div id="tab4" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
@@ -1773,16 +1818,119 @@
                     </div>
                 </div>
 
-
                 <div id="tab6" class="tab-content" style="display:none;">
-                    <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                        <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
-                            <i class="fa-solid fa-envelope" style="margin-right:6px; color:#007bff;"></i>
+                    <div style="background:#fff; padding:20px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                        <h6 style="font-size:18px; font-weight:700; color:#222; margin-bottom:20px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fa-solid fa-envelope" style="color:#007bff; font-size:20px;"></i>
                             Email CRM
                         </h6>
-                        <p style="font-size:14px; color:#555;">Email-related CRM functions…</p>
+                        <p style="font-size:15px; color:#555; margin-bottom:30px;">Email-related CRM functions…</p>
+
+                        <!-- Chat History Section -->
+                        <div style="margin-bottom: 40px;">
+                            <h6 style="font-size:16px; font-weight:700; color:#007bff; margin-bottom:15px; border-bottom: 2px solid #007bff; padding-bottom: 6px;">Chat History</h6>
+                            <div style="max-height:280px; overflow-y:auto; padding-right: 10px;">
+
+                                <!-- Chat messages -->
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-start;">
+                                    <div style="background: #f9fbfc; color: #034a87; padding: 12px 16px; border-radius: 18px 18px 18px 4px; max-width: 75%; box-shadow: 0 2px 5px rgba(3,74,135,0.15);">
+                                        <strong>User:</strong> Hello, I need help with my order.
+                                        <div style="font-size:11px; color:#666; margin-top:4px;">09:00 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-end;">
+                                    <div style="background: #f9fbfc; color: #155724; padding: 12px 16px; border-radius: 18px 18px 4px 18px; max-width: 75%; box-shadow: 0 2px 5px rgba(21,87,36,0.15);">
+                                        <strong>Support:</strong> Sure! What seems to be the issue?
+                                        <div style="font-size:11px; color:#444; margin-top:4px;">09:02 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-start;">
+                                    <div style="background: #f9fbfc; color: #034a87; padding: 12px 16px; border-radius: 18px 18px 18px 4px; max-width: 75%; box-shadow: 0 2px 5px rgba(3,74,135,0.15);">
+                                        <strong>User:</strong> I received the wrong item.
+                                        <div style="font-size:11px; color:#666; margin-top:4px;">09:04 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-end;">
+                                    <div style="background: #f9fbfc; color: #155724; padding: 12px 16px; border-radius: 18px 18px 4px 18px; max-width: 75%; box-shadow: 0 2px 5px rgba(21,87,36,0.15);">
+                                        <strong>Support:</strong> I apologize for the inconvenience. We will send the correct item right away.
+                                        <div style="font-size:11px; color:#444; margin-top:4px;">09:05 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-start;">
+                                    <div style="background: #f9fbfc; color: #034a87; padding: 12px 16px; border-radius: 18px 18px 18px 4px; max-width: 75%; box-shadow: 0 2px 5px rgba(3,74,135,0.15);">
+                                        <strong>User:</strong> Thank you for the quick response!
+                                        <div style="font-size:11px; color:#666; margin-top:4px;">09:06 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-end;">
+                                    <div style="background: #f9fbfc; color: #155724; padding: 12px 16px; border-radius: 18px 18px 4px 18px; max-width: 75%; box-shadow: 0 2px 5px rgba(21,87,36,0.15);">
+                                        <strong>Support:</strong> You're welcome! Is there anything else I can assist you with?
+                                        <div style="font-size:11px; color:#444; margin-top:4px;">09:07 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-start;">
+                                    <div style="background: #f9fbfc; color: #034a87; padding: 12px 16px; border-radius: 18px 18px 18px 4px; max-width: 75%; box-shadow: 0 2px 5px rgba(3,74,135,0.15);">
+                                        <strong>User:</strong> No, that’s all for now.
+                                        <div style="font-size:11px; color:#666; margin-top:4px;">09:08 AM</div>
+                                    </div>
+                                </div>
+
+                                <div style="margin-bottom:12px; display:flex; justify-content:flex-end;">
+                                    <div style="background: #f9fbfc; color: #155724; padding: 12px 16px; border-radius: 18px 18px 4px 18px; max-width: 75%; box-shadow: 0 2px 5px rgba(21,87,36,0.15);">
+                                        <strong>Support:</strong> Have a great day!
+                                        <div style="font-size:11px; color:#444; margin-top:4px;">09:09 AM</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Email History Section -->
+                        <div>
+                            <h6 style="font-size:16px; font-weight:700; color:#007bff; margin-bottom:15px; border-bottom: 2px solid #007bff; padding-bottom: 6px;">Email History</h6>
+                            <div style="max-height:280px; overflow-y:auto; padding-right: 10px;">
+
+                                <!-- Email entries -->
+                                <div style="background:#f0f4ff; border-left: 4px solid #007bff; padding: 15px 20px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,123,255,0.1);">
+                                    <div style="font-weight:600; color:#0056b3;">2025-09-18 09:45</div>
+                                    <div style="font-size:14px; color:#222;">Email sent to user regarding refund process.</div>
+                                </div>
+
+                                <div style="background:#f0f4ff; border-left: 4px solid #007bff; padding: 15px 20px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,123,255,0.1);">
+                                    <div style="font-weight:600; color:#0056b3;">2025-09-17 15:30</div>
+                                    <div style="font-size:14px; color:#222;">Follow-up email about shipment delay.</div>
+                                </div>
+
+                                <div style="background:#f0f4ff; border-left: 4px solid #007bff; padding: 15px 20px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,123,255,0.1);">
+                                    <div style="font-weight:600; color:#0056b3;">2025-09-16 12:10</div>
+                                    <div style="font-size:14px; color:#222;">Order confirmation email sent to user.</div>
+                                </div>
+
+                                <div style="background:#f0f4ff; border-left: 4px solid #007bff; padding: 15px 20px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,123,255,0.1);">
+                                    <div style="font-weight:600; color:#0056b3;">2025-09-15 08:50</div>
+                                    <div style="font-size:14px; color:#222;">Email sent to user regarding invoice.</div>
+                                </div>
+
+                                <div style="background:#f0f4ff; border-left: 4px solid #007bff; padding: 15px 20px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,123,255,0.1);">
+                                    <div style="font-weight:600; color:#0056b3;">2025-09-14 10:25</div>
+                                    <div style="font-size:14px; color:#222;">Promotional email sent with discount offers.</div>
+                                </div>
+
+                                <div style="background:#f0f4ff; border-left: 4px solid #007bff; padding: 15px 20px; margin-bottom: 12px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,123,255,0.1);">
+                                    <div style="font-weight:600; color:#0056b3;">2025-09-13 18:00</div>
+                                    <div style="font-size:14px; color:#222;">Customer satisfaction survey email sent.</div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+
 
 
 
@@ -1790,6 +1938,7 @@
 
 
         </div>
+
         <div class="action-btn-group-vertical">
 
             <div class="action-btn" id="getemail" onclick="openPanel('emailPanel')">
@@ -1832,29 +1981,26 @@
                 </button>
             </div>
 
-            <div class="side-panel-content" id="emailPanelContent" style="flex:1; overflow-y:auto;">
-                <div id="emailResponse" style="margin-top:10px;"></div>
-            </div>
-
 
             <div class="email-form" style="border-top:1px solid #ccc; padding:10px; background:#f9f9f9;">
                 <div>
                     <label>Email:</label>
-                    <input type="text" id="emailInput" placeholder="Enter email" style="width:100%;margin-bottom:8px;" />
+                    <input type="text" id="emailInput" placeholder="Enter email" style="width: 100%; margin-bottom: 8px; margin-top: 4px; " />
 
-                    <label>Message:</label>
-                    <textarea id="messageInput" value="" placeholder="Enter message" style="width:100%;height:20px;margin-bottom:2px;"></textarea>
+                    <label>Subject:</label>
+                    <input type="text" id="messageInput" value="" placeholder="Enter message" style="width: 100%; height: 30px; margin-bottom: 2px; margin-top: 4px; " />
 
                     <label>Suggested Reply:</label>
-                    <textarea id="replyInput" placeholder="Enter suggested reply" style="width:100%; height:40px;"></textarea>
+
+                    <textarea id="replyInput" placeholder="Enter suggested reply" rows="18" style="margin-top: 7px; "></textarea>
 
                     <div id="ageNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
 
 
-                    <div style="display:flex; align-items:center; gap:8px; margin-top:10px;margin-left:170px;">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-left: 471px;">
 
                         <div style="position:relative; display:inline-block;">
-                          
+
 
                             <svg onclick="processEmailReply(this)"
                                  style="width: 22px; height: 44px; margin-top: 23px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
@@ -1880,6 +2026,7 @@
                         </button>
                     </div>
                 </div>
+                <div id="toast">Mail sent successfully!</div>
             </div>
 
         </div>
@@ -1903,7 +2050,7 @@
 
             <div class="chat-input" style="display:flex; align-items:center; gap:8px; padding:5px;">
 
-                <textarea id="chatMessage" placeholder="Type a message..." rows="3"
+                <textarea id="chatMessage" placeholder="Type a message..." rows="11"
                           style="flex:1; padding:8px; border:1px solid #ccc; border-radius:6px; font-size:14px; resize:vertical; min-height:50px; transition: border 0.3s;"
                           onfocus="this.style.borderColor='#7993A5'; this.style.boxShadow='0 0 5px rgba(121,147,165,0.5)';"
                           onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';"></textarea>
@@ -1911,7 +2058,7 @@
 
                 <div style="position:relative; display:inline-block; cursor:pointer; z-index:2;">
                     <svg onclick="processMessage()"
-                         style="width: 22px; height: 28px; margin-top: 23px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
+                         style="width: 22px; height: 63px; margin-top: 86px; margin-left: 5px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
                          onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
                          onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
                          viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1923,14 +2070,15 @@
                     <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
                         Process Message
                     </span>
+                    <button class="send-btn" onclick="sendMessage()" style="background:#4a90e2; border:none; border-radius:6px; padding:6px; cursor:pointer; z-index:1;">
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                            <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </div>
 
 
-                <button class="send-btn" onclick="sendMessage()" style="background:#4a90e2; border:none; border-radius:6px; padding:6px; cursor:pointer; z-index:1;">
-                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
-                        <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </button>
+               
             </div>
 
 
@@ -1986,11 +2134,11 @@
             const message = chatInput.value.trim();
             if (!message) return;
 
-            // Find the SVG that was clicked
+   
             const svgIcon = document.querySelector('#chatPanel svg[onclick="processMessage()"]');
 
             try {
-                // Show loading animation
+       
                 svgIcon.classList.add('spinning');
 
                 const formData = new FormData();
@@ -2004,10 +2152,10 @@
 
                 const data = await response.json();
 
-                // Replace input text with beautified message
+         
                 chatInput.value = data.processed_text || message;
 
-                // Show temporary notice
+           
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
@@ -2015,7 +2163,7 @@
                 console.error('Error:', err);
                 alert('Error processing message.');
             } finally {
-                // Stop loading animation
+            
                 svgIcon.classList.remove('spinning');
             }
         }
@@ -2037,38 +2185,6 @@
         }
 
 
-        //async function processEmailReply() {
-        //    const email = document.getElementById('emailInput').value;
-        //    const realmsg = document.getElementById('messageInput').value;
-        //    const notice = document.getElementById('ageNotice');
-        //    const replyInput = document.getElementById('replyInput');
-
-        //    if (!email || !realmsg) {
-        //        alert("Please fill Email and Message first.");
-        //        return;
-        //    }
-
-        //    try {
-        //        const res = await fetch('/api/Omni/send', {
-        //            method: 'POST',
-        //            headers: { 'Content-Type': 'application/json' },
-        //            body: JSON.stringify({ email, realmsg, summernote: "" })
-        //        });
-
-        //        const data = await res.json();
-
-
-        //        replyInput.value = stripHtml(data.response || "No response");
-
-
-        //        notice.style.display = 'block';
-        //        setTimeout(() => { notice.style.display = 'none'; }, 2000);
-
-        //    } catch (err) {
-        //        console.error(err);
-        //        alert("Error processing reply.");
-        //    }
-        //}
         async function processEmailReply(svgIcon) {
             const email = document.getElementById('emailInput').value;
             const realmsg = document.getElementById('messageInput').value;
@@ -2119,16 +2235,25 @@
 
         function sendUserInput() {
             const summernote = document.getElementById('replyInput').value;
-            const responseDiv = document.getElementById('emailResponse');
+          
 
             if (!summernote) {
                 alert("Reply is empty.");
                 return;
             }
-
-            responseDiv.innerHTML = `<p>${summernote}</p>`;
+            showToast("Mail sent successfully!");
+         
         }
+        function showToast(message) {
+            const toast = document.getElementById("toast");
+            toast.textContent = message;
+            toast.classList.add("show");
 
+            // Hide the toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
     </script>
 </body>
 </html>

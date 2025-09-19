@@ -3,6 +3,51 @@
   "ManifestType": "Publish",
   "Endpoints": [
     {
+      "Route": "Pages/CRM.3am3kw4aoz.html",
+      "AssetFile": "Pages/CRM.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "102095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"i2emVrp2KCJPxrR7Pz4PGKY0qjApezsCS4AjmahQxz4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 18 Sep 2025 07:10:40 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "3am3kw4aoz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-i2emVrp2KCJPxrR7Pz4PGKY0qjApezsCS4AjmahQxz4="
+        },
+        {
+          "Name": "label",
+          "Value": "Pages/CRM.html"
+        }
+      ]
+    },
+    {
       "Route": "Pages/CRM.html",
       "AssetFile": "Pages/CRM.html",
       "Selectors": [],
@@ -17,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "91522"
+          "Value": "102095"
         },
         {
           "Name": "Content-Type",
@@ -25,62 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ehvjCEAhc1aYLr6j+gFwFWGYvHOHztXA+fVkT1++rok=\""
+          "Value": "\"i2emVrp2KCJPxrR7Pz4PGKY0qjApezsCS4AjmahQxz4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 11:20:49 GMT"
+          "Value": "Thu, 18 Sep 2025 07:10:40 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ehvjCEAhc1aYLr6j+gFwFWGYvHOHztXA+fVkT1++rok="
-        }
-      ]
-    },
-    {
-      "Route": "Pages/CRM.y1gtqdwh7q.html",
-      "AssetFile": "Pages/CRM.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "91522"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ehvjCEAhc1aYLr6j+gFwFWGYvHOHztXA+fVkT1++rok=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 17 Sep 2025 11:20:49 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "y1gtqdwh7q"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ehvjCEAhc1aYLr6j+gFwFWGYvHOHztXA+fVkT1++rok="
-        },
-        {
-          "Name": "label",
-          "Value": "Pages/CRM.html"
+          "Value": "sha256-i2emVrp2KCJPxrR7Pz4PGKY0qjApezsCS4AjmahQxz4="
         }
       ]
     },

@@ -40,9 +40,11 @@ namespace ServerCRM.Services
     public static class CTIConnectionManager
     {
         public static IHubContext<CtiHub> _hubContext;
-        public static void Configure(IHubContext<CtiHub> hubContext)
+        
+        public static void Configure(IHubContext<CtiHub> hubContext )
         {
             _hubContext = hubContext;
+            
         }
         public static IHubContext<CtiHub> HubContext => _hubContext;
         private static readonly ConcurrentDictionary<string, TServerProtocol> agentConnections = new();
@@ -269,6 +271,7 @@ namespace ServerCRM.Services
                            
                             
                             CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
+                            GetInfoPageFeilds(session.ProcessName , session.AgentId , session.MyCode.ToString());
                         }
                         else
                         {
@@ -282,7 +285,8 @@ namespace ServerCRM.Services
                             session.isOnCall = true;
                             AgentStatusMapper.UpdateAgentStatus(3, session, hubContext);
                             session.CurrentStatusID = 3;
-                           
+                            CTIConnectionManager.GetInfoPageFeilds(session.ProcessName , session.AgentId , session.MyCode.ToString());
+
                         }
                         if (established.UserData != null)
                         {
@@ -768,6 +772,13 @@ namespace ServerCRM.Services
                 }
             }
             return status;
+        }
+
+        public static void GetInfoPageFeilds(string ProcessName , string AgnetID , string Mycode)
+        {
+            var infoPageFeilds= InfoPageFeilds.GetInfoPageFeilds(ProcessName , Mycode);
+             CTIConnectionManager.HubContext.Clients.Group(AgnetID).SendAsync("infopagedata", infoPageFeilds);
+
         }
 
         private static double GetPCB(string agentID)
@@ -1630,7 +1641,7 @@ namespace ServerCRM.Services
 
                 using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    json = "{\"Phonenumber\":\"" + session.CampaignPhone + "\",\"DialTime\":\"" + session.StartTime + "\",\"ConnectTime\":\"" + session.StartTime + "\",\"DisconnectTime\":\"" + session.EndTime + "\",\"DisconnectType\":\"" + session.distype + "\",\"AgentID\":\"" + session.OPOID + "\",\"Process\":\"" + session.ProcessName + "\",\"Location\":\"" + session.Location + "\",\"TconnID\":\"" + session.ConnID + "\",\"CampaignName\":\"" + session.CampaignName + "\",\"CampaignMode\":\"" + session.CampaignMode+ "\",\"agentgroup\":\"" + session.AgentGroup + "\",\"VoiceFilePath\":\"" + session.RecordingPath.Replace("\\", "/") + "\",\"Mycode\":\"" + session.MyCode + "\"}";
+                    json = "{\"Phonenumber\":\"" + session.CampaignPhone.ToString() + "\",\"DialTime\":\"" + session.StartTime.ToString() + "\",\"ConnectTime\":\"" + session.StartTime.ToString() + "\",\"DisconnectTime\":\"" + session.EndTime.ToString() + "\",\"DisconnectType\":\"" + session.distype.ToString() + "\",\"AgentID\":\"" + session.OPOID.ToString() + "\",\"Process\":\"" + session.ProcessName.ToString() + "\",\"Location\":\"" + session.Location.ToString() + "\",\"TconnID\":\"" + session.ConnID.ToString() + "\",\"CampaignName\":\"" + session.CampaignName.ToString() + "\",\"CampaignMode\":\"" + session.CampaignMode.ToString()+ "\",\"agentgroup\":\"" + session.AgentGroup.ToString() + "\",\"VoiceFilePath\":\"" + session.RecordingPath.Replace("\\", "/") + "\",\"Mycode\":\"" + session.MyCode.ToString() + "\"}";
 
                     streamWriter.Write(json);
                 }

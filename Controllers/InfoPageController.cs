@@ -21,6 +21,19 @@ namespace ServerCRM.Controllers
             _apiService = apiService;
            
         }
+
+        [HttpGet("GetDispositions")]
+        public  IActionResult GetDispositions([FromQuery] string empCode)
+        {
+            if (string.IsNullOrEmpty(empCode))
+            {
+                return BadRequest("empCode is required.");
+            }
+
+            var dispositions =  InfoPageFeilds.GetDispositionsAsync(empCode);
+            return Ok(new { dispositions });
+        }
+
         private  string connStr = "Data Source=192.168.0.57;Initial Catalog=Test;User ID=opodba;Password=opo@1234;";
         [HttpPost("ProcessName")]
         public async Task<IActionResult> GetProcess([FromBody] AgentStatusDto request)
@@ -34,6 +47,9 @@ namespace ServerCRM.Controllers
             return Ok(new { message = "ProcessName", processname = agent.ProcessName });
 
         }
+
+     
+
         [HttpGet("processes")]
         public IActionResult GetProcesses()
         {
