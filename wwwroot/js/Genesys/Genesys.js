@@ -108,6 +108,116 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
     });
 
+    connection.on("history", function (data) {
+        try {
+            console.log("History data received:", data);
+
+            if (typeof data === 'string') {
+                try {
+                    data = JSON.parse(data);
+                    console.log("Parsed history data:", data);
+                } catch (error) {
+                    console.error("Error parsing data:", error);
+                    return;
+                }
+            }
+
+            console.log("Data type:", Array.isArray(data));
+            console.log("Data length:", data.length);
+
+            const container = document.getElementById('historyContainer');
+            if (!container) {
+                console.error("Container not found!");
+                return;
+            }
+
+            container.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
+            table.style.fontSize = '13px';
+
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            headerRow.style.background = '#f1f1f1';
+
+            const headers = ['Type', 'Date', 'Time', 'Disposition', 'Sub Disposition', 'Remark', 'Call Back / Follow-up Date'];
+
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.style.padding = '8px';
+                th.style.border = '1px solid #ccc';
+                th.style.textAlign = 'left';
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            if (!Array.isArray(data) || data.length === 0) {
+                console.log("No history data available.");
+                return;
+            }
+
+            data.forEach(function (historyItem) {
+                const row = document.createElement('tr');
+
+                const rowData = [
+                    historyItem.Type || 'N/A',
+                    formatDate(historyItem.Date) || 'N/A',
+                    formatTime(historyItem.Time) || 'N/A',
+                    historyItem.Disposition || '--',
+                    historyItem.SubDisposition || '--',
+                    historyItem.REMARKS || '--',
+                    historyItem.callbacktime || '--'
+                ];
+
+                rowData.forEach(function (cellData) {
+                    const td = document.createElement('td');
+                    td.style.padding = '8px';
+                    td.style.border = '1px solid #ccc';
+                    td.style.textAlign = 'left';
+                    td.textContent = cellData;
+                    row.appendChild(td);
+                });
+
+                tbody.appendChild(row);
+            });
+
+            table.appendChild(tbody);
+
+            container.appendChild(table);
+
+        } catch (error) {
+            console.error("An error occurred while processing history data:", error);
+        }
+    });
+
+    function formatDate(dateStr) {
+        try {
+            if (!dateStr) return 'N/A';
+            const [day, month, year] = dateStr.split(' ')[0].split('-');
+            const time = dateStr.split(' ')[1];
+            const formattedDate = `${year}-${month}-${day}T${time}`;
+
+            const date = new Date(formattedDate);
+            if (isNaN(date.getTime())) return 'Invalid Date';
+            return date.toLocaleDateString();
+        } catch (error) {
+            console.error("Error formatting date:", error);
+            return 'Invalid Date';
+        }
+    }
+
+    function formatTime(timeStr) {
+        if (!timeStr) return 'N/A';
+        const date = new Date('1970-01-01T' + timeStr + 'Z');
+        if (isNaN(date.getTime())) return 'Invalid Time';
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
 
     connection.on("infopagedata", function (data) {
         try {
@@ -135,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 "flex-wrap": "wrap",
                 "gap": "15px"
             });
-          
+
             const tab3Container = $('#tab3').find('div[style*="display:flex"][style*="flex-wrap:wrap"][style*="gap:15px"][style*="margin-top:10px"]');
 
             captureFields.forEach(field => {
@@ -203,8 +313,6 @@ document.addEventListener("DOMContentLoaded", function () {
                             break;
                     }
                     fieldHtml += '</div>';
-
-
                     tab3Container.append(fieldHtml);
                 }
 
@@ -215,8 +323,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         const dropdownId = `#${controlField.FieldName}_dropdown`;
 
                         $(`#${field.FieldName}_container`).hide();
-
-
                         $(dropdownId).on('change', function () {
                             const selectedText = $(this).find('option:selected').text();
 
@@ -232,51 +338,52 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             const htmlContent = `
-    <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-        <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition  <span style="color:red;">*</span> </label>
-        <select id="disposition" onchange="updateSubDisposition()"
-                style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-            <option value="">-- Select Disposition --</option>
-        </select>
-    </div>
+                                <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+                                    <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition  <span style="color:red;">*</span> </label>
+                                    <select id="disposition" onchange="updateSubDisposition()"
+                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                                        <option value="">-- Select Disposition --</option>
+                                    </select>
+                                </div>
 
-    <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-        <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition  <span style="color:red;">*</span></label>
-        <select id="subDisposition"
-                style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-            <option value="">-- Select Sub Disposition --</option>
-        </select>
-    </div>
-        <div id="callBackDateDiv" style="display: none; flex-direction: column; flex: 1 1 200px;">
-        <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
-            Call Back Date  <span style="color:red;">*</span>
-        </label>
-        <input id="callBackDateOutcome" type="date"
-               style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"
-               min="" onchange="validateDate()">
-    </div>
-    <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-        <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark  <span style="color:red;">*</span></label>
-      <textarea id="remark" placeholder="Enter Remark"
-          style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width: 100%; height: 100px; resize: vertical;">
-</textarea>
+                                <div id="SubDispositiondiv" style="display:flex;  display: none; flex-direction:column; flex:1 1 200px;">
+                                    <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition  <span style="color:red;">*</span></label>
+                                    <select id="subDisposition"  onchange="updateSubSubDisposition()"
+                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                                        <option value="">-- Select Sub Disposition --</option>
+                                    </select>
+                                </div>
 
-    </div>
-    
+                                   <div id="SubSubDispo" style="display:flex; display: none; flex-direction:column; flex:1 1 200px;">
+                                    <label for="subSubDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Sub Disposition  <span style="color:red;">*</span></label>
+                                    <select id="subSubDisposition"
+                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                                        <option value="">-- Select Sub  SubDisposition --</option>
+                                    </select>
+                                </div>
+                                    <div id="callBackDateDiv" style="display: none; flex-direction: column; flex: 1 1 200px;">
+                                    <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+                                        Call Back Date  <span style="color:red;">*</span>
+                                    </label>
+                                    <input id="callBackDateOutcome" type="date"
+                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"
+                                           min="" onchange="validateDate()">
+                                </div>
+                                <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+                                    <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark  <span style="color:red;">*</span></label>
+                                  <textarea id="remark" placeholder="Enter Remark"
+                                      style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width: 100%; height: 100px; resize: vertical;">
+                            </textarea>
 
-`;
+                                </div>`;
 
             tab3Container.append(htmlContent);
-
-
             BindDispositionAndSubDispo();
 
         } catch (error) {
             console.error("Error processing the InfoPage data:", error);
         }
     });
-
-
 
 
     connection.on("UpdatePhoneInput", function (number) {
@@ -369,15 +476,15 @@ function handleStatusUpdate(message) {
         startTimer();
     }
     if (msg.includes("logout")) {
-     
+
         Swal.fire({
             title: 'Logged Out',
             text: 'Agent is logged out successfully.',
             icon: 'success',
-            showConfirmButton: false, 
-            timer: 2000, 
+            showConfirmButton: false,
+            timer: 2000,
             willClose: () => {
-                
+
                 window.location.href = "/Pages/LogIn.html";
             }
         });
@@ -417,13 +524,32 @@ function callAPI(url, method = 'POST', data = {}) {
             } else {
                 throw new Error(errorText || "API call failed");
             }
-        } else console.log("✅ API call successful.");
+        } else {
+
+        }
     }).catch(err => Swal.fire({ icon: 'warning', title: 'Oops...', text: err.message || "Something went wrong!" }));
 }
 
+function clearFeilds() {
+    $('#tab1').empty();
+    var newDiv = $('<div>', {
+        style: "background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"
+    });
+    $('#tab1').append(newDiv);
+
+    $('#tab3 > div > div:first').empty();
+    $('#remark').val('');
+    $('#callBackDateOutcome').val('');
+    $('#disposition').val('');
+    $('#subDisposition').val('');
+    $('#subSubDisposition').val('');
+
+    $('#tab3').find('input, select, textarea').css('border', '1px solid #ccc');
+}
 function makeCall() {
     const phone = document.getElementById("phoneInput").value.trim();
     if (!/^\d{10}$/.test(phone)) { alert("Phone number must be exactly 10 digits."); return; }
+    clearFeilds();
     callAPI("/api/Genesys/makecall", "POST", { phone });
 }
 
@@ -451,6 +577,7 @@ function sendTransfer(selectElement) {
     callAPI('/api/Genesys/transfer', 'POST', { route });
     setTimeout(() => selectElement.selectedIndex = 0, 300);
 }
+
 var dispo = [];
 
 function BindDispositionAndSubDispo() {
@@ -463,19 +590,19 @@ function BindDispositionAndSubDispo() {
     }
 
     $.ajax({
-
-        url: '/api/InfoPage/GetDispositions',
+        url: '/api/Genesys/GetDispositions',
         type: 'GET',
         data: { empCode: agentId },
         success: function (response) {
             const dispositions = response.dispositions || [];
             dispo = response;
+
+            console.log("Level Disposition : " + JSON.stringify(dispo));
             const dispositionSelect = $('#disposition');
             dispositionSelect.empty();
             dispositionSelect.append('<option value="">-- Select Disposition --</option>');
 
             dispositions.forEach(disposition => {
-                console.log(disposition.disP_TYPE);
                 dispositionSelect.append(
                     `<option value="${disposition.id}" data-disp-type="${disposition.disP_TYPE}">${disposition.name}</option>`
                 );
@@ -486,65 +613,102 @@ function BindDispositionAndSubDispo() {
         }
     });
 }
+
 function updateSubDisposition() {
     const dispoId = document.getElementById("disposition").value;
     const subDispoSelect = document.getElementById("subDisposition");
+    const subSubDispoDiv = document.getElementById("SubSubDispo");
+    const subSubDispoSelect = document.getElementById("subSubDisposition");
     const callBackDateDiv = document.getElementById("callBackDateDiv");
-    console.log(JSON.stringify(dispo));
 
     subDispoSelect.innerHTML = '<option value="">-- Select Sub Disposition --</option>';
+    subSubDispoSelect.innerHTML = '<option value="">-- Select Sub SubDisposition --</option>';
+    subSubDispoDiv.style.display = "none";
 
-    if (!callBackDateDiv) {
-        console.error("Call Back Date Div not found!");
-        return;
+
+    if (callBackDateDiv) {
+        callBackDateDiv.style.display = "none";
     }
 
-
-    callBackDateDiv.style.display = "none";
-
     if (dispoId) {
-
         const selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
         const dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
-
 
         const selectedDisposition = dispo.dispositions.find(d => d.id === parseInt(dispoId));
 
         if (selectedDisposition) {
             const subDispositions = selectedDisposition.subDispositions;
 
-            const uniqueSubDispositions = new Set(subDispositions.map(sub => JSON.stringify(sub)));
 
-            uniqueSubDispositions.forEach(sub => {
-                const subObj = JSON.parse(sub);
-                const option = document.createElement("option");
-                option.value = subObj.id;
-                option.textContent = subObj.name;
-                subDispoSelect.appendChild(option);
-            });
+            if (subDispositions && subDispositions.length > 0) {
+                subDispositions.forEach(sub => {
+                    const option = document.createElement("option");
+                    option.value = sub.id;
+                    option.textContent = sub.name;
+                    subDispoSelect.appendChild(option);
+                });
 
 
-            console.log("Disposition Type: " + dispType);
+                document.getElementById("SubDispositiondiv").style.display = "flex";
+            } else {
+
+                document.getElementById("SubDispositiondiv").style.display = "none";
+            }
+
 
             if (dispType === "PCB" || dispType === "CCB") {
-
-                callBackDateDiv.style.display = "flex";
+                if (callBackDateDiv) {
+                    callBackDateDiv.style.display = "flex";
+                }
             }
         }
     }
 }
-function toggleCallBackDateField() {
-    const dispoSelect = document.getElementById("disposition");
-    const selectedDisposition = dispoSelect.options[dispoSelect.selectedIndex];
-    const dispType = selectedDisposition ? selectedDisposition.getAttribute('data-disp-type') : '';
 
-    const callBackDateField = document.getElementById("callBackDateOutcome").parentElement;
-    if (dispType === "PCB" || dispType === "CCB") {
-        callBackDateField.style.display = "flex";
+function updateSubSubDisposition() {
+    const dispoId = document.getElementById("disposition").value;
+    const subDispoId = document.getElementById("subDisposition").value;
+    const subSubDispoDiv = document.getElementById("SubSubDispo");
+    const subSubDispoSelect = document.getElementById("subSubDisposition");
+
+    subSubDispoSelect.innerHTML = '<option value="">-- Select Sub SubDisposition --</option>';
+    subSubDispoDiv.style.display = "none";
+    if (dispoId && subDispoId) {
+
+        const selectedDisposition = dispo.dispositions.find(d => d.id === parseInt(dispoId));
+
+        if (!selectedDisposition) {
+            console.log("No matching disposition found.");
+            return;
+        }
+
+        const selectedSubDispo = selectedDisposition.subDispositions.find(sd => sd.id === parseInt(subDispoId));
+
+        if (!selectedSubDispo) {
+            console.log("No matching sub disposition found.");
+            return;
+        }
+
+
+        if (selectedSubDispo.subSubDispositions && selectedSubDispo.subSubDispositions.length > 0) {
+
+            selectedSubDispo.subSubDispositions.forEach(subSub => {
+                const option = document.createElement("option");
+                option.value = subSub.id;
+                option.textContent = subSub.name;
+                subSubDispoSelect.appendChild(option);
+            });
+
+            subSubDispoDiv.style.display = "flex";
+        } else {
+
+            subSubDispoDiv.style.display = "none";
+        }
     } else {
-        callBackDateField.style.display = "none";
+        console.log("Either disposition or sub disposition is not selected.");
     }
 }
+
 
 
 document.getElementById("disposition").addEventListener("change", function () {
@@ -616,10 +780,11 @@ function submitDisposition() {
     const manualFields = [
         { id: 'disposition', required: true },
         { id: 'subDisposition', required: true },
+        { id: 'subSubDisposition', required: true },
         { id: 'callBackDateOutcome', required: true },
         { id: 'remark', required: true }
     ];
-    
+
     manualFields.forEach(field => {
         const $el = $(`#${field.id}`);
 
@@ -638,7 +803,7 @@ function submitDisposition() {
         formData[field.id] = value;
     });
 
-  
+
     if (!isValid) {
         alert("Please fill required fields:\n\n" + validationMessage);
         return;
@@ -652,28 +817,18 @@ function submitDisposition() {
     formData[disptypeKey] = dispType;
 
     $.ajax({
-        url: '/api/Genesys/submit/', 
+        url: '/api/Genesys/submit/',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify(formData),
+        beforeSend: function () {
+
+            $('#loader').show();
+        },
         success: function (response) {
-          
-            $('#tab1').empty();
-            var newDiv = $('<div>', {
-                style: "background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"
-            });
-            $('#tab1').append(newDiv);
+            $('#loader').hide();
+            clearFeilds();
 
-            $('#tab3 > div > div:first').empty(); 
-            $('#remark').val('');
-            $('#callBackDateOutcome').val('');
-            $('#disposition').val('');
-            $('#subDisposition').val('');
-
-          
-            $('#tab3').find('input, select, textarea').css('border', '1px solid #ccc');
-
-      
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
@@ -681,7 +836,7 @@ function submitDisposition() {
                 confirmButtonColor: '#3085d6'
             });
             openTab({ currentTarget: document.querySelector('.nav-tab.active .nav-tab-text') }, 'tab1');
-            
+
         },
         error: function (error) {
             alert('Error submitting form.');

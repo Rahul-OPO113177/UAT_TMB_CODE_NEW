@@ -1567,22 +1567,22 @@
                     <div class="nav-tab inactive" style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab5')">Supervisor Data</span>
                     </div>
-                    <div class="nav-tab inactive"  style="display:none">
+                    <div class="nav-tab inactive" style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab6')">Email CRM</span>
                     </div>
                 </div>
 
 
                 <div id="tab1" class="tab-content" style="display:block;">
-                    
-                    <div  style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                      
+
+                    <div style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+
                     </div>
                 </div>
 
                 <div id="tab3" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                        
+
                         <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
 
 
@@ -1606,63 +1606,8 @@
                             Communication History
                         </h6>
 
-                        <div style="overflow-x:auto;">
-                            <table style="width:100%; border-collapse:collapse; font-size:13px;">
-                                <thead>
-                                    <tr style="background:#f1f1f1;">
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Type</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Date</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Time</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Disposition</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Sub Disposition</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Remark</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Call Back / Follow-up Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="communicationHistoryBody">
-
-                                    <!-- Call History Rows -->
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-17</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">14:30</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call Back</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Busy</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Will call after 2 days</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-19</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-19</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">17:30</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call Back</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Not reached</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Will call after 9 days</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-30</td>
-                                    </tr>
-
-                                    <!-- Email History Rows -->
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Email</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-18</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">10:00</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Sent</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Follow-up</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Sent product brochure</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Email</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-20</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">15:45</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Received</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Inquiry</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Client asked about pricing</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">-</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                        <div style="overflow-x:auto;" id="historyContainer">
+                           
                         </div>
                     </div>
                 </div>
@@ -1809,6 +1754,15 @@
 
 
         </div>
+        <div id="loader" style="display:none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;">
+            <img src="../img/Loading_2.gif" alt="Loading..."
+                 style="width: 100px; height: 100px;" />
+        </div>
 
         <div class="action-btn-group-vertical">
 
@@ -1949,7 +1903,7 @@
                 </div>
 
 
-               
+
             </div>
 
 
@@ -2061,16 +2015,16 @@
             const realmsg = document.getElementById('messageInput').value;
             const notice = document.getElementById('ageNotice');
             const replyInput = document.getElementById('replyInput');
-
+          
+            
             if (!email || !realmsg) {
                 alert("Please fill Email and Message first.");
                 return;
             }
 
             try {
-                // Start spinning animation
+          
                 svgIcon.classList.add('spinning');
-
                 const res = await fetch('/api/Omni/send', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -2078,10 +2032,7 @@
                 });
 
                 const data = await res.json();
-
-                replyInput.value = stripHtml(data.response || "No response");
-
-                // Show temporary notice
+                replyInput.value = stripHtml(data.response || "No response");  
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
@@ -2089,7 +2040,6 @@
                 console.error(err);
                 alert("Error processing reply.");
             } finally {
-                // Stop spinning animation
                 svgIcon.classList.remove('spinning');
             }
         }
@@ -2112,7 +2062,53 @@
                 alert("Reply is empty.");
                 return;
             }
-            showToast("Mail sent successfully!");
+
+
+            const email = document.getElementById('emailInput').value;
+            const subject = document.getElementById('messageInput').value;
+            const reply = document.getElementById('replyInput').value;
+            const phoneInput = document.getElementById('phoneInput').value;
+            if (!email || !subject || !reply) {
+                alert("Please fill all the fields.");
+                return;
+            }
+
+
+            const requestData = {
+                email: email,
+                subject: subject,
+                reply: reply,
+                phoneInput: phoneInput
+            };
+
+            fetch('/api/Genesys/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return Promise.reject('Call is not connected');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    showToast("Mail sent successfully!");
+                })
+                .catch(error => {
+                 
+                    console.error('Error:', error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Call is not connected.',
+                    });
+                });
+
+           
          
         }
         function showToast(message) {
@@ -2120,7 +2116,6 @@
             toast.textContent = message;
             toast.classList.add("show");
 
-            // Hide the toast after 3 seconds
             setTimeout(() => {
                 toast.classList.remove("show");
             }, 3000);

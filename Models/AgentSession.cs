@@ -38,6 +38,8 @@ namespace ServerCRM.Models
         public bool isMarge { get; set; }
         public bool isConforence { get; set; }
         public int CurrentStatusID { get; set; }
+        public int IsRedial { get; set; }
+
         public int IsAutoWrap { get; set; }
         public int AutoWrapTime { get; set; }
         public  string? DialAccess { get; set; }

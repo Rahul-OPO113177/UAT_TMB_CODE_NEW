@@ -14,7 +14,7 @@ namespace ServerCRM.Services
     {
         private readonly static string connectionString = "Data Source=20.20.20.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
 
-        public static void InsertHistory(Dictionary<string, object> data, string opoId,string processName, DateTime? startTime,DateTime? endTime,string disType,string recordingPath,string campaignPhone,string myCode, string finishCode , string connID , string BatchID , string campaignName)
+        public static void InsertHistory(Dictionary<string, object> data, string opoId, string processName, DateTime? startTime, DateTime? endTime, string disType, string recordingPath, string campaignPhone, string myCode, string finishCode, string connID, string BatchID, string campaignName)
         {
             try
             {
@@ -53,7 +53,7 @@ namespace ServerCRM.Services
                         cmd.Parameters.AddWithValue("p_Phone", campaignPhone);
                         cmd.Parameters.AddWithValue("p_ConnectTime", startTime ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_DisconnectTime", endTime ?? (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("p_DisposeTime", endTime ?? (object)DBNull.Value); 
+                        cmd.Parameters.AddWithValue("p_DisposeTime", endTime ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_Connid", connID);
                         cmd.Parameters.AddWithValue("p_AgentID", opoId);
                         cmd.Parameters.AddWithValue("p_DispoCode", data.ContainsKey("disposition") ? data["disposition"]?.ToString()?.Trim() : (object)DBNull.Value);
@@ -69,13 +69,14 @@ namespace ServerCRM.Services
                         cmd.Parameters.AddWithValue("p_callbacktime", data.ContainsKey("callbacktime") && DateTime.TryParse(data["callbacktime"]?.ToString(), out DateTime cbTime) ? cbTime : (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_DisconnectType", pcb ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_RecPath", recordingPath ?? (object)DBNull.Value);
-                       
+
                         cmd.ExecuteNonQuery();
                     }
                     var keysToExclude = new HashSet<string>
                     {
                         "disposition",
                         "subDisposition",
+                         "subSubDisposition",
                         "callBackDateOutcome",
                         "remark",
                         "dispTypeKey"
@@ -90,11 +91,9 @@ namespace ServerCRM.Services
                         return;
                     }
 
-            
+
                     var setClauses = string.Join(", ", filteredData.Keys.Select(k => $"{k} = @{k}"));
-
                     string sql = $"UPDATE History SET {setClauses} WHERE Connid = @ConnID";
-
                     using (var connection = new MySqlConnection(ConnectionStringProcess))
                     {
                         connection.Open();
@@ -112,21 +111,21 @@ namespace ServerCRM.Services
 
                                 command.Parameters.AddWithValue("@" + kvp.Key, value ?? DBNull.Value);
                             }
-
-
                             command.Parameters.AddWithValue("@ConnID", connID);
                             int rowsAffected = command.ExecuteNonQuery();
                             Console.WriteLine($"{rowsAffected} row(s) updated.");
                         }
                     }
-
                 }
             }
             catch (Exception ex)
             {
 
-            }    
+            }
         }
+
+
+
         private static object ConvertJsonElement(JsonElement element)
         {
             switch (element.ValueKind)
@@ -142,7 +141,7 @@ namespace ServerCRM.Services
                         return longValue;
                     if (element.TryGetDecimal(out var decimalValue))
                         return decimalValue;
-                    return element.GetDouble(); // fallback
+                    return element.GetDouble();
                 case JsonValueKind.True:
                 case JsonValueKind.False:
                     return element.GetBoolean();
@@ -150,60 +149,104 @@ namespace ServerCRM.Services
                 case JsonValueKind.Undefined:
                     return DBNull.Value;
                 default:
-                    return element.ToString(); // fallback to string
+                    return element.ToString();
             }
         }
-        public static List<Disposition> GetDispositionsAsync(string empCode)
+        public static List<Disposition> GetDispositionsAsync(string Proces , string empCode)
         {
-            string connectionString = InfoPageFeilds.getConnectionstring("CBM");
+            string connectionString = InfoPageFeilds.getConnectionstring(Proces);
             List<Disposition> dispositions = new List<Disposition>();
-
             try
             {
                 using (var conn = new MySqlConnection(connectionString))
                 {
-                     conn.Open(); 
-
+                    conn.Open();
                     using (var cmd = new MySqlCommand("GetDispositions", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@empCode", empCode);
 
-                        using (var reader =  cmd.ExecuteReader()) 
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            Disposition currentDisposition = null;
-                            while ( reader.Read()) 
+                            var schemaTable = reader.GetSchemaTable();
+                            Dictionary<int, Disposition> dispositionMap = new Dictionary<int, Disposition>();
+
+                            while (reader.Read())
                             {
-                                string dispositionCode = reader.GetString("DispositionCode");
-
-                                if (currentDisposition == null || currentDisposition.Id != Convert.ToInt32(dispositionCode))
+                                int dispositionId = Convert.ToInt32(reader["DispositionCode"]);
+                                if (!dispositionMap.TryGetValue(dispositionId, out var disposition))
                                 {
-                                    if (currentDisposition != null)
+                                    disposition = new Disposition
                                     {
-                                        dispositions.Add(currentDisposition);
-                                    }
-
-                                    currentDisposition = new Disposition
-                                    {
-                                        Id = Convert.ToInt32(dispositionCode),
-                                        Name = reader.GetString("Disposition"),
-                                        DISP_TYPE = reader.GetString("DISP_TYPE"),
+                                        Id = dispositionId,
+                                        Name = reader["Disposition"].ToString(),
+                                        DISP_TYPE = reader["DISP_TYPE"].ToString(),
                                         SubDispositions = new List<SubDisposition>()
                                     };
+                                    dispositionMap[dispositionId] = disposition;
                                 }
 
-                                var subDisposition = new SubDisposition
-                                {
-                                    Id = Convert.ToInt32(reader.GetString("SubDispositionCode")),
-                                    Name = reader.GetString("SubDisposition")
-                                };
+                                int subDispositionId = 0;
+                                bool hasSubDispositionCode = false;
 
-                                currentDisposition.SubDispositions.Add(subDisposition);
+                                if (reader.GetSchemaTable().AsEnumerable().Any(row => row["ColumnName"].ToString() == "SubDispositionCode"))
+                                {
+                                    hasSubDispositionCode = true;
+                                    if (!reader.IsDBNull(reader.GetOrdinal("SubDispositionCode")))
+                                    {
+                                        subDispositionId = Convert.ToInt32(reader["SubDispositionCode"]);
+                                    }
+                                }
+
+                                if (hasSubDispositionCode && subDispositionId != 0)
+                                {
+                                    var subDisposition = disposition.SubDispositions
+                                        .FirstOrDefault(sd => sd.Id == subDispositionId);
+
+                                    if (subDisposition == null)
+                                    {
+                                        subDisposition = new SubDisposition
+                                        {
+                                            Id = subDispositionId,
+                                            Name = reader["SubDisposition"]?.ToString(),
+                                            SubSubDispositions = new List<SubSubDisposition>()
+                                        };
+                                        disposition.SubDispositions.Add(subDisposition);
+                                    }
+
+
+                                    bool hasSubSubDisposition = schemaTable.AsEnumerable().Any(row => row["ColumnName"].ToString() == "SubSubDisposition");
+                                    bool hasSubSubDispositionCode = schemaTable.AsEnumerable().Any(row => row["ColumnName"].ToString() == "SubSubDispositionCode");
+
+                                    string subSubDispositionValue = null;
+                                    string subSubDispositionCodeStr = null;
+
+                                    if (hasSubSubDisposition)
+                                    {
+                                        subSubDispositionValue = reader["SubSubDisposition"]?.ToString();
+                                    }
+
+                                    if (hasSubSubDispositionCode)
+                                    {
+                                        subSubDispositionCodeStr = reader["SubSubDispositionCode"]?.ToString();
+                                    }
+
+                                    if (!string.IsNullOrWhiteSpace(subSubDispositionValue) &&
+                                        int.TryParse(subSubDispositionCodeStr, out int subSubDispositionId))
+                                    {
+                                        if (!subDisposition.SubSubDispositions.Any(ssd => ssd.Id == subSubDispositionId))
+                                        {
+                                            subDisposition.SubSubDispositions.Add(new SubSubDisposition
+                                            {
+                                                Id = subSubDispositionId,
+                                                Name = subSubDispositionValue
+                                            });
+                                        }
+                                    }
+                                }
                             }
-                            if (currentDisposition != null)
-                            {
-                                dispositions.Add(currentDisposition);
-                            }
+
+                            dispositions = dispositionMap.Values.ToList();
                         }
                     }
                 }
@@ -217,14 +260,16 @@ namespace ServerCRM.Services
         }
 
 
-        public static string GetInfoPageFeilds(string Process, string MyCode)
+
+
+        public static string GetInfoPageFeildsnew(string Process, string MyCode)
         {
             List<FieldData> fieldDataList = new List<FieldData>();
 
             try
             {
-               
-                string mainConnectionString = connectionString; 
+
+                string mainConnectionString = connectionString;
                 using (MySqlConnection conn = new MySqlConnection(mainConnectionString))
                 {
                     conn.Open();
@@ -265,7 +310,7 @@ namespace ServerCRM.Services
                     }
                 }
 
-            
+
                 var displayFields = fieldDataList
                     .Where(f => f.CapturableField == "Display" && !string.IsNullOrWhiteSpace(f.FieldName))
                     .ToList();
@@ -274,7 +319,7 @@ namespace ServerCRM.Services
                 {
                     var columnNames = displayFields.Select(f => f.FieldName).Distinct().ToList();
 
-              
+
                     string columnList = string.Join(",", columnNames.Select(c => $"`{c}`"));
                     string inputMasterConnectionString = InfoPageFeilds.getConnectionstring(Process);
 
@@ -282,7 +327,7 @@ namespace ServerCRM.Services
 
                     Dictionary<string, string> columnValues = new Dictionary<string, string>();
 
-                
+
                     using (MySqlConnection conn2 = new MySqlConnection(inputMasterConnectionString))
                     {
                         conn2.Open();
@@ -313,27 +358,27 @@ namespace ServerCRM.Services
                     }
                 }
 
-                
+
                 var sortedFields = fieldDataList
                     .OrderBy(f =>
                     {
                         if (int.TryParse(f.SequenceWisefield, out int seq))
                             return seq;
-                        return int.MaxValue; 
+                        return int.MaxValue;
                     })
                     .ToList();
 
-              
+
                 return JsonConvert.SerializeObject(sortedFields);
             }
             catch (Exception ex)
             {
-              
+
                 return JsonConvert.SerializeObject(new { error = "Failed to fetch data", details = ex.Message });
             }
         }
 
-        
+
 
         public static string getConnectionstring(string Process)
         {
@@ -375,7 +420,7 @@ namespace ServerCRM.Services
         }
         public static List<SelectListItem> GetDependentData(string sourceTableName, string Process)
         {
-            
+
             List<SelectListItem> droplist = new List<SelectListItem>();
 
             string str = InfoPageFeilds.getConnectionstring(Process);
@@ -391,14 +436,14 @@ namespace ServerCRM.Services
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                   
+
                         var columnNames = Enumerable.Range(0, reader.FieldCount)
                                                     .Select(i => reader.GetName(i))
                                                     .ToList();
 
                         while (reader.Read())
                         {
-                          
+
                             if (columnNames.Contains("Name") && reader["Name"] != DBNull.Value)
                             {
                                 droplist.Add(new SelectListItem
@@ -407,7 +452,7 @@ namespace ServerCRM.Services
                                     Text = reader["Name"].ToString()
                                 });
                             }
-                           
+
                             else if (columnNames.Contains("Value") && columnNames.Contains("Text") &&
                                      reader["Value"] != DBNull.Value && reader["Text"] != DBNull.Value)
                             {
@@ -474,6 +519,96 @@ namespace ServerCRM.Services
 
             return selectQuery;
         }
+
+        public static bool InsertEmailHistory(string email, string subject, string reply, string phoneNumber , string connid , string EmpCode , string processName)
+        {
+            try
+            {
+                string ConnectionStringProcess = InfoPageFeilds.getConnectionstring(processName);
+                using (MySqlConnection conn = new MySqlConnection(ConnectionStringProcess))
+                {
+                    conn.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("InsertEmailHistory", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_Email", email);
+                        cmd.Parameters.AddWithValue("p_Subject", subject);
+                        cmd.Parameters.AddWithValue("p_Reply", reply);
+                        cmd.Parameters.AddWithValue("p_PhoneNumber", phoneNumber);
+                        cmd.Parameters.AddWithValue("p_connid", connid);
+                        cmd.Parameters.AddWithValue("p_EmpCode", EmpCode);
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        return rowsAffected > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error inserting email log: " + ex.Message);
+                return false;
+            }
+        }
+
+        public static string GetHistoryDataByPhoneNumber(string phoneNumber , string processName)
+        {
+           try
+            {
+                string phone = phoneNumber.Substring(phoneNumber.Length - 10);
+
+                string ConnectionStringProcess = InfoPageFeilds.getConnectionstring(processName);
+                string storedProcedure = "GetHistoryDataByPhoneNumber";
+                List<HistoryData> results = new List<HistoryData>();
+                using (MySqlConnection connection = new MySqlConnection(ConnectionStringProcess))
+                {
+                    try
+                    {
+
+                        connection.Open();
+                        using (MySqlCommand cmd = new MySqlCommand(storedProcedure, connection))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@inputPhoneNumber", phone);
+                            using (MySqlDataReader reader = cmd.ExecuteReader())
+                            {
+
+                                while (reader.Read())
+                                {
+                                    var data = new HistoryData
+                                    {
+                                        Type = reader["Type"].ToString(),
+                                        Date = reader["Date"].ToString(),
+                                        Time = reader["Time"].ToString(),
+                                        Disposition = reader["Disposition"].ToString(),
+                                        SubDisposition = reader["SubDisposition"].ToString(),
+                                        REMARKS = reader["REMARKS"].ToString(),
+                                        callbacktime = reader["callbacktime"].ToString()
+                                    };
+
+                                    results.Add(data);
+                                }
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Return error message in case of failure
+                        return JsonConvert.SerializeObject(new { error = ex.Message });
+                    }
+                }
+
+                // Serialize the list of results to JSON and return it
+                return JsonConvert.SerializeObject(results);
+            }
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
+            
+        }
+
 
     }
 }

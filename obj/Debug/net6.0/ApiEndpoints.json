@@ -277,6 +277,22 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "GetDispositions",
+    "RelativePath": "api/Genesys/GetDispositions",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "empCode",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
     "Method": "GetNext",
     "RelativePath": "api/Genesys/GetNext",
     "HttpMethod": "POST",
@@ -353,6 +369,22 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "SendEmail",
+    "RelativePath": "api/Genesys/send-email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "data",
+        "Type": "ServerCRM.Models.Omni.EmailData",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
     "Method": "GetAgentStatus",
     "RelativePath": "api/Genesys/status",
     "HttpMethod": "POST",
@@ -411,22 +443,6 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.InfoPageController",
-    "Method": "GetDisplayFields",
-    "RelativePath": "api/InfoPage/displayfields/{processName}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "processName",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerCRM.Controllers.InfoPageController",
     "Method": "GetDispositions",
     "RelativePath": "api/InfoPage/GetDispositions",
     "HttpMethod": "GET",
@@ -437,58 +453,6 @@
         "Name": "empCode",
         "Type": "System.String",
         "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerCRM.Controllers.InfoPageController",
-    "Method": "GetHistory",
-    "RelativePath": "api/InfoPage/history",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerCRM.Controllers.InfoPageController",
-    "Method": "GetProcesses",
-    "RelativePath": "api/InfoPage/processes",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerCRM.Controllers.InfoPageController",
-    "Method": "GetProcess",
-    "RelativePath": "api/InfoPage/ProcessName",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "ServerCRM.Models.Freeswitch.AgentStatusDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerCRM.Controllers.InfoPageController",
-    "Method": "GetSubDispositions",
-    "RelativePath": "api/InfoPage/subdispositions/{disposition}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "disposition",
-        "Type": "System.String",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []

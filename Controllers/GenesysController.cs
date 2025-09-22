@@ -2,9 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using ServerCRM.Models;
 using ServerCRM.Models.CTI;
+using ServerCRM.Models.InfoPage;
 using ServerCRM.Models.LogIn;
+using ServerCRM.Models.Omni;
 using ServerCRM.Services;
 using System.DirectoryServices.AccountManagement;
+using System.Net.Mail;
+using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
@@ -63,6 +67,18 @@ namespace ServerCRM.Controllers
 
         }
 
+        [HttpGet("GetDispositions")]
+        public IActionResult GetDispositions([FromQuery] string empCode)
+        {
+            if (string.IsNullOrEmpty(empCode))
+            {
+                return BadRequest("empCode is required.");
+            }
+            List<Disposition> dispositions =  CTIConnectionManager.Disposition(empCode);
+
+
+            return Ok(new { dispositions });
+        }
         [HttpPost("makecall")]
         public async Task<IActionResult> MakeCall([FromBody] CallRequest request)
         {
@@ -263,16 +279,65 @@ namespace ServerCRM.Controllers
         [HttpPost("submit")]
         public IActionResult SubmitDisposition([FromBody] Dictionary<string, object> data)
         {
-            foreach (var item in data)
-            {
-                string key = item.Key;
-                string value = item.Value?.ToString();
-
-                Console.WriteLine($"{key} => {value}");
-            }
             string login_code = HttpContext.Session.GetString("login_code");
-            CTIConnectionManager.savedata(data , login_code);
+            CTIConnectionManager.savedata(data, login_code);
             return Ok(new { success = true, message = "Data received!" });
         }
+
+
+        [HttpPost("send-email")]
+        public IActionResult SendEmail([FromBody] EmailData data)
+        {
+            if (data == null)
+            {
+                return BadRequest(new { message = "Invalid data" });
+            }
+
+            try
+            {
+                string smtpHost = "mail.1point1.in";
+                int smtpPort = 587;
+                string smtpUser = "airline.demo@1point1.in";
+                string smtpPassword = "Info@1234";       
+                string login_code = HttpContext.Session.GetString("login_code");
+                 bool massage= CTIConnectionManager.SendEmailTocoustomer(data , login_code);
+                if(massage==true)
+                {
+                    SmtpClient smtpClient = new SmtpClient(smtpHost)
+                    {
+                        Port = smtpPort,
+                        Credentials = new NetworkCredential(smtpUser, smtpPassword),
+                        EnableSsl = true
+                    };
+
+                    MailMessage mailMessage = new MailMessage
+                    {
+                        From = new MailAddress(smtpUser),
+                        Subject = data.Subject,
+                        Body = data.Reply,
+                        IsBodyHtml = true
+                    };
+
+                    mailMessage.To.Add(data.Email);
+
+                    smtpClient.Send(mailMessage);
+                    return Ok(new { message = "Email sent successfully!" });
+                   
+                }
+                else
+                {
+                    return BadRequest();
+                }
+             
+            }
+            catch (Exception ex)
+            {
+                return BadRequest();
+                Console.WriteLine("Error sending email: " + ex.Message);
+            }
+
+            return Ok(new { message = "Email sent successfully!" });
+        }
+
     }
 }
