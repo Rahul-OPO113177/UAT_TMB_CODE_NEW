@@ -360,7 +360,7 @@ namespace ServerCRM.Services
                                 {
                                     session.isOnCall = false;
                                     session.isConforence = false;
-                                    session.ConnID = null;
+                                    
                                     session.partyFirstPhone = null;
                                     CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.partyFirstPhone);
                                     AgentStatusMapper.UpdateAgentStatus(4, session, hubContext);
@@ -1340,7 +1340,7 @@ namespace ServerCRM.Services
                         }
                         else
                         {
-                            session.ConnID = null;
+                          
                             session.IVRConnID = null;
                             session.isConforence = false;
                             session.isOnCall = false;
@@ -1371,7 +1371,7 @@ namespace ServerCRM.Services
                     }
                     else
                     {
-                        session.ConnID = null;
+                        
                         session.IVRConnID = null;
                         session.isConforence = false;
                         session.isOnCall = false;
@@ -1392,69 +1392,34 @@ namespace ServerCRM.Services
 
             return "";
         }
-        public static string savedata(string message , string AgentID)
+       
+        public static string savedata(Dictionary<string, object> message , string AgentID)
         {
+
+            string disposition = message.ContainsKey("disposition") ? message["disposition"]?.ToString()?.Trim() : null;
+            string subDisposition = message.ContainsKey("subDisposition") ? message["subDisposition"]?.ToString()?.Trim() : null;
+            string callBackDateOutcome = message.ContainsKey("callBackDateOutcome") ? message["callBackDateOutcome"]?.ToString()?.Trim() : null;
+            string remark = message.ContainsKey("remark") ? message["remark"]?.ToString()?.Trim() : null;
+            string pcb = message.ContainsKey("disptypeKey") ? message["disptypeKey"]?.ToString()?.Trim() : null;
+
             string responce = "";
-              int dispose_code=0;
-            int subdispose_code=0;
+              int dispose_code= Convert.ToInt32( disposition);
+            int subdispose_code= Convert.ToInt32(subDisposition);
+            string CBdatetime = callBackDateOutcome;
             AgentSession session = GetAgentSession(AgentID);
-            if (message == "check Agent status")
-            {
-                if (session.CurrentStatusID == 4 || session.CurrentStatusID == 1)
-                {
-                    if (session.PCBMyCode == session.MyCode)
-                    {
-                        return ("starttime=" + session.StartTime + ",endtime=" + session.EndTime + ",DisconnectType=" + session.distype + ",RecPath=" + session.RecordingPath + ",CampaignName=" + session.CampaignName);
-
-                    }
-                    else
-                    {
-                        return ("starttime=" + session.StartTime + ",endtime=" + session.EndTime + ",DisconnectType=" + session.distype + ",RecPath=" + session.RecordingPath + ",CampaignName=" + session.CampaignName);
-
-                    }
-                }
-                else
-                {
-                    return ("Please disconnect the call");
-                }
-            }
-            else
-            {
+            session.finishCode = pcb;
 
                 try
                 {
 
-                    string CBdatetime = "";
+                    
 
-                    string[] result = new string[5];
-                    result = message.Split(',');
-                    for (int i = 0; i < result.Length; i++)
-                    {
-                        string[] disp = new string[2];
-                        disp = result[i].ToString().Split(':');
-                        if (disp[0].ToString().ToUpper() == "DISPOSITION")
-                        {
-                            dispose_code = Convert.ToInt16(disp[1].ToString());
-                        }
-                        if (disp[0].ToString().ToUpper() == "SUBDISPOSITION")
-                        {
-                            subdispose_code = Convert.ToInt16(disp[1].ToString());
-                        }
-                        if (disp[0].ToString().ToUpper() == "CBTYPE")
-                        {
-                                session.finishCode = disp[1].ToString();
-                        }
-                        if (disp[0].ToString().ToUpper() == "CBTIME")
-                        {
-                            if (disp.Length > 2)
-                            {
-                                CBdatetime = disp[1].ToString() + ":" + disp[2].ToString();
-                            }
-                        }
+                
+                InfoPageFeilds.InsertHistory(message ,  session.OPOID , session.ProcessName , Convert.ToDateTime( session.StartTime) , Convert.ToDateTime( session.EndTime ), session.distype , session.RecordingPath , session.CampaignPhone , session.MyCode.ToString() , session.finishCode , Convert.ToString( session.ConnID) , "" , session.CampaignName);
 
-                    }
-                   responce=  CTIConnectionManager.DisposeCall(AgentID , dispose_code, subdispose_code, CBdatetime);
+                responce = CTIConnectionManager.DisposeCall(AgentID, dispose_code, subdispose_code, CBdatetime);
 
+                session.ConnID = null;
                     if (session.isbreak == false && session.CurrentStatusID == 4 )
                     {
                     }
@@ -1486,7 +1451,7 @@ namespace ServerCRM.Services
                 return responce;
             }
 
-        }
+     
         public static string DisposeCall(string logincode, int dispo, int sub_dispo, string cbtime)
         {
 
@@ -1641,7 +1606,7 @@ namespace ServerCRM.Services
 
                 using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
                 {
-                    json = "{\"Phonenumber\":\"" + session.CampaignPhone.ToString() + "\",\"DialTime\":\"" + session.StartTime.ToString() + "\",\"ConnectTime\":\"" + session.StartTime.ToString() + "\",\"DisconnectTime\":\"" + session.EndTime.ToString() + "\",\"DisconnectType\":\"" + session.distype.ToString() + "\",\"AgentID\":\"" + session.OPOID.ToString() + "\",\"Process\":\"" + session.ProcessName.ToString() + "\",\"Location\":\"" + session.Location.ToString() + "\",\"TconnID\":\"" + session.ConnID.ToString() + "\",\"CampaignName\":\"" + session.CampaignName.ToString() + "\",\"CampaignMode\":\"" + session.CampaignMode.ToString()+ "\",\"agentgroup\":\"" + session.AgentGroup.ToString() + "\",\"VoiceFilePath\":\"" + session.RecordingPath.Replace("\\", "/") + "\",\"Mycode\":\"" + session.MyCode.ToString() + "\"}";
+                    json = "{\"Phonenumber\":\"" + session.CampaignPhone.ToString() + "\",\"DialTime\":\"" + session.StartTime.ToString() + "\",\"ConnectTime\":\"" + session.StartTime.ToString() + "\",\"DisconnectTime\":\"" + session.EndTime.ToString() + "\",\"DisconnectType\":\"" + session.distype.ToString() + "\",\"AgentID\":\"" + session.OPOID.ToString() + "\",\"Process\":\"" + session.ProcessName.ToString() + "\",\"Location\":\"" + session.Location.ToString() + "\",\"TconnID\":\"" + Convert.ToString(session.ConnID) + "\",\"CampaignName\":\"" + session.CampaignName.ToString() + "\",\"CampaignMode\":\"" + session.CampaignMode.ToString()+ "\",\"agentgroup\":\"" + Convert.ToString( session.AgentGroup )+ "\",\"VoiceFilePath\":\"" + session.RecordingPath.Replace("\\", "/") + "\",\"Mycode\":\"" + session.MyCode.ToString() + "\"}";
 
                     streamWriter.Write(json);
                 }
@@ -2043,9 +2008,9 @@ namespace ServerCRM.Services
         {
             string str3 = $"Record Saved Successfully...,Disposition:{0},SubDisposition:{0},CBTime:{""},CBType:GEN";
         
-            var status = CTIConnectionManager.savedata(str3, loginCode);
+            //var status = CTIConnectionManager.savedata(str3, loginCode);
 
-            CTIConnectionManager.HubContext.Clients.Group(loginCode).SendAsync("AutoWrap", status);
+            //CTIConnectionManager.HubContext.Clients.Group(loginCode).SendAsync("AutoWrap", status);
         }
 
     }

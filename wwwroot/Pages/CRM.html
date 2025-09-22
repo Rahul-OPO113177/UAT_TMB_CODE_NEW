@@ -8,8 +8,8 @@
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #f0f0f0; /* Light gray background */
-            color: #555555; /* Medium dark gray text */
+            background-color: #f0f0f0; 
+            color: #555555; 
             text-align: center;
             border-radius: 6px;
             padding: 14px 20px;
@@ -21,12 +21,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
-            border: 1px solid #ddd; /* subtle border */
+            border: 1px solid #ddd; 
             font-weight: 500;
         }
 
 
-            /* Show the toast */
+        
             #toast.show {
                 visibility: visible;
                 opacity: 1;
@@ -48,7 +48,7 @@
 
         #emailResponse {
             flex: 1;
-            overflow-y: auto; /* vertical scroll */
+            overflow-y: auto;
             padding-right: 5px;
         }
 
@@ -1574,61 +1574,22 @@
 
 
                 <div id="tab1" class="tab-content" style="display:block;">
-                    <div style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                        <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
-                            <i class="fa-solid fa-clipboard-list" style="margin-right:6px; color:#007bff;"></i>
-                            Customer Info
-                        </h6>
-
+                    
+                    <div  style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                      
                     </div>
                 </div>
 
                 <div id="tab3" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                        <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
-                            <i class="fa-solid fa-note-sticky" style="margin-right:6px; color:#007bff;"></i>
-                            Call Outcome Fields
-                        </h6>
+                        
                         <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
 
-
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition</label>
-                                <select id="disposition" onchange="updateSubDisposition()"
-                                        style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                                    <option value="">-- Select Disposition --</option>
-
-                                </select>
-                            </div>
-
-
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition</label>
-                                <select id="subDisposition"
-                                        style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                                    <option value="">-- Select Sub Disposition --</option>
-                                </select>
-                            </div>
-
-
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark</label>
-                                <input id="remark" type="text" placeholder="Enter Remark"
-                                       style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                            </div>
-                            <div id="callBackDateDiv" style="display: none; flex-direction: column; flex: 1 1 200px;">
-                                <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
-                                    Call Back Date
-                                </label>
-                                <input id="callBackDateOutcome" type="date"
-                                       style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"
-                                       min="" onchange="validateDate()">
-                            </div>
 
 
                         </div>
 
-                        <div style="margin-top:15px;">
+                        <div style="display: flex; justify-content: flex-end; margin-top:15px;">
                             <button onclick="submitDisposition()"
                                     style="padding:6px 14px; font-size:13px; border:none; border-radius:4px; background:#007bff; color:#fff; cursor:pointer; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.2);">
                                 <i class="fa-solid fa-paper-plane" style="margin-right:5px;"></i> Submit

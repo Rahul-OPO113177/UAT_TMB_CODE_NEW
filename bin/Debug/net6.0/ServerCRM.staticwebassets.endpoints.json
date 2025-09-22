@@ -3,7 +3,7 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Pages/CRM.4xqa09lloc.html",
+      "Route": "Pages/CRM.bvb2qvmjo8.html",
       "AssetFile": "Pages/CRM.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "94012"
+          "Value": "91021"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis=\""
+          "Value": "\"aQE4pIqwJtf88XMqOZz2grq3l761hZvwU4XGSLhEzVw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 19 Sep 2025 13:17:50 GMT"
+          "Value": "Sat, 20 Sep 2025 08:39:38 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4xqa09lloc"
+          "Value": "bvb2qvmjo8"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis="
+          "Value": "sha256-aQE4pIqwJtf88XMqOZz2grq3l761hZvwU4XGSLhEzVw="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "94012"
+          "Value": "91021"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis=\""
+          "Value": "\"aQE4pIqwJtf88XMqOZz2grq3l761hZvwU4XGSLhEzVw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 19 Sep 2025 13:17:50 GMT"
+          "Value": "Sat, 20 Sep 2025 08:39:38 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-OAXpGKibbzKJ2XpNwPP7P19knoS4y6EH0AneCAhTAis="
+          "Value": "sha256-aQE4pIqwJtf88XMqOZz2grq3l761hZvwU4XGSLhEzVw="
         }
       ]
     },
@@ -521,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 19 Sep 2025 13:21:13 GMT"
+          "Value": "Sat, 20 Sep 2025 09:00:06 GMT"
         }
       ],
       "EndpointProperties": [
@@ -566,7 +566,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 19 Sep 2025 13:21:13 GMT"
+          "Value": "Sat, 20 Sep 2025 09:00:06 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1069,7 +1069,7 @@
       ]
     },
     {
-      "Route": "js/Genesys/Genesys.0gyz87q0jb.js",
+      "Route": "js/Genesys/Genesys.6yjdq1e9xg.js",
       "AssetFile": "js/Genesys/Genesys.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1083,7 +1083,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21237"
+          "Value": "27941"
         },
         {
           "Name": "Content-Type",
@@ -1091,21 +1091,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4=\""
+          "Value": "\"PsSyYqiQMUtWrubTeVrvPAh/VVKjr5sztMJUWEhtQwM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 19 Sep 2025 13:19:54 GMT"
+          "Value": "Sat, 20 Sep 2025 08:59:23 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0gyz87q0jb"
+          "Value": "6yjdq1e9xg"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4="
+          "Value": "sha256-PsSyYqiQMUtWrubTeVrvPAh/VVKjr5sztMJUWEhtQwM="
         },
         {
           "Name": "label",
@@ -1128,7 +1128,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21237"
+          "Value": "27941"
         },
         {
           "Name": "Content-Type",
@@ -1136,17 +1136,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4=\""
+          "Value": "\"PsSyYqiQMUtWrubTeVrvPAh/VVKjr5sztMJUWEhtQwM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 19 Sep 2025 13:19:54 GMT"
+          "Value": "Sat, 20 Sep 2025 08:59:23 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4ELY4k0MzqXPs86v/Et8HNoo445YRdC8on+hwFwsQs4="
+          "Value": "sha256-PsSyYqiQMUtWrubTeVrvPAh/VVKjr5sztMJUWEhtQwM="
         }
       ]
     },

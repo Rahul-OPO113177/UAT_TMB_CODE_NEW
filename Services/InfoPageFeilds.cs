@@ -1,16 +1,158 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using MySqlConnector;
 using Newtonsoft.Json;
+using ServerCRM.Models;
 using ServerCRM.Models.InfoPage;
 using System.Data;
 using System.Diagnostics;
 using System.Reflection.Emit;
+using System.Text.Json;
 
 namespace ServerCRM.Services
 {
     public static class InfoPageFeilds
     {
         private readonly static string connectionString = "Data Source=20.20.20.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
+
+        public static void InsertHistory(Dictionary<string, object> data, string opoId,string processName, DateTime? startTime,DateTime? endTime,string disType,string recordingPath,string campaignPhone,string myCode, string finishCode , string connID , string BatchID , string campaignName)
+        {
+            try
+            {
+                string disposition = data.ContainsKey("disposition") ? data["disposition"]?.ToString()?.Trim() : null;
+                string subDisposition = data.ContainsKey("subDisposition") ? data["subDisposition"]?.ToString()?.Trim() : null;
+                string callBackDateOutcome = data.ContainsKey("callBackDateOutcome") ? data["callBackDateOutcome"]?.ToString()?.Trim() : null;
+                string remark = data.ContainsKey("remark") ? data["remark"]?.ToString()?.Trim() : null;
+                string pcb = data.ContainsKey("dispTypeKey") ? data["dispTypeKey"]?.ToString()?.Trim() : null;
+                string ConnectionStringProcess = InfoPageFeilds.getConnectionstring(processName);
+                using (MySqlConnection conn = new MySqlConnection(ConnectionStringProcess))
+                {
+                    conn.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand("UpdateInputMaster", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                        cmd.Parameters.AddWithValue("p_opoId", opoId);
+                        cmd.Parameters.AddWithValue("p_endTime", endTime.HasValue ? endTime.Value : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_campaignPhone", campaignPhone);
+                        cmd.Parameters.AddWithValue("p_myCode", myCode);
+                        cmd.Parameters.AddWithValue("p_disposition", disposition);
+                        cmd.Parameters.AddWithValue("p_subDisposition", subDisposition);
+                        cmd.Parameters.AddWithValue("p_remark", remark);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                using (var conn = new MySqlConnection(ConnectionStringProcess))
+                {
+                    conn.Open();
+
+                    using (var cmd = new MySqlCommand("InsertHistory", conn))
+                    {
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_MyCode", myCode ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Phone", campaignPhone);
+                        cmd.Parameters.AddWithValue("p_ConnectTime", startTime ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_DisconnectTime", endTime ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_DisposeTime", endTime ?? (object)DBNull.Value); 
+                        cmd.Parameters.AddWithValue("p_Connid", connID);
+                        cmd.Parameters.AddWithValue("p_AgentID", opoId);
+                        cmd.Parameters.AddWithValue("p_DispoCode", data.ContainsKey("disposition") ? data["disposition"]?.ToString()?.Trim() : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_SubDispoCode", data.ContainsKey("subDisposition") ? data["subDisposition"]?.ToString()?.Trim() : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_SubSubDispoCode", data.ContainsKey("subSubDisposition") ? data["subSubDisposition"]?.ToString()?.Trim() : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Campaign_Name", campaignName ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_REMARKS", remark);
+                        cmd.Parameters.AddWithValue("p_CALL_DATE", startTime);
+                        cmd.Parameters.AddWithValue("p_CALL_TIME", startTime);
+                        cmd.Parameters.AddWithValue("p_EmployeID", opoId);
+                        cmd.Parameters.AddWithValue("p_AGENT_NAME", opoId);
+                        cmd.Parameters.AddWithValue("p_BATCHID", BatchID);
+                        cmd.Parameters.AddWithValue("p_callbacktime", data.ContainsKey("callbacktime") && DateTime.TryParse(data["callbacktime"]?.ToString(), out DateTime cbTime) ? cbTime : (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_DisconnectType", pcb ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_RecPath", recordingPath ?? (object)DBNull.Value);
+                       
+                        cmd.ExecuteNonQuery();
+                    }
+                    var keysToExclude = new HashSet<string>
+                    {
+                        "disposition",
+                        "subDisposition",
+                        "callBackDateOutcome",
+                        "remark",
+                        "dispTypeKey"
+                    };
+
+                    var filteredData = data
+                        .Where(kvp => !keysToExclude.Contains(kvp.Key))
+                        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                    if (filteredData.Count == 0)
+                    {
+                        Console.WriteLine("No columns to update after filtering.");
+                        return;
+                    }
+
+            
+                    var setClauses = string.Join(", ", filteredData.Keys.Select(k => $"{k} = @{k}"));
+
+                    string sql = $"UPDATE History SET {setClauses} WHERE Connid = @ConnID";
+
+                    using (var connection = new MySqlConnection(ConnectionStringProcess))
+                    {
+                        connection.Open();
+
+                        using (var command = new MySqlCommand(sql, connection))
+                        {
+
+                            foreach (var kvp in filteredData)
+                            {
+                                object value = kvp.Value;
+                                if (value is JsonElement jsonElement)
+                                {
+                                    value = InfoPageFeilds.ConvertJsonElement(jsonElement);
+                                }
+
+                                command.Parameters.AddWithValue("@" + kvp.Key, value ?? DBNull.Value);
+                            }
+
+
+                            command.Parameters.AddWithValue("@ConnID", connID);
+                            int rowsAffected = command.ExecuteNonQuery();
+                            Console.WriteLine($"{rowsAffected} row(s) updated.");
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }    
+        }
+        private static object ConvertJsonElement(JsonElement element)
+        {
+            switch (element.ValueKind)
+            {
+                case JsonValueKind.String:
+                    if (element.TryGetDateTime(out var dt))
+                        return dt;
+                    return element.GetString();
+                case JsonValueKind.Number:
+                    if (element.TryGetInt32(out var intValue))
+                        return intValue;
+                    if (element.TryGetInt64(out var longValue))
+                        return longValue;
+                    if (element.TryGetDecimal(out var decimalValue))
+                        return decimalValue;
+                    return element.GetDouble(); // fallback
+                case JsonValueKind.True:
+                case JsonValueKind.False:
+                    return element.GetBoolean();
+                case JsonValueKind.Null:
+                case JsonValueKind.Undefined:
+                    return DBNull.Value;
+                default:
+                    return element.ToString(); // fallback to string
+            }
+        }
         public static List<Disposition> GetDispositionsAsync(string empCode)
         {
             string connectionString = InfoPageFeilds.getConnectionstring("CBM");

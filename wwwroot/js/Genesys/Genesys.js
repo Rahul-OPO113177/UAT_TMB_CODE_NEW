@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     connection.on("UserName", function (number) {
 
-        console.log("UserName : " + number );
+        console.log("UserName : " + number);
         const parts = number.split(".");
         const initials = parts.map(p => p.charAt(0).toUpperCase()).join("");
         const email = number + "@1point1.in";
@@ -107,6 +107,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".user-avatar, .profile-avatar").forEach(el => el.innerText = initials);
         document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
     });
+
+
     connection.on("infopagedata", function (data) {
         try {
             console.log("InfoPage fields:", data);
@@ -115,32 +117,39 @@ document.addEventListener("DOMContentLoaded", function () {
             const displayFields = fields.filter(field => field.CapturableField === "Display");
             const captureFields = fields.filter(field => field.CapturableField === "Capture");
 
+            const tab1Container = $('#tab1').find('div[style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"]');
 
             displayFields.forEach(field => {
                 const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
 
                 const value = field.DisplaySourceValue || '';
-                $('#tab1').append(`
-        <div class="field" id="${field.FieldName}_container">
-            <label>${field.FieldName} ${required}</label>
-            <input type="${field.FieldType}" name="${field.FieldName}" value="${value}" readonly />
-        </div>
-    `);
+                tab1Container.append(`
+                    <div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
+                        <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">${field.FieldName} ${required}</label>
+                        <input  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="${field.FieldType}" name="${field.FieldName}" value="${value}" readonly />
+                    </div>
+                `);
             });
-
+            tab1Container.css({
+                "display": "flex",
+                "flex-wrap": "wrap",
+                "gap": "15px"
+            });
+          
+            const tab3Container = $('#tab3').find('div[style*="display:flex"][style*="flex-wrap:wrap"][style*="gap:15px"][style*="margin-top:10px"]');
 
             captureFields.forEach(field => {
                 const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
                 const isRequiredAttr = field.IsRequired === "YES" ? 'required' : '';
-                let fieldHtml = `<div class="field" id="${field.FieldName}_container">
-                                <label>${field.FieldName} ${required}</label>`;
+                let fieldHtml = `<div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
+                                <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;" >${field.FieldName} ${required}</label>`;
 
 
                 if (field.FieldType === "DROPDOWN") {
                     const isDependentTarget = captureFields.some(f => f.FieldDependetName === field.FieldName);
 
                     fieldHtml += `
-                    <select name="${field.FieldName}" id="${field.FieldName}_dropdown" ${isRequiredAttr}>
+                    <select  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" name="${field.FieldName}" id="${field.FieldName}_dropdown" ${isRequiredAttr}>
                         <option value="">Select</option>
                         ${!isDependentTarget && field.DependentData
                             ? field.DependentData.map(option => `<option value="${option.Value}">${option.Text}</option>`).join('')
@@ -149,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     </select>
                 `;
                     fieldHtml += '</div>';
-                    $('#tab3').append(fieldHtml);
+                    tab3Container.append(fieldHtml);
 
 
                     if (field.IsfieldDependent === "YES" && !isDependentTarget) {
@@ -175,26 +184,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     switch (field.FieldType.toLowerCase()) {
                         case "datetime":
-                            fieldHtml += `<input type="datetime-local" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="datetime-local" name="${field.FieldName}" ${isRequiredAttr} />`;
                             break;
 
                         case "radio":
                             fieldHtml += `
-                            <label><input type="radio" name="${field.FieldName}" value="Yes" ${isRequiredAttr} /> Yes</label>
-                            <label><input type="radio" name="${field.FieldName}" value="No" ${isRequiredAttr} /> No</label>
+                            <label><input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="radio" name="${field.FieldName}" value="Yes" ${isRequiredAttr} /> Yes</label>
+                            <label><input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="radio" name="${field.FieldName}" value="No" ${isRequiredAttr} /> No</label>
                         `;
                             break;
 
                         case "checkbox":
-                            fieldHtml += `<input type="checkbox" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="checkbox" name="${field.FieldName}" ${isRequiredAttr} />`;
                             break;
 
                         default:
-                            fieldHtml += `<input type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"  type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
                             break;
                     }
                     fieldHtml += '</div>';
-                    $('#tab3').append(fieldHtml);
+
+
+                    tab3Container.append(fieldHtml);
                 }
 
 
@@ -220,12 +231,52 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });
 
-              BindDispositionAndSubDispo();
+            const htmlContent = `
+    <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+        <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition  <span style="color:red;">*</span> </label>
+        <select id="disposition" onchange="updateSubDisposition()"
+                style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+            <option value="">-- Select Disposition --</option>
+        </select>
+    </div>
+
+    <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+        <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition  <span style="color:red;">*</span></label>
+        <select id="subDisposition"
+                style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+            <option value="">-- Select Sub Disposition --</option>
+        </select>
+    </div>
+        <div id="callBackDateDiv" style="display: none; flex-direction: column; flex: 1 1 200px;">
+        <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+            Call Back Date  <span style="color:red;">*</span>
+        </label>
+        <input id="callBackDateOutcome" type="date"
+               style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"
+               min="" onchange="validateDate()">
+    </div>
+    <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+        <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark  <span style="color:red;">*</span></label>
+      <textarea id="remark" placeholder="Enter Remark"
+          style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width: 100%; height: 100px; resize: vertical;">
+</textarea>
+
+    </div>
+    
+
+`;
+
+            tab3Container.append(htmlContent);
+
+
+            BindDispositionAndSubDispo();
 
         } catch (error) {
             console.error("Error processing the InfoPage data:", error);
         }
     });
+
+
 
 
     connection.on("UpdatePhoneInput", function (number) {
@@ -238,9 +289,9 @@ document.addEventListener("DOMContentLoaded", function () {
             Swal.fire({
                 icon: 'success',
                 title: 'Record Saved Successfully',
-                text:  + number
+                text: + number
             }).then(result => {
-                
+
             });
         });
 
@@ -274,7 +325,7 @@ function validateDate() {
 
     if (selectedDateObj < today) {
         alert("The selected date cannot be in the past. Please choose a future date.");
-        document.getElementById('callBackDateOutcome').value = ""; 
+        document.getElementById('callBackDateOutcome').value = "";
     }
 }
 function handleStatusUpdate(message) {
@@ -317,6 +368,21 @@ function handleStatusUpdate(message) {
         stopTimer();
         startTimer();
     }
+    if (msg.includes("logout")) {
+     
+        Swal.fire({
+            title: 'Logged Out',
+            text: 'Agent is logged out successfully.',
+            icon: 'success',
+            showConfirmButton: false, 
+            timer: 2000, 
+            willClose: () => {
+                
+                window.location.href = "/Pages/LogIn.html";
+            }
+        });
+    }
+
 }
 
 function handleAttachedDataUserEvent(data) {
@@ -389,7 +455,7 @@ var dispo = [];
 
 function BindDispositionAndSubDispo() {
     const urlParams = new URLSearchParams(window.location.search);
-    const agentId = urlParams.get('empCode'); 
+    const agentId = urlParams.get('empCode');
 
     if (!agentId) {
         console.error("empCode not found in URL.");
@@ -409,7 +475,7 @@ function BindDispositionAndSubDispo() {
             dispositionSelect.append('<option value="">-- Select Disposition --</option>');
 
             dispositions.forEach(disposition => {
-                console.log(disposition.disP_TYPE); 
+                console.log(disposition.disP_TYPE);
                 dispositionSelect.append(
                     `<option value="${disposition.id}" data-disp-type="${disposition.disP_TYPE}">${disposition.name}</option>`
                 );
@@ -437,7 +503,7 @@ function updateSubDisposition() {
     callBackDateDiv.style.display = "none";
 
     if (dispoId) {
-    
+
         const selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
         const dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
 
@@ -457,11 +523,11 @@ function updateSubDisposition() {
                 subDispoSelect.appendChild(option);
             });
 
-       
+
             console.log("Disposition Type: " + dispType);
 
             if (dispType === "PCB" || dispType === "CCB") {
-           
+
                 callBackDateDiv.style.display = "flex";
             }
         }
@@ -483,44 +549,143 @@ function toggleCallBackDateField() {
 
 document.getElementById("disposition").addEventListener("change", function () {
     updateSubDisposition();
-    toggleCallBackDateField(); 
+    toggleCallBackDateField();
 });
-async function submitDisposition() {
-    const dispoId = parseInt(document.getElementById("disposition").value);
-    const subDispoId = parseInt(document.getElementById("subDisposition").value);
-    const username = document.getElementById("remark").value;
-    const address = document.getElementById("remark").value;
-    const callBackDateValue = document.getElementById("callBackDateOutcome").value;
-    const callBackDate = new Date(callBackDateValue).toISOString();
 
-    console.log("Request Body: ", JSON.stringify({
-        dispositionId: dispoId,
-        subDispositionId: subDispoId,
-        username,
-        address,
-        callBackDate
-    }));
 
-    try {
-        const response = await fetch('/api/Genesys/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                dispositionId: dispoId,
-                subDispositionId: subDispoId,
-                username:username,
-                address: address,
-                callBackDate: callBackDate
-            })
+
+function submitDisposition() {
+    const agentStatus = $('#status').text().trim().toUpperCase();
+
+    if (agentStatus !== "WRAPING") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Action Blocked',
+            text: 'Please disconnect the call before submitting.',
+            confirmButtonColor: '#d33'
         });
-
-        if (response.ok) {
-            const result = await response.json();
-            Swal.fire({ icon: 'success', title: 'Success', text: result.message });
-        } else {
-            Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to submit disposition.' });
-        }
-    } catch (error) {
-        Swal.fire({ icon: 'error', title: 'Exception', text: error?.message || 'An unexpected error occurred.' });
+        return;
     }
+
+
+    const formData = {};
+    let isValid = true;
+    let validationMessage = '';
+
+    $('#tab3').find('input, select, textarea').each(function () {
+        const field = $(this);
+        if (!field.is(':visible')) {
+            return;
+        }
+
+        const fieldName = field.attr('name') || field.attr('id');
+        const isRequired = field.prop('required') || field.closest('label').find('span[style*="red"]').length > 0;
+        const fieldType = field.attr('type');
+        let fieldValue = '';
+        if (field.is('select')) {
+
+            fieldValue = field.find('option:selected').text().trim();
+
+
+            if (fieldValue === 'Select' || fieldValue === '-- Select --' || fieldValue === '') {
+                fieldValue = '';
+            }
+
+        } else if (fieldType === 'checkbox') {
+            fieldValue = field.prop('checked');
+        } else if (fieldType === 'radio') {
+            const selected = $(`input[name="${field.attr('name')}"]:checked`);
+            fieldValue = selected.length > 0 ? selected.val() : '';
+        } else {
+            fieldValue = field.val()?.trim();
+        }
+
+        if (isRequired && !fieldValue) {
+            isValid = false;
+            validationMessage += `${fieldName} is required.\n`;
+            field.css('border', '1px solid red');
+        } else {
+            field.css('border', '1px solid #ccc');
+        }
+
+        if (fieldName) {
+            formData[fieldName] = fieldValue;
+        }
+    });
+
+    const manualFields = [
+        { id: 'disposition', required: true },
+        { id: 'subDisposition', required: true },
+        { id: 'callBackDateOutcome', required: true },
+        { id: 'remark', required: true }
+    ];
+    
+    manualFields.forEach(field => {
+        const $el = $(`#${field.id}`);
+
+        if (!$el.length || !$el.is(':visible')) return;
+
+        const value = $el.val()?.trim();
+
+        if (field.required && !value) {
+            isValid = false;
+            validationMessage += `${field.id} is required.\n`;
+            $el.css('border', '1px solid red');
+        } else {
+            $el.css('border', '1px solid #ccc');
+        }
+
+        formData[field.id] = value;
+    });
+
+  
+    if (!isValid) {
+        alert("Please fill required fields:\n\n" + validationMessage);
+        return;
+    }
+
+    console.log("Sub,mite data : " + JSON.stringify(formData));
+    const disptypeKey = "dispTypeKey";
+    const dispoId = document.getElementById("disposition").value;
+    const selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
+    const dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
+    formData[disptypeKey] = dispType;
+
+    $.ajax({
+        url: '/api/Genesys/submit/', 
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function (response) {
+          
+            $('#tab1').empty();
+            var newDiv = $('<div>', {
+                style: "background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"
+            });
+            $('#tab1').append(newDiv);
+
+            $('#tab3 > div > div:first').empty(); 
+            $('#remark').val('');
+            $('#callBackDateOutcome').val('');
+            $('#disposition').val('');
+            $('#subDisposition').val('');
+
+          
+            $('#tab3').find('input, select, textarea').css('border', '1px solid #ccc');
+
+      
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Form submitted successfully!',
+                confirmButtonColor: '#3085d6'
+            });
+            openTab({ currentTarget: document.querySelector('.nav-tab.active .nav-tab-text') }, 'tab1');
+            
+        },
+        error: function (error) {
+            alert('Error submitting form.');
+            console.error('Submission error:', error);
+        }
+    });
 }

@@ -261,15 +261,18 @@ namespace ServerCRM.Controllers
             return Ok(status);
         }
         [HttpPost("submit")]
-        public async Task<IActionResult> SubmitDisposition([FromBody] DispositionRequest request)
+        public IActionResult SubmitDisposition([FromBody] Dictionary<string, object> data)
         {
-            string str3 = $"Record Saved Successfully...,Disposition:{1},SubDisposition:{1},CBTime:{request.callBackDate},CBType:GEN";
+            foreach (var item in data)
+            {
+                string key = item.Key;
+                string value = item.Value?.ToString();
+
+                Console.WriteLine($"{key} => {value}");
+            }
             string login_code = HttpContext.Session.GetString("login_code");
-            var status =  CTIConnectionManager.savedata(str3 , login_code);
-
-            return Ok(new { message = status });
-
-
+            CTIConnectionManager.savedata(data , login_code);
+            return Ok(new { success = true, message = "Data received!" });
         }
     }
 }
