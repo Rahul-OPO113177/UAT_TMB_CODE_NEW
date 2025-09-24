@@ -6,6 +6,248 @@
     <title>Dashboard</title>
     <style>
 
+
+        :root {
+            --bg: #f4f4f7; /* light gray */
+            --card: #ffffff; /* white cards */
+            --muted: #6b7280; /* gray-500 */
+            --accent: #3b82f6; /* blue */
+            --glass: rgba(0,0,0,0.03);
+            --radius: 12px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+
+
+        .container {
+            max-width: 1100px;
+            margin: 28px 33px;
+            
+        }
+
+        .app {
+            display: flex;
+            gap: 18px;
+            align-items: start;
+            min-height: 74vh;
+        }
+        .inbox {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            height: 85vh;
+            overflow: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            resize: horizontal; /* Allow horizontal resize */
+            width: 360px;
+            max-width: 600px;
+        }
+
+        /* Right column: single mail view */
+        .viewer {
+            flex: 1; /* take remaining space dynamically */
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 22px;
+            height: 85vh;
+            overflow: auto;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            width: 680px;
+        }
+
+        .inbox-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 6px;
+            margin-bottom: 8px
+        }
+
+            .inbox-header h2 {
+                margin: 0;
+                font-size: 18px;
+                letter-spacing: 0.2px
+            }
+
+        .badge {
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 600
+        }
+
+        .search {
+            display: flex;
+            margin-bottom: 10px
+        }
+
+            .search input {
+                flex: 1;
+                padding: 8px 10px;
+                border-radius: 10px;
+                border: 1px solid #d1d5db;
+                background: #f9fafb;
+                color: inherit
+            }
+
+        .mail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .mail-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background .16s,transform .08s;
+            border: 1px solid transparent;
+        }
+
+            .mail-item:hover {
+                background: #f3f4f6;
+                transform: translateY(-1px)
+            }
+
+            .mail-item.active {
+                background: #e0f2fe;
+                border-color: #bae6fd
+            }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1e3a8a;
+            background: #bfdbfe;
+            flex-shrink: 0
+        }
+
+        .meta {
+            flex: 1;
+            min-width: 0
+        }
+
+            .meta .from {
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+            .meta .subject {
+                font-size: 14px;
+                margin-top: 2px;
+                color: #374151;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+            .meta .preview {
+                font-size: 13px;
+                color: var(--muted);
+                margin-top: 4px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+        .time {
+            font-size: 12px;
+            color: var(--muted);
+            margin-left: 8px;
+            white-space: nowrap
+        }
+
+        .viewer .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 14px
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            cursor: pointer
+        }
+
+            .btn:hover {
+                background: #f3f4f6
+            }
+
+            .btn.important {
+                background: var(--accent);
+                color: #fff;
+                border: none
+            }
+
+        .mail-subject {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 6px 0 12px;
+            color: #111827
+        }
+
+        .mail-sender {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+            .mail-sender .name {
+                font-weight: 700;
+                color: #111827
+            }
+
+            .mail-sender .email {
+                color: var(--muted);
+                font-size: 13px
+            }
+
+        .mail-body {
+            margin-top: 18px;
+            line-height: 1.6;
+            color: #374151;
+            background: #f9fafb;
+            padding: 18px;
+            border-radius: 10px
+        }
+
+        /* small screens */
+        @media (max-width:820px) {
+            .app {
+                flex-direction: column;
+            }
+
+            .inbox {
+                height: 52vh;
+                resize: none;
+            }
+
+            .viewer {
+                height: auto;
+                min-width: unset;
+            }
+        }
         #emailApp {
             font-family: Arial, sans-serif;
         }
@@ -1694,25 +1936,80 @@
 
         </div>
 
-        <div id="emailApp"  class="main-content-area" style="display: flex; height: 725px; border: 1px solid #ccc;">
-            
+        <!--<div id="emailApp" class="main-content-area" style="display: flex; height: 725px; border: 1px solid #ccc;">
+
             <div id="emailListPanel" style="width: 35%; overflow-y: auto; border-right: 1px solid #ccc; padding: 10px;">
-              
+
             </div>
 
-        
+
             <div id="emailDetailPanel" style="width: 65%; padding: 15px; overflow-y: auto;">
                 <h3>Email Preview</h3>
                 <div id="emailDetailContent" style="white-space: pre-wrap; margin-bottom: 20px;">Select an email to view its contents.</div>
 
-              
+
                 <div id="replyForm" style="display: none;">
                     <h3>Reply</h3>
                     <br />
-                    
+
                 </div>
             </div>
+        </div>-->
+
+        <div class="container">
+           
+
+            <div class="app">
+                <aside class="inbox">
+                    <div class="inbox-header" style="display:flex; align-items:center; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+                            <!-- SVG inbox/envelope icon -->
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"
+                                 style="flex-shrink:0; color:#007bff;">
+                           
+                                <path d="M3 13.5 5.5 20h13L21 13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                                <!-- envelope -->
+                                <rect x="2.2" y="3.8" width="19.6" height="11.2" rx="1.4" stroke="currentColor" stroke-width="1.2" fill="none" />
+                                <path d="M3.5 5.8c3.2 2.2 4.5 3.1 7.9 5.2 3.4-2.1 5.1-2.9 8-5.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+
+                        </div>
+
+                       
+                    </div>
+
+
+
+                    <div class="mail-list" id="emailListPanel">
+                        <!-- Mail items inserted by JavaScript -->
+                    </div>
+                </aside>
+
+                <main class="viewer" style="background-color: #f9fafb " id="emailDetailContent">
+
+
+                    <article id="replyForm" style="display:none"  class="mail-view hidden">
+                        <div class="mail-subject" id="mv-subject">Subject goes here</div>
+
+                        <div class="mail-sender">
+                            <div class="avatar" id="mv-avatar"></div>
+                            <div>
+                                <div class="name" id="mv-from"></div>
+                                <div class="email" id="mv-email"></div>
+                            </div>
+                        </div>
+
+                        <div class="mail-body" id="mv-body">
+                            Message body will appear here when you select an email.
+                        </div>
+                    </article>
+
+                </main>
+            </div>
         </div>
+
+
+
 
         <div class="main-content-area" id="crmContainer" style="padding-left: 0px;">
             <div class="main-content-container" style="font-family:Arial, sans-serif; max-width:1002px; margin:auto;">
@@ -2129,43 +2426,57 @@
                 const response = await fetch('/api/Genesys/recived_mail');
                 const emails = await response.json();
 
-
                 console.log(JSON.stringify(emails));
                 const emailListPanel = document.getElementById("emailListPanel");
-                const emailDetailContent = document.getElementById("emailDetailContent");
                 const replyForm = document.getElementById("replyForm");
 
                 emailListPanel.innerHTML = "<h3>Inbox</h3>";
 
                 emails.forEach((email, index) => {
                     const emailItem = document.createElement("div");
-                    emailItem.classList.add("email-item");
-                    emailItem.style.padding = "10px";
-                    emailItem.style.borderBottom = "1px solid #ddd";
-                    emailItem.style.cursor = "pointer";
-                    emailItem.style.fontWeight = "bold"; // unread
+                    emailItem.className = "mail-item";
+                    emailItem.dataset.id = index;
 
                     emailItem.innerHTML = `
-                    <div>From: ${email.from}</div>
-                    <div>Subject: ${email.subject}</div>
-                `;
+                <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                <div class="meta">
+                    <div class="from">${escapeHtml(email.from)}</div>
+                    <div class="subject">${escapeHtml(email.subject)}</div>
+                    <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
+                </div>
+                <div class="time">${new Date().toLocaleTimeString()}</div>
+            `;
 
                     emailItem.addEventListener("click", () => {
-                      
-                        emailDetailContent.innerHTML = `
-                        <strong>From:</strong> ${email.from}<br/>
-                        <strong>Subject:</strong> ${email.subject}<br/><br/>
-                        ${email.body.replace(/\r\n/g, "<br/>")}
-                    `;
+                        // Clear previous form content
+                        replyForm.innerHTML = "";
 
-                        currentEmailBody = email.body;
-                        replyForm.style.display = "block";
+                        // Populate email detail header + body
+                        const emailDetailHTML = `
+                    <div class="mail-subject">${escapeHtml(email.subject)}</div>
+                    <div class="mail-sender">
+                        <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                        <div>
+                            <div class="name">${escapeHtml(email.from)}</div>
+                            <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
+                        </div>
+                    </div>
+                    <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
+                `;
+
+                        replyForm.innerHTML = emailDetailHTML;
+
+                        // Now bind disposition form under the email
+                        BindEmailDisposition();
+                        BindDispositionAndSubDispo();
+                        // Pre-fill reply fields
                         document.getElementById("replyToCRM").value = extractEmailAddress(email.from);
                         document.getElementById("replySubjectCRM").value = "Re: " + email.subject;
                         document.getElementById("replyBodyCRM").value = "";
 
-                        // Mark as read (unbold)
-                        emailItem.style.fontWeight = "normal";
+                        // Mark email as read
+                        emailItem.classList.add("read");
+                        replyForm.style.display = "block";
                     });
 
                     emailListPanel.appendChild(emailItem);
@@ -2176,6 +2487,18 @@
             }
         }
 
+        // simple escape utility for safety
+        function escapeHtml(str) {
+            return str.replace(/[&<>'"]/g, (tag) => (
+                {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag
+            ));
+        }
     
         function extractEmailAddress(fromField) {
             const match = fromField.match(/<([^>]+)>/);
@@ -2566,71 +2889,79 @@
         }
 
         function BindEmailDisposition() {
-
             const dispositionFormHTML = `
+            <h3>Reply</h3>
+    <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
 
-            <label>To:</label><br>
-<input type="email" id="replyToCRM" style="width: 100%; margin-bottom: 10px;" readonly><br>
+        <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
+        <input type="email" id="replyToCRM" readonly
+            style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-<label>Subject:</label><br>
-<input type="text" id="replySubjectCRM" style="width: 100%; margin-bottom: 10px;"><br>
+        <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
+        <input type="text" id="replySubjectCRM"
+            style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-<label>Message:</label><br>
-<textarea id="replyBodyCRM" rows="8" style="width: 100%; margin-bottom: 10px;"></textarea><br>
+        <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Message:</label>
+        <textarea id="replyBodyCRM" rows="8"
+            style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
 
+        <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
+            
+            <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                <label for="disposition" style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">
+                    Disposition <span style="color:red;">*</span>
+                </label>
+                <select id="disposition" onchange="updateSubDisposition()"
+                    style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                    <option value="">-- Select Disposition --</option>
+                </select>
+            </div>
 
-    <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
+            <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
+                <label for="subDisposition" style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">
+                    Sub Disposition <span style="color:red;">*</span>
+                </label>
+                <select id="subDisposition" onchange="updateSubSubDisposition()"
+                    style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                    <option value="">-- Select Sub Disposition --</option>
+                </select>
+            </div>
 
-        <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-            <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
-                Disposition <span style="color:red;">*</span>
-            </label>
-            <select id="disposition" onchange="updateSubDisposition()"
-                    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                <option value="">-- Select Disposition --</option>
-            </select>
+            <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
+                <label for="subSubDisposition" style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">
+                    Sub Sub Disposition <span style="color:red;">*</span>
+                </label>
+                <select id="subSubDisposition"
+                    style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                    <option value="">-- Select Sub Sub Disposition --</option>
+                </select>
+            </div>
+
+            <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                <label for="remark" style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">
+                    Remark <span style="color:red;">*</span>
+                </label>
+                <textarea id="remark" placeholder="Enter Remark"
+                    style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+            </div>
         </div>
 
-        <div id="SubDispositiondiv" style="display:none; flex-direction:column; flex:1 1 200px;">
-            <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
-                Sub Disposition <span style="color:red;">*</span>
-            </label>
-            <select id="subDisposition" onchange="updateSubSubDisposition()"
-                    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                <option value="">-- Select Sub Disposition --</option>
-            </select>
-        </div>
+        <div style="margin-top:18px; display:flex; gap:12px;">
+            <button id="processBtn" title="Process Message" onclick="processMessageEmailCRM()"
+                style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:inline-flex; align-items:center; gap:6px;">
+                <span id="processIcon" style="display:inline-block;">⚙️</span> Process Message
+            </button>
 
-        <div id="SubSubDispo" style="display:none; flex-direction:column; flex:1 1 200px;">
-            <label for="subSubDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
-                Sub Sub Disposition <span style="color:red;">*</span>
-            </label>
-            <select id="subSubDisposition"
-                    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                <option value="">-- Select Sub Sub Disposition --</option>
-            </select>
-        </div>
-
-        <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-            <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
-                Remark <span style="color:red;">*</span>
-            </label>
-            <textarea id="remark" placeholder="Enter Remark"
-                      style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width:100%; height:100px; resize:vertical;">
-            </textarea>
+            <button onclick="sendReply()"
+                style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
+                Send Reply
+            </button>
         </div>
     </div>
+    `;
 
-    <button id="processBtn" title="Process Message" onclick="processMessageEmailCRM()" style="margin-right: 10px;">
-    <span id="processIcon" style="display: inline-block;">⚙️</span> Process Message
-</button>
-
-<button onclick="sendReply()">Send Reply</button>
-`;
             document.getElementById('replyForm').innerHTML += dispositionFormHTML;
-
         }
-
     </script>
 </body>
 </html>
