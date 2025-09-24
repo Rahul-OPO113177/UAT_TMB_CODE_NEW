@@ -3,51 +3,6 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Pages/CRM.3rlqhdkg4b.html",
-      "AssetFile": "Pages/CRM.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "93156"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Ycot/AFJdMfMutO+E6nWJz9VmiBTQp8L/vePoSCh4HE=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 24 Sep 2025 05:49:06 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "3rlqhdkg4b"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Ycot/AFJdMfMutO+E6nWJz9VmiBTQp8L/vePoSCh4HE="
-        },
-        {
-          "Name": "label",
-          "Value": "Pages/CRM.html"
-        }
-      ]
-    },
-    {
       "Route": "Pages/CRM.html",
       "AssetFile": "Pages/CRM.html",
       "Selectors": [],
@@ -62,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "93156"
+          "Value": "105493"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +25,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Ycot/AFJdMfMutO+E6nWJz9VmiBTQp8L/vePoSCh4HE=\""
+          "Value": "\"Dt+N4up2Llbgz1s1wvLZKij7G3y59vvoL92l37PYaQw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 24 Sep 2025 05:49:06 GMT"
+          "Value": "Wed, 24 Sep 2025 10:48:26 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Ycot/AFJdMfMutO+E6nWJz9VmiBTQp8L/vePoSCh4HE="
+          "Value": "sha256-Dt+N4up2Llbgz1s1wvLZKij7G3y59vvoL92l37PYaQw="
+        }
+      ]
+    },
+    {
+      "Route": "Pages/CRM.uhnguakfgy.html",
+      "AssetFile": "Pages/CRM.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "105493"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Dt+N4up2Llbgz1s1wvLZKij7G3y59vvoL92l37PYaQw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 24 Sep 2025 10:48:26 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "uhnguakfgy"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Dt+N4up2Llbgz1s1wvLZKij7G3y59vvoL92l37PYaQw="
+        },
+        {
+          "Name": "label",
+          "Value": "Pages/CRM.html"
         }
       ]
     },
@@ -521,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 24 Sep 2025 05:50:46 GMT"
+          "Value": "Wed, 24 Sep 2025 11:06:45 GMT"
         }
       ],
       "EndpointProperties": [
@@ -566,7 +566,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 24 Sep 2025 05:50:46 GMT"
+          "Value": "Wed, 24 Sep 2025 11:06:45 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1423,7 +1423,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 24 Sep 2025 05:49:06 GMT"
+          "Value": "Wed, 24 Sep 2025 10:06:13 GMT"
         }
       ],
       "EndpointProperties": [
@@ -1468,7 +1468,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 24 Sep 2025 05:49:06 GMT"
+          "Value": "Wed, 24 Sep 2025 10:06:13 GMT"
         }
       ],
       "EndpointProperties": [

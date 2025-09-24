@@ -11,6 +11,9 @@ using System.Net.Mail;
 using System.Net;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
+using MailKit.Net.Imap;
+using MailKit.Security;
+using System.Reflection.Emit;
 
 
 namespace ServerCRM.Controllers
@@ -21,6 +24,10 @@ namespace ServerCRM.Controllers
     {
         private readonly ApiService _apiService;
         private readonly AuthService _auth;
+        private readonly string imapHost = "mail.1point1.in";
+        private readonly int imapPort = 993;
+        private readonly string email = "airline.demo@1point1.in";
+        private readonly string password = "Info@1234";
 
 
         public GenesysController(ApiService apiService , AuthService authService)
@@ -272,7 +279,7 @@ namespace ServerCRM.Controllers
                 return BadRequest("Agent ID is required.");
             }
             string login_code = HttpContext.Session.GetString("login_code");
-            CTIConnectionManager.AgentReady(login_code);
+           await CTIConnectionManager.AgentReady(login_code);
             string status = $"Agent {agentId} is ready";
             return Ok(status);
         }
@@ -333,11 +340,100 @@ namespace ServerCRM.Controllers
             catch (Exception ex)
             {
                 return BadRequest();
-                Console.WriteLine("Error sending email: " + ex.Message);
+               
             }
 
-            return Ok(new { message = "Email sent successfully!" });
+            
         }
+
+
+
+        [HttpGet("recived_mail")]
+        public async Task<List<EmailDto>> GetInboxEmailsAsync()
+        {
+            string login_code = HttpContext.Session.GetString("login_code");
+            var emails = new List<EmailDto>();
+
+            using (var client = new ImapClient())
+            {
+                await client.ConnectAsync(imapHost, imapPort, SecureSocketOptions.SslOnConnect);
+                await client.AuthenticateAsync(email, password);
+
+                var inbox = client.Inbox;
+                await inbox.OpenAsync(MailKit.FolderAccess.ReadOnly);
+
+                for (int i = inbox.Count - 1; i >= 0 && i > inbox.Count - 11; i--)
+                {
+                    var message = await inbox.GetMessageAsync(i);
+
+                    var emailDto = new EmailDto
+                    {
+                        From = message.From.ToString(),
+                        Subject = message.Subject,
+                        Body = message.TextBody 
+                    };
+
+                    emails.Add(emailDto);
+                    CTIConnectionManager.SaveEmailByGet(emailDto.From, emailDto.Subject, emailDto.Body, "0", "", "" , login_code);
+                }
+
+                await client.DisconnectAsync(true);       
+            }
+            var emailsFromDb = await CTIConnectionManager.GetEmailsWithIsAttemptZeroAsync(login_code);
+
+            return emailsFromDb;
+        }
+
+        [HttpPost("send_reply")]
+        public async Task<IActionResult> SendReply([FromBody] ReplyEmailRequest request)
+        {
+
+            try
+            {
+                const string smtpHost = "mail.1point1.in";
+                const int smtpPort = 587;
+                const string smtpUser = "airline.demo@1point1.in";
+                const string smtpPassword = "Info@1234";
+
+                if (string.IsNullOrEmpty(request.To) ||
+                    string.IsNullOrEmpty(request.Subject) ||
+                    string.IsNullOrEmpty(request.Body) ||
+                    string.IsNullOrEmpty(request.OriginalBody))
+                {
+                    return BadRequest(new { message = "Missing required fields" });
+                }
+
+
+                string loginCode = HttpContext.Session.GetString("login_code");
+                await CTIConnectionManager.UpdateIsAttempted(request, loginCode);
+
+
+                using (var smtpClient = new SmtpClient(smtpHost, smtpPort)
+                {
+                    Credentials = new NetworkCredential(smtpUser, smtpPassword),
+                    EnableSsl = true
+                })
+                using (var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(smtpUser),
+                    Subject = request.Subject,
+                    Body = request.Body,
+                    IsBodyHtml = true
+                })
+                {
+                    mailMessage.To.Add(request.To);
+                    smtpClient.Send(mailMessage);
+                }
+
+                return Ok(new { message = "Email sent successfully!" });
+            }
+            catch(Exception ex)
+            {
+                return BadRequest();
+            }
+            
+        }
+
 
     }
 }

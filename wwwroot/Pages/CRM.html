@@ -6,7 +6,17 @@
     <title>Dashboard</title>
     <style>
 
+        #emailApp {
+            font-family: Arial, sans-serif;
+        }
 
+        #emailListPanel h3 {
+            margin-top: 0;
+        }
+
+        .email-item:hover {
+            background-color: #f0f0f0;
+        }
         .chat-container {
             display: flex;
             flex-direction: column;
@@ -1607,7 +1617,7 @@
 
                 <div class="ai-transcript">
                     <div class="transcript-content">
-                        <div class="transcript-header" >
+                        <div class="transcript-header">
                             <div class="transcript-title">
                                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path d="M12 4.19436C12.322 4.19436 12.5828 4.4554 12.583 4.77737V18.7774C12.583 19.0995 12.3222 19.3614 12 19.3614C11.6778 19.3614 11.417 19.0995 11.417 18.7774V4.77737C11.4172 4.4554 11.678 4.19436 12 4.19436ZM8.88867 7.30569C9.21077 7.30569 9.47254 7.56663 9.47266 7.8887V15.667C9.47248 15.989 9.21073 16.25 8.88867 16.25C8.56671 16.2499 8.30584 15.989 8.30566 15.667V7.8887C8.30578 7.56671 8.56668 7.30581 8.88867 7.30569ZM15.1113 7.30569C15.4333 7.30581 15.6942 7.5667 15.6943 7.8887V15.667C15.6942 15.989 15.4333 16.2499 15.1113 16.25C14.7893 16.25 14.5275 15.989 14.5273 15.667V7.8887C14.5275 7.56663 14.7892 7.30569 15.1113 7.30569ZM5.77734 10.417C6.09951 10.417 6.36133 10.6779 6.36133 11V12.5557C6.36127 12.8778 6.09947 13.1387 5.77734 13.1387C5.45541 13.1385 5.19439 12.8777 5.19434 12.5557V11C5.19434 10.678 5.45538 10.4173 5.77734 10.417ZM18.2227 10.417C18.5446 10.4173 18.8057 10.678 18.8057 11V12.5557C18.8056 12.8777 18.5446 13.1385 18.2227 13.1387C17.9005 13.1387 17.6387 12.8778 17.6387 12.5557V11C17.6387 10.6779 17.9005 10.417 18.2227 10.417Z" fill="#4094F7" stroke="#4094F7" strokeWidth="0.388889" />
@@ -1669,13 +1679,13 @@
                             </div>
 
 
-                                <div class="chat-box" id="chat-box">
-                              
-                                </div>
+                            <div class="chat-box" id="chat-box">
 
-                     
-                               
-                         
+                            </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -1683,7 +1693,28 @@
             </div>
 
         </div>
-        <div class="main-content-area" style="padding-left: 0px;">
+
+        <div id="emailApp"  class="main-content-area" style="display: flex; height: 725px; border: 1px solid #ccc;">
+            
+            <div id="emailListPanel" style="width: 35%; overflow-y: auto; border-right: 1px solid #ccc; padding: 10px;">
+              
+            </div>
+
+        
+            <div id="emailDetailPanel" style="width: 65%; padding: 15px; overflow-y: auto;">
+                <h3>Email Preview</h3>
+                <div id="emailDetailContent" style="white-space: pre-wrap; margin-bottom: 20px;">Select an email to view its contents.</div>
+
+              
+                <div id="replyForm" style="display: none;">
+                    <h3>Reply</h3>
+                    <br />
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content-area" id="crmContainer" style="padding-left: 0px;">
             <div class="main-content-container" style="font-family:Arial, sans-serif; max-width:1002px; margin:auto;">
 
                 <div class="nav-tabs">
@@ -1890,7 +1921,7 @@
 
         </div>
         <div id="loader" style="display:none; position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;">
-            <img src="../img/Loading_2.gif" alt="Loading..."style="width: 100px; height: 100px;" />
+            <img src="../img/Loading_2.gif" alt="Loading..." style="width: 100px; height: 100px;" />
         </div>
 
         <div class="action-btn-group-vertical">
@@ -1918,7 +1949,7 @@
         </div>
 
 
-        
+
 
     </div>
 
@@ -2072,8 +2103,180 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ empCode: agentId })
                 });
+
+                const status = 2;
+                
+                const crmContainer = document.getElementById("crmContainer");
+
+                if (status === 2) {
+                  
+                    crmContainer.style.display = "none";
+                    fetchEmails();
+                    BindEmailDisposition();
+                    BindDispositionAndSubDispo();
+                } else {
+                    
+                    crmContainer.style.display = "block";
+                }
+
             } catch (err) { console.error("Failed to get agent status:", agentId); }
         }
+        let currentEmailBody = ""; // declare this outside functions
+
+
+        async function fetchEmails() {
+            try {
+                const response = await fetch('/api/Genesys/recived_mail');
+                const emails = await response.json();
+
+
+                console.log(JSON.stringify(emails));
+                const emailListPanel = document.getElementById("emailListPanel");
+                const emailDetailContent = document.getElementById("emailDetailContent");
+                const replyForm = document.getElementById("replyForm");
+
+                emailListPanel.innerHTML = "<h3>Inbox</h3>";
+
+                emails.forEach((email, index) => {
+                    const emailItem = document.createElement("div");
+                    emailItem.classList.add("email-item");
+                    emailItem.style.padding = "10px";
+                    emailItem.style.borderBottom = "1px solid #ddd";
+                    emailItem.style.cursor = "pointer";
+                    emailItem.style.fontWeight = "bold"; // unread
+
+                    emailItem.innerHTML = `
+                    <div>From: ${email.from}</div>
+                    <div>Subject: ${email.subject}</div>
+                `;
+
+                    emailItem.addEventListener("click", () => {
+                      
+                        emailDetailContent.innerHTML = `
+                        <strong>From:</strong> ${email.from}<br/>
+                        <strong>Subject:</strong> ${email.subject}<br/><br/>
+                        ${email.body.replace(/\r\n/g, "<br/>")}
+                    `;
+
+                        currentEmailBody = email.body;
+                        replyForm.style.display = "block";
+                        document.getElementById("replyToCRM").value = extractEmailAddress(email.from);
+                        document.getElementById("replySubjectCRM").value = "Re: " + email.subject;
+                        document.getElementById("replyBodyCRM").value = "";
+
+                        // Mark as read (unbold)
+                        emailItem.style.fontWeight = "normal";
+                    });
+
+                    emailListPanel.appendChild(emailItem);
+                });
+
+            } catch (error) {
+                console.error("Failed to fetch emails:", error);
+            }
+        }
+
+    
+        function extractEmailAddress(fromField) {
+            const match = fromField.match(/<([^>]+)>/);
+            return match ? match[1] : fromField;
+        }
+
+        async function sendReply() {
+            const to = document.getElementById("replyToCRM").value;
+            let subject = document.getElementById("replySubjectCRM").value;
+            const body = document.getElementById("replyBodyCRM").value;
+            const originalBody = currentEmailBody;  
+            function isVisible(elem) {
+                return elem && elem.offsetParent !== null;
+            }
+
+            // Get disposition related elements
+            const dispositionElem = document.getElementById("disposition");
+            const subDispositionDiv = document.getElementById("SubDispositiondiv");
+            const subDispositionElem = document.getElementById("subDisposition");
+            const subSubDispoDiv = document.getElementById("SubSubDispo");
+            const subSubDispositionElem = document.getElementById("subSubDisposition");
+            const remarkElem = document.getElementById("remark");
+
+            if (!to || !subject || !body) {
+                alert("Please fill in all fields before sending.");
+                return;
+            }
+            if (isVisible(dispositionElem) && dispositionElem.value.trim() === "") {
+                alert("Please select a Disposition.");
+                return;
+            }
+
+            if (isVisible(subDispositionDiv) && isVisible(subDispositionElem) && subDispositionElem.value.trim() === "") {
+                alert("Please select a Sub Disposition.");
+                return;
+            }
+
+            if (isVisible(subSubDispoDiv) && isVisible(subSubDispositionElem) && subSubDispositionElem.value.trim() === "") {
+                alert("Please select a Sub Sub Disposition.");
+                return;
+            }
+
+            if (isVisible(remarkElem) && remarkElem.value.trim() === "") {
+                alert("Please enter a Remark.");
+                return;
+            }
+
+            if (subject.startsWith("Re: ")) {
+                subject = subject.substring(4); 
+            }
+            const data = {
+                to: to,
+                subject: subject,
+                body: body,
+                originalBody: originalBody,
+                disposition: isVisible(dispositionElem) ? dispositionElem.value.trim() : null,
+                subDisposition: (isVisible(subDispositionDiv) && isVisible(subDispositionElem)) ? subDispositionElem.value.trim() : null,
+                subSubDisposition: (isVisible(subSubDispoDiv) && isVisible(subSubDispositionElem)) ? subSubDispositionElem.value.trim() : null,
+                remark: isVisible(remarkElem) ? remarkElem.value.trim() : null
+            };
+
+            console.log("Submite date : " + JSON.stringify(data));
+            try {
+                const response = await fetch('/api/Genesys/send_reply', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                
+
+                if (!response.ok) {
+                    throw new Error('Failed to send reply');
+                }
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Reply sent successfully!',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+                fetchEmails();
+                document.getElementById("replyBodyCRM").value = "";
+                document.getElementById("replyForm").style.display = "none";
+
+            } catch (error) {
+                console.error("Error sending reply:", error);
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Failed to send reply. Please try again.',
+                });
+            }
+
+        }
+
+
         function openPanel(panelId) {
             document.getElementById(panelId).classList.add("open");
         }
@@ -2285,7 +2488,6 @@
                         chatBox.appendChild(botRow);
                     }
 
-                    // USER message (question)
                     if (conv.question && conv.question !== "NULL" ) {
                         const userRow = document.createElement("div");
                         userRow.className = "message-row user";
@@ -2326,11 +2528,107 @@
                 const chatSummary = document.getElementById("chat-summary");
                 chatSummary.innerHTML = `${data.summary}`;
 
-                // Scroll to bottom
                 chatSummary.scrollTop = chatSummary.scrollHeight;
             } catch (error) {
                 alert("Error loading chat-summary: " + error);
             }
+        }
+
+        async function processMessageEmailCRM() {
+            const email = document.getElementById('replyToCRM').value;
+            const realmsg = document.getElementById('replySubjectCRM').value;
+            const summernote = document.getElementById('replyBodyCRM').value;
+
+            const processIcon = document.getElementById('processIcon');
+            processIcon.innerHTML = '🔄'; 
+
+            try {
+                const res = await fetch('/api/Omni/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, realmsg, summernote })
+                });
+
+                const data = await res.json();
+                console.log(JSON.stringify(data));
+                let htmlString = data.response;
+
+                htmlString = htmlString.replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, ''); 
+                document.getElementById('replyBodyCRM').value = htmlString.trim();
+               
+
+            } catch (error) {
+                console.error('Error during message processing:', error);
+                alert('Failed to process message.');
+            } finally {
+                processIcon.innerHTML = '⚙️'; // Reset to original icon
+            }
+        }
+
+        function BindEmailDisposition() {
+
+            const dispositionFormHTML = `
+
+            <label>To:</label><br>
+<input type="email" id="replyToCRM" style="width: 100%; margin-bottom: 10px;" readonly><br>
+
+<label>Subject:</label><br>
+<input type="text" id="replySubjectCRM" style="width: 100%; margin-bottom: 10px;"><br>
+
+<label>Message:</label><br>
+<textarea id="replyBodyCRM" rows="8" style="width: 100%; margin-bottom: 10px;"></textarea><br>
+
+
+    <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
+
+        <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+            <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+                Disposition <span style="color:red;">*</span>
+            </label>
+            <select id="disposition" onchange="updateSubDisposition()"
+                    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                <option value="">-- Select Disposition --</option>
+            </select>
+        </div>
+
+        <div id="SubDispositiondiv" style="display:none; flex-direction:column; flex:1 1 200px;">
+            <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+                Sub Disposition <span style="color:red;">*</span>
+            </label>
+            <select id="subDisposition" onchange="updateSubSubDisposition()"
+                    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                <option value="">-- Select Sub Disposition --</option>
+            </select>
+        </div>
+
+        <div id="SubSubDispo" style="display:none; flex-direction:column; flex:1 1 200px;">
+            <label for="subSubDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+                Sub Sub Disposition <span style="color:red;">*</span>
+            </label>
+            <select id="subSubDisposition"
+                    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                <option value="">-- Select Sub Sub Disposition --</option>
+            </select>
+        </div>
+
+        <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+            <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+                Remark <span style="color:red;">*</span>
+            </label>
+            <textarea id="remark" placeholder="Enter Remark"
+                      style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width:100%; height:100px; resize:vertical;">
+            </textarea>
+        </div>
+    </div>
+
+    <button id="processBtn" title="Process Message" onclick="processMessageEmailCRM()" style="margin-right: 10px;">
+    <span id="processIcon" style="display: inline-block;">⚙️</span> Process Message
+</button>
+
+<button onclick="sendReply()">Send Reply</button>
+`;
+            document.getElementById('replyForm').innerHTML += dispositionFormHTML;
+
         }
 
     </script>

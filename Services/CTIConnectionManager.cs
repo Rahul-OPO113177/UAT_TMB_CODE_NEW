@@ -35,6 +35,7 @@ using Timer = System.Timers.Timer;
 using ServerCRM.Models.InfoPage;
 using System.Reflection.Emit;
 using ServerCRM.Models.Omni;
+using Org.BouncyCastle.Tls;
 
 
 namespace ServerCRM.Services
@@ -2061,6 +2062,27 @@ namespace ServerCRM.Services
             }
                 
         }
+        public static void SaveEmailByGet(string sender, string subject, string body, string isAttempt, string empCode, string createDate , string AgentID)
+        {
+            AgentSession session = GetAgentSession(AgentID);
+            InfoPageFeilds.InsertEmailIntoDatabaseAsync(sender, subject, body, "0", session.OPOID, "", "" , session.ProcessName);
+              
+        }
+
+        public static async Task< List<EmailDto>> GetEmailsWithIsAttemptZeroAsync(string AgentID)
+        {
+            AgentSession session = GetAgentSession(AgentID);
+            List<EmailDto> list= await InfoPageFeilds.GetEmailsWithIsAttemptZeroAsync(session.ProcessName);
+            return list;
+        }
+
+        public static async Task UpdateIsAttempted(ReplyEmailRequest res ,string AgentID)
+        {
+            AgentSession session = GetAgentSession(AgentID);
+            await InfoPageFeilds.UpdateIsAttemptToOneAsync( session.ProcessName , res.To , res.Subject , res.Body , session.OPOID , res.Disposition , res.SubDisposition , res.SubSubDisposition , res.Remark);
+       
+        }
+
 
     }
 }

@@ -3,16 +3,104 @@ using MySqlConnector;
 using Newtonsoft.Json;
 using ServerCRM.Models;
 using ServerCRM.Models.InfoPage;
+using ServerCRM.Models.Omni;
 using System.Data;
 using System.Diagnostics;
 using System.Reflection.Emit;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace ServerCRM.Services
 {
     public static class InfoPageFeilds
     {
         private readonly static string connectionString = "Data Source=20.20.20.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
+        public static async Task InsertEmailIntoDatabaseAsync(string sender, string subject, string body, string isAttempt, string empCode, string date, string EMPCOde, string processName)
+        {
+            string ConnectionStringProcess = InfoPageFeilds.getConnectionstring(processName);
+            var phoneNumber = ExtractPhoneNumber(body);
+
+            using var connection = new MySqlConnection(ConnectionStringProcess);
+            await connection.OpenAsync();
+
+            using var command = new MySqlCommand("InsertEmail_CRM", connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            command.Parameters.AddWithValue("@p_Sender", ExtractEmailAddress(sender));
+            command.Parameters.AddWithValue("@p_Subject", subject);
+            command.Parameters.AddWithValue("@p_Body", body);
+            command.Parameters.AddWithValue("@p_PhoneNumber", phoneNumber ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@p_IsAttempt", isAttempt);
+            command.Parameters.AddWithValue("@p_EmpCode", empCode ?? (object)DBNull.Value);
+            command.Parameters.AddWithValue("@p_CreateDate", DateTime.Now);
+
+            await command.ExecuteNonQueryAsync();
+        }
+        public async static Task<List<EmailDto>> GetEmailsWithIsAttemptZeroAsync(string processName)
+        {
+            string ConnectionStringProcess = InfoPageFeilds.getConnectionstring(processName);
+            var emailList = new List<EmailDto>();
+            string connectionString = InfoPageFeilds.getConnectionstring(processName);
+
+            using var connection = new MySqlConnection(connectionString);
+            await connection.OpenAsync();
+
+            string query = "SELECT Sender, Subject, Body FROM Emails WHERE IsAttempt = 0";
+
+            using var command = new MySqlCommand(query, connection);
+            using var reader = await command.ExecuteReaderAsync();
+
+            while (await reader.ReadAsync())
+            {
+                emailList.Add(new EmailDto
+                {
+                    From = reader.GetString("Sender"),
+                    Subject = reader.GetString("Subject"),
+                    Body = reader.GetString("Body")
+                });
+            }
+
+            return emailList;
+        }
+        public async static Task UpdateIsAttemptToOneAsync(string processName, string sender, string subject, string Reply, string EmpCode, string dispo, string subdispo, string subsubdispo, string Remark)
+        {
+            string connectionString = InfoPageFeilds.getConnectionstring(processName);
+
+            using var connection = new MySqlConnection(connectionString);
+            await connection.OpenAsync();
+
+            string updateQuery = "UPDATE Emails SET IsAttempt = 1 , Reply =@Reply , EmpCode=@EmpCode  , Disposition=@Disposition , SubDisposition =@SubDisposition  , SubSubDisposition =@SubSubDisposition  , Remark =@Remark  WHERE Sender = @Sender AND Subject = @Subject AND IsAttempt = 0";
+            using var command = new MySqlCommand(updateQuery, connection);
+            command.Parameters.AddWithValue("@Sender", sender);
+            command.Parameters.AddWithValue("@Subject", subject);
+            command.Parameters.AddWithValue("@Reply", Reply);
+            command.Parameters.AddWithValue("@EmpCode", EmpCode);
+            command.Parameters.AddWithValue("@Disposition", dispo);
+            command.Parameters.AddWithValue("@SubDisposition", subdispo);
+            command.Parameters.AddWithValue("@SubSubDisposition", subsubdispo);
+            command.Parameters.AddWithValue("@Remark", Remark);
+            await command.ExecuteNonQueryAsync();
+        }
+
+        private static string ExtractEmailAddress(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return null;
+
+            var match = Regex.Match(input, @"<([^>]+)>");
+            if (match.Success)
+                return match.Groups[1].Value;
+            return input.Trim();
+        }
+
+        private static string ExtractPhoneNumber(string body)
+        {
+            var match = Regex.Match(body ?? "", @"(\+91[\s-]?\d{10})|(\d{10})");
+
+            return match.Success ? match.Value : null;
+        }
 
         public static void InsertHistory(Dictionary<string, object> data, string opoId, string processName, DateTime? startTime, DateTime? endTime, string disType, string recordingPath, string campaignPhone, string myCode, string finishCode, string connID, string BatchID, string campaignName)
         {
@@ -152,7 +240,7 @@ namespace ServerCRM.Services
                     return element.ToString();
             }
         }
-        public static List<Disposition> GetDispositionsAsync(string Proces , string empCode)
+        public static List<Disposition> GetDispositionsAsync(string Proces, string empCode)
         {
             string connectionString = InfoPageFeilds.getConnectionstring(Proces);
             List<Disposition> dispositions = new List<Disposition>();
@@ -520,7 +608,7 @@ namespace ServerCRM.Services
             return selectQuery;
         }
 
-        public static bool InsertEmailHistory(string email, string subject, string reply, string phoneNumber , string connid , string EmpCode , string processName)
+        public static bool InsertEmailHistory(string email, string subject, string reply, string phoneNumber, string connid, string EmpCode, string processName)
         {
             try
             {
@@ -552,9 +640,9 @@ namespace ServerCRM.Services
             }
         }
 
-        public static string GetHistoryDataByPhoneNumber(string phoneNumber , string processName)
+        public static string GetHistoryDataByPhoneNumber(string phoneNumber, string processName)
         {
-           try
+            try
             {
                 string phone = phoneNumber.Substring(phoneNumber.Length - 10);
 
@@ -602,11 +690,11 @@ namespace ServerCRM.Services
                 // Serialize the list of results to JSON and return it
                 return JsonConvert.SerializeObject(results);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return ex.Message;
             }
-            
+
         }
 
 

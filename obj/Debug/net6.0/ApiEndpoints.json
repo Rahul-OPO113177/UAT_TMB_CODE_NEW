@@ -369,6 +369,42 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "GetInboxEmailsAsync",
+    "RelativePath": "api/Genesys/recived_mail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ServerCRM.Models.Omni.EmailDto, ServerCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "SendReply",
+    "RelativePath": "api/Genesys/send_reply",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ServerCRM.Models.Omni.ReplyEmailRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
     "Method": "SendEmail",
     "RelativePath": "api/Genesys/send-email",
     "HttpMethod": "POST",
@@ -472,26 +508,6 @@
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ServerCRM.Controllers.OmniController",
-    "Method": "GetInboxEmailsAsync",
-    "RelativePath": "api/Omni/recived_mail",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[ServerCRM.Models.Omni.EmailDto, ServerCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
   },
   {
     "ContainingType": "ServerCRM.Controllers.OmniController",
