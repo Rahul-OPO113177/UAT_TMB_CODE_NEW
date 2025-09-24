@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using MailKit.Net.Imap;
+using MailKit.Security;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
 using ServerCRM.Models.Omni;
+using System.Net.Mail;
 
 namespace ServerCRM.Controllers
 {
@@ -9,11 +13,50 @@ namespace ServerCRM.Controllers
     public class OmniController : ControllerBase
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly string imapHost = "mail.1point1.in"; 
+        private readonly int imapPort = 993;
+        private readonly string email = "airline.demo@1point1.in";
+        private readonly string password = "Info@1234";
 
         public OmniController(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
+
+        [HttpGet("recived_mail")]
+        public async Task<List<EmailDto>> GetInboxEmailsAsync()
+        {
+            var emails = new List<EmailDto>();
+
+            using (var client = new ImapClient())
+            {
+                await client.ConnectAsync(imapHost, imapPort, SecureSocketOptions.SslOnConnect);
+                await client.AuthenticateAsync(email, password);
+
+                var inbox = client.Inbox;
+                await inbox.OpenAsync(MailKit.FolderAccess.ReadOnly);
+
+                for (int i = inbox.Count - 1; i >= 0 && i > inbox.Count - 11; i--)
+                {
+                    var message = await inbox.GetMessageAsync(i);
+
+                    var emailDto = new EmailDto
+                    {
+                        From = message.From.ToString(),
+                        Subject = message.Subject,
+                        Body = message.TextBody // or message.HtmlBody
+                    };
+
+                    emails.Add(emailDto);
+                }
+
+                await client.DisconnectAsync(true);
+            }
+
+            return emails;
+        }
+
+
 
         [HttpPost("SendMessage")]
         public async Task<IActionResult> SendMessage([FromForm] string message, [FromForm] string category = "formal")

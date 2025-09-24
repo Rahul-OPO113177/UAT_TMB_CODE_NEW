@@ -53,6 +53,14 @@
       "PackagePath": "staticwebassets\\img"
     },
     {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\technical-support.png",
+      "PackagePath": "staticwebassets\\img\\technical-support.png"
+    },
+    {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\user.png",
+      "PackagePath": "staticwebassets\\img\\user.png"
+    },
+    {
       "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\Common.js",
       "PackagePath": "staticwebassets\\js\\Common\\Common.js"
     },

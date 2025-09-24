@@ -475,6 +475,26 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.OmniController",
+    "Method": "GetInboxEmailsAsync",
+    "RelativePath": "api/Omni/recived_mail",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ServerCRM.Models.Omni.EmailDto, ServerCRM, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.OmniController",
     "Method": "SendEmail",
     "RelativePath": "api/Omni/send",
     "HttpMethod": "POST",

@@ -5,11 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
+
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 19vh;
+            margin: 10px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            background-color: #f6f7f8;
+            /* max-height:150px;*/
+        }
+
+        /* Column helper */
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Chat area */
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            scroll-behavior: smooth;
+            max-height:165px;
+        }
+
+            /* Scrollbar styling */
+            .chat-box::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .chat-box::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 3px;
+            }
+
+        /* Message row */
+        .message-row {
+            display: flex;
+            gap: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+            .message-row.user {
+                flex-direction: row-reverse;
+            }
+
+        /* Avatar */
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 4px;
+        }
+
+        /* Message content stack */
+        .stack {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .stack.user {
+                align-items: flex-end;
+            }
+
+            .stack.bot {
+                align-items: flex-start;
+            }
+
+        /* Message bubble */
+        .message-bubble {
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-row.user .message-bubble {
+            background: #6d67ef;
+            color: #ffffff;
+            border-top-right-radius: 0.1rem;
+        }
+
+        .message-row:not(.user) .message-bubble {
+            border-top-left-radius: 0.1rem;
+        }
+
+        /* Name & time */
+        .message-header {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .name {
+            font-weight: 600;
+        }
+
+        .message-time {
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Message text */
+        .message-text {
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        /* Chat footer */
+        .chat-summary {
+            padding: 14px;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #f0f0f0; 
-            color: #555555; 
+            background-color: #f0f0f0;
+            color: #555555;
             text-align: center;
             border-radius: 6px;
             padding: 14px 20px;
@@ -21,12 +162,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
-            border: 1px solid #ddd; 
+            border: 1px solid #ddd;
             font-weight: 500;
         }
 
 
-        
+
             #toast.show {
                 visibility: visible;
                 opacity: 1;
@@ -104,9 +245,9 @@
             margin-top: 153px;
         }
 
-            .side-panel.open {
-                right: 0;
-            }
+        .side-panel.open {
+            right: 0;
+        }
 
         /* Header */
         .side-panel-header {
@@ -158,7 +299,7 @@
                 resize: vertical;
             }
 
-            
+
 
         /* Send Button */
         .send-btn {
@@ -1466,7 +1607,7 @@
 
                 <div class="ai-transcript">
                     <div class="transcript-content">
-                        <div class="transcript-header">
+                        <div class="transcript-header" >
                             <div class="transcript-title">
                                 <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
                                     <path d="M12 4.19436C12.322 4.19436 12.5828 4.4554 12.583 4.77737V18.7774C12.583 19.0995 12.3222 19.3614 12 19.3614C11.6778 19.3614 11.417 19.0995 11.417 18.7774V4.77737C11.4172 4.4554 11.678 4.19436 12 4.19436ZM8.88867 7.30569C9.21077 7.30569 9.47254 7.56663 9.47266 7.8887V15.667C9.47248 15.989 9.21073 16.25 8.88867 16.25C8.56671 16.2499 8.30584 15.989 8.30566 15.667V7.8887C8.30578 7.56671 8.56668 7.30581 8.88867 7.30569ZM15.1113 7.30569C15.4333 7.30581 15.6942 7.5667 15.6943 7.8887V15.667C15.6942 15.989 15.4333 16.2499 15.1113 16.25C14.7893 16.25 14.5275 15.989 14.5273 15.667V7.8887C14.5275 7.56663 14.7892 7.30569 15.1113 7.30569ZM5.77734 10.417C6.09951 10.417 6.36133 10.6779 6.36133 11V12.5557C6.36127 12.8778 6.09947 13.1387 5.77734 13.1387C5.45541 13.1385 5.19439 12.8777 5.19434 12.5557V11C5.19434 10.678 5.45538 10.4173 5.77734 10.417ZM18.2227 10.417C18.5446 10.4173 18.8057 10.678 18.8057 11V12.5557C18.8056 12.8777 18.5446 13.1385 18.2227 13.1387C17.9005 13.1387 17.6387 12.8778 17.6387 12.5557V11C17.6387 10.6779 17.9005 10.417 18.2227 10.417Z" fill="#4094F7" stroke="#4094F7" strokeWidth="0.388889" />
@@ -1516,31 +1657,25 @@
                             </div>
 
                             <div class="tabs">
-                                <div class="tab active">
+                                <div class="tab inactive">
                                     <span class="tab-text active">Summary</span>
                                 </div>
                                 <div class="tab inactive">
                                     <span class="tab-text inactive">Analysis</span>
                                 </div>
-                                <div class="tab inactive">
+                                <div class="tab active">
                                     <span class="tab-text inactive">Breakdown</span>
                                 </div>
                             </div>
 
 
-                            <div class="transcript-text">
-                                <p style="font-weight: 500; margin-bottom: 8px;">The dialogue features two primary speakers:</p>
-                                <ul class="transcript-list">
-                                    <li>
-                                        <span class="speaker">SPEAKER 00:</span>
-                                        <span> Presumably a Domino's customer service agent</span>
-                                    </li>
-                                    <li>
-                                        <span class="speaker">SPEAKER 01:</span>
-                                        <span> A customer attempting to resolve issues with a delayed or unclear delivery</span>
-                                    </li>
-                                </ul>
-                            </div>
+                                <div class="chat-box" id="chat-box">
+                              
+                                </div>
+
+                     
+                               
+                         
                         </div>
                     </div>
                 </div>
@@ -1607,7 +1742,7 @@
                         </h6>
 
                         <div style="overflow-x:auto;" id="historyContainer">
-                           
+
                         </div>
                     </div>
                 </div>
@@ -1754,14 +1889,8 @@
 
 
         </div>
-        <div id="loader" style="display:none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;">
-            <img src="../img/Loading_2.gif" alt="Loading..."
-                 style="width: 100px; height: 100px;" />
+        <div id="loader" style="display:none; position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;">
+            <img src="../img/Loading_2.gif" alt="Loading..."style="width: 100px; height: 100px;" />
         </div>
 
         <div class="action-btn-group-vertical">
@@ -1789,101 +1918,50 @@
         </div>
 
 
-        <div id="emailPanel" class="side-panel" style="display:flex; flex-direction:column;">
-            <div class="side-panel-header" style="display:flex; align-items:center; gap:8px;">
+        
 
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                     stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16v16H4z" fill="none"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
+    </div>
 
-                <span>Email Panel</span>
+    <div id="emailPanel" class="side-panel" style="display:flex; flex-direction:column;">
+    <div class="side-panel-header" style="display:flex; align-items:center; gap:8px;">
 
-                <button onclick="closePanel('emailPanel')"
-                        style="margin-left:auto; background:none; border:none; font-size:16px; cursor:pointer;">
-                    ✖
-                </button>
-            </div>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+             stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v16H4z" fill="none"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
 
+        <span>Email Panel</span>
 
-            <div class="email-form" style="border-top:1px solid #ccc; padding:10px; background:#f9f9f9;">
-                <div>
-                    <label>Email:</label>
-                    <input type="text" id="emailInput" placeholder="Enter email" style="width: 100%; margin-bottom: 8px; margin-top: 4px; " />
-
-                    <label>Subject:</label>
-                    <input type="text" id="messageInput" value="" placeholder="Enter message" style="width: 100%; height: 30px; margin-bottom: 2px; margin-top: 4px; " />
-
-                    <label>Suggested Reply:</label>
-
-                    <textarea id="replyInput" placeholder="Enter suggested reply" rows="18" style="margin-top: 7px; "></textarea>
-
-                    <div id="ageNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
+        <button onclick="closePanel('emailPanel')"
+                style="margin-left:auto; background:none; border:none; font-size:16px; cursor:pointer;">
+            ✖
+        </button>
+    </div>
 
 
-                    <div style="display: flex; align-items: center; gap: 8px; margin-left: 471px;">
+    <div class="email-form" style="border-top:1px solid #ccc; padding:10px; background:#f9f9f9;">
+        <div>
+            <label>Email:</label>
+            <input type="text" id="emailInput" placeholder="Enter email" style="width: 100%; margin-bottom: 8px; margin-top: 4px; " />
 
-                        <div style="position:relative; display:inline-block;">
+            <label>Subject:</label>
+            <input type="text" id="messageInput" value="" placeholder="Enter message" style="width: 100%; height: 30px; margin-bottom: 2px; margin-top: 4px; " />
 
+            <label>Suggested Reply:</label>
 
-                            <svg onclick="processEmailReply(this)"
-                                 style="width: 22px; height: 44px; margin-top: 23px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
-                                 onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
-                                 onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
-                                 viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <textarea id="replyInput" placeholder="Enter suggested reply" rows="18" style="margin-top: 7px; "></textarea>
 
-                                <polyline points="23 4 23 10 17 10"></polyline>
-                                <polyline points="1 20 1 14 7 14"></polyline>
-                                <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
-                            </svg>
-
-                            <!-- Tooltip -->
-                            <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
-                                Process Email Reply
-                            </span>
-                        </div>
-
-                        <button class="send-btn" onclick="sendUserInput()">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
-                                <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div id="toast">Mail sent successfully!</div>
-            </div>
-
-        </div>
+            <div id="ageNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
 
 
+            <div style="display: flex; align-items: center; gap: 8px; margin-left: 471px;">
+
+                <div style="position:relative; display:inline-block;">
 
 
-        <div id="chatPanel" class="side-panel">
-            <div class="side-panel-header">
-                <span class="panel-title" style="display:flex; align-items:center; gap:5px; color:#7993A5;">
-                    Chat Panel
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7993A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                </span>
-                <button onclick="closePanel('chatPanel')">✖</button>
-            </div>
-            <div id="chatContent" style=" overflow-y: auto;">
-
-            </div>
-
-            <div class="chat-input" style="display:flex; align-items:center; gap:8px; padding:5px;">
-
-                <textarea id="chatMessage" placeholder="Type a message..." rows="11"
-                          style="flex:1; padding:8px; border:1px solid #ccc; border-radius:6px; font-size:14px; resize:vertical; min-height:50px; transition: border 0.3s;"
-                          onfocus="this.style.borderColor='#7993A5'; this.style.boxShadow='0 0 5px rgba(121,147,165,0.5)';"
-                          onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';"></textarea>
-
-
-                <div style="position:relative; display:inline-block; cursor:pointer; z-index:2;">
-                    <svg onclick="processMessage()"
-                         style="width: 22px; height: 63px; margin-top: 86px; margin-left: 5px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
+                    <svg onclick="processEmailReply(this)"
+                         style="width: 22px; height: 44px; margin-top: 23px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
                          onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
                          onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
                          viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1892,29 +1970,80 @@
                         <polyline points="1 20 1 14 7 14"></polyline>
                         <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
                     </svg>
+
+                    <!-- Tooltip -->
                     <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
-                        Process Message
+                        Process Email Reply
                     </span>
-                    <button class="send-btn" onclick="sendMessage()" style="background:#4a90e2; border:none; border-radius:6px; padding:6px; cursor:pointer; z-index:1;">
-                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
-                            <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </button>
                 </div>
 
-
-
+                <button class="send-btn" onclick="sendUserInput()">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
             </div>
-
-
-            <div id="processNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
-
-
         </div>
+        <div id="toast">Mail sent successfully!</div>
+    </div>
+
+</div>
+
+
+
+
+<div id="chatPanel" class="side-panel">
+    <div class="side-panel-header">
+        <span class="panel-title" style="display:flex; align-items:center; gap:5px; color:#7993A5;">
+            Chat Panel
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7993A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+        </span>
+        <button onclick="closePanel('chatPanel')">✖</button>
+    </div>
+    <div id="chatContent" style=" overflow-y: auto;">
+
+    </div>
+
+    <div class="chat-input" style="display:flex; align-items:center; gap:8px; padding:5px;">
+
+        <textarea id="chatMessage" placeholder="Type a message..." rows="11"
+                  style="flex:1; padding:8px; border:1px solid #ccc; border-radius:6px; font-size:14px; resize:vertical; min-height:50px; transition: border 0.3s;"
+                  onfocus="this.style.borderColor='#7993A5'; this.style.boxShadow='0 0 5px rgba(121,147,165,0.5)';"
+                  onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';"></textarea>
+
+
+        <div style="position:relative; display:inline-block; cursor:pointer; z-index:2;">
+            <svg onclick="processMessage()"
+                 style="width: 22px; height: 63px; margin-top: 86px; margin-left: 5px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
+                 onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
+                 onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
+                 viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                <polyline points="23 4 23 10 17 10"></polyline>
+                <polyline points="1 20 1 14 7 14"></polyline>
+                <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
+            </svg>
+            <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
+                Process Message
+            </span>
+            <button class="send-btn" onclick="sendMessage()" style="background:#4a90e2; border:none; border-radius:6px; padding:6px; cursor:pointer; z-index:1;">
+                <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                    <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+
 
 
     </div>
 
+
+    <div id="processNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
+
+
+</div>
 
 
 
@@ -1959,11 +2088,11 @@
             const message = chatInput.value.trim();
             if (!message) return;
 
-   
+
             const svgIcon = document.querySelector('#chatPanel svg[onclick="processMessage()"]');
 
             try {
-       
+
                 svgIcon.classList.add('spinning');
 
                 const formData = new FormData();
@@ -1977,10 +2106,10 @@
 
                 const data = await response.json();
 
-         
+
                 chatInput.value = data.processed_text || message;
 
-           
+
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
@@ -1988,7 +2117,7 @@
                 console.error('Error:', err);
                 alert('Error processing message.');
             } finally {
-            
+
                 svgIcon.classList.remove('spinning');
             }
         }
@@ -2015,15 +2144,15 @@
             const realmsg = document.getElementById('messageInput').value;
             const notice = document.getElementById('ageNotice');
             const replyInput = document.getElementById('replyInput');
-          
-            
+
+
             if (!email || !realmsg) {
                 alert("Please fill Email and Message first.");
                 return;
             }
 
             try {
-          
+
                 svgIcon.classList.add('spinning');
                 const res = await fetch('/api/Omni/send', {
                     method: 'POST',
@@ -2032,7 +2161,7 @@
                 });
 
                 const data = await res.json();
-                replyInput.value = stripHtml(data.response || "No response");  
+                replyInput.value = stripHtml(data.response || "No response");
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
@@ -2056,7 +2185,7 @@
 
         function sendUserInput() {
             const summernote = document.getElementById('replyInput').value;
-          
+
 
             if (!summernote) {
                 alert("Reply is empty.");
@@ -2098,7 +2227,7 @@
                     showToast("Mail sent successfully!");
                 })
                 .catch(error => {
-                 
+
                     console.error('Error:', error);
 
                     Swal.fire({
@@ -2108,8 +2237,8 @@
                     });
                 });
 
-           
-         
+
+
         }
         function showToast(message) {
             const toast = document.getElementById("toast");
@@ -2120,6 +2249,90 @@
                 toast.classList.remove("show");
             }, 3000);
         }
+
+        async function loadChat(phonenumber) {
+            try {
+                const response = await fetch(
+                    `http://172.21.11.61:8090/chat?phonenumber=${phonenumber}`
+                );
+                const data = await response.json();
+                console.log(data);
+
+                const chatBox = document.getElementById("chat-box");
+                chatBox.innerHTML = "";
+
+                data.chat.forEach((conv) => {
+                    // BOT message (answer)
+                    if (conv.answer && conv.answer !== "NULL") {
+                        const botRow = document.createElement("div");
+                        botRow.className = "message-row bot";
+                        botRow.innerHTML = `
+                    <img class="avatar" src="../img/technical-support.png" alt="Bot">
+                    <div class="stack bot">
+                      <div class="message-header">
+                        <span class="name">Bot</span>
+                      </div>
+
+                      <div class="message-bubble bot">
+                        <div class="message-text">${conv.answer}</div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="">${conv.createddate || ""}</span>
+                      </div>
+                    </div>
+                  `;
+                        chatBox.appendChild(botRow);
+                    }
+
+                    // USER message (question)
+                    if (conv.question && conv.question !== "NULL" ) {
+                        const userRow = document.createElement("div");
+                        userRow.className = "message-row user";
+                        userRow.innerHTML = `
+                    <img class="avatar" src="../img/user.png" alt="user">
+                    <div class="stack user">
+                      <div class="message-header">
+                        <span class="name">Customer</span>
+                      </div>
+
+                      <div class="message-bubble">
+                        <div class="message-text">${conv.question}</div>
+                      </div>
+
+                      <div class="message-time">
+                        <span class="">${conv.createddate || ""}</span>
+                      </div>
+                    </div>
+                  `;
+                        chatBox.appendChild(userRow);
+                    }
+                });
+                
+                chatBox.scrollTop = chatBox.scrollHeight;
+            } catch (error) {
+                alert("Error loading chat: " + error);
+            }
+        }
+        loadChat("9821209237");
+    
+        async function loadSummary(uuid) {
+            try {
+                const response = await fetch(
+                    `http://127.0.0.1:8000/chat_summary?uuid=${uuid}`
+                );
+                const data = await response.json();
+                console.log(data);
+                const chatSummary = document.getElementById("chat-summary");
+                chatSummary.innerHTML = `${data.summary}`;
+
+                // Scroll to bottom
+                chatSummary.scrollTop = chatSummary.scrollHeight;
+            } catch (error) {
+                alert("Error loading chat-summary: " + error);
+            }
+        }
+
     </script>
 </body>
 </html>
