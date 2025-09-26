@@ -1290,8 +1290,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>san25jpdl7</Fingerprint>
-      <Integrity>jPzQKqwtIp7sZa+YXlzytr7KwPr4Ej8TXXjmkiNG+tA=</Integrity>
+      <Fingerprint>wxq0vh197d</Fingerprint>
+      <Integrity>ZDtKFPxtI6UHxw308/rHvNcyMS3RFjqsBnOXURhnamE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\CRM.html'))</OriginalItemSpec>

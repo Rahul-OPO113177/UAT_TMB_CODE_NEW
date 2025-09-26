@@ -25,6 +25,8 @@ namespace ServerCRM.Models
         public int? recordHandle { get; set; }
         public string? IsManual { get; set; }
         public string? CampaignName { get; set; }
+        public string? CRMType { get; set; }
+
         public int? ocsApplicationID { get; set; }
         public  int requestID = 1;
 

@@ -62,6 +62,8 @@ namespace ServerCRM.Controllers
             HttpContext.Session.SetString("dn", agent.dn ?? "");
             HttpContext.Session.SetString("Prefix", agent.Prefix ?? "");
 
+            HttpContext.Session.SetString("ProcessName", agent.ProcessName ?? "");
+
             string error;
             bool success = CTIConnectionManager.LoginAgent(agent,
                 Convert.ToString(agent.login_code), agent.dn, agent.TserverIP_OFFICE, agent.TserverPort, agent.Location , agent.opoid , agent.ProcessName , out error
@@ -276,13 +278,21 @@ namespace ServerCRM.Controllers
         {
             if (string.IsNullOrEmpty(agentId.empCode))
             {
-                return BadRequest("Agent ID is required.");
+                return BadRequest(new { message = "Agent ID is required." });
             }
+
             string login_code = HttpContext.Session.GetString("login_code");
-           await CTIConnectionManager.AgentReady(login_code);
-            string status = $"Agent {agentId} is ready";
-            return Ok(status);
+            string ProcessName = HttpContext.Session.GetString("ProcessName");
+
+            await CTIConnectionManager.AgentReady(login_code);
+
+            string processStatus = "2";
+                //InfoPageFeilds.GetProcessType(ProcessName);
+
+            return Ok(new { status = processStatus });
         }
+
+
         [HttpPost("submit")]
         public IActionResult SubmitDisposition([FromBody] Dictionary<string, object> data)
         {

@@ -15,6 +15,32 @@ namespace ServerCRM.Services
     public static class InfoPageFeilds
     {
         private readonly static string connectionString = "Data Source=20.20.20.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
+
+
+        public static string GetProcessType(string processName)
+        {
+            string processType = null;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT ProcessType FROM Process_Master WHERE Process_Name = @ProcessName";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@ProcessName", processName);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        processType = result.ToString();
+                    }
+                }
+            }
+
+            return processType;
+        }
+
         public static async Task InsertEmailIntoDatabaseAsync(string sender, string subject, string body, string isAttempt, string empCode, string date, string EMPCOde, string processName)
         {
             string ConnectionStringProcess = InfoPageFeilds.getConnectionstring(processName);

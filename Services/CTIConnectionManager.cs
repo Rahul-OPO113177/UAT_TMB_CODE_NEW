@@ -135,7 +135,8 @@ namespace ServerCRM.Services
                                         AgentGroup = null,
                                         finishCode = null,
                                         dt_EntityType = new DataTable(),
-                                        IsRedial = Convert.ToInt32( agentvalue.IsRedial)
+                                        IsRedial = Convert.ToInt32(agentvalue.IsRedial),
+                                        CRMType = "2"
 
                                     };
                                     agentSessions[agentId] = agentSession;
@@ -1891,8 +1892,22 @@ namespace ServerCRM.Services
                 else
                 {
 
-                    RequestAgentReady requestAgentReady = RequestAgentReady.Create(session.DN, AgentWorkMode.AutoIn);
-                    var Imassage = tServer.Request(requestAgentReady);
+                    IMessage Imassage;
+
+                    if (session.CRMType=="2")
+                    {
+                        RequestAgentReady requestAgentReady = RequestAgentReady.Create(session.DN, AgentWorkMode.AutoIn);
+                         Imassage = tServer.Request(requestAgentReady);
+                        RequestAgentNotReady requestAgentNotReady = RequestAgentNotReady.Create(session.DN, AgentWorkMode.AfterCallWork);
+                        Imassage = tServer.Request(requestAgentNotReady);
+                    }
+                    else
+                    {
+                        RequestAgentReady requestAgentReady = RequestAgentReady.Create(session.DN, AgentWorkMode.AutoIn);
+                         Imassage = tServer.Request(requestAgentReady);
+                    }
+
+                       
                     if (Imassage.Name == "EventError")
                     {
                     }
@@ -2053,7 +2068,8 @@ namespace ServerCRM.Services
             AgentSession session = GetAgentSession(AgentID);
             if(session.ConnID==null)
             {
-                return false;
+                InfoPageFeilds.InsertEmailHistory(data.Email, data.Subject, data.Reply, Convert.ToString( data.phoneInput), Convert.ToString(session.ConnID), session.OPOID, session.ProcessName);
+                return true;
             }
             else
             {
