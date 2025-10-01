@@ -44,14 +44,16 @@ namespace ServerCRM.Services
 
         public static void UpdateAgentStatus(int statusId, AgentSession session, IHubContext<CtiHub> hubContext)
         {
-            var agentId = session.AgentId;
+            var agentId = session.OPOID;
             var now = DateTime.UtcNow;
 
             var agentStat = AgentStats.GetOrAdd(agentId, id => new AgentStat
             {
                 AgentId = id,
                 CurrentStatusID = statusId,
-                StatusStartTime = now
+                StatusStartTime = now,
+                ConnID = Convert.ToString( session.ConnID)
+
             });
 
             if (agentStat.StatusStartTime != default && agentStat.CurrentStatusID != 0)
@@ -62,10 +64,11 @@ namespace ServerCRM.Services
                     StatusId = agentStat.CurrentStatusID,
                     StatusLabel = StatusMap.GetValueOrDefault(agentStat.CurrentStatusID, "UNKNOWN"),
                     StartTime = agentStat.StatusStartTime,
-                    EndTime = now
+                    EndTime = now,
+                    ConnID= agentStat.ConnID
                 };
 
-                SaveStatusHistoryToDatabase(history);
+               SaveStatusHistoryToDatabase(history);
                 agentStat.StatusHistory.Add(history);
             }
 
@@ -87,17 +90,24 @@ namespace ServerCRM.Services
             {
                 const string connectionString = "server=20.20.20.82;user=dba;password=Opo@1234;database=DATAMART;";
 
+                double durationSeconds = Math.Round((history.EndTime - history.StartTime).TotalSeconds, 0);
+
                 using var connection = new MySqlConnection(connectionString);
                 using var command = new MySqlCommand(@"
-            INSERT INTO AgentStatusHistories (AgentId, StatusId, StatusLabel, StartTime, EndTime , CreateDate)
-            VALUES (@AgentId, @StatusId, @StatusLabel, @StartTime, @EndTime , @CreateTime)", connection);
+            INSERT INTO AgentStatusHistories 
+                (AgentId, StatusId, StatusLabel, StartTime, EndTime, Duration, ConnID, CreateDate)
+            VALUES 
+                (@AgentId, @StatusId, @StatusLabel, @StartTime, @EndTime, @Duration, @ConnID, @CreateTime)", connection);
 
+          
                 command.Parameters.AddWithValue("@AgentId", history.AgentId);
                 command.Parameters.AddWithValue("@StatusId", history.StatusId);
                 command.Parameters.AddWithValue("@StatusLabel", history.StatusLabel);
                 command.Parameters.AddWithValue("@StartTime", history.StartTime);
                 command.Parameters.AddWithValue("@EndTime", history.EndTime);
-                command.Parameters.AddWithValue("@CreateTime", history.EndTime);
+                command.Parameters.AddWithValue("@Duration", durationSeconds);
+                command.Parameters.AddWithValue("@ConnID", history.ConnID);
+                command.Parameters.AddWithValue("@CreateTime", DateTime.Now); 
 
                 connection.Open();
                 command.ExecuteNonQuery();
@@ -110,6 +120,7 @@ namespace ServerCRM.Services
                 throw;
             }
         }
+
 
     }
 

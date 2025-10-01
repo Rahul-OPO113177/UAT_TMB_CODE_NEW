@@ -1,4 +1,5 @@
-﻿
+﻿let timerInterval = null;
+let seconds = 0;
 function openTab(evt, tabId) {
     document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
     document.querySelectorAll(".nav-tab").forEach(el => el.classList.remove("active"));
@@ -8,9 +9,24 @@ function openTab(evt, tabId) {
     evt.currentTarget.parentElement.classList.remove("inactive");
 }
 
-let timerInterval = null;
-let seconds = 0;
-
+function showWarning_New(message) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Warning',
+        text: message,
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        background: '#fff7ed',
+        color: '#92400e',
+        iconColor: '#f59e0b',
+        customClass: {
+            popup: 'shadow-lg rounded-xl'
+        }
+    });
+}
 function startTimer() {
     stopTimer();
     seconds = 0;
@@ -80,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     connection.onreconnected((connectionId) => {
-        console.info("✅ SignalR reconnected:", connectionId);
+        console.info("SignalR reconnected:", connectionId);
         connection.invoke("JoinGroup", agentId)
             .then(() => console.log("Rejoined group after reconnect"))
             .catch(err => console.error("Error rejoining group:", err));
@@ -100,7 +116,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const parts = number.split(".");
         const initials = parts.map(p => p.charAt(0).toUpperCase()).join("");
         const email = number + "@1point1.in";
-
         const usernameEl = document.getElementById("username");
         if (usernameEl) usernameEl.innerText = number;
 
@@ -121,9 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     return;
                 }
             }
-
-            console.log("Data type:", Array.isArray(data));
-            console.log("Data length:", data.length);
 
             const container = document.getElementById('historyContainer');
             if (!container) {
@@ -365,9 +377,8 @@ document.addEventListener("DOMContentLoaded", function () {
                                     <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
                                         Call Back Date  <span style="color:red;">*</span>
                                     </label>
-                                    <input id="callBackDateOutcome" type="date"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"
-                                           min="" onchange="validateDate()">
+                                    <input id="callBackDateOutcome"  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="datetime-local"
+                                          onchange="validateDate()">
                                 </div>
                                 <div style="display:flex; flex-direction:column; flex:1 1 200px;">
                                     <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark  <span style="color:red;">*</span></label>
@@ -431,7 +442,7 @@ function validateDate() {
     const selectedDateObj = new Date(selectedDate);
 
     if (selectedDateObj < today) {
-        alert("The selected date cannot be in the past. Please choose a future date.");
+        showWarning_New("The selected date cannot be in the past. Please choose a future date.");
         document.getElementById('callBackDateOutcome').value = "";
     }
 }
@@ -548,7 +559,7 @@ function clearFeilds() {
 }
 function makeCall() {
     const phone = document.getElementById("phoneInput").value.trim();
-    if (!/^\d{10}$/.test(phone)) { alert("Phone number must be exactly 10 digits."); return; }
+    if (!/^\d{10}$/.test(phone)) { showWarning_New("Phone number must be exactly 10 digits."); return; }
     clearFeilds();
     callAPI("/api/Genesys/makecall", "POST", { phone });
 }
@@ -805,7 +816,7 @@ function submitDisposition() {
 
 
     if (!isValid) {
-        alert("Please fill required fields:\n\n" + validationMessage);
+        showWarning_New("Please fill required fields:\n\n" + validationMessage);
         return;
     }
 

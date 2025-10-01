@@ -36,6 +36,8 @@ using ServerCRM.Models.InfoPage;
 using System.Reflection.Emit;
 using ServerCRM.Models.Omni;
 using Org.BouncyCastle.Tls;
+using MySqlConnector;
+using System.Drawing;
 
 
 namespace ServerCRM.Services
@@ -44,11 +46,11 @@ namespace ServerCRM.Services
     public static class CTIConnectionManager
     {
         public static IHubContext<CtiHub> _hubContext;
-        
-        public static void Configure(IHubContext<CtiHub> hubContext )
+
+        public static void Configure(IHubContext<CtiHub> hubContext)
         {
             _hubContext = hubContext;
-            
+
         }
         public static IHubContext<CtiHub> HubContext => _hubContext;
         private static readonly ConcurrentDictionary<string, TServerProtocol> agentConnections = new();
@@ -56,7 +58,7 @@ namespace ServerCRM.Services
         private static readonly ConcurrentDictionary<string, AgentSession> agentSessions = new();
         private static Timer _autoWrapTimer;
 
-        public static bool LoginAgent(CL_AgentDet agentvalue, string agentId, string dn, string tServerIp, string tServerPort, string Location , string OPOID , string ProcessName, out string errorMessage)
+        public static bool LoginAgent(CL_AgentDet agentvalue, string agentId, string dn, string tServerIp, string tServerPort, string Location, string OPOID, string ProcessName, out string errorMessage)
         {
             errorMessage = "";
             try
@@ -92,7 +94,7 @@ namespace ServerCRM.Services
                                 IMessage readyResponse = tServer.Request(ready);
                                 if (readyResponse.Name == "EventAgentReady")
                                 {
-                                    
+
                                     agentConnections[agentId] = tServer;
                                     var agentSession = new AgentSession
                                     {
@@ -136,7 +138,8 @@ namespace ServerCRM.Services
                                         finishCode = null,
                                         dt_EntityType = new DataTable(),
                                         IsRedial = Convert.ToInt32(agentvalue.IsRedial),
-                                        CRMType = "2"
+                                        CRMType = "2",
+                                        lblcallback = ""
 
                                     };
                                     agentSessions[agentId] = agentSession;
@@ -274,10 +277,10 @@ namespace ServerCRM.Services
                             {
                                 session.partyFirstPhone = established.ANI;
                             }
-                           
-                            
+
+
                             CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
-                            CTIConnectionManager.GetInfoPageFeilds(session.ProcessName , session.AgentId , session.MyCode.ToString() , session.CampaignPhone);
+                            CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString(), session.CampaignPhone);
                         }
                         else
                         {
@@ -291,7 +294,7 @@ namespace ServerCRM.Services
                             session.isOnCall = true;
                             AgentStatusMapper.UpdateAgentStatus(3, session, hubContext);
                             session.CurrentStatusID = 3;
-                           
+
 
                         }
                         if (established.UserData != null)
@@ -366,7 +369,7 @@ namespace ServerCRM.Services
                                 {
                                     session.isOnCall = false;
                                     session.isConforence = false;
-                                    
+
                                     session.partyFirstPhone = null;
                                     CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.partyFirstPhone);
                                     AgentStatusMapper.UpdateAgentStatus(4, session, hubContext);
@@ -387,10 +390,10 @@ namespace ServerCRM.Services
                         }
                         if (session.IsAutoWrap == 1)
                         {
-                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime , session.AgentId);
+                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
 
                         }
-                       
+
 
                         break;
                     case EventAgentReady.MessageName:
@@ -681,22 +684,6 @@ namespace ServerCRM.Services
                                 if (eventUserEvent.UserData["GSW_USER_EVENT"].ToString() == "ScheduledCall")
                                 {
 
-                                    //session.MyCode = Convert.ToDouble(eventUserEvent.UserData["TMasterID"].ToString());
-                                    //if ( session.MyCode  > 0)
-                                    //{
-
-                                    //    session.recordHandle = int.Parse(eventUserEvent.UserData["GSW_RECORD_HANDLE"].ToString());
-
-
-                                    //    session.attempts = int.Parse(eventUserEvent.UserData["GSW_ATTEMPTS"].ToString());
-
-                                    //    session.CampaignPhone = Convert.ToString(eventUserEvent.UserData["GSW_PHONE"].ToString());
-                                    //    session.MasterPhone = Convert.ToString(eventUserEvent.UserData["GSW_PHONE"].ToString());
-                                    //    CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
-                                    //    if (session.CampaignMode != "Preview")
-                                    //    {
-                                    //    }
-                                    //}
 
 
                                     if (session.CurrentStatusID == 1 && session.PCBMyCode > 0)
@@ -710,6 +697,7 @@ namespace ServerCRM.Services
                                         {
                                             session.CampaignPhone = Convert.ToString(eventUserEvent.UserData["GSW_PHONE"].ToString());
                                             session.MasterPhone = Convert.ToString(eventUserEvent.UserData["GSW_PHONE"].ToString());
+                                            session.lblcallback = "Personal Callback";
                                             if (session.CampaignMode != "Preview")
                                             {
                                                 CTIConnectionManager.autoDial(session.AgentId, session.CampaignPhone, session.DN, session.TServerProtocol, session.Prifix);
@@ -740,11 +728,12 @@ namespace ServerCRM.Services
 
                                                 }
                                                 CTIConnectionManager.Show_Data(session.MyCode, session.AgentId);
-
+                                                session.lblcallback = "Personal Callback";
 
                                             }
                                             else
                                             {
+                                                session.lblcallback = "";
                                             }
                                         }
                                     }
@@ -780,10 +769,10 @@ namespace ServerCRM.Services
             return status;
         }
 
-        public static void GetInfoPageFeilds(string ProcessName , string AgnetID , string Mycode , string PhoneNumer)
+        public static void GetInfoPageFeilds(string ProcessName, string AgnetID, string Mycode, string PhoneNumer)
         {
-            var infoPageFeilds= InfoPageFeilds.GetInfoPageFeildsnew(ProcessName , Mycode);
-            var history = InfoPageFeilds.GetHistoryDataByPhoneNumber(PhoneNumer , ProcessName);
+            var infoPageFeilds = InfoPageFeilds.GetInfoPageFeildsnew(ProcessName, Mycode);
+            var history = InfoPageFeilds.GetHistoryDataByPhoneNumber(PhoneNumer, ProcessName);
             CTIConnectionManager.HubContext.Clients.Group(AgnetID).SendAsync("infopagedata", infoPageFeilds);
             CTIConnectionManager.HubContext.Clients.Group(AgnetID).SendAsync("history", history);
 
@@ -794,82 +783,53 @@ namespace ServerCRM.Services
             try
             {
                 AgentSession session = GetAgentSession(agentID);
-                string url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/Select";
-                if (session.Location == "GGN" || session.Location == "CHN")
+
+                string connectionString = InfoPageFeilds.getConnectionstring(session.ProcessName);
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
-                    url = "http://172.24.11.93:8088/API/AgentDetailAPI_NewSetup_GGN/Api/Select";
-                }
-                else
-                {
-                    url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/Select";
-                }
+                    conn.Open();
 
-
-                var json = "";
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
-
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                {
-                    json = "{\"ProcessName\":\"" + session.ProcessName + "\",\"Opocode\":\"" + session.OPOID + "\"}";
-
-                    streamWriter.Write(json);
-                }
-
-                var httpresponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamreader = new StreamReader(httpresponse.GetResponseStream()))
-                {
-                    var result = streamreader.ReadToEnd();
-                   
-
-                    if(result != "null")
+                    using (MySqlCommand cmd = new MySqlCommand("USP_InsertRetriveFromPCB", conn))
                     {
-                        result = result.Replace("\"", "");
-                        result = result.Replace(":", "\":\"");
-                        result = result.Replace("{\\", "{\\\"");
-                        result = result.Replace("}", "\"}");
-                        result = result.Replace(",", "\",\"");
-                        result = result.Replace("\"{", "{");
-                        result = result.Replace("}\"", "}");
-                        result = result.Replace("\\", "");
-                        try
-                        {
-                            if (result == "Failure")
-                            {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                                return 0;
-                            }
-                            else
+                        cmd.Parameters.AddWithValue("p_Mycode", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Phone", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Agent_Name", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Campaign", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_FTIME", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Connid", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Dispo_code", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_Subdispo_code", DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_ProcessName", session.ProcessName);
+                        cmd.Parameters.AddWithValue("p_Operation", "Select");
+                        cmd.Parameters.AddWithValue("p_Opocode", session.OPOID);
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
                             {
-                                session.dt_EntityType = (DataTable)JsonConvert.DeserializeObject(result, (typeof(DataTable)));
-                                if (session.dt_EntityType.Rows.Count > 0)
+                                if (reader.Read())
                                 {
-                                    session.MyCode = Convert.ToDouble(session.dt_EntityType.Rows[0][0]);
-                                    session.CampaignPhone = Convert.ToString(session.dt_EntityType.Rows[0][1]);
+                         
+                                    double myCode = reader.IsDBNull(0) ? 0 : reader.GetDouble(0);
+                                    string phone = reader.IsDBNull(1) ? null : reader.GetString(1);
 
+ 
+                                    session.MyCode = myCode;
+                                    session.CampaignPhone = phone;
+
+                                    return myCode;
                                 }
-                                return session.MyCode;
-
                             }
-                        }
-                        catch (Exception exc)
-                        {
-
-                            return 0;
+                            return 0;  
                         }
                     }
-                    else
-                    {
-                        return 0;
-                    }
-                    
                 }
             }
-
             catch (Exception ex)
             {
-                //MessageBox.Show("Error while calling API - " + ex.Message, "GetEntityMasterApi");
+              
                 return 0;
             }
         }
@@ -945,7 +905,7 @@ namespace ServerCRM.Services
 
                     if (session.CurrentStatusID == 4)
                     {
-                        if(session.IsRedial==1)
+                        if (session.IsRedial == 1)
                         {
 
                         }
@@ -954,7 +914,7 @@ namespace ServerCRM.Services
                             return "Agent does not have redial access";
 
                         }
-                           
+
                     }
 
                     if (phoneNumber.Contains('X'))
@@ -1060,7 +1020,7 @@ namespace ServerCRM.Services
                         }
 
 
-                        CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString() , DialPhone);
+                        CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString(), DialPhone);
                     }
                 }
                 else
@@ -1365,7 +1325,7 @@ namespace ServerCRM.Services
                         }
                         else
                         {
-                          
+
                             session.IVRConnID = null;
                             session.isConforence = false;
                             session.isOnCall = false;
@@ -1396,7 +1356,7 @@ namespace ServerCRM.Services
                     }
                     else
                     {
-                        
+
                         session.IVRConnID = null;
                         session.isConforence = false;
                         session.isOnCall = false;
@@ -1417,72 +1377,69 @@ namespace ServerCRM.Services
 
             return "";
         }
-       
-        public static string savedata(Dictionary<string, object> message , string AgentID)
+
+        public static string savedata(Dictionary<string, object> message, string AgentID)
         {
 
             string disposition = message.ContainsKey("disposition") ? message["disposition"]?.ToString()?.Trim() : null;
             string subDisposition = message.ContainsKey("subDisposition") ? message["subDisposition"]?.ToString()?.Trim() : null;
             string callBackDateOutcome = message.ContainsKey("callBackDateOutcome") ? message["callBackDateOutcome"]?.ToString()?.Trim() : null;
             string remark = message.ContainsKey("remark") ? message["remark"]?.ToString()?.Trim() : null;
-            string pcb = message.ContainsKey("disptypeKey") ? message["disptypeKey"]?.ToString()?.Trim() : null;
+            string pcb = message.ContainsKey("dispTypeKey") ? message["dispTypeKey"]?.ToString()?.Trim() : null;
 
             string responce = "";
-              int dispose_code= Convert.ToInt32( disposition);
-            int subdispose_code= Convert.ToInt32(subDisposition);
+            int dispose_code = Convert.ToInt32(disposition);
+            int subdispose_code = Convert.ToInt32(subDisposition);
             string CBdatetime = callBackDateOutcome;
             AgentSession session = GetAgentSession(AgentID);
             session.finishCode = pcb;
 
-                try
-                {
-                InfoPageFeilds.InsertHistory(message ,  session.OPOID , session.ProcessName , Convert.ToDateTime( session.StartTime) , Convert.ToDateTime( session.EndTime ), session.distype , session.RecordingPath , session.CampaignPhone , session.MyCode.ToString() , session.finishCode , Convert.ToString( session.ConnID) , "" , session.CampaignName);
+            try
+            {
+                InfoPageFeilds.InsertHistory(message, session.OPOID, session.ProcessName, Convert.ToDateTime(session.StartTime), Convert.ToDateTime(session.EndTime), session.distype, session.RecordingPath, session.CampaignPhone, session.MyCode.ToString(), session.finishCode, Convert.ToString(session.ConnID), "", session.CampaignName);
 
-                responce = CTIConnectionManager.DisposeCall(AgentID, dispose_code, subdispose_code, CBdatetime);
+                responce = CTIConnectionManager.DisposeCall(AgentID, dispose_code, subdispose_code, CBdatetime , pcb);
 
                 session.ConnID = null;
-                    if (session.isbreak == false && session.CurrentStatusID == 4 )
-                    {
-                    }
-                    else
-                    {
-                        if (session.ProcessType == "OUTBOUND")
-                        {
-                            session.MyCode = GetPCB(session.AgentId);
-                            if (session.MyCode > 0)
-                            {
-                                if (session.CampaignMode != "Preview")
-                                {
-                                    CTIConnectionManager.autoDial(session.AgentId, session.CampaignPhone, session.DN, session.TServerProtocol, session.Prifix);
-                                }
-                                Show_Data(session.MyCode , session.AgentId);
-                              
-                            }
-                            else
-                            {
-                              
-                            }
-                        }
-                       
-                    }
-                }
-                catch (Exception ex)
+                if (session.isbreak == false && session.CurrentStatusID == 4)
                 {
                 }
-                return responce;
-            }
+                else
+                {
+                    if (session.ProcessType == "OUTBOUND")
+                    {
+                        session.MyCode = GetPCB(session.AgentId);
+                        if (session.MyCode > 0)
+                        {
+                            if (session.CampaignMode != "Preview")
+                            {
+                                CTIConnectionManager.autoDial(session.AgentId, session.CampaignPhone, session.DN, session.TServerProtocol, session.Prifix);
+                            }
+                            Show_Data(session.MyCode, session.AgentId);
+                            session.lblcallback = "Personal Callback";
 
-     
-        public static string DisposeCall(string logincode, int dispo, int sub_dispo, string cbtime)
+                        }
+                        else
+                        {
+                            session.lblcallback = "";
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return responce;
+        }
+
+        
+
+        public static string DisposeCall(string logincode, int dispo, int sub_dispo, string cbtime ,string finishCode)
         {
 
             string CBTypeFormatted = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            string finishCode = "GEN";
-
             string str3 = $"Record Saved Successfully...,Disposition:{dispo},SubDisposition:{sub_dispo},CBTime:{CBTypeFormatted},CBType:{finishCode}";
-
-
-
             AgentSession session = GetAgentSession(logincode);
             var status = session.CurrentStatusID;
 
@@ -1554,6 +1511,14 @@ namespace ServerCRM.Services
                 }
 
 
+
+                if (session.lblcallback == "Personal Callback")
+                {
+                    //UpdateCallingListForPCB(dispose_code, subdispose_code, finishCode, CBdatetime);
+
+
+                }
+
                 if (session.upcommingEvent == 11)
                 {
                     AgentStatusMapper.UpdateAgentStatus(Convert.ToInt32(session.upcommingEvent), session, CTIConnectionManager.HubContext);
@@ -1594,6 +1559,7 @@ namespace ServerCRM.Services
                 {
                     CTIConnectionManager.StopAutoWrap();
                     var str = AgentReady(session.AgentId);
+                    session.lblcallback = "";
                     return "Record Saved Successfully";
                 }
             }
@@ -1609,64 +1575,37 @@ namespace ServerCRM.Services
             {
                 AgentSession session = GetAgentSession(AgentID);
 
-                string url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/InsertCallLog";
-                if (session.Location == "GGN" || session.Location == "CHN")
+             string con = InfoPageFeilds.getConnectionstring(session.ProcessName);
+                using (MySqlConnection conn = new MySqlConnection(con))
                 {
-                    url = "http://172.24.11.93:8088/API/AgentDetailAPI_NewSetup_GGN/Api/InsertCallLog";
-                }
-                else
-                {
-                    url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/InsertCallLog";
-                }
-
-
-                var json = "";
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
-
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                {
-                    json = "{\"Phonenumber\":\"" + session.CampaignPhone.ToString() + "\",\"DialTime\":\"" + session.StartTime.ToString() + "\",\"ConnectTime\":\"" + session.StartTime.ToString() + "\",\"DisconnectTime\":\"" + session.EndTime.ToString() + "\",\"DisconnectType\":\"" + session.distype.ToString() + "\",\"AgentID\":\"" + session.OPOID.ToString() + "\",\"Process\":\"" + session.ProcessName.ToString() + "\",\"Location\":\"" + session.Location.ToString() + "\",\"TconnID\":\"" + Convert.ToString(session.ConnID) + "\",\"CampaignName\":\"" +  Convert.ToString( session.CampaignName) + "\",\"CampaignMode\":\"" + session.CampaignMode.ToString()+ "\",\"agentgroup\":\"" + Convert.ToString( session.AgentGroup )+ "\",\"VoiceFilePath\":\"" + session.RecordingPath.Replace("\\", "/") + "\",\"Mycode\":\"" + session.MyCode.ToString() + "\"}";
-
-                    streamWriter.Write(json);
-                }
-
-                var httpresponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamreader = new StreamReader(httpresponse.GetResponseStream()))
-                {
-                    var result = streamreader.ReadToEnd();
-                    result = result.Replace("\"", "");
-                    result = result.Replace(":", "\":\"");
-                    result = result.Replace("{\\", "{\\\"");
-                    result = result.Replace("}", "\"}");
-                    result = result.Replace(",", "\",\"");
-                    result = result.Replace("\"{", "{");
-                    result = result.Replace("}\"", "}");
-                    result = result.Replace("\\", "");
-                    result = result.Replace("T00\":\"00\":\"00", "");
-
-                    try
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand("Usp_Insert_Call_Log", conn))
                     {
-                        if (result == "Failure")
-                        {
-                            
-                        }
-                        else
-                        {
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                        }
-                    }
-                    catch (Exception exc)
-                    {
-                      
+                        cmd.Parameters.AddWithValue("@p_Phonenumber", session.CampaignPhone ?? "");
+                        cmd.Parameters.AddWithValue("@p_DialTime", session.StartTime ?? "");
+                        cmd.Parameters.AddWithValue("@p_ConnectTime", session.StartTime ?? "");
+                        cmd.Parameters.AddWithValue("@p_DisconnectTime", session.EndTime ?? "");
+                        cmd.Parameters.AddWithValue("@p_DisconnectType", session.distype ?? "");
+                        cmd.Parameters.AddWithValue("@p_AgentID", session.OPOID ?? "");
+                        cmd.Parameters.AddWithValue("@p_Process", session.ProcessName ?? "");
+                        cmd.Parameters.AddWithValue("@p_Location", session.Location ?? "");
+                        cmd.Parameters.AddWithValue("@p_TconnID", session.ConnID?.ToString() ?? "");
+                        cmd.Parameters.AddWithValue("@p_CampaignName", session.CampaignName ?? "");
+                        cmd.Parameters.AddWithValue("@p_CampaignMode", session.CampaignMode ?? "");
+                        cmd.Parameters.AddWithValue("@p_agentgroup", session.AgentGroup ?? "");
+                        cmd.Parameters.AddWithValue("@p_VoiceFilePath", (session.RecordingPath ?? "").Replace("\\", "/"));
+                        cmd.Parameters.AddWithValue("@p_Mycode", session.MyCode);
+
+                        cmd.ExecuteNonQuery();
                     }
                 }
             }
-
             catch (Exception ex)
             {
               
+                Console.WriteLine("Error inserting call log: " + ex.Message);
             }
         }
         public static void UpdateAgentStatusApi(string AgentID)
@@ -1714,7 +1653,7 @@ namespace ServerCRM.Services
                     {
                         if (result == "Failure")
                         {
-                           
+
                         }
                         else
                         {
@@ -1723,77 +1662,56 @@ namespace ServerCRM.Services
                     }
                     catch (Exception exc)
                     {
-                        
+
                     }
                 }
             }
 
             catch (Exception ex)
             {
-                
+
             }
         }
 
 
-        private static void InsertPCB(string callbackdatetime , string AgetID , int dispo , int subdispo)
+
+        private static void InsertPCB(string callbackdatetime, string AgentID, int dispo, int subdispo)
         {
             try
             {
-                AgentSession session = GetAgentSession(AgetID);
-                string url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/InsertIntoPCB";
-                if (session.Location == "GGN" || session.Location == "CHN")
+                AgentSession session = GetAgentSession(AgentID);
+              string con=   InfoPageFeilds.getConnectionstring(session.ProcessName);
+                using (MySqlConnection conn = new MySqlConnection(con))
                 {
-                    url = "http://172.24.11.93:8088/API/AgentDetailAPI_NewSetup_GGN/Api/InsertIntoPCB";
-                }
-                else
-                {
-                    url = "https://opo_live.1point1.in:448/API/AgentDetailAPI_Mum/Api/InsertIntoPCB";
-                }
-                var json = "";
-                var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                httpWebRequest.ContentType = "application/json";
-                httpWebRequest.Method = "POST";
+                    string query = @"INSERT INTO PCB 
+                            (Mycode, Phone, Agent_Name, Campaign, FTIME, Connid, Dispo_code, Subdispo_code, ProcessName, Opocode)
+                             VALUES (@Mycode, @Phone, @Agent_Name, @Campaign, @FTIME, @Connid, @Dispo_code, @Subdispo_code, @ProcessName, @Opocode)";
 
-                using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
-                {
-                    json = "{\"Mycode\":\"" + session.MyCode + "\",\"Phone\":\"" + session.CampaignPhone + "\",\"Agent_Name\":\"" + session.OPOID + "\",\"Campaign\":\"" + session.CampaignName + "\",\"FTIME\":\"" + callbackdatetime + "\",\"Connid\":\"" + session.ConnID + "\",\"Dispo_code\":\"" + dispo + "\",\"Subdispo_code\":\"" + subdispo + "\",\"ProcessName\":\"" + session.ProcessName + "\",\"Opocode\":\"" + session.OPOID + "\"}";
-                    streamWriter.Write(json);
-                }
-
-                var httpresponse = (HttpWebResponse)httpWebRequest.GetResponse();
-                using (var streamreader = new StreamReader(httpresponse.GetResponseStream()))
-                {
-                    var result = streamreader.ReadToEnd();
-                    result = result.Replace("\"", "");
-                    result = result.Replace(":", "\":\"");
-                    result = result.Replace("{\\", "{\\\"");
-                    result = result.Replace("}", "\"}");
-                    result = result.Replace(",", "\",\"");
-                    result = result.Replace("\"{", "{");
-                    result = result.Replace("}\"", "}");
-                    result = result.Replace("\\", "");
-                    result = result.Replace("T00\":\"00\":\"00", "");
-
-                    try
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        if (result == "Failure")
-                        {    
-                        }
-                        else
-                        {
+                        cmd.Parameters.AddWithValue("@Mycode", session.MyCode);
+                        cmd.Parameters.AddWithValue("@Phone", session.CampaignPhone);
+                        cmd.Parameters.AddWithValue("@Agent_Name", session.OPOID);
+                        cmd.Parameters.AddWithValue("@Campaign", session.CampaignName);
+                        cmd.Parameters.AddWithValue("@FTIME", callbackdatetime);
+                        cmd.Parameters.AddWithValue("@Connid", session.ConnID.ToString());
+                        cmd.Parameters.AddWithValue("@Dispo_code", dispo);
+                        cmd.Parameters.AddWithValue("@Subdispo_code", subdispo);
+                        cmd.Parameters.AddWithValue("@ProcessName", session.ProcessName);
+                        cmd.Parameters.AddWithValue("@Opocode", session.OPOID);
 
-                        }
-                    }
-                    catch (Exception exc)
-                    {    
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
                     }
                 }
             }
-
             catch (Exception ex)
-            {      
+            {
+
             }
         }
+
+
         public static async Task<string> LogOUT(string agentId)
         {
             try
@@ -1894,20 +1812,20 @@ namespace ServerCRM.Services
 
                     IMessage Imassage;
 
-                    if (session.CRMType=="2")
+                    if (session.CRMType == "2")
                     {
                         RequestAgentReady requestAgentReady = RequestAgentReady.Create(session.DN, AgentWorkMode.AutoIn);
-                         Imassage = tServer.Request(requestAgentReady);
+                        Imassage = tServer.Request(requestAgentReady);
                         RequestAgentNotReady requestAgentNotReady = RequestAgentNotReady.Create(session.DN, AgentWorkMode.AfterCallWork);
                         Imassage = tServer.Request(requestAgentNotReady);
                     }
                     else
                     {
                         RequestAgentReady requestAgentReady = RequestAgentReady.Create(session.DN, AgentWorkMode.AutoIn);
-                         Imassage = tServer.Request(requestAgentReady);
+                        Imassage = tServer.Request(requestAgentReady);
                     }
 
-                       
+
                     if (Imassage.Name == "EventError")
                     {
                     }
@@ -1991,7 +1909,7 @@ namespace ServerCRM.Services
         public static List<Disposition> Disposition(string agentId)
         {
             AgentSession session = GetAgentSession(agentId);
-            var dispositions = InfoPageFeilds.GetDispositionsAsync(session.ProcessName , session.OPOID.ToString());
+            var dispositions = InfoPageFeilds.GetDispositionsAsync(session.ProcessName, session.OPOID.ToString());
             return dispositions;
 
         }
@@ -2020,12 +1938,12 @@ namespace ServerCRM.Services
             }
         }
 
-        public static void StartAutoWrap(int durationInSeconds , string logincode)
+        public static void StartAutoWrap(int durationInSeconds, string logincode)
         {
-            StopAutoWrap(); 
+            StopAutoWrap();
 
             _autoWrapTimer = new Timer(durationInSeconds * 1000);
-           
+
             _autoWrapTimer.AutoReset = false;
             _autoWrapTimer.Elapsed += (sender, e) =>
             {
@@ -2043,14 +1961,14 @@ namespace ServerCRM.Services
                 _autoWrapTimer.Stop();
                 _autoWrapTimer.Dispose();
                 _autoWrapTimer = null;
-               
+
             }
         }
 
-        private static void AutoWrapTimerElapsed(object sender, ElapsedEventArgs e , string loginCode)
+        private static void AutoWrapTimerElapsed(object sender, ElapsedEventArgs e, string loginCode)
         {
             string str3 = $"Record Saved Successfully...,Disposition:{0},SubDisposition:{0},CBTime:{""},CBType:GEN";
-        
+
             //var status = CTIConnectionManager.savedata(str3, loginCode);
 
             //CTIConnectionManager.HubContext.Clients.Group(loginCode).SendAsync("AutoWrap", status);
@@ -2058,45 +1976,45 @@ namespace ServerCRM.Services
         public static List<Disposition> GetDispositionsAsync(string empCode)
         {
             AgentSession session = GetAgentSession(empCode);
-            var dispositions = InfoPageFeilds.GetDispositionsAsync(session.ProcessName , empCode);
+            var dispositions = InfoPageFeilds.GetDispositionsAsync(session.ProcessName, empCode);
             return dispositions;
         }
 
 
-        public static bool SendEmailTocoustomer(EmailData data , string AgentID)
+        public static bool SendEmailTocoustomer(EmailData data, string AgentID)
         {
             AgentSession session = GetAgentSession(AgentID);
-            if(session.ConnID==null)
+            if (session.ConnID == null)
             {
-                InfoPageFeilds.InsertEmailHistory(data.Email, data.Subject, data.Reply, Convert.ToString( data.phoneInput), Convert.ToString(session.ConnID), session.OPOID, session.ProcessName);
+                InfoPageFeilds.InsertEmailHistory(data.Email, data.Subject, data.Reply, Convert.ToString(data.phoneInput), Convert.ToString(session.ConnID), session.OPOID, session.ProcessName);
                 return true;
             }
             else
             {
-                InfoPageFeilds.InsertEmailHistory(data.Email, data.Subject, data.Reply, data.phoneInput, session.ConnID.ToString(), session.OPOID , session.ProcessName);
+                InfoPageFeilds.InsertEmailHistory(data.Email, data.Subject, data.Reply, data.phoneInput, session.ConnID.ToString(), session.OPOID, session.ProcessName);
                 return true;
             }
-                
+
         }
-        public static void SaveEmailByGet(string sender, string subject, string body, string isAttempt, string empCode, string createDate , string AgentID)
+        public static void SaveEmailByGet(string sender, string subject, string body, string isAttempt, string empCode, string createDate, string AgentID)
         {
             AgentSession session = GetAgentSession(AgentID);
-            InfoPageFeilds.InsertEmailIntoDatabaseAsync(sender, subject, body, "0", session.OPOID, "", "" , session.ProcessName);
-              
+            InfoPageFeilds.InsertEmailIntoDatabaseAsync(sender, subject, body, "0", session.OPOID, "", "", session.ProcessName);
+
         }
 
-        public static async Task< List<EmailDto>> GetEmailsWithIsAttemptZeroAsync(string AgentID)
+        public static async Task<List<EmailDto>> GetEmailsWithIsAttemptZeroAsync(string AgentID)
         {
             AgentSession session = GetAgentSession(AgentID);
-            List<EmailDto> list= await InfoPageFeilds.GetEmailsWithIsAttemptZeroAsync(session.ProcessName);
+            List<EmailDto> list = await InfoPageFeilds.GetEmailsWithIsAttemptZeroAsync(session.ProcessName);
             return list;
         }
 
-        public static async Task UpdateIsAttempted(ReplyEmailRequest res ,string AgentID)
+        public static async Task UpdateIsAttempted(ReplyEmailRequest res, string AgentID)
         {
             AgentSession session = GetAgentSession(AgentID);
-            await InfoPageFeilds.UpdateIsAttemptToOneAsync( session.ProcessName , res.To , res.Subject , res.Body , session.OPOID , res.Disposition , res.SubDisposition , res.SubSubDisposition , res.Remark);
-       
+            await InfoPageFeilds.UpdateIsAttemptToOneAsync(session.ProcessName, res.To, res.Subject, res.Body, session.OPOID, res.Disposition, res.SubDisposition, res.SubSubDisposition, res.Remark);
+
         }
 
 

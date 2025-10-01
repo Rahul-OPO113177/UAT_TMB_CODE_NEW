@@ -4,6 +4,8 @@
     {
         public string AgentId { get; set; }
         public int CurrentStatusID { get; set; }
+
+        public string? ConnID { get; set; }
         public DateTime StatusStartTime { get; set; }
 
   

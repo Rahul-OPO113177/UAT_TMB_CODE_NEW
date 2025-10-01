@@ -8,10 +8,10 @@
         .tooltip {
             position: relative;
             display: inline-block;
-            margin-left:50px;
+            margin-left: 50px;
         }
 
-            /* Tooltip text */
+
             .tooltip .tooltiptext {
                 visibility: hidden;
                 width: 140px;
@@ -22,14 +22,13 @@
                 padding: 6px 8px;
                 position: absolute;
                 z-index: 1;
-                bottom: 125%; /* above the button */
+                bottom: 125%;
                 left: 50%;
                 transform: translateX(-50%);
                 opacity: 0;
                 transition: opacity 0.3s, transform 0.3s;
             }
 
-                /* Tooltip arrow */
                 .tooltip .tooltiptext::after {
                     content: "";
                     position: absolute;
@@ -41,14 +40,13 @@
                     border-color: #333 transparent transparent transparent;
                 }
 
-            /* Show tooltip on hover */
             .tooltip:hover .tooltiptext {
                 visibility: visible;
                 opacity: 1;
                 transform: translateX(-50%) translateY(-4px);
             }
 
-        /* Gear spinning */
+
         .spin {
             animation: spin 1s linear infinite;
         }
@@ -59,7 +57,7 @@
             }
         }
 
-        /* Success notification */
+
         #successToast {
             visibility: hidden;
             min-width: 200px;
@@ -2020,12 +2018,12 @@
                 <aside class="inbox">
                     <div class="inbox-header" style="display:flex; align-items:center; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
                         <div style="display:flex; align-items:center; gap:10px;">
-                         
+
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"
                                  style="flex-shrink:0; color:#007bff;">
 
                                 <path d="M3 13.5 5.5 20h13L21 13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-       
+
                                 <rect x="2.2" y="3.8" width="19.6" height="11.2" rx="1.4" stroke="currentColor" stroke-width="1.2" fill="none" />
                                 <path d="M3.5 5.8c3.2 2.2 4.5 3.1 7.9 5.2 3.4-2.1 5.1-2.9 8-5.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
                             </svg>
@@ -2039,7 +2037,7 @@
                     </div>
                 </aside>
 
-                <main class="viewer"  id="emailDetailContent">
+                <main class="viewer" id="emailDetailContent">
 
 
                     <article id="replyForm" style="display:none" class="mail-view hidden">
@@ -2442,13 +2440,11 @@
 
     <script>
 
-
+        let currentEmailBody = "";
         async function updateStatus() {
             const urlParams = new URLSearchParams(window.location.search);
             const agentId = urlParams.get('empCode');
             if (!agentId) { console.error("No agent ID found in URL."); return; }
-
-            console.log("AgentID : " + agentId);
 
             $.ajax({
                 url: '/api/Genesys/status',
@@ -2457,7 +2453,6 @@
                 data: JSON.stringify({ empCode: agentId }),
                 success: function (response) {
                     console.log("Process Status:", response.status);
-
                     const crmContainer = document.getElementById("crmContainer");
                     const emailContainer = document.getElementById("EmailContainer");
 
@@ -2480,9 +2475,6 @@
 
         }
 
-        let currentEmailBody = ""; // declare this outside functions
-
-
         async function fetchEmails() {
             try {
                 const response = await fetch('/api/Genesys/recived_mail');
@@ -2500,43 +2492,37 @@
                     emailItem.dataset.id = index;
 
                     emailItem.innerHTML = `
-                    <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-                    <div class="meta">
-                        <div class="from">${escapeHtml(email.from)}</div>
-                        <div class="subject">${escapeHtml(email.subject)}</div>
-                        <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
-                    </div>
-                    <div class="time">${new Date().toLocaleTimeString()}</div>
-                `;
+                            <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                            <div class="meta">
+                                <div class="from">${escapeHtml(email.from)}</div>
+                                <div class="subject">${escapeHtml(email.subject)}</div>
+                                <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
+                            </div>
+                            <div class="time">${new Date().toLocaleTimeString()}</div>
+                        `;
 
                     emailItem.addEventListener("click", () => {
-                        // Clear previous form content
                         replyForm.innerHTML = "";
                         currentEmailBody = email.body;
-                        // Populate email detail header + body
                         const emailDetailHTML = `
-                        <div class="mail-subject">${escapeHtml(email.subject)}</div>
-                        <div class="mail-sender">
-                            <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-                            <div>
-                                <div class="name">${escapeHtml(email.from)}</div>
-                                <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
-                            </div>
-                        </div>
-                        <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
-                    `;
+                                <div class="mail-subject">${escapeHtml(email.subject)}</div>
+                                <div class="mail-sender">
+                                    <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                    <div>
+                                        <div class="name">${escapeHtml(email.from)}</div>
+                                        <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
+                                    </div>
+                                </div>
+                                <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
+                            `;
 
                         replyForm.innerHTML = emailDetailHTML;
 
-                        // Now bind disposition form under the email
                         BindEmailDisposition();
                         BindDispositionAndSubDispo();
-                        // Pre-fill reply fields
                         document.getElementById("replyToCRM").value = extractEmailAddress(email.from);
                         document.getElementById("replySubjectCRM").value = "Re: " + email.subject;
                         document.getElementById("replyBodyCRM").value = "";
-
-                        // Mark email as read
                         emailItem.classList.add("read");
                         replyForm.style.display = "block";
                     });
@@ -2549,7 +2535,6 @@
             }
         }
 
-        // simple escape utility for safety
         function escapeHtml(str) {
             return str.replace(/[&<>'"]/g, (tag) => (
                 {
@@ -2576,12 +2561,11 @@
                 return elem && elem.offsetParent !== null;
             }
 
-
             if (to == "") {
-                alert("Please fill Email ID before sending.");
+                showWarning("Please fill Email ID before sending.");
                 return;
             }
-            // Get disposition related elements
+
             const dispositionElem = document.getElementById("disposition");
             const subDispositionDiv = document.getElementById("SubDispositiondiv");
             const subDispositionElem = document.getElementById("subDisposition");
@@ -2617,8 +2601,6 @@
                 return;
             }
 
-
-
             const data = {
                 to: to,
                 subject: subject,
@@ -2640,8 +2622,6 @@
                     body: JSON.stringify(data)
                 });
 
-
-
                 if (!response.ok) {
                     throw new Error('Failed to send reply');
                 }
@@ -2654,14 +2634,13 @@
                     timerProgressBar: true,
                     toast: true,
                     position: 'bottom-end',
-                    background: '#f0fdf4',      // light green background
-                    color: '#166534',           // dark green text
-                    iconColor: '#22c55e',       // bright green success icon
+                    background: '#f0fdf4',
+                    color: '#166534',
+                    iconColor: '#22c55e',
                     customClass: {
                         popup: 'shadow-lg rounded-xl'
                     }
                 });
-
 
                 fetchEmails();
                 document.getElementById("replyBodyCRM").value = "";
@@ -2678,20 +2657,20 @@
             }
 
         }
-   
+
         function showWarning(message) {
             Swal.fire({
                 icon: 'warning',
                 title: 'Warning',
                 text: message,
                 toast: true,
-                position: 'bottom-end',  
+                position: 'bottom-end',
                 showConfirmButton: false,
                 timer: 3000,
                 timerProgressBar: true,
-                background: '#fff7ed',  
-                color: '#92400e',       
-                iconColor: '#f59e0b',   
+                background: '#fff7ed',
+                color: '#92400e',
+                iconColor: '#f59e0b',
                 customClass: {
                     popup: 'shadow-lg rounded-xl'
                 }
@@ -2730,11 +2709,7 @@
                 });
 
                 const data = await response.json();
-
-
                 chatInput.value = data.processed_text || message;
-
-
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
@@ -2772,7 +2747,7 @@
 
 
             if (!email || !realmsg) {
-                alert("Please fill Email and Message first.");
+                showWarning("Please fill Email and Message first.");
                 return;
             }
 
@@ -2792,15 +2767,11 @@
 
             } catch (err) {
                 console.error(err);
-                alert("Error processing reply.");
+                showWarning("Error processing reply.");
             } finally {
                 svgIcon.classList.remove('spinning');
             }
         }
-
-
-
-
 
         function stripHtml(html) {
             let div = document.createElement("div");
@@ -2817,16 +2788,14 @@
                 return;
             }
 
-
             const email = document.getElementById('emailInput').value;
             const subject = document.getElementById('messageInput').value;
             const reply = document.getElementById('replyInput').value;
             const phoneInput = document.getElementById('phoneInput').value;
             if (!email || !subject || !reply) {
-                alert("Please fill all the fields.");
+                showWarning("Please fill all the fields.");
                 return;
             }
-
 
             const requestData = {
                 email: email,
@@ -2862,8 +2831,6 @@
                     });
                 });
 
-
-
         }
         function showToast(message) {
             const toast = document.getElementById("toast");
@@ -2887,26 +2854,26 @@
                 chatBox.innerHTML = "";
 
                 data.chat.forEach((conv) => {
-                    // BOT message (answer)
+
                     if (conv.answer && conv.answer !== "NULL") {
                         const botRow = document.createElement("div");
                         botRow.className = "message-row bot";
                         botRow.innerHTML = `
-                        <img class="avatar" src="../img/technical-support.png" alt="Bot">
-                        <div class="stack bot">
-                          <div class="message-header">
-                            <span class="name">Bot</span>
-                          </div>
+                                <img class="avatar" src="../img/technical-support.png" alt="Bot">
+                                <div class="stack bot">
+                                  <div class="message-header">
+                                    <span class="name">Bot</span>
+                                  </div>
 
-                          <div class="message-bubble bot">
-                            <div class="message-text">${conv.answer}</div>
-                          </div>
+                                  <div class="message-bubble bot">
+                                    <div class="message-text">${conv.answer}</div>
+                                  </div>
 
-                          <div class="message-time">
-                            <span class="">${conv.createddate || ""}</span>
-                          </div>
-                        </div>
-                      `;
+                                  <div class="message-time">
+                                    <span class="">${conv.createddate || ""}</span>
+                                  </div>
+                                </div>
+                              `;
                         chatBox.appendChild(botRow);
                     }
 
@@ -2914,21 +2881,21 @@
                         const userRow = document.createElement("div");
                         userRow.className = "message-row user";
                         userRow.innerHTML = `
-                        <img class="avatar" src="../img/user.png" alt="user">
-                        <div class="stack user">
-                          <div class="message-header">
-                            <span class="name">Customer</span>
-                          </div>
+                                <img class="avatar" src="../img/user.png" alt="user">
+                                <div class="stack user">
+                                  <div class="message-header">
+                                    <span class="name">Customer</span>
+                                  </div>
 
-                          <div class="message-bubble">
-                            <div class="message-text">${conv.question}</div>
-                          </div>
+                                  <div class="message-bubble">
+                                    <div class="message-text">${conv.question}</div>
+                                  </div>
 
-                          <div class="message-time">
-                            <span class="">${conv.createddate || ""}</span>
-                          </div>
-                        </div>
-                      `;
+                                  <div class="message-time">
+                                    <span class="">${conv.createddate || ""}</span>
+                                  </div>
+                                </div>
+                              `;
                         chatBox.appendChild(userRow);
                     }
                 });
@@ -2956,37 +2923,6 @@
             }
         }
 
-        //async function processMessageEmailCRM() {
-        //    const email = document.getElementById('replyToCRM').value;
-        //    const realmsg = document.getElementById('replySubjectCRM').value;
-        //    const summernote = document.getElementById('replyBodyCRM').value;
-
-        //    const processIcon = document.getElementById('processIcon');
-        //    processIcon.innerHTML = '🔄';
-
-        //    try {
-        //        const res = await fetch('/api/Omni/send', {
-        //            method: 'POST',
-        //            headers: { 'Content-Type': 'application/json' },
-        //            body: JSON.stringify({ email, realmsg, summernote })
-        //        });
-
-        //        const data = await res.json();
-        //        console.log(JSON.stringify(data));
-        //        let htmlString = data.response;
-
-        //        htmlString = htmlString.replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, '');
-        //        document.getElementById('replyBodyCRM').value = htmlString.trim();
-
-
-        //    } catch (error) {
-        //        console.error('Error during message processing:', error);
-        //        alert('Failed to process message.');
-        //    } finally {
-        //        processIcon.innerHTML = '⚙️'; // Reset to original icon
-        //    }
-        //}
-
 
         async function processMessageEmailCRM() {
             const email = document.getElementById('replyToCRM').value;
@@ -2996,7 +2932,6 @@
             const processIcon = document.getElementById('processIcon');
 
             try {
-                // Start spinning
                 processIcon.classList.add("spin");
 
                 const res = await fetch('/api/Omni/send', {
@@ -3011,15 +2946,12 @@
 
                 htmlString = htmlString.replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, '');
                 document.getElementById('replyBodyCRM').value = htmlString.trim();
-
-                // Show success toast
-                showToastEmail("✅ Message Processed Successfully!");
+                showToastEmail(" Message Processed Successfully!");
 
             } catch (error) {
                 console.error('Error during message processing:', error);
-                showToastEmail("❌ Failed to process message.");
+                showToastEmail(" Failed to process message.");
             } finally {
-                // Stop spinning
                 processIcon.classList.remove("spin");
             }
         }
@@ -3034,85 +2966,85 @@
 
         function BindEmailDisposition() {
             const dispositionFormHTML = `
-                <h3>Reply</h3>
-        <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
+                        <h3>Reply</h3>
+                <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
 
-            <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
-            <input type="email" id="replyToCRM" readonly
-                style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                    <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
+                    <input type="email" id="replyToCRM" readonly
+                        style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-            <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
-            <input type="text" id="replySubjectCRM"
-                style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                    <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
+                    <input type="text" id="replySubjectCRM"
+                        style="width:100%; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-            <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Message:</label>
-            <textarea id="replyBodyCRM" rows="8"
-                style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                    <label style="font-size:14px; font-weight:500; color:#333; margin-bottom:4px;">Message:</label>
+                    <textarea id="replyBodyCRM" rows="8"
+                        style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
 
-            <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
+                    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
 
-                <div style="flex:1 1 220px; display:flex; flex-direction:column;">
-                    <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                        Disposition <span style="color:red;">*</span>
-                    </label>
-                    <select id="disposition" onchange="updateSubDisposition()"
-                        style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                        <option value="">-- Select Disposition --</option>
-                    </select>
-                </div>
+                        <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                            <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                Disposition <span style="color:red;">*</span>
+                            </label>
+                            <select id="disposition" onchange="updateSubDisposition()"
+                                style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                <option value="">-- Select Disposition --</option>
+                            </select>
+                        </div>
 
-                <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
-                    <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                        Sub Disposition <span style="color:red;">*</span>
-                    </label>
-                    <select id="subDisposition" onchange="updateSubSubDisposition()"
-                        style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                        <option value="">-- Select Sub Disposition --</option>
-                    </select>
-                </div>
+                        <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
+                            <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                Sub Disposition <span style="color:red;">*</span>
+                            </label>
+                            <select id="subDisposition" onchange="updateSubSubDisposition()"
+                                style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                <option value="">-- Select Sub Disposition --</option>
+                            </select>
+                        </div>
 
-                <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
-                    <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                        Sub Sub Disposition <span style="color:red;">*</span>
-                    </label>
-                    <select id="subSubDisposition"
-                        style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                        <option value="">-- Select Sub Sub Disposition --</option>
-                    </select>
-                </div>
+                        <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
+                            <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                Sub Sub Disposition <span style="color:red;">*</span>
+                            </label>
+                            <select id="subSubDisposition"
+                                style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                <option value="">-- Select Sub Sub Disposition --</option>
+                            </select>
+                        </div>
 
-                <div style="flex:1 1 220px; display:flex; flex-direction:column;">
-                    <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
-                        Remark <span style="color:red;">*</span>
-                    </label>
-                    <textarea id="remark" placeholder="Enter Remark"
-                        style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
-                </div>
-            </div>
+                        <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                            <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
+                                Remark <span style="color:red;">*</span>
+                            </label>
+                            <textarea id="remark" placeholder="Enter Remark"
+                                style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                        </div>
+                    </div>
 
-            <div style="margin-top:18px; display:flex; gap:12px;">
-                  <div class="tooltip">
-                    <button id="processBtn" onclick="processMessageEmailCRM()"
-                          style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
+                    <div style="margin-top:18px; display:flex; gap:12px;">
+                          <div class="tooltip">
+                            <button id="processBtn" onclick="processMessageEmailCRM()"
+                                  style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
 
-                          <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
-                            <!-- Gear SVG -->
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                              <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
-                            </svg>
-                          </span>
+                                  <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
+                                    <!-- Gear SVG -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                      <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
+                                    </svg>
+                                  </span>
+                                </button>
+                                <span class="tooltiptext">Process Message</span>
+                          </div>
+                        <button onclick="sendReply()"
+                            style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
+                            Send Reply
                         </button>
-                        <span class="tooltiptext">Process Message</span>
-                  </div>
-                <button onclick="sendReply()"
-                    style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
-                    Send Reply
-                </button>
-            </div>
+                    </div>
 
-           
-        </div>
-        `;
+
+                </div>
+                `;
 
             document.getElementById('replyForm').innerHTML += dispositionFormHTML;
         }

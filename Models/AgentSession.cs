@@ -5,14 +5,16 @@ namespace ServerCRM.Models
 {
     public class AgentSession
     {
-        public string AgentId { get; set; }
-        public string DN { get; set; }
-        public string AgentName { get; set; }
-        public TServerProtocol TServerProtocol { get; set; }
+        public string? AgentId { get; set; }
+        public string? DN { get; set; }
+        public string? AgentName { get; set; }
+        public TServerProtocol? TServerProtocol { get; set; }
         public bool IsRunning { get; set; }
         public ConnectionId? ConnID { get; set; }
         public ConnectionId? IVRConnID { get; set; }
         public string? ConforenceNumber { get; set; }
+        public string? lblcallback { get; set; }
+        
         public string? Location { get; set; }
         public string? OPOID { get; set; }
         public string? ProcessName { get; set; }
@@ -53,7 +55,7 @@ namespace ServerCRM.Models
         public string? AgentGroup { get; set; }
 
         public string? finishCode { get; set; }
-        public DataTable dt_EntityType { get; set; }
+        public DataTable? dt_EntityType { get; set; }
 
         public object LockObj { get; } = new object();
     }
