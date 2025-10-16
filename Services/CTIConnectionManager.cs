@@ -38,6 +38,7 @@ using ServerCRM.Models.Omni;
 using Org.BouncyCastle.Tls;
 using MySqlConnector;
 using System.Drawing;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 
 namespace ServerCRM.Services
@@ -138,7 +139,7 @@ namespace ServerCRM.Services
                                         finishCode = null,
                                         dt_EntityType = new DataTable(),
                                         IsRedial = Convert.ToInt32(agentvalue.IsRedial),
-                                        CRMType = "2",
+                                        CRMType = "1",
                                         lblcallback = ""
 
                                     };
@@ -254,6 +255,7 @@ namespace ServerCRM.Services
                         {
                             AgentStatusMapper.UpdateAgentStatus(2, session, hubContext);
                             session.CurrentStatusID = 2;
+                            CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("PlayRingtone", "/Ringtone/ringin.wav");
                         }
 
                         break;
@@ -262,7 +264,7 @@ namespace ServerCRM.Services
                         var established = msg as EventEstablished;
                         if (established.ThisDN.ToString().Equals(session.DN))
                         {
-                            if (session.ConnID == null && session.IVRConnID == null)
+                            if (session.IVRConnID == null)
                             {
                                 session.ConnID = established.ConnID;
                             }
@@ -1019,7 +1021,7 @@ namespace ServerCRM.Services
                             return "Enter Proper Phone Number..";
                         }
 
-
+                        CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
                         CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString(), DialPhone);
                     }
                 }
@@ -1325,7 +1327,7 @@ namespace ServerCRM.Services
                         }
                         else
                         {
-
+                          
                             session.IVRConnID = null;
                             session.isConforence = false;
                             session.isOnCall = false;
@@ -1967,11 +1969,18 @@ namespace ServerCRM.Services
 
         private static void AutoWrapTimerElapsed(object sender, ElapsedEventArgs e, string loginCode)
         {
-            string str3 = $"Record Saved Successfully...,Disposition:{0},SubDisposition:{0},CBTime:{""},CBType:GEN";
+           
+            var message = new Dictionary<string, object>
+            {
+                { "disposition", 0 },
+                { "subDisposition", 0 },
+                { "callBackDateOutcome", DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss") },
+                { "remark", "Auto Wrap" },
+                { "dispTypeKey", "GEN" } 
+            };
+            var status = CTIConnectionManager.savedata(message, loginCode);
 
-            //var status = CTIConnectionManager.savedata(str3, loginCode);
-
-            //CTIConnectionManager.HubContext.Clients.Group(loginCode).SendAsync("AutoWrap", status);
+            CTIConnectionManager.HubContext.Clients.Group(loginCode).SendAsync("AutoWrap", status);
         }
         public static List<Disposition> GetDispositionsAsync(string empCode)
         {

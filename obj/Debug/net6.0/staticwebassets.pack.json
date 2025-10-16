@@ -69,6 +69,10 @@
       "PackagePath": "staticwebassets\\js\\Common\\CommonSoftPhone.js"
     },
     {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "PackagePath": "staticwebassets\\js\\Common\\jquery-3.6.4.min.js"
+    },
+    {
       "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
       "PackagePath": "staticwebassets\\js\\Genesys\\Genesys.js"
     },

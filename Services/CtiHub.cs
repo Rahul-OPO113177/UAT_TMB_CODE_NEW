@@ -8,7 +8,11 @@ namespace ServerCRM.Services
         {
             await Groups.AddToGroupAsync(Context.ConnectionId, agentId);
         }
-
+        public async Task Heartbeat(string agentId)
+        {
+            
+            await Clients.Caller.SendAsync("Pong", DateTime.UtcNow);
+        }
         public async Task LeaveGroup(string agentId)
         {
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, agentId);

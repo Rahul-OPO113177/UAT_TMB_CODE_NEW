@@ -1,4 +1,6 @@
-﻿
+﻿let timerInterval = null;
+let seconds = 0;
+let startTime;
 function openTab(evt, tabId) {
     document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
     document.querySelectorAll(".nav-tab").forEach(el => el.classList.remove("active"));
@@ -8,27 +10,64 @@ function openTab(evt, tabId) {
     evt.currentTarget.parentElement.classList.remove("inactive");
 }
 
-let timerInterval = null;
-let seconds = 0;
+function showWarning_New(message) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Warning',
+        text: message,
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        background: '#fff7ed',
+        color: '#92400e',
+        iconColor: '#f59e0b',
+        customClass: {
+            popup: 'shadow-lg rounded-xl'
+        }
+    });
+}
+//function startTimer() {
+//    stopTimer();
+//    seconds = 0;
+//    console.log("Starting call timer..." + new Date().toLocaleString());
+//    timerInterval = setInterval(() => {
+//        seconds++;
+//        document.getElementById("callTimer").innerText = formatTime(seconds);
+//    }, 1000);
+//}
+
+//function stopTimer() {
+//    if (timerInterval) {
+//        console.log("Stopping call timer..." + new Date().toLocaleString());
+//        clearInterval(timerInterval);
+//        timerInterval = null;
+//    }
+//    seconds = 0;
+//    document.getElementById("callTimer").innerText = "00:00:00";
+//}
 
 function startTimer() {
-    stopTimer();
-    seconds = 0;
-    console.log("Starting call timer...");
+    stopTimer(); 
+    startTime = Date.now();
+    console.log("Starting call timer..." + new Date().toLocaleString());
+
     timerInterval = setInterval(() => {
-        seconds++;
-        document.getElementById("callTimer").innerText = formatTime(seconds);
+        const elapsedMs = Date.now() - startTime;
+        const elapsedSeconds = Math.floor(elapsedMs / 1000);
+        document.getElementById("callTimer").innerText = formatTime(elapsedSeconds);
     }, 1000);
 }
 
 function stopTimer() {
     if (timerInterval) {
-        console.log("Stopping call timer...");
+        console.log("Stopping call timer..." + new Date().toLocaleString());
         clearInterval(timerInterval);
         timerInterval = null;
     }
-    seconds = 0;
     document.getElementById("callTimer").innerText = "00:00:00";
+    startTime = null;
 }
 
 function formatTime(sec) {
@@ -80,7 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     connection.onreconnected((connectionId) => {
-        console.info("✅ SignalR reconnected:", connectionId);
+        console.info("SignalR reconnected:", connectionId);
         connection.invoke("JoinGroup", agentId)
             .then(() => console.log("Rejoined group after reconnect"))
             .catch(err => console.error("Error rejoining group:", err));
@@ -92,23 +131,312 @@ document.addEventListener("DOMContentLoaded", function () {
         if (statusElem) statusElem.innerText = "Disconnected. Please refresh the page.";
     });
 
-    connection.on("UpdatePhoneInput", function (number) {
-        let last10 = number.slice(-10);
-        document.getElementById("phoneInput").value = last10;
-    });
+
 
     connection.on("UserName", function (number) {
 
-        console.log("UserName : " + number );
+        console.log("UserName : " + number);
         const parts = number.split(".");
         const initials = parts.map(p => p.charAt(0).toUpperCase()).join("");
         const email = number + "@1point1.in";
-
         const usernameEl = document.getElementById("username");
         if (usernameEl) usernameEl.innerText = number;
 
         document.querySelectorAll(".user-avatar, .profile-avatar").forEach(el => el.innerText = initials);
         document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
+    });
+
+    connection.on("history", function (data) {
+        try {
+            console.log("History data received:", data);
+
+            if (typeof data === 'string') {
+                try {
+                    data = JSON.parse(data);
+                    console.log("Parsed history data:", data);
+                } catch (error) {
+                    console.error("Error parsing data:", error);
+                    return;
+                }
+            }
+
+            const container = document.getElementById('historyContainer');
+            if (!container) {
+                console.error("Container not found!");
+                return;
+            }
+
+            container.innerHTML = '';
+
+            const table = document.createElement('table');
+            table.style.width = '100%';
+            table.style.borderCollapse = 'collapse';
+            table.style.fontSize = '13px';
+
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            headerRow.style.background = '#f1f1f1';
+
+            const headers = ['Type', 'Date', 'Time', 'Disposition', 'Sub Disposition', 'Remark', 'Call Back / Follow-up Date'];
+
+            headers.forEach(header => {
+                const th = document.createElement('th');
+                th.style.padding = '8px';
+                th.style.border = '1px solid #ccc';
+                th.style.textAlign = 'left';
+                th.textContent = header;
+                headerRow.appendChild(th);
+            });
+
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            const tbody = document.createElement('tbody');
+            if (!Array.isArray(data) || data.length === 0) {
+                console.log("No history data available.");
+                return;
+            }
+
+            data.forEach(function (historyItem) {
+                const row = document.createElement('tr');
+
+                const rowData = [
+                    historyItem.Type || 'N/A',
+                    formatDate(historyItem.Date) || 'N/A',
+                    formatTime(historyItem.Time) || 'N/A',
+                    historyItem.Disposition || '--',
+                    historyItem.SubDisposition || '--',
+                    historyItem.REMARKS || '--',
+                    historyItem.callbacktime || '--'
+                ];
+
+                rowData.forEach(function (cellData) {
+                    const td = document.createElement('td');
+                    td.style.padding = '8px';
+                    td.style.border = '1px solid #ccc';
+                    td.style.textAlign = 'left';
+                    td.textContent = cellData;
+                    row.appendChild(td);
+                });
+
+                tbody.appendChild(row);
+            });
+
+            table.appendChild(tbody);
+
+            container.appendChild(table);
+
+        } catch (error) {
+            console.error("An error occurred while processing history data:", error);
+        }
+    });
+
+    function formatDate(dateStr) {
+        try {
+            if (!dateStr) return 'N/A';
+            const [day, month, year] = dateStr.split(' ')[0].split('-');
+            const time = dateStr.split(' ')[1];
+            const formattedDate = `${year}-${month}-${day}T${time}`;
+
+            const date = new Date(formattedDate);
+            if (isNaN(date.getTime())) return 'Invalid Date';
+            return date.toLocaleDateString();
+        } catch (error) {
+            console.error("Error formatting date:", error);
+            return 'Invalid Date';
+        }
+    }
+
+    function formatTime(timeStr) {
+        if (!timeStr) return 'N/A';
+        const date = new Date('1970-01-01T' + timeStr + 'Z');
+        if (isNaN(date.getTime())) return 'Invalid Time';
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    }
+    connection.on("PlayRingtone", function (audioFilePath) {
+        var audio = new Audio(audioFilePath);
+        audio.play().catch(function (error) {
+            console.error("Failed to play audio:", error);
+        });
+    });
+    connection.on("infopagedata", function (data) {
+        try {
+            console.log("InfoPage fields:", data);
+            const fields = JSON.parse(data);
+
+            const displayFields = fields.filter(field => field.CapturableField === "Display");
+            const captureFields = fields.filter(field => field.CapturableField === "Capture");
+
+            const tab1Container = $('#tab1').find('div[style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"]');
+
+            displayFields.forEach(field => {
+                const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+
+                const value = field.DisplaySourceValue || '';
+                tab1Container.append(`
+                    <div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
+                        <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">${field.FieldName} ${required}</label>
+                        <input  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="${field.FieldType}" name="${field.FieldName}" value="${value}" readonly />
+                    </div>
+                `);
+            });
+            tab1Container.css({
+                "display": "flex",
+                "flex-wrap": "wrap",
+                "gap": "15px"
+            });
+
+            const tab3Container = $('#tab3').find('div[style*="display:flex"][style*="flex-wrap:wrap"][style*="gap:15px"][style*="margin-top:10px"]');
+
+            captureFields.forEach(field => {
+                const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+                const isRequiredAttr = field.IsRequired === "YES" ? 'required' : '';
+                let fieldHtml = `<div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
+                                <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;" >${field.FieldName} ${required}</label>`;
+
+
+                if (field.FieldType === "DROPDOWN") {
+                    const isDependentTarget = captureFields.some(f => f.FieldDependetName === field.FieldName);
+
+                    fieldHtml += `
+                    <select  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" name="${field.FieldName}" id="${field.FieldName}_dropdown" ${isRequiredAttr}>
+                        <option value="">Select</option>
+                        ${!isDependentTarget && field.DependentData
+                            ? field.DependentData.map(option => `<option value="${option.Value}">${option.Text}</option>`).join('')
+                            : ''
+                        }
+                    </select>
+                `;
+                    fieldHtml += '</div>';
+                    tab3Container.append(fieldHtml);
+
+
+                    if (field.IsfieldDependent === "YES" && !isDependentTarget) {
+                        $(`#${field.FieldName}_dropdown`).on('change', function () {
+                            const selectedValue = $(this).val();
+                            const dependentFieldName = field.FieldDependetName;
+                            const dependentField = fields.find(f => f.FieldName === dependentFieldName);
+
+                            if (dependentField) {
+                                if (dependentField.DependentData) {
+                                    const filteredOptions = dependentField.DependentData.filter(option => option.Value === selectedValue);
+                                    const dependentDropdown = $(`#${dependentFieldName}_dropdown`);
+                                    dependentDropdown.empty();
+                                    dependentDropdown.append('<option value="">Select</option>');
+                                    filteredOptions.forEach(option => {
+                                        dependentDropdown.append(`<option value="${option.Value}">${option.Text}</option>`);
+                                    });
+                                }
+                            }
+                        });
+                    }
+                } else {
+
+                    switch (field.FieldType.toLowerCase()) {
+                        case "datetime":
+                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="datetime-local" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            break;
+
+                        case "radio":
+                            fieldHtml += `
+                            <label><input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="radio" name="${field.FieldName}" value="Yes" ${isRequiredAttr} /> Yes</label>
+                            <label><input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="radio" name="${field.FieldName}" value="No" ${isRequiredAttr} /> No</label>
+                        `;
+                            break;
+
+                        case "checkbox":
+                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="checkbox" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            break;
+
+                        default:
+                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"  type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
+                            break;
+                    }
+                    fieldHtml += '</div>';
+                    tab3Container.append(fieldHtml);
+                }
+
+
+                if (field.Isinitaldisplay === "No" && field.DisplaySource && field.DisplaySourceValue) {
+                    const controlField = fields.find(f => f.FieldName === field.DisplaySource);
+                    if (controlField) {
+                        const dropdownId = `#${controlField.FieldName}_dropdown`;
+
+                        $(`#${field.FieldName}_container`).hide();
+                        $(dropdownId).on('change', function () {
+                            const selectedText = $(this).find('option:selected').text();
+
+
+                            if (selectedText === field.DisplaySourceValue) {
+                                $(`#${field.FieldName}_container`).show();
+                            } else {
+                                $(`#${field.FieldName}_container`).hide();
+                            }
+                        });
+                    }
+                }
+            });
+
+            const htmlContent = `
+                                <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+                                    <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition  <span style="color:red;">*</span> </label>
+                                    <select id="disposition" onchange="updateSubDisposition()"
+                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                                        <option value="">-- Select Disposition --</option>
+                                    </select>
+                                </div>
+
+                                <div id="SubDispositiondiv" style="display:flex;  display: none; flex-direction:column; flex:1 1 200px;">
+                                    <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition  <span style="color:red;">*</span></label>
+                                    <select id="subDisposition"  onchange="updateSubSubDisposition()"
+                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                                        <option value="">-- Select Sub Disposition --</option>
+                                    </select>
+                                </div>
+
+                                   <div id="SubSubDispo" style="display:flex; display: none; flex-direction:column; flex:1 1 200px;">
+                                    <label for="subSubDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Sub Disposition  <span style="color:red;">*</span></label>
+                                    <select id="subSubDisposition"
+                                            style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
+                                        <option value="">-- Select Sub  SubDisposition --</option>
+                                    </select>
+                                </div>
+                                    <div id="callBackDateDiv" style="display: none; flex-direction: column; flex: 1 1 200px;">
+                                    <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">
+                                        Call Back Date  <span style="color:red;">*</span>
+                                    </label>
+                                    <input id="callBackDateOutcome"  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="datetime-local"
+                                          onchange="validateDate()">
+                                </div>
+                                <div style="display:flex; flex-direction:column; flex:1 1 200px;">
+                                    <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark  <span style="color:red;">*</span></label>
+                                  <textarea id="remark" placeholder="Enter Remark"
+                                      style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width: 100%; height: 100px; resize: vertical;">
+                            </textarea>
+
+                                </div>`;
+
+            tab3Container.append(htmlContent);
+            BindDispositionAndSubDispo();
+
+        } catch (error) {
+            console.error("Error processing the InfoPage data:", error);
+        }
+    });
+
+
+    connection.on("UpdatePhoneInput", function (number) {
+        try {
+            let last10 = number.slice(-10); 
+            let inputEl = document.getElementById("phoneInput");
+            if (inputEl) {
+                inputEl.value = last10;
+            } else {
+                console.warn("phoneInput element not found.");
+            }
+        } catch (error) {
+            console.error("Error in UpdatePhoneInput handler:", error);
+        }
     });
 
     connection.on("AutoWrap", function (number) {
@@ -117,13 +445,40 @@ document.addEventListener("DOMContentLoaded", function () {
             Swal.fire({
                 icon: 'success',
                 title: 'Record Saved Successfully',
-                text:  + number
+                text: + number
             }).then(result => {
-                
+
             });
         });
 
     });
+
+    setInterval(async () => {
+        if (connection.state === signalR.HubConnectionState.Connected) {
+            connection.invoke("Heartbeat", agentId)
+                .then(() => console.log("Heartbeat sent"))
+                .catch(err => console.warn("Heartbeat failed:", err));
+        } else if (connection.state === signalR.HubConnectionState.Disconnected) {
+            console.warn("Connection is disconnected. Attempting manual reconnect...");
+
+            try {
+                await connection.start();
+                console.log("Manual reconnect successful");
+
+                await connection.invoke("JoinGroup", agentId);
+                console.log("Rejoined group after manual reconnect");
+
+            } catch (err) {
+                console.error("Manual reconnect failed:", err);
+            }
+        } else {
+          
+            console.warn("Connection is not ready. Current state:", connection.state);
+        }
+    }, 5 * 60 * 1000); 
+
+
+
 
 
     connection.on("ReceiveStatus", handleStatusUpdate);
@@ -146,6 +501,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+function validateDate() {
+    const selectedDate = document.getElementById('callBackDateOutcome').value;
+    const today = new Date();
+    const selectedDateObj = new Date(selectedDate);
+
+    if (selectedDateObj < today) {
+        showWarning_New("The selected date cannot be in the past. Please choose a future date.");
+        document.getElementById('callBackDateOutcome').value = "";
+    }
+}
 function handleStatusUpdate(message) {
     const statusElem = document.getElementById("status");
     if (statusElem) statusElem.innerText = message;
@@ -155,6 +520,7 @@ function handleStatusUpdate(message) {
     $("#break, #getnext").addClass("disabled").css({ "pointer-events": "none", "opacity": "0.5" });
 
     if (msg.includes("waiting")) {
+        clearFeilds();
         $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
         $("#dialGroup").css("display", "flex");
         $("#getnext").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
@@ -186,9 +552,25 @@ function handleStatusUpdate(message) {
         stopTimer();
         startTimer();
     }
+    if (msg.includes("logout")) {
+
+        Swal.fire({
+            title: 'Logged Out',
+            text: 'Agent is logged out successfully.',
+            icon: 'success',
+            showConfirmButton: false,
+            timer: 2000,
+            willClose: () => {
+
+                window.location.href = "/Pages/LogIn.html";
+            }
+        });
+    }
+
 }
 
 function handleAttachedDataUserEvent(data) {
+
     document.getElementById("batchId").innerText = data.Batch_id || "-";
     document.getElementById("mode").innerText = data.InteractionSubtype || "-";
     document.getElementById("mycode").innerText = data.TMasterID || "-";
@@ -197,11 +579,23 @@ function handleAttachedDataUserEvent(data) {
 }
 
 function handleAttachedData(data) {
-    if (data && typeof data === "object") {
-        document.getElementById("campaignName").textContent = data.RTargetObjectSelected || "-";
-        document.getElementById("mode").textContent = data.RStrategyName || "-";
-        document.getElementById("objectId").textContent = data.RTargetAgentSelected || "-";
-    }
+    const langInput = document.querySelector('input[name="LANG"]');
+    const menu1Input = document.querySelector('input[name="Menu1"]');
+    const menu2Input = document.querySelector('input[name="Menu2"]');
+
+    if (langInput) langInput.value = data.Cust_Inpute1 || "";
+    if (menu1Input) menu1Input.value = data.Cust_Inpute2 || "";
+    if (menu2Input) menu2Input.value = data.Cust_Inpute3 || "";
+    console.log("Attached data will be : " + JSON.stringify(data));
+
+    const campaignElem = document.getElementById("campaignName");
+    if (campaignElem) campaignElem.textContent = data.RTargetObjectSelected || "-";
+
+    const modeElem = document.getElementById("mode");
+    if (modeElem) modeElem.textContent = data.RStrategyName || "-";
+
+    const objectElem = document.getElementById("objectId");
+    if (objectElem) objectElem.textContent = data.RTargetAgentSelected || "-";
 }
 
 
@@ -220,13 +614,32 @@ function callAPI(url, method = 'POST', data = {}) {
             } else {
                 throw new Error(errorText || "API call failed");
             }
-        } else console.log("✅ API call successful.");
+        } else {
+
+        }
     }).catch(err => Swal.fire({ icon: 'warning', title: 'Oops...', text: err.message || "Something went wrong!" }));
 }
 
+function clearFeilds() {
+    $('#tab1').empty();
+    var newDiv = $('<div>', {
+        style: "background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"
+    });
+    $('#tab1').append(newDiv);
+
+    $('#tab3 > div > div:first').empty();
+    $('#remark').val('');
+    $('#callBackDateOutcome').val('');
+    $('#disposition').val('');
+    $('#subDisposition').val('');
+    $('#subSubDisposition').val('');
+
+    $('#tab3').find('input, select, textarea').css('border', '1px solid #ccc');
+}
 function makeCall() {
     const phone = document.getElementById("phoneInput").value.trim();
-    if (!/^\d{10}$/.test(phone)) { alert("Phone number must be exactly 10 digits."); return; }
+    if (!/^\d{10}$/.test(phone)) { showWarning_New("Phone number must be exactly 10 digits."); return; }
+    clearFeilds();
     callAPI("/api/Genesys/makecall", "POST", { phone });
 }
 
@@ -255,62 +668,282 @@ function sendTransfer(selectElement) {
     setTimeout(() => selectElement.selectedIndex = 0, 300);
 }
 
+var dispo = [];
 
-const subDispositions = {
-    1: [{ id: 101, name: "Not Available" }, { id: 102, name: "Client Requested" }, { id: 103, name: "Wrong Time" }],
-    2: [{ id: 201, name: "Customer Hung Up" }, { id: 202, name: "Agent Hung Up" }, { id: 203, name: "Network Issue" }],
-    3: [{ id: 301, name: "Customer Busy" }, { id: 302, name: "On Another Call" }, { id: 303, name: "Will Call Later" }]
-};
+function BindDispositionAndSubDispo() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const agentId = urlParams.get('empCode');
+
+    if (!agentId) {
+        console.error("empCode not found in URL.");
+        return;
+    }
+
+    $.ajax({
+        url: '/api/Genesys/GetDispositions',
+        type: 'GET',
+        data: { empCode: agentId },
+        success: function (response) {
+            const dispositions = response.dispositions || [];
+            dispo = response;
+
+            console.log("Level Disposition : " + JSON.stringify(dispo));
+            const dispositionSelect = $('#disposition');
+            dispositionSelect.empty();
+            dispositionSelect.append('<option value="">-- Select Disposition --</option>');
+
+            dispositions.forEach(disposition => {
+                dispositionSelect.append(
+                    `<option value="${disposition.id}" data-disp-type="${disposition.disP_TYPE}">${disposition.name}</option>`
+                );
+            });
+        },
+        error: function (error) {
+            console.error("Error fetching disposition data:", error);
+        }
+    });
+}
 
 function updateSubDisposition() {
     const dispoId = document.getElementById("disposition").value;
     const subDispoSelect = document.getElementById("subDisposition");
+    const subSubDispoDiv = document.getElementById("SubSubDispo");
+    const subSubDispoSelect = document.getElementById("subSubDisposition");
+    const callBackDateDiv = document.getElementById("callBackDateDiv");
+
     subDispoSelect.innerHTML = '<option value="">-- Select Sub Disposition --</option>';
-    if (subDispositions[dispoId]) subDispositions[dispoId].forEach(sub => {
-        const option = document.createElement("option");
-        option.textContent = sub.name;
-        subDispoSelect.appendChild(option);
-    });
-}
-async function submitDisposition() {
-    const dispoId = parseInt(document.getElementById("disposition").value);
-    const subDispoId = parseInt(document.getElementById("subDisposition").value);
-    const username = document.getElementById("remark").value;
-    const address = document.getElementById("remark").value;
-    const callBackDateValue = document.getElementById("callBackDateOutcome").value;
+    subSubDispoSelect.innerHTML = '<option value="">-- Select Sub SubDisposition --</option>';
+    subSubDispoDiv.style.display = "none";
 
- 
 
-    const callBackDate = new Date(callBackDateValue).toISOString();
-
-    console.log("Request Body: ", JSON.stringify({
-        dispositionId: dispoId,
-        subDispositionId: subDispoId,
-        username,
-        address,
-        callBackDate
-    }));
-
-    try {
-        const response = await fetch('/api/Genesys/submit', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                dispositionId: dispoId,
-                subDispositionId: subDispoId,
-                username:username,
-                address: address,
-                callBackDate: callBackDate
-            })
-        });
-
-        if (response.ok) {
-            const result = await response.json();
-            Swal.fire({ icon: 'success', title: 'Success', text: result.message });
-        } else {
-            Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to submit disposition.' });
-        }
-    } catch (error) {
-        Swal.fire({ icon: 'error', title: 'Exception', text: error?.message || 'An unexpected error occurred.' });
+    if (callBackDateDiv) {
+        callBackDateDiv.style.display = "none";
     }
+
+    if (dispoId) {
+        const selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
+        const dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
+
+        const selectedDisposition = dispo.dispositions.find(d => d.id === parseInt(dispoId));
+
+        if (selectedDisposition) {
+            const subDispositions = selectedDisposition.subDispositions;
+
+
+            if (subDispositions && subDispositions.length > 0) {
+                subDispositions.forEach(sub => {
+                    const option = document.createElement("option");
+                    option.value = sub.id;
+                    option.textContent = sub.name;
+                    subDispoSelect.appendChild(option);
+                });
+
+
+                document.getElementById("SubDispositiondiv").style.display = "flex";
+            } else {
+
+                document.getElementById("SubDispositiondiv").style.display = "none";
+            }
+
+
+            if (dispType === "PCB" || dispType === "CCB") {
+                if (callBackDateDiv) {
+                    callBackDateDiv.style.display = "flex";
+                }
+            }
+        }
+    }
+}
+
+function updateSubSubDisposition() {
+    const dispoId = document.getElementById("disposition").value;
+    const subDispoId = document.getElementById("subDisposition").value;
+    const subSubDispoDiv = document.getElementById("SubSubDispo");
+    const subSubDispoSelect = document.getElementById("subSubDisposition");
+
+    subSubDispoSelect.innerHTML = '<option value="">-- Select Sub SubDisposition --</option>';
+    subSubDispoDiv.style.display = "none";
+    if (dispoId && subDispoId) {
+
+        const selectedDisposition = dispo.dispositions.find(d => d.id === parseInt(dispoId));
+
+        if (!selectedDisposition) {
+            console.log("No matching disposition found.");
+            return;
+        }
+
+        const selectedSubDispo = selectedDisposition.subDispositions.find(sd => sd.id === parseInt(subDispoId));
+
+        if (!selectedSubDispo) {
+            console.log("No matching sub disposition found.");
+            return;
+        }
+
+
+        if (selectedSubDispo.subSubDispositions && selectedSubDispo.subSubDispositions.length > 0) {
+
+            selectedSubDispo.subSubDispositions.forEach(subSub => {
+                const option = document.createElement("option");
+                option.value = subSub.id;
+                option.textContent = subSub.name;
+                subSubDispoSelect.appendChild(option);
+            });
+
+            subSubDispoDiv.style.display = "flex";
+        } else {
+
+            subSubDispoDiv.style.display = "none";
+        }
+    } else {
+        console.log("Either disposition or sub disposition is not selected.");
+    }
+}
+
+
+
+//document.getElementById("disposition").addEventListener("change", function () {
+//    updateSubDisposition();
+//    toggleCallBackDateField();
+//});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var disposition = document.getElementById("disposition");
+    if (disposition) {
+        disposition.addEventListener("change", function () {
+            updateSubDisposition();
+            toggleCallBackDateField();
+        });
+    }
+});
+
+
+
+
+function submitDisposition() {
+    let agentStatus = $('#status').text().trim().toUpperCase();
+
+    if (agentStatus !== "WRAPING") {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Action Blocked',
+            text: 'Please disconnect the call before submitting.',
+            confirmButtonColor: '#d33'
+        });
+        return;
+    }
+
+   
+
+    let formData = {};
+    let isValid = true;
+    let validationMessage = '';
+
+    $('#tab3').find('input, select, textarea').each(function () {
+        const field = $(this);
+        if (!field.is(':visible')) {
+            return;
+        }
+
+        let fieldName = field.attr('name') || field.attr('id');
+        let isRequired = field.prop('required') || field.closest('label').find('span[style*="red"]').length > 0;
+        let fieldType = field.attr('type');
+        let fieldValue = '';
+        if (field.is('select')) {
+
+            fieldValue = field.find('option:selected').text().trim();
+
+
+            if (fieldValue === 'Select' || fieldValue === '-- Select --' || fieldValue === '') {
+                fieldValue = '';
+            }
+
+        } else if (fieldType === 'checkbox') {
+            fieldValue = field.prop('checked');
+        } else if (fieldType === 'radio') {
+            const selected = $(`input[name="${field.attr('name')}"]:checked`);
+            fieldValue = selected.length > 0 ? selected.val() : '';
+        } else {
+            fieldValue = field.val()?.trim();
+        }
+
+        if (isRequired && !fieldValue) {
+            isValid = false;
+            validationMessage += `${fieldName} is required.\n`;
+            field.css('border', '1px solid red');
+        } else {
+            field.css('border', '1px solid #ccc');
+        }
+
+        if (fieldName) {
+            formData[fieldName] = fieldValue;
+        }
+    });
+
+    const manualFields = [
+        { id: 'disposition', required: true },
+        { id: 'subDisposition', required: true },
+        { id: 'subSubDisposition', required: true },
+        { id: 'callBackDateOutcome', required: true },
+        { id: 'remark', required: true }
+    ];
+
+    manualFields.forEach(field => {
+        const $el = $(`#${field.id}`);
+
+        if (!$el.length || !$el.is(':visible')) return;
+
+        const value = $el.val()?.trim();
+
+        if (field.required && !value) {
+            isValid = false;
+            validationMessage += `${field.id} is required.\n`;
+            $el.css('border', '1px solid red');
+        } else {
+            $el.css('border', '1px solid #ccc');
+        }
+
+        formData[field.id] = value;
+    });
+
+
+    if (!isValid) {
+        showWarning_New("Please fill required fields:\n\n" + validationMessage);
+        return;
+    }
+
+    console.log("Sub,mite data : " + JSON.stringify(formData));
+    let disptypeKey = "dispTypeKey";
+    let dispoId = document.getElementById("disposition").value;
+    let selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
+    let dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
+    formData[disptypeKey] = dispType;
+
+    $.ajax({
+        url: '/api/Genesys/submit/',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        beforeSend: function () {
+
+            $('#loader').show();
+        },
+        success: function (response) {
+            $('#loader').hide();
+            clearFeilds();
+
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Form submitted successfully!',
+                confirmButtonColor: '#3085d6'
+            });
+            openTab({ currentTarget: document.querySelector('.nav-tab.active .nav-tab-text') }, 'tab1');
+
+        },
+        error: function (error) {
+            alert('Error submitting form.');
+            console.error('Submission error:', error);
+        }
+    });
 }

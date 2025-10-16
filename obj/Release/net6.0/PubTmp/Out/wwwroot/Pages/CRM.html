@@ -5,11 +5,524 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
+
+
+        .layout {
+            display: flex;
+            height: calc(100vh - 50px); /* Full height minus navbar */
+            transition: all 0.3s ease;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 50px;
+        }
+
+
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 140px;
+                background: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 6px;
+                padding: 6px 8px;
+                position: absolute;
+                z-index: 1;
+                bottom: 125%;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0;
+                transition: opacity 0.3s, transform 0.3s;
+            }
+
+                .tooltip .tooltiptext::after {
+                    content: "";
+                    position: absolute;
+                    top: 100%;
+                    left: 50%;
+                    margin-left: -6px;
+                    border-width: 6px;
+                    border-style: solid;
+                    border-color: #333 transparent transparent transparent;
+                }
+
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+                transform: translateX(-50%) translateY(-4px);
+            }
+
+
+        .spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+
+        #successToast {
+            visibility: hidden;
+            min-width: 200px;
+            background: #28a745;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 10px;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.5s, bottom 0.5s;
+        }
+
+            #successToast.show {
+                visibility: visible;
+                opacity: 1;
+                bottom: 50px;
+            }
+
+        :root {
+            --bg: #f4f4f7; /* light gray */
+            --card: #ffffff; /* white cards */
+            --muted: #6b7280; /* gray-500 */
+            --accent: #3b82f6; /* blue */
+            --glass: rgba(0,0,0,0.03);
+            --radius: 12px;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+
+
+        .container {
+            max-width: 1100px;
+            margin: 28px 33px;
+        }
+
+        .app {
+            display: flex;
+            gap: 18px;
+            align-items: start;
+            min-height: 74vh;
+        }
+        .EmailContainer  {
+            flex: 1;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        .toggle-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        /* Hide Sidebar */
+        .collapsed .agent-profile-section {
+            margin-left: -350px;
+         
+        }
+
+        .collapsed .viewer {
+            width: 900px !important
+        }
+
+        .collapsed .action-btn-group-vertical {
+            margin-left: 312px
+        }
+
+        .collapsed .app {
+            width: 1428px;
+        }
+
+        .collapsed .EmailContainer {
+            flex: 1 1 100%;
+        }
+
+
+        .inbox {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 12px;
+            border: 1px solid #e5e7eb;
+            height: 85vh;
+            overflow: auto;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+            resize: horizontal; /* Allow horizontal resize */
+            width: 360px;
+            max-width: 600px;
+        }
+
+        /* Right column: single mail view */
+        .viewer {
+            flex: 1; /* take remaining space dynamically */
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 22px;
+            height: 85vh;
+            overflow: auto;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            width: 680px;
+        }
+
+        .inbox-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 6px;
+            margin-bottom: 8px
+        }
+
+            .inbox-header h2 {
+                margin: 0;
+                font-size: 18px;
+                letter-spacing: 0.2px
+            }
+
+        .badge {
+            background: var(--accent);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-weight: 600
+        }
+
+        .search {
+            display: flex;
+            margin-bottom: 10px
+        }
+
+            .search input {
+                flex: 1;
+                padding: 8px 10px;
+                border-radius: 10px;
+                border: 1px solid #d1d5db;
+                background: #f9fafb;
+                color: inherit
+            }
+
+        .mail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .mail-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background .16s,transform .08s;
+            border: 1px solid transparent;
+        }
+
+            .mail-item:hover {
+                background: #f3f4f6;
+                transform: translateY(-1px)
+            }
+
+            .mail-item.active {
+                background: #e0f2fe;
+                border-color: #bae6fd
+            }
+
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #1e3a8a;
+            background: #bfdbfe;
+            flex-shrink: 0
+        }
+
+        .meta {
+            flex: 1;
+            min-width: 0
+        }
+
+            .meta .from {
+                font-weight: 700;
+                font-size: 14px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+            .meta .subject {
+                font-size: 14px;
+                margin-top: 2px;
+                color: #374151;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+            .meta .preview {
+                font-size: 13px;
+                color: var(--muted);
+                margin-top: 4px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+        .time {
+            font-size: 12px;
+            color: var(--muted);
+            margin-left: 8px;
+            white-space: nowrap
+        }
+
+        .viewer .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 14px
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: #f9fafb;
+            border: 1px solid #d1d5db;
+            cursor: pointer
+        }
+
+            .btn:hover {
+                background: #f3f4f6
+            }
+
+            .btn.important {
+                background: var(--accent);
+                color: #fff;
+                border: none
+            }
+
+        .mail-subject {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 6px 0 12px;
+            color: #111827
+        }
+
+        .mail-sender {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+            .mail-sender .name {
+                font-weight: 700;
+                color: #111827
+            }
+
+            .mail-sender .email {
+                color: var(--muted);
+                font-size: 13px
+            }
+
+        .mail-body {
+            margin-top: 18px;
+            line-height: 1.6;
+            color: #374151;
+            background: #f9fafb;
+            padding: 18px;
+            border-radius: 10px
+        }
+
+        /* small screens */
+        @media (max-width:820px) {
+            .app {
+                flex-direction: column;
+            }
+
+            .inbox {
+                height: 52vh;
+                resize: none;
+            }
+
+            .viewer {
+                height: auto;
+                min-width: unset;
+            }
+        }
+
+        #emailApp {
+            font-family: Arial, sans-serif;
+        }
+
+        #emailListPanel h3 {
+            margin-top: 0;
+        }
+
+        .email-item:hover {
+            background-color: #f0f0f0;
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 19vh;
+            margin: 10px;
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            background-color: #f6f7f8;
+            /* max-height:150px;*/
+        }
+
+        /* Column helper */
+        .col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Chat area */
+        .chat-box {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            scroll-behavior: smooth;
+            max-height: 165px;
+        }
+
+            /* Scrollbar styling */
+            .chat-box::-webkit-scrollbar {
+                width: 6px;
+            }
+
+            .chat-box::-webkit-scrollbar-thumb {
+                background: #cbd5e1;
+                border-radius: 3px;
+            }
+
+        /* Message row */
+        .message-row {
+            display: flex;
+            gap: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+            .message-row.user {
+                flex-direction: row-reverse;
+            }
+
+        /* Avatar */
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 4px;
+        }
+
+        /* Message content stack */
+        .stack {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .stack.user {
+                align-items: flex-end;
+            }
+
+            .stack.bot {
+                align-items: flex-start;
+            }
+
+        /* Message bubble */
+        .message-bubble {
+            background: #f1f5f9;
+            padding: 12px 16px;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .message-row.user .message-bubble {
+            background: #6d67ef;
+            color: #ffffff;
+            border-top-right-radius: 0.1rem;
+        }
+
+        .message-row:not(.user) .message-bubble {
+            border-top-left-radius: 0.1rem;
+        }
+
+        /* Name & time */
+        .message-header {
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 4px;
+        }
+
+        .name {
+            font-weight: 600;
+        }
+
+        .message-time {
+            margin-top: 6px;
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        /* Message text */
+        .message-text {
+            font-size: 14px;
+            line-height: 1.4;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+
+        /* Chat footer */
+        .chat-summary {
+            padding: 14px;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(4px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #f0f0f0; /* Light gray background */
-            color: #555555; /* Medium dark gray text */
+            background-color: #f0f0f0;
+            color: #555555;
             text-align: center;
             border-radius: 6px;
             padding: 14px 20px;
@@ -21,12 +534,12 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
-            border: 1px solid #ddd; /* subtle border */
+            border: 1px solid #ddd;
             font-weight: 500;
         }
 
 
-            /* Show the toast */
+
             #toast.show {
                 visibility: visible;
                 opacity: 1;
@@ -48,7 +561,7 @@
 
         #emailResponse {
             flex: 1;
-            overflow-y: auto; /* vertical scroll */
+            overflow-y: auto;
             padding-right: 5px;
         }
 
@@ -87,9 +600,26 @@
             margin-top: 153px;
         }
 
-            .side-panel.open {
-                right: 0;
-            }
+
+        .side-panel_Email {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: Auto;
+            background: #f5f7fa;
+            box-shadow: -2px 0 6px rgba(0,0,0,0.2);
+            transition: right 0.3s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            z-index: 1000;
+            margin-top: 153px;
+        }
+
+        .side-panel.open {
+            right: 0;
+        }
 
         /* Header */
         .side-panel-header {
@@ -141,7 +671,7 @@
                 resize: vertical;
             }
 
-            
+
 
         /* Send Button */
         .send-btn {
@@ -546,6 +1076,7 @@
             background-color: white;
             border-right: 1px solid #e9eceb;
             padding: 16px;
+            transition: all 0.3s ease;
         }
 
         .profile-content {
@@ -1300,7 +1831,7 @@
     </header>
 
 
-    <div class="main-content">
+    <div class="main-content" id="layout">
 
 
 
@@ -1356,6 +1887,8 @@
                                 <div onclick="sendBreak(8)" style="padding:8px 12px; cursor:pointer;">🕵️ Quality</div>
                                 <div onclick="sendBreak(9)" style="padding:8px 12px; cursor:pointer;">🚻 Bio</div>
                                 <div onclick="sendBreak(26)" style="padding:8px 12px; cursor:pointer;">🧑‍💼 TL Feedback</div>
+                                <div onclick="sendBreak(27)" style="padding:8px 12px; cursor:pointer;">🚻 VatBreak</div>
+
                             </div>
                         </div>
 
@@ -1499,31 +2032,25 @@
                             </div>
 
                             <div class="tabs">
-                                <div class="tab active">
+                                <div class="tab inactive">
                                     <span class="tab-text active">Summary</span>
                                 </div>
                                 <div class="tab inactive">
                                     <span class="tab-text inactive">Analysis</span>
                                 </div>
-                                <div class="tab inactive">
+                                <div class="tab active">
                                     <span class="tab-text inactive">Breakdown</span>
                                 </div>
                             </div>
 
 
-                            <div class="transcript-text">
-                                <p style="font-weight: 500; margin-bottom: 8px;">The dialogue features two primary speakers:</p>
-                                <ul class="transcript-list">
-                                    <li>
-                                        <span class="speaker">SPEAKER 00:</span>
-                                        <span> Presumably a Domino's customer service agent</span>
-                                    </li>
-                                    <li>
-                                        <span class="speaker">SPEAKER 01:</span>
-                                        <span> A customer attempting to resolve issues with a delayed or unclear delivery</span>
-                                    </li>
-                                </ul>
+                            <div class="chat-box" id="chat-box">
+
                             </div>
+
+
+
+
                         </div>
                     </div>
                 </div>
@@ -1531,7 +2058,60 @@
             </div>
 
         </div>
-        <div class="main-content-area" style="padding-left: 0px;">
+
+
+
+        <div class="container" id="EmailContainer" style="display:none">
+            <div class="app">
+                <aside class="inbox">
+                    <div class="inbox-header" style="display:flex; align-items:center; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
+                        <div style="display:flex; align-items:center; gap:10px;">
+
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img" id="toggleBtn"
+                                 style="flex-shrink: 0; color: #007bff; cursor: pointer;">
+
+                                <path d="M3 13.5 5.5 20h13L21 13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+                                <rect x="2.2" y="3.8" width="19.6" height="11.2" rx="1.4" stroke="currentColor" stroke-width="1.2" fill="none" />
+                                <path d="M3.5 5.8c3.2 2.2 4.5 3.1 7.9 5.2 3.4-2.1 5.1-2.9 8-5.2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+                            </svg>
+
+                        </div>
+
+                    </div>
+
+                    <div class="mail-list" id="emailListPanel">
+
+                    </div>
+                </aside>
+
+                <main class="viewer" id="emailDetailContent">
+
+
+                    <article id="replyForm" style="display:none" class="mail-view hidden">
+                        <div class="mail-subject" id="mv-subject">Subject goes here</div>
+
+                        <div class="mail-sender">
+                            <div class="avatar" id="mv-avatar"></div>
+                            <div>
+                                <div class="name" id="mv-from"></div>
+                                <div class="email" id="mv-email"></div>
+                            </div>
+                        </div>
+
+                        <div class="mail-body" id="mv-body">
+                            Message body will appear here when you select an email.
+                        </div>
+                    </article>
+
+                </main>
+            </div>
+        </div>
+
+
+
+
+        <div class="main-content-area" id="crmContainer" style="padding-left: 0px; display:none">
             <div class="main-content-container" style="font-family:Arial, sans-serif; max-width:1002px; margin:auto;">
 
                 <div class="nav-tabs">
@@ -1550,181 +2130,35 @@
                     <div class="nav-tab inactive" style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab5')">Supervisor Data</span>
                     </div>
-                    <div class="nav-tab inactive"  style="display:none">
+                    <div class="nav-tab inactive" style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab6')">Email CRM</span>
                     </div>
                 </div>
 
 
                 <div id="tab1" class="tab-content" style="display:block;">
+
                     <div style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                        <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
-                            <i class="fa-solid fa-clipboard-list" style="margin-right:6px; color:#007bff;"></i>
-                            Customer Info
-                        </h6>
 
-                        <div style="display:flex; flex-wrap:wrap; gap:15px; align-items:flex-end;">
-                            <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:20px;">
-
-                                <!-- 1. Username -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="username" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Username</label>
-                                    <input readonly id="username" type="text" value="Sandesh Bhosale"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 2. Customer ID -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="customerId" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Customer ID</label>
-                                    <input readonly id="customerId" type="text" value="Ecu76KIY88880"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 3. First Name -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="firstName" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">First Name</label>
-                                    <input readonly id="firstName" type="text" value="Sandesh "
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 4. Last Name -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="lastName" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Last Name</label>
-                                    <input readonly id="lastName" type="text" value=" Bhosale"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 5. Email -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="email" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Email</label>
-                                    <input readonly id="email" type="email" value="sandesh.bhosale@1point1.in"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 6. Phone -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="phone" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Phone</label>
-                                    <input readonly id="phone" type="text" value=" 9876854329"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 7. Address -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="address" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Address</label>
-                                    <input readonly id="address" type="text" value=" Mumbai"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 8. City -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="city" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">City</label>
-                                    <input readonly id="city" type="text" value="Thane"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 9. State -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="state" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">State</label>
-                                    <input readonly id="state" type="text" value="Maharastra"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <!-- 10. Zip Code -->
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="zip" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Zip Code</label>
-                                    <input readonly id="zip" type="text" value="3203"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="country" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Country</label>
-                                    <input readonly id="country" type="text" value="India"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="status" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Status</label>
-                                    <input readonly id="status" type="text" value="Active"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="accountType" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Account Type</label>
-                                    <input readonly id="accountType" type="text" value="Saving"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="notes" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Notes</label>
-                                    <input readonly id="notes" type="text" value="Lone"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-
-                                <div style="display:flex; flex-direction:column;">
-                                    <label for="createdDate" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Created Date</label>
-                                    <input readonly id="createdDate" value="2025/04/09"
-                                           style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; min-width:150px;">
-                                </div>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
 
                 <div id="tab3" class="tab-content" style="display:none;">
                     <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
-                        <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
-                            <i class="fa-solid fa-note-sticky" style="margin-right:6px; color:#007bff;"></i>
-                            Call Outcome Fields
-                        </h6>
 
                         <div style="display:flex; flex-wrap:wrap; gap:15px; margin-top:10px;">
 
 
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="disposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Disposition</label>
-                                <select id="disposition" onchange="updateSubDisposition()"
-                                        style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                                    <option value="">-- Select Disposition --</option>
-                                    <option value="1">Call Back</option>
-                                    <option value="2">Disconnect</option>
-                                    <option value="3">Busy</option>
-                                </select>
-                            </div>
-
-
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="subDisposition" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Sub Disposition</label>
-                                <select id="subDisposition"
-                                        style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                                    <option value="">-- Select Sub Disposition --</option>
-                                </select>
-                            </div>
-
-
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark</label>
-                                <input id="remark" type="text" placeholder="Enter Remark"
-                                       style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                            </div>
-
-
-                            <div style="display:flex; flex-direction:column; flex:1 1 200px;">
-                                <label for="callBackDateOutcome" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Call Back Date</label>
-                                <input id="callBackDateOutcome" type="date"
-                                       style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;">
-                            </div>
 
                         </div>
 
-                        <div style="margin-top:15px;">
+                        <div style="display: flex; justify-content: flex-end; margin-top:15px;">
                             <button onclick="submitDisposition()"
                                     style="padding:6px 14px; font-size:13px; border:none; border-radius:4px; background:#007bff; color:#fff; cursor:pointer; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.2);">
                                 <i class="fa-solid fa-paper-plane" style="margin-right:5px;"></i> Submit
                             </button>
                         </div>
+
                     </div>
                 </div>
 
@@ -1735,63 +2169,8 @@
                             Communication History
                         </h6>
 
-                        <div style="overflow-x:auto;">
-                            <table style="width:100%; border-collapse:collapse; font-size:13px;">
-                                <thead>
-                                    <tr style="background:#f1f1f1;">
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Type</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Date</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Time</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Disposition</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Sub Disposition</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Remark</th>
-                                        <th style="padding:8px; border:1px solid #ccc; text-align:left;">Call Back / Follow-up Date</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="communicationHistoryBody">
+                        <div style="overflow-x:auto;" id="historyContainer">
 
-                                    <!-- Call History Rows -->
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-17</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">14:30</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call Back</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Busy</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Will call after 2 days</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-19</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-19</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">17:30</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Call Back</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Not reached</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Will call after 9 days</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-30</td>
-                                    </tr>
-
-                                    <!-- Email History Rows -->
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Email</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-18</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">10:00</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Sent</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Follow-up</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Sent product brochure</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-25</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding:8px; border:1px solid #ccc;">Email</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">2025-09-20</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">15:45</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Received</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Inquiry</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">Client asked about pricing</td>
-                                        <td style="padding:8px; border:1px solid #ccc;">-</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
                         </div>
                     </div>
                 </div>
@@ -1938,6 +2317,9 @@
 
 
         </div>
+        <div id="loader" style="display:none; position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 9999;">
+            <img src="../img/Loading_2.gif" alt="Loading..." style="width: 100px; height: 100px;" />
+        </div>
 
         <div class="action-btn-group-vertical">
 
@@ -1964,129 +2346,131 @@
         </div>
 
 
-        <div id="emailPanel" class="side-panel" style="display:flex; flex-direction:column;">
-            <div class="side-panel-header" style="display:flex; align-items:center; gap:8px;">
-
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                     stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16v16H4z" fill="none"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-
-                <span>Email Panel</span>
-
-                <button onclick="closePanel('emailPanel')"
-                        style="margin-left:auto; background:none; border:none; font-size:16px; cursor:pointer;">
-                    ✖
-                </button>
-            </div>
 
 
-            <div class="email-form" style="border-top:1px solid #ccc; padding:10px; background:#f9f9f9;">
-                <div>
-                    <label>Email:</label>
-                    <input type="text" id="emailInput" placeholder="Enter email" style="width: 100%; margin-bottom: 8px; margin-top: 4px; " />
+    </div>
 
-                    <label>Subject:</label>
-                    <input type="text" id="messageInput" value="" placeholder="Enter message" style="width: 100%; height: 30px; margin-bottom: 2px; margin-top: 4px; " />
+    <div id="emailPanel" class="side-panel" style="display:flex; flex-direction:column;">
+        <div class="side-panel-header" style="display:flex; align-items:center; gap:8px;">
 
-                    <label>Suggested Reply:</label>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="#6c757d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4z" fill="none"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
 
-                    <textarea id="replyInput" placeholder="Enter suggested reply" rows="18" style="margin-top: 7px; "></textarea>
+            <span>Email Panel</span>
 
-                    <div id="ageNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
-
-
-                    <div style="display: flex; align-items: center; gap: 8px; margin-left: 471px;">
-
-                        <div style="position:relative; display:inline-block;">
-
-
-                            <svg onclick="processEmailReply(this)"
-                                 style="width: 22px; height: 44px; margin-top: 23px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
-                                 onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
-                                 onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
-                                 viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-
-                                <polyline points="23 4 23 10 17 10"></polyline>
-                                <polyline points="1 20 1 14 7 14"></polyline>
-                                <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
-                            </svg>
-
-                            <!-- Tooltip -->
-                            <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
-                                Process Email Reply
-                            </span>
-                        </div>
-
-                        <button class="send-btn" onclick="sendUserInput()">
-                            <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
-                                <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div id="toast">Mail sent successfully!</div>
-            </div>
-
+            <button onclick="closePanel('emailPanel')"
+                    style="margin-left:auto; background:none; border:none; font-size:16px; cursor:pointer;">
+                ✖
+            </button>
         </div>
 
 
+        <div class="email-form" style="border-top:1px solid #ccc; padding:10px; background:#f9f9f9;">
+            <div>
+                <label>Email:</label>
+                <input type="text" id="emailInput" placeholder="Enter email" style="width: 100%; margin-bottom: 8px; margin-top: 4px; " />
+
+                <label>Subject:</label>
+                <input type="text" id="messageInput" value="" placeholder="Enter message" style="width: 100%; height: 30px; margin-bottom: 2px; margin-top: 4px; " />
+
+                <label>Suggested Reply:</label>
+
+                <textarea id="replyInput" placeholder="Enter suggested reply" rows="18" style="margin-top: 7px; "></textarea>
+
+                <div id="ageNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
 
 
-        <div id="chatPanel" class="side-panel">
-            <div class="side-panel-header">
-                <span class="panel-title" style="display:flex; align-items:center; gap:5px; color:#7993A5;">
-                    Chat Panel
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7993A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                </span>
-                <button onclick="closePanel('chatPanel')">✖</button>
-            </div>
-            <div id="chatContent" style=" overflow-y: auto;">
+                <div style="display: flex; align-items: center; gap: 8px; margin-left: 471px;">
 
-            </div>
-
-            <div class="chat-input" style="display:flex; align-items:center; gap:8px; padding:5px;">
-
-                <textarea id="chatMessage" placeholder="Type a message..." rows="11"
-                          style="flex:1; padding:8px; border:1px solid #ccc; border-radius:6px; font-size:14px; resize:vertical; min-height:50px; transition: border 0.3s;"
-                          onfocus="this.style.borderColor='#7993A5'; this.style.boxShadow='0 0 5px rgba(121,147,165,0.5)';"
-                          onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';"></textarea>
+                    <div style="position:relative; display:inline-block;">
 
 
-                <div style="position:relative; display:inline-block; cursor:pointer; z-index:2;">
-                    <svg onclick="processMessage()"
-                         style="width: 22px; height: 63px; margin-top: 86px; margin-left: 5px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
-                         onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
-                         onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
-                         viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg onclick="processEmailReply(this)"
+                             style="width: 22px; height: 44px; margin-top: 23px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
+                             onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
+                             onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
+                             viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 
-                        <polyline points="23 4 23 10 17 10"></polyline>
-                        <polyline points="1 20 1 14 7 14"></polyline>
-                        <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
-                    </svg>
-                    <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
-                        Process Message
-                    </span>
-                    <button class="send-btn" onclick="sendMessage()" style="background:#4a90e2; border:none; border-radius:6px; padding:6px; cursor:pointer; z-index:1;">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
+                        </svg>
+
+                        <!-- Tooltip -->
+                        <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
+                            Process Email Reply
+                        </span>
+                    </div>
+
+                    <button class="send-btn" onclick="sendUserInput()">
                         <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
                             <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </button>
                 </div>
+            </div>
+            <div id="toast">Mail sent successfully!</div>
+        </div>
+
+    </div>
 
 
-               
+
+
+    <div id="chatPanel" class="side-panel">
+        <div class="side-panel-header">
+            <span class="panel-title" style="display:flex; align-items:center; gap:5px; color:#7993A5;">
+                Chat Panel
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7993A5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+            </span>
+            <button onclick="closePanel('chatPanel')">✖</button>
+        </div>
+        <div id="chatContent" style=" overflow-y: auto;">
+
+        </div>
+
+        <div class="chat-input" style="display:flex; align-items:center; gap:8px; padding:5px;">
+
+            <textarea id="chatMessage" placeholder="Type a message..." rows="11"
+                      style="flex:1; padding:8px; border:1px solid #ccc; border-radius:6px; font-size:14px; resize:vertical; min-height:50px; transition: border 0.3s;"
+                      onfocus="this.style.borderColor='#7993A5'; this.style.boxShadow='0 0 5px rgba(121,147,165,0.5)';"
+                      onblur="this.style.borderColor='#ccc'; this.style.boxShadow='none';"></textarea>
+
+
+            <div style="position:relative; display:inline-block; cursor:pointer; z-index:2;">
+                <svg onclick="processMessage()"
+                     style="width: 22px; height: 63px; margin-top: 86px; margin-left: 5px; display: block; stroke: #7993A5; transition: transform 0.2s, stroke 0.2s; cursor: pointer; "
+                     onmouseover="this.style.transform='scale(1.2)'; this.style.stroke='#4a90e2'; this.nextElementSibling.style.visibility='visible';"
+                     onmouseout="this.style.transform='scale(1)'; this.style.stroke='#7993A5'; this.nextElementSibling.style.visibility='hidden';"
+                     viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <polyline points="1 20 1 14 7 14"></polyline>
+                    <path d="M3.51 9a9 9 0 0114.13-3.36L23 10M1 14l5.37 5.37A9 9 0 0020.49 15"></path>
+                </svg>
+                <span style="visibility:hidden; background-color:#333; color:#fff; text-align:center; border-radius:4px; padding:3px 6px; position:absolute; bottom:125%; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; z-index:10;">
+                    Process Message
+                </span>
+                <button class="send-btn" onclick="sendMessage()" style="background:#4a90e2; border:none; border-radius:6px; padding:6px; cursor:pointer; z-index:1;">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke-width="2">
+                        <path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
             </div>
 
-
-            <div id="processNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
 
 
         </div>
 
+
+        <div id="processNotice" style="color:green; margin-top:5px; display:none;">Message beautified!</div>
+        <div id="successToast">✅ Message Processed Successfully!</div>
+        <button style="display:none" id="start"></button>
 
     </div>
 
@@ -2096,30 +2480,253 @@
 
 
 
-
     <script src="../js/Genesys/Genesys.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <script src="../js/Common/jquery-3.6.4.min.js"></script>
     <script src="../js/signalr.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.genesys.com/webrtc-sdk.js"></script>
 
     <script>
 
+        let currentEmailBody = "";
         async function updateStatus() {
             const urlParams = new URLSearchParams(window.location.search);
             const agentId = urlParams.get('empCode');
             if (!agentId) { console.error("No agent ID found in URL."); return; }
 
-            console.log("AgentID : " + agentId);
+            $.ajax({
+                url: '/api/Genesys/status',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ empCode: agentId }),
+                success: function (response) {
+                    console.log("Process Status:", response.status);
+                    const crmContainer = document.getElementById("crmContainer");
+                    const emailContainer = document.getElementById("EmailContainer");
 
-            try {
-                await fetch('/api/Genesys/status', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ empCode: agentId })
-                });
-            } catch (err) { console.error("Failed to get agent status:", agentId); }
+                    if (response.status === 2 || response.status === "2") {
+                        crmContainer.style.display = "none";
+                        emailContainer.style.display = "block";
+                        fetchEmails();
+                        BindEmailDisposition();
+                        BindDispositionAndSubDispo();
+                    } else {
+
+                        emailContainer.style.display = "none";
+                        crmContainer.style.display = "block";
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("Failed to get agent status:", error);
+                }
+            });
+
         }
+
+        async function fetchEmails() {
+            try {
+                const response = await fetch('/api/Genesys/recived_mail');
+                const emails = await response.json();
+
+                console.log(JSON.stringify(emails));
+                const emailListPanel = document.getElementById("emailListPanel");
+                const replyForm = document.getElementById("replyForm");
+
+                emailListPanel.innerHTML = "<h3>Inbox</h3>";
+
+                emails.forEach((email, index) => {
+                    const emailItem = document.createElement("div");
+                    emailItem.className = "mail-item";
+                    emailItem.dataset.id = index;
+
+                    emailItem.innerHTML = `
+                                            <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                            <div class="meta">
+                                                <div class="from">${escapeHtml(email.from)}</div>
+                                                <div class="subject">${escapeHtml(email.subject)}</div>
+                                                <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
+                                            </div>
+                                            <div class="time">${new Date().toLocaleTimeString()}</div>
+                                        `;
+
+                    emailItem.addEventListener("click", () => {
+                        replyForm.innerHTML = "";
+                        currentEmailBody = email.body;
+                        const emailDetailHTML = `
+                                                <div class="mail-subject">${escapeHtml(email.subject)}</div>
+                                                <div class="mail-sender">
+                                                    <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                                    <div>
+                                                        <div class="name">${escapeHtml(email.from)}</div>
+                                                        <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
+                                            `;
+
+                        replyForm.innerHTML = emailDetailHTML;
+
+                        BindEmailDisposition();
+                        BindDispositionAndSubDispo();
+                        document.getElementById("replyToCRM").value = extractEmailAddress(email.from);
+                        document.getElementById("replySubjectCRM").value = "Re: " + email.subject;
+                        document.getElementById("replyBodyCRM").value = "";
+                        emailItem.classList.add("read");
+                        replyForm.style.display = "block";
+                    });
+
+                    emailListPanel.appendChild(emailItem);
+                });
+
+            } catch (error) {
+                console.error("Failed to fetch emails:", error);
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/[&<>'"]/g, (tag) => (
+                {
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag
+            ));
+        }
+
+        function extractEmailAddress(fromField) {
+            const match = fromField.match(/<([^>]+)>/);
+            return match ? match[1] : fromField;
+        }
+
+        async function sendReply() {
+            const to = document.getElementById("replyToCRM").value;
+            let subject = document.getElementById("replySubjectCRM").value;
+            const body = document.getElementById("replyBodyCRM").value;
+            const originalBody = currentEmailBody;
+            function isVisible(elem) {
+                return elem && elem.offsetParent !== null;
+            }
+
+            if (to == "") {
+                showWarning("Please fill Email ID before sending.");
+                return;
+            }
+
+            const dispositionElem = document.getElementById("disposition");
+            const subDispositionDiv = document.getElementById("SubDispositiondiv");
+            const subDispositionElem = document.getElementById("subDisposition");
+            const subSubDispoDiv = document.getElementById("SubSubDispo");
+            const subSubDispositionElem = document.getElementById("subSubDisposition");
+            const remarkElem = document.getElementById("remark");
+
+            if (!to || !subject || !body) {
+                showWarning("Please fill in all fields before sending.");
+                return;
+            }
+            if (isVisible(dispositionElem) && dispositionElem.value.trim() === "") {
+                showWarning("Please select a Disposition.");
+                return;
+            }
+            if (isVisible(subDispositionDiv) && isVisible(subDispositionElem) && subDispositionElem.value.trim() === "") {
+                showWarning("Please select a Sub Disposition.");
+                return;
+            }
+            if (isVisible(subSubDispoDiv) && isVisible(subSubDispositionElem) && subSubDispositionElem.value.trim() === "") {
+                showWarning("Please select a Sub Sub Disposition.");
+                return;
+            }
+            if (isVisible(remarkElem) && remarkElem.value.trim() === "") {
+                showWarning("Please enter a Remark.");
+                return;
+            }
+            if (subject.startsWith("Re: ")) {
+                subject = subject.substring(4);
+            }
+            if (subject == "") {
+                showWarning("Please fill Subject before sending.");
+                return;
+            }
+
+            const data = {
+                to: to,
+                subject: subject,
+                body: body,
+                originalBody: originalBody,
+                disposition: isVisible(dispositionElem) ? dispositionElem.value.trim() : null,
+                subDisposition: (isVisible(subDispositionDiv) && isVisible(subDispositionElem)) ? subDispositionElem.value.trim() : null,
+                subSubDisposition: (isVisible(subSubDispoDiv) && isVisible(subSubDispositionElem)) ? subSubDispositionElem.value.trim() : null,
+                remark: isVisible(remarkElem) ? remarkElem.value.trim() : null
+            };
+
+            console.log("Submite date : " + JSON.stringify(data));
+            try {
+                const response = await fetch('/api/Genesys/send_reply', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to send reply');
+                }
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Reply Sent!',
+                    text: 'Your reply was delivered successfully 🚀',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    toast: true,
+                    position: 'bottom-end',
+                    background: '#f0fdf4',
+                    color: '#166534',
+                    iconColor: '#22c55e',
+                    customClass: {
+                        popup: 'shadow-lg rounded-xl'
+                    }
+                });
+
+                fetchEmails();
+                document.getElementById("replyBodyCRM").value = "";
+                document.getElementById("replyForm").style.display = "none";
+
+            } catch (error) {
+                console.error("Error sending reply:", error);
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Failed to send reply. Please try again.',
+                });
+            }
+
+        }
+
+        function showWarning(message) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: message,
+                toast: true,
+                position: 'bottom-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                background: '#fff7ed',
+                color: '#92400e',
+                iconColor: '#f59e0b',
+                customClass: {
+                    popup: 'shadow-lg rounded-xl'
+                }
+            });
+        }
+
+
         function openPanel(panelId) {
             document.getElementById(panelId).classList.add("open");
         }
@@ -2134,16 +2741,16 @@
             const message = chatInput.value.trim();
             if (!message) return;
 
-   
+
             const svgIcon = document.querySelector('#chatPanel svg[onclick="processMessage()"]');
 
             try {
-       
+
                 svgIcon.classList.add('spinning');
 
                 const formData = new FormData();
                 formData.append('message', message);
-                formData.append('category', 'formal');
+                formData.append('category', 'standard');
 
                 const response = await fetch('/api/Omni/SendMessage', {
                     method: 'POST',
@@ -2151,11 +2758,7 @@
                 });
 
                 const data = await response.json();
-
-         
                 chatInput.value = data.processed_text || message;
-
-           
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
@@ -2163,7 +2766,7 @@
                 console.error('Error:', err);
                 alert('Error processing message.');
             } finally {
-            
+
                 svgIcon.classList.remove('spinning');
             }
         }
@@ -2191,15 +2794,15 @@
             const notice = document.getElementById('ageNotice');
             const replyInput = document.getElementById('replyInput');
 
+
             if (!email || !realmsg) {
-                alert("Please fill Email and Message first.");
+                showWarning("Please fill Email and Message first.");
                 return;
             }
 
             try {
-                // Start spinning animation
-                svgIcon.classList.add('spinning');
 
+                svgIcon.classList.add('spinning');
                 const res = await fetch('/api/Omni/send', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -2207,25 +2810,17 @@
                 });
 
                 const data = await res.json();
-
                 replyInput.value = stripHtml(data.response || "No response");
-
-                // Show temporary notice
                 notice.style.display = 'block';
                 setTimeout(() => { notice.style.display = 'none'; }, 2000);
 
             } catch (err) {
                 console.error(err);
-                alert("Error processing reply.");
+                showWarning("Error processing reply.");
             } finally {
-                // Stop spinning animation
                 svgIcon.classList.remove('spinning');
             }
         }
-
-
-
-
 
         function stripHtml(html) {
             let div = document.createElement("div");
@@ -2235,25 +2830,379 @@
 
         function sendUserInput() {
             const summernote = document.getElementById('replyInput').value;
-          
+
 
             if (!summernote) {
                 alert("Reply is empty.");
                 return;
             }
-            showToast("Mail sent successfully!");
-         
+
+            const email = document.getElementById('emailInput').value;
+            const subject = document.getElementById('messageInput').value;
+            const reply = document.getElementById('replyInput').value;
+            const phoneInput = document.getElementById('phoneInput').value;
+            if (!email || !subject || !reply) {
+                showWarning("Please fill all the fields.");
+                return;
+            }
+
+            const requestData = {
+                email: email,
+                subject: subject,
+                reply: reply,
+                phoneInput: phoneInput
+            };
+
+            fetch('/api/Genesys/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        return Promise.reject('Call is not connected');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    showToastEmail("Mail sent successfully!");
+                })
+                .catch(error => {
+
+                    console.error('Error:', error);
+
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Call is not connected.',
+                    });
+                });
+
         }
         function showToast(message) {
             const toast = document.getElementById("toast");
             toast.textContent = message;
             toast.classList.add("show");
 
-            // Hide the toast after 3 seconds
             setTimeout(() => {
                 toast.classList.remove("show");
             }, 3000);
         }
+
+        async function loadChat(phonenumber) {
+            try {
+                const response = await fetch(
+                    `http://172.21.11.61:8090/chat?phonenumber=${phonenumber}`
+                );
+                const data = await response.json();
+                console.log(data);
+
+                const chatBox = document.getElementById("chat-box");
+                chatBox.innerHTML = "";
+
+                data.chat.forEach((conv) => {
+
+                    if (conv.answer && conv.answer !== "NULL") {
+                        const botRow = document.createElement("div");
+                        botRow.className = "message-row bot";
+                        botRow.innerHTML = `
+                                                <img class="avatar" src="../img/technical-support.png" alt="Bot">
+                                                <div class="stack bot">
+                                                  <div class="message-header">
+                                                    <span class="name">Bot</span>
+                                                  </div>
+
+                                                  <div class="message-bubble bot">
+                                                    <div class="message-text">${conv.answer}</div>
+                                                  </div>
+
+                                                  <div class="message-time">
+                                                    <span class="">${conv.createddate || ""}</span>
+                                                  </div>
+                                                </div>
+                                              `;
+                        chatBox.appendChild(botRow);
+                    }
+
+                    if (conv.question && conv.question !== "NULL") {
+                        const userRow = document.createElement("div");
+                        userRow.className = "message-row user";
+                        userRow.innerHTML = `
+                                                <img class="avatar" src="../img/user.png" alt="user">
+                                                <div class="stack user">
+                                                  <div class="message-header">
+                                                    <span class="name">Customer</span>
+                                                  </div>
+
+                                                  <div class="message-bubble">
+                                                    <div class="message-text">${conv.question}</div>
+                                                  </div>
+
+                                                  <div class="message-time">
+                                                    <span class="">${conv.createddate || ""}</span>
+                                                  </div>
+                                                </div>
+                                              `;
+                        chatBox.appendChild(userRow);
+                    }
+                });
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            } catch (error) {
+                alert("Error loading chat: " + error);
+            }
+        }
+        //loadChat("9821209237");
+
+        async function loadSummary(uuid) {
+            try {
+                const response = await fetch(
+                    `http://127.0.0.1:8000/chat_summary?uuid=${uuid}`
+                );
+                const data = await response.json();
+                console.log(data);
+                const chatSummary = document.getElementById("chat-summary");
+                chatSummary.innerHTML = `${data.summary}`;
+
+                chatSummary.scrollTop = chatSummary.scrollHeight;
+            } catch (error) {
+                alert("Error loading chat-summary: " + error);
+            }
+        }
+
+
+        async function processMessageEmailCRM() {
+            const email = document.getElementById('replyToCRM').value;
+            const realmsg = document.getElementById('replySubjectCRM').value;
+            const summernote = document.getElementById('replyBodyCRM').value;
+
+            const processIcon = document.getElementById('processIcon');
+
+            try {
+                processIcon.classList.add("spin");
+
+                const res = await fetch('/api/Omni/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, realmsg, summernote })
+                });
+
+                const data = await res.json();
+                console.log(JSON.stringify(data));
+                let htmlString = data.response;
+
+                htmlString = htmlString.replace(/<\/p>/gi, '\n').replace(/<[^>]+>/g, '');
+                document.getElementById('replyBodyCRM').value = htmlString.trim();
+                showToastEmail(" Message Processed Successfully!");
+
+            } catch (error) {
+                console.error('Error during message processing:', error);
+                showToastEmail(" Failed to process message.");
+            } finally {
+                processIcon.classList.remove("spin");
+            }
+        }
+        function showToastEmail(message) {
+            const toast = document.getElementById("successToast");
+            toast.innerText = message;
+            toast.classList.add("show");
+            setTimeout(() => {
+                toast.classList.remove("show");
+            }, 3000);
+        }
+
+        function BindEmailDisposition() {
+            const dispositionFormHTML = `
+                                        <h3>Reply</h3>
+                                <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
+
+                                    <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
+                                    <input type="email" id="replyToCRM" readonly
+                                        style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+
+                                    <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
+                                    <input type="text" id="replySubjectCRM"
+                                        style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+
+                                    <label style="font-size:14px; font-weight:500; display:none; color:#333; margin-bottom:4px;">Message:</label>
+                                    <textarea id="replyBodyCRM" rows="8"
+                                        style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+
+                                    <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
+
+                                        <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                                            <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                Disposition <span style="color:red;">*</span>
+                                            </label>
+                                            <select id="disposition" onchange="updateSubDisposition()"
+                                                style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                <option value="">-- Select Disposition --</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
+                                            <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                Sub Disposition <span style="color:red;">*</span>
+                                            </label>
+                                            <select id="subDisposition" onchange="updateSubSubDisposition()"
+                                                style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                <option value="">-- Select Sub Disposition --</option>
+                                            </select>
+                                        </div>
+
+                                        <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
+                                            <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                Sub Sub Disposition <span style="color:red;">*</span>
+                                            </label>
+                                            <select id="subSubDisposition"
+                                                style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                <option value="">-- Select Sub Sub Disposition --</option>
+                                            </select>
+                                        </div>
+
+                                        <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                                            <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
+                                                Remark <span style="color:red;">*</span>
+                                            </label>
+                                            <textarea id="remark" placeholder="Enter Remark"
+                                                style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div style="margin-top:18px; display:flex; gap:12px;">
+                                          <div class="tooltip">
+                                            <button id="processBtn" onclick="processMessageEmailCRM()"
+                                                  style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
+
+                                                  <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
+                                                    <!-- Gear SVG -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                      <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
+                                                    </svg>
+                                                  </span>
+                                                </button>
+                                                <span class="tooltiptext">Process Message</span>
+                                          </div>
+                                        <button onclick="sendReply()"
+                                            style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
+                                            Send Reply
+                                        </button>
+                                    </div>
+
+
+                                </div>
+                                `;
+
+            document.getElementById('replyForm').innerHTML += dispositionFormHTML;
+        }
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.getElementById('toggleBtn');
+            const layout = document.getElementById('layout');
+
+            toggleBtn.addEventListener('click', () => {
+                layout.classList.toggle('collapsed');
+
+            });
+        });
+    </script>
+
+    <script>
+        let wakeLock = null;
+
+        function sendWakeLockSuccess() {
+        
+            const requestData = {
+                wakeLock: 'active',
+                timestamp: new Date().toISOString()
+            };
+
+            fetch('/api/genesys/record', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestData)
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not OK");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Server Response:", data);
+                    alert(`Wake lock recorded!\nServer IP log: ${data.ip}`);
+                })
+                .catch(error => {
+                    console.error("Error calling WakeLock API:", error);
+                    alert("Failed to record wake lock.");
+                });
+        }
+
+        async function requestWakeLock() {
+            try {
+                if ('wakeLock' in navigator) {
+                    wakeLock = await navigator.wakeLock.request('screen');
+                    console.log('Wake Lock active.');
+                  
+                    wakeLock.addEventListener('release', () => {
+                        console.warn('Wake Lock released. Re-requesting...');
+                        requestWakeLock();
+                    });
+                } else {
+                    console.warn('Wake Lock API not supported.');
+                }
+            } catch (err) {
+                console.error(`Wake Lock error: ${err.message}`);
+            }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.visibilityState === 'visible') {
+                requestWakeLock();
+            }
+        });
+
+        setTimeout(() => {
+            const startBtn = document.getElementById('start');
+            if (startBtn) {
+                startBtn.click();
+            }
+        }, 1000);
+
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = '';
+        });
+
+
+        window.addEventListener('unload', function () {
+            //const requestData = {
+            //    wakeLock: 'active',
+            //    timestamp: new Date().toISOString()
+            //};
+
+            //const url = '/api/genesys/record';
+            //const headers = { type: 'application/json' };
+            //const blob = new Blob([JSON.stringify(requestData)], headers);
+
+            //if (navigator.sendBeacon) {
+            //    navigator.sendBeacon(url, blob);
+            //} else {
+       
+            //    const xhr = new XMLHttpRequest();
+            //    xhr.open('POST', url, false); 
+            //    xhr.setRequestHeader('Content-Type', 'application/json');
+            //    xhr.send(JSON.stringify(requestData));
+            //}
+        });
+    </script>
+
+
 </body>
 </html>

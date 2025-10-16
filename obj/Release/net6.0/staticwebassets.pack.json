@@ -41,8 +41,24 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Loading_2.gif",
+      "PackagePath": "staticwebassets\\img\\Loading_2.gif"
+    },
+    {
       "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Logo 1 Connect.png",
       "PackagePath": "staticwebassets\\img\\Logo 1 Connect.png"
+    },
+    {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\loader",
+      "PackagePath": "staticwebassets\\img"
+    },
+    {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\technical-support.png",
+      "PackagePath": "staticwebassets\\img\\technical-support.png"
+    },
+    {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\user.png",
+      "PackagePath": "staticwebassets\\img\\user.png"
     },
     {
       "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\Common.js",
@@ -51,6 +67,10 @@
     {
       "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "PackagePath": "staticwebassets\\js\\Common\\CommonSoftPhone.js"
+    },
+    {
+      "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "PackagePath": "staticwebassets\\js\\Common\\jquery-3.6.4.min.js"
     },
     {
       "Id": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",

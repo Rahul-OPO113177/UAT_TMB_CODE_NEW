@@ -180,6 +180,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Common\CommonSoftPhone.js'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Common\jquery-3.6.4.min.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ServerCRM</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ServerCRM</BasePath>
+      <RelativePath>js/Common/jquery-3.6.4.min.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>82pbje8hxu</Fingerprint>
+      <Integrity>oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Common\jquery-3.6.4.min.js'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Genesys\Genesys.js'))">
       <SourceType>Package</SourceType>
       <SourceId>ServerCRM</SourceId>
@@ -192,8 +210,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>wfuvibowga</Fingerprint>
-      <Integrity>3Ily0cqMwMgrN5vCoA+bZXNkK0pU16wluLGxHEJ5JgQ=</Integrity>
+      <Fingerprint>zl0iacpwtm</Fingerprint>
+      <Integrity>aaJdkuUodLyxJ4vT3xfevwhRFg3YPrtB7mjlYDcpWXI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Genesys\Genesys.js'))</OriginalItemSpec>
@@ -1290,8 +1308,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vz9xc4yvfj</Fingerprint>
-      <Integrity>26yKqviO98g9AaxxxlAGynyn8TtdM8IiMp6IHaLj76E=</Integrity>
+      <Fingerprint>tzaav2c0g3</Fingerprint>
+      <Integrity>Kd2nYLTAZWtJ2IZU6YMqPBVrNflsxVcAsk8zq42DdMc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\CRM.html'))</OriginalItemSpec>
@@ -1344,8 +1362,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xdskb3zxf9</Fingerprint>
-      <Integrity>S+w+Po8BOsuvzVO20n9m1TZIf6nuEiO518JvyQKeit8=</Integrity>
+      <Fingerprint>oy7nu16y7a</Fingerprint>
+      <Integrity>EOoJKmCWhMBxoudZ/8hatzBKyvq1gFb+wNjbARoztcA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\LogIn.html'))</OriginalItemSpec>

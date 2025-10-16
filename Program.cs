@@ -25,7 +25,7 @@ builder.Services.AddSignalR(options =>
     options.KeepAliveInterval = TimeSpan.FromSeconds(10); 
     options.ClientTimeoutInterval = TimeSpan.FromSeconds(30); 
 });
-builder.Services.AddSignalR();
+
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.Configure<CRMSettings>(builder.Configuration.GetSection("CRMSettings"));

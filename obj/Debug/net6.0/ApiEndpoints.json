@@ -389,6 +389,16 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "RecordWakeLock",
+    "RelativePath": "api/Genesys/record",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
     "Method": "SendReply",
     "RelativePath": "api/Genesys/send_reply",
     "HttpMethod": "POST",

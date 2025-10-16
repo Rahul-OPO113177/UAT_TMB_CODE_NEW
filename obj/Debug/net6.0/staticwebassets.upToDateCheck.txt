@@ -8,6 +8,7 @@ wwwroot\img\technical-support.png
 wwwroot\img\user.png
 wwwroot\js\Common\Common.js
 wwwroot\js\Common\CommonSoftPhone.js
+wwwroot\js\Common\jquery-3.6.4.min.js
 wwwroot\js\Genesys\Genesys.js
 wwwroot\js\jssip.min.js
 wwwroot\js\signalr.min.js

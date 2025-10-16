@@ -1,5 +1,6 @@
 ﻿let timerInterval = null;
 let seconds = 0;
+let startTime;
 function openTab(evt, tabId) {
     document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
     document.querySelectorAll(".nav-tab").forEach(el => el.classList.remove("active"));
@@ -27,24 +28,46 @@ function showWarning_New(message) {
         }
     });
 }
+//function startTimer() {
+//    stopTimer();
+//    seconds = 0;
+//    console.log("Starting call timer..." + new Date().toLocaleString());
+//    timerInterval = setInterval(() => {
+//        seconds++;
+//        document.getElementById("callTimer").innerText = formatTime(seconds);
+//    }, 1000);
+//}
+
+//function stopTimer() {
+//    if (timerInterval) {
+//        console.log("Stopping call timer..." + new Date().toLocaleString());
+//        clearInterval(timerInterval);
+//        timerInterval = null;
+//    }
+//    seconds = 0;
+//    document.getElementById("callTimer").innerText = "00:00:00";
+//}
+
 function startTimer() {
-    stopTimer();
-    seconds = 0;
-    console.log("Starting call timer...");
+    stopTimer(); 
+    startTime = Date.now();
+    console.log("Starting call timer..." + new Date().toLocaleString());
+
     timerInterval = setInterval(() => {
-        seconds++;
-        document.getElementById("callTimer").innerText = formatTime(seconds);
+        const elapsedMs = Date.now() - startTime;
+        const elapsedSeconds = Math.floor(elapsedMs / 1000);
+        document.getElementById("callTimer").innerText = formatTime(elapsedSeconds);
     }, 1000);
 }
 
 function stopTimer() {
     if (timerInterval) {
-        console.log("Stopping call timer...");
+        console.log("Stopping call timer..." + new Date().toLocaleString());
         clearInterval(timerInterval);
         timerInterval = null;
     }
-    seconds = 0;
     document.getElementById("callTimer").innerText = "00:00:00";
+    startTime = null;
 }
 
 function formatTime(sec) {
@@ -230,7 +253,12 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isNaN(date.getTime())) return 'Invalid Time';
         return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
     }
-
+    connection.on("PlayRingtone", function (audioFilePath) {
+        var audio = new Audio(audioFilePath);
+        audio.play().catch(function (error) {
+            console.error("Failed to play audio:", error);
+        });
+    });
     connection.on("infopagedata", function (data) {
         try {
             console.log("InfoPage fields:", data);
@@ -398,9 +426,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     connection.on("UpdatePhoneInput", function (number) {
-        let last10 = number.slice(-10);
-        document.getElementById("phoneInput").value = last10;
+        try {
+            let last10 = number.slice(-10); 
+            let inputEl = document.getElementById("phoneInput");
+            if (inputEl) {
+                inputEl.value = last10;
+            } else {
+                console.warn("phoneInput element not found.");
+            }
+        } catch (error) {
+            console.error("Error in UpdatePhoneInput handler:", error);
+        }
     });
+
     connection.on("AutoWrap", function (number) {
 
         connection.on("AutoWrap", function (number) {
@@ -414,6 +452,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     });
+
+    setInterval(async () => {
+        if (connection.state === signalR.HubConnectionState.Connected) {
+            connection.invoke("Heartbeat", agentId)
+                .then(() => console.log("Heartbeat sent"))
+                .catch(err => console.warn("Heartbeat failed:", err));
+        } else if (connection.state === signalR.HubConnectionState.Disconnected) {
+            console.warn("Connection is disconnected. Attempting manual reconnect...");
+
+            try {
+                await connection.start();
+                console.log("Manual reconnect successful");
+
+                await connection.invoke("JoinGroup", agentId);
+                console.log("Rejoined group after manual reconnect");
+
+            } catch (err) {
+                console.error("Manual reconnect failed:", err);
+            }
+        } else {
+          
+            console.warn("Connection is not ready. Current state:", connection.state);
+        }
+    }, 5 * 60 * 1000); 
+
+
+
 
 
     connection.on("ReceiveStatus", handleStatusUpdate);
@@ -455,6 +520,7 @@ function handleStatusUpdate(message) {
     $("#break, #getnext").addClass("disabled").css({ "pointer-events": "none", "opacity": "0.5" });
 
     if (msg.includes("waiting")) {
+        clearFeilds();
         $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
         $("#dialGroup").css("display", "flex");
         $("#getnext").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
@@ -504,6 +570,7 @@ function handleStatusUpdate(message) {
 }
 
 function handleAttachedDataUserEvent(data) {
+
     document.getElementById("batchId").innerText = data.Batch_id || "-";
     document.getElementById("mode").innerText = data.InteractionSubtype || "-";
     document.getElementById("mycode").innerText = data.TMasterID || "-";
@@ -512,11 +579,23 @@ function handleAttachedDataUserEvent(data) {
 }
 
 function handleAttachedData(data) {
-    if (data && typeof data === "object") {
-        document.getElementById("campaignName").textContent = data.RTargetObjectSelected || "-";
-        document.getElementById("mode").textContent = data.RStrategyName || "-";
-        document.getElementById("objectId").textContent = data.RTargetAgentSelected || "-";
-    }
+    const langInput = document.querySelector('input[name="LANG"]');
+    const menu1Input = document.querySelector('input[name="Menu1"]');
+    const menu2Input = document.querySelector('input[name="Menu2"]');
+
+    if (langInput) langInput.value = data.Cust_Inpute1 || "";
+    if (menu1Input) menu1Input.value = data.Cust_Inpute2 || "";
+    if (menu2Input) menu2Input.value = data.Cust_Inpute3 || "";
+    console.log("Attached data will be : " + JSON.stringify(data));
+
+    const campaignElem = document.getElementById("campaignName");
+    if (campaignElem) campaignElem.textContent = data.RTargetObjectSelected || "-";
+
+    const modeElem = document.getElementById("mode");
+    if (modeElem) modeElem.textContent = data.RStrategyName || "-";
+
+    const objectElem = document.getElementById("objectId");
+    if (objectElem) objectElem.textContent = data.RTargetAgentSelected || "-";
 }
 
 
@@ -722,15 +801,27 @@ function updateSubSubDisposition() {
 
 
 
-document.getElementById("disposition").addEventListener("change", function () {
-    updateSubDisposition();
-    toggleCallBackDateField();
+//document.getElementById("disposition").addEventListener("change", function () {
+//    updateSubDisposition();
+//    toggleCallBackDateField();
+//});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var disposition = document.getElementById("disposition");
+    if (disposition) {
+        disposition.addEventListener("change", function () {
+            updateSubDisposition();
+            toggleCallBackDateField();
+        });
+    }
 });
 
 
 
+
 function submitDisposition() {
-    const agentStatus = $('#status').text().trim().toUpperCase();
+    let agentStatus = $('#status').text().trim().toUpperCase();
 
     if (agentStatus !== "WRAPING") {
         Swal.fire({
@@ -742,8 +833,9 @@ function submitDisposition() {
         return;
     }
 
+   
 
-    const formData = {};
+    let formData = {};
     let isValid = true;
     let validationMessage = '';
 
@@ -753,9 +845,9 @@ function submitDisposition() {
             return;
         }
 
-        const fieldName = field.attr('name') || field.attr('id');
-        const isRequired = field.prop('required') || field.closest('label').find('span[style*="red"]').length > 0;
-        const fieldType = field.attr('type');
+        let fieldName = field.attr('name') || field.attr('id');
+        let isRequired = field.prop('required') || field.closest('label').find('span[style*="red"]').length > 0;
+        let fieldType = field.attr('type');
         let fieldValue = '';
         if (field.is('select')) {
 
@@ -821,10 +913,10 @@ function submitDisposition() {
     }
 
     console.log("Sub,mite data : " + JSON.stringify(formData));
-    const disptypeKey = "dispTypeKey";
-    const dispoId = document.getElementById("disposition").value;
-    const selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
-    const dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
+    let disptypeKey = "dispTypeKey";
+    let dispoId = document.getElementById("disposition").value;
+    let selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
+    let dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
     formData[disptypeKey] = dispType;
 
     $.ajax({

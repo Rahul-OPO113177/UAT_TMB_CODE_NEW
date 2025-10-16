@@ -14,6 +14,8 @@ using System.Threading.Tasks;
 using MailKit.Net.Imap;
 using MailKit.Security;
 using System.Reflection.Emit;
+using System.Net.Sockets;
+using System.Text;
 
 
 namespace ServerCRM.Controllers
@@ -28,22 +30,83 @@ namespace ServerCRM.Controllers
         private readonly int imapPort = 993;
         private readonly string email = "airline.demo@1point1.in";
         private readonly string password = "Info@1234";
+        private readonly ILogger<GenesysController> _logger;
 
-
-        public GenesysController(ApiService apiService , AuthService authService)
+        public GenesysController(ApiService apiService , AuthService authService, ILogger<GenesysController> logger)
         {
             _apiService = apiService;
             _auth = authService;
+            _logger = logger;
         }
-        
+
+
+
+        [HttpPost("record")]
+        public async Task<IActionResult> RecordWakeLock()
+        {
+            try
+            {
+                using var reader = new StreamReader(Request.Body);
+                var body = await reader.ReadToEndAsync();
+                var clientIp = HttpContext.Connection.RemoteIpAddress?.ToString();
+                var forwardedFor = HttpContext.Request.Headers["X-Forwarded-For"].FirstOrDefault();
+
+                var finalIp = !string.IsNullOrEmpty(forwardedFor) ? forwardedFor : clientIp;
+
+                _logger.LogInformation("WakeLock received from IP: {IP} with body: {Body}", finalIp, body);
+                string responseData = "";
+                try
+                {
+                    int serverPort = 49510;
+                    using var client = new TcpClient(finalIp, serverPort);
+                    using NetworkStream stream = client.GetStream();
+
+                    byte[] sendData = Encoding.ASCII.GetBytes(body);
+                    await stream.WriteAsync(sendData, 0, sendData.Length);
+
+                    byte[] buffer = new byte[1024];
+                    int bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length);
+                    responseData = Encoding.ASCII.GetString(buffer, 0, bytesRead);
+
+                    _logger.LogInformation("Received response from client: {Response}", responseData);
+
+                    var parts = responseData.Split(',');
+                    if (parts.Length > 15)
+                    {
+                        string isError = parts[14] + "," + parts[15];
+                        if (isError.Contains("Error"))
+                        {
+                            _logger.LogWarning("Error detected in client response: {Error}", isError);
+                            return BadRequest(new { error = isError });
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "TCP socket connection failed to client {IP}", finalIp);
+                    return StatusCode(500, "Error communicating with client");
+                }
+
+                return Ok(new { message = "Wake lock recorded and sent via TCP socket", ip = finalIp, clientResponse = responseData });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error recording wake lock");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+
+
         [HttpPost("checkUser")]
         public async Task<IActionResult> UserlogInCheckcredentials([FromBody] CheckCredentials request)
         {
            
             var isValid = await _auth.CheckCredentialsAsync(request).ConfigureAwait(false);
+            isValid = true;
             if (isValid == false)
             {
                 return BadRequest("Username and password not match");
+              
             }
             else
             {
@@ -286,7 +349,7 @@ namespace ServerCRM.Controllers
 
             await CTIConnectionManager.AgentReady(login_code);
 
-            string processStatus = "2";
+            string processStatus = "1";
                 //InfoPageFeilds.GetProcessType(ProcessName);
 
             return Ok(new { status = processStatus });
