@@ -390,6 +390,9 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+<script src="../js/Common/jquery-3.6.4.min.js"></script>
+<script src="../js/signalr.min.js"></script>
+
 <script>
     async function submitLogin() {
         const empCode = document.getElementById("empCode").value.trim();
@@ -421,17 +424,35 @@
             return;
         }
 
-        $.ajax({
-            url: '/Genesys/CheckBio', 
-            type: 'POST',
-            data: { empCode: empCode },
-            success: function (response) {
-                console.log("Success:", response);
-            },
-            error: function (xhr, status, error) {
-                console.error("Error:", error);
+
+        try {
+           
+            const bioResponse = await fetch('/api/Genesys/CheckBioFromCRM', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: empCode })
+            });
+
+            const bioData = await bioResponse.json();
+            console.log('Biometric check result:', bioData);
+
+            if (bioData.status !== 1) {
+                showWarning_New("Biometric not done By Agent");
+                return;  
             }
-        });
+
+            console.log('Biometric check passed.');
+
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while checking biometric.'
+            });
+            return;
+        }
+
+
 
         let loginResponse;
         try {
@@ -450,7 +471,7 @@
             });
             return;
         }
-       
+
         if (!loginResponse.ok) {
             const error = await loginResponse.text();
             Swal.fire({
@@ -461,23 +482,25 @@
             return;
         }
 
+        
+
+
+
        
-  
-        if (crmstatus === 1)
-        {
+        if (crmstatus === 1) {
             try {
-             
+
                 let dialerResponse = await fetch('/api/Genesys/dialer', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ empCode })
                 });
 
-        
+
                 let data = await dialerResponse.json();
                 console.log('Dialer response:', data);
 
-              
+
                 if (dialerResponse.status !== 200) {
                     const error = data.message || 'Invalid credentials';
                     Swal.fire({
@@ -491,7 +514,7 @@
                 if (data.message === 'Agent logged in successfully') {
                     location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}`;
                 } else {
-                   
+
                     Swal.fire({
                         icon: 'error',
                         title: 'Login Failed',
@@ -499,7 +522,7 @@
                     });
                 }
             } catch (err) {
-              
+
                 console.error('Error:', err);
                 Swal.fire({
                     icon: 'error',
@@ -510,8 +533,7 @@
 
         }
 
-        else if (crmstatus === 2)
-        {
+        else if (crmstatus === 2) {
             try {
                 const dialerResponse = await fetch('/api/FreeswitchDialer/dialer', {
                     method: 'POST',
@@ -559,6 +581,24 @@
         }
     }
 
+    function showWarning_New(message) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: message,
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#fff7ed',
+            color: '#92400e',
+            iconColor: '#f59e0b',
+            customClass: {
+                popup: 'shadow-lg rounded-xl'
+            }
+        });
+    }
 
     window.submitLogin = submitLogin;
 </script>

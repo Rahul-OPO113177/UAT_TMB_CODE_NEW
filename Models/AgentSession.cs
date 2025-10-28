@@ -55,6 +55,7 @@ namespace ServerCRM.Models
         public string? AgentGroup { get; set; }
 
         public string? finishCode { get; set; }
+        public bool? IsManualDial { get; set; }
         public DataTable? dt_EntityType { get; set; }
 
         public object LockObj { get; } = new object();

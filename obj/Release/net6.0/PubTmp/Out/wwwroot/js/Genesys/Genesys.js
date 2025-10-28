@@ -424,20 +424,28 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-
     connection.on("UpdatePhoneInput", function (number) {
-        try {
-            let last10 = number.slice(-10); 
-            let inputEl = document.getElementById("phoneInput");
-            if (inputEl) {
-                inputEl.value = last10;
-            } else {
-                console.warn("phoneInput element not found.");
-            }
-        } catch (error) {
-            console.error("Error in UpdatePhoneInput handler:", error);
+        if (number == null) {
+            console.warn("Received null or undefined number");
+
         }
+        else {
+            try {
+                let last10 = number.slice(-10);
+                let inputEl = document.getElementById("phoneInput");
+                if (inputEl) {
+                    inputEl.value = last10;
+                } else {
+                    console.warn("phoneInput element not found.");
+                }
+            } catch (error) {
+                console.error("Error in UpdatePhoneInput handler:", error);
+            }
+
+        }
+       
     });
+
 
     connection.on("AutoWrap", function (number) {
 
@@ -499,7 +507,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     startConnection();
 });
+function updateStatusText(message) {
+    const statusElem = document.getElementById("status");
+    if (!statusElem) return;
 
+    statusElem.innerText = message;
+    const msg = message.toLowerCase();
+
+    let color = "black"; 
+
+    if (msg.includes("waiting")) {
+        color = "gray";
+    } else if (msg.includes("talking") || msg.includes("established") || msg.includes("outbound call established") || msg.includes("inbound call established")) {
+        color = "green";
+    } else if (msg.includes("hold")) {
+        color = "blue";
+    } else if (msg.includes("wraping")) {
+        color = "purple";
+    } else if (msg.includes("break")) {
+        color = "red";
+    } else if (msg.includes("logout")) {
+        color = "gray";
+    } else if (["call ended", "disconnected", "hangup", "idle"].some(s => msg.includes(s))) {
+        color = "darkred";
+    }
+
+    statusElem.style.color = color;
+}
 
 function validateDate() {
     const selectedDate = document.getElementById('callBackDateOutcome').value;
@@ -515,7 +549,7 @@ function handleStatusUpdate(message) {
     const statusElem = document.getElementById("status");
     if (statusElem) statusElem.innerText = message;
     const msg = message.toLowerCase();
-
+    updateStatusText(message);
     $("#dialGroup, #hold, #unhold, #confo, #merge, #party").hide();
     $("#break, #getnext").addClass("disabled").css({ "pointer-events": "none", "opacity": "0.5" });
 
@@ -541,7 +575,13 @@ function handleStatusUpdate(message) {
         $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
     }
 
-    if (["talking", "wraping", "dialing", "waiting", "established", "outbound call established", "inbound call established"].some(s => msg.includes(s))) {
+
+    if (msg.includes("dialing")) {
+        $("#party").css("display", "flex");
+    }
+
+
+    if (["talking", "wraping","hold" ,  "dialing", "waiting", "established", "outbound call established", "inbound call established"].some(s => msg.includes(s))) {
         stopTimer();
         startTimer();
     } else if (["call ended", "disconnected", "hangup", "idle"].some(s => msg.includes(s))) {

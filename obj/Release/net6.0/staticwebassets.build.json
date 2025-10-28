@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "s3IxyP59D5WQ1gjDiGM0fvGQqNbdip99jh38JlAABqg=",
+  "Hash": "jqVyhv9d4VKP9gO5SW735oi3eHPcs1yFiDXsfwaSmbs=",
   "Source": "ServerCRM",
   "BasePath": "_content/ServerCRM",
   "Mode": "Default",
@@ -304,8 +304,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "zl0iacpwtm",
-      "Integrity": "aaJdkuUodLyxJ4vT3xfevwhRFg3YPrtB7mjlYDcpWXI=",
+      "Fingerprint": "0dtfhhmny5",
+      "Integrity": "ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Genesys\\Genesys.js"
@@ -1585,8 +1585,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "tzaav2c0g3",
-      "Integrity": "Kd2nYLTAZWtJ2IZU6YMqPBVrNflsxVcAsk8zq42DdMc=",
+      "Fingerprint": "tbhhr52ul5",
+      "Integrity": "+UCoR5O6KJckBmjx9MCUth6AqpLUjNCpuKVvSlsz87Q=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\CRM.html"
@@ -1648,8 +1648,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "k3nhkh59mz",
-      "Integrity": "MJe/uydZoNYSGkgzHDy7bA5ixl1SgLmWKR2lbUzPVjU=",
+      "Fingerprint": "ra8oeskefy",
+      "Integrity": "/UHSlRylh0zexu8BqCWTSLR0MwjnE7RRuI/eVgzWFWI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\LogIn.html"
@@ -2601,6 +2601,51 @@
       ]
     },
     {
+      "Route": "js/Genesys/Genesys.0dtfhhmny5.js",
+      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39917"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 27 Oct 2025 10:43:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0dtfhhmny5"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Genesys/Genesys.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M="
+        }
+      ]
+    },
+    {
       "Route": "js/Genesys/Genesys.js",
       "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
       "Selectors": [],
@@ -2611,7 +2656,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "38671"
+          "Value": "39917"
         },
         {
           "Name": "Content-Type",
@@ -2619,11 +2664,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"aaJdkuUodLyxJ4vT3xfevwhRFg3YPrtB7mjlYDcpWXI=\""
+          "Value": "\"ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 15 Oct 2025 08:10:56 GMT"
+          "Value": "Mon, 27 Oct 2025 10:43:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2633,52 +2678,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-aaJdkuUodLyxJ4vT3xfevwhRFg3YPrtB7mjlYDcpWXI="
-        }
-      ]
-    },
-    {
-      "Route": "js/Genesys/Genesys.zl0iacpwtm.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "38671"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"aaJdkuUodLyxJ4vT3xfevwhRFg3YPrtB7mjlYDcpWXI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 15 Oct 2025 08:10:56 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "zl0iacpwtm"
-        },
-        {
-          "Name": "label",
-          "Value": "js/Genesys/Genesys.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-aaJdkuUodLyxJ4vT3xfevwhRFg3YPrtB7mjlYDcpWXI="
+          "Value": "sha256-ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M="
         }
       ]
     },
@@ -7613,7 +7613,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "128724"
+          "Value": "128731"
         },
         {
           "Name": "Content-Type",
@@ -7621,11 +7621,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Kd2nYLTAZWtJ2IZU6YMqPBVrNflsxVcAsk8zq42DdMc=\""
+          "Value": "\"+UCoR5O6KJckBmjx9MCUth6AqpLUjNCpuKVvSlsz87Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Oct 2025 13:19:26 GMT"
+          "Value": "Fri, 17 Oct 2025 11:42:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7635,12 +7635,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Kd2nYLTAZWtJ2IZU6YMqPBVrNflsxVcAsk8zq42DdMc="
+          "Value": "sha256-+UCoR5O6KJckBmjx9MCUth6AqpLUjNCpuKVvSlsz87Q="
         }
       ]
     },
     {
-      "Route": "Pages/CRM.tzaav2c0g3.html",
+      "Route": "Pages/CRM.tbhhr52ul5.html",
       "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7650,7 +7650,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "128724"
+          "Value": "128731"
         },
         {
           "Name": "Content-Type",
@@ -7658,11 +7658,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Kd2nYLTAZWtJ2IZU6YMqPBVrNflsxVcAsk8zq42DdMc=\""
+          "Value": "\"+UCoR5O6KJckBmjx9MCUth6AqpLUjNCpuKVvSlsz87Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Oct 2025 13:19:26 GMT"
+          "Value": "Fri, 17 Oct 2025 11:42:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7672,7 +7672,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tzaav2c0g3"
+          "Value": "tbhhr52ul5"
         },
         {
           "Name": "label",
@@ -7680,7 +7680,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Kd2nYLTAZWtJ2IZU6YMqPBVrNflsxVcAsk8zq42DdMc="
+          "Value": "sha256-+UCoR5O6KJckBmjx9MCUth6AqpLUjNCpuKVvSlsz87Q="
         }
       ]
     },
@@ -7859,7 +7859,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21096"
+          "Value": "17585"
         },
         {
           "Name": "Content-Type",
@@ -7867,11 +7867,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MJe/uydZoNYSGkgzHDy7bA5ixl1SgLmWKR2lbUzPVjU=\""
+          "Value": "\"/UHSlRylh0zexu8BqCWTSLR0MwjnE7RRuI/eVgzWFWI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Oct 2025 06:17:15 GMT"
+          "Value": "Thu, 16 Oct 2025 12:37:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7881,12 +7881,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MJe/uydZoNYSGkgzHDy7bA5ixl1SgLmWKR2lbUzPVjU="
+          "Value": "sha256-/UHSlRylh0zexu8BqCWTSLR0MwjnE7RRuI/eVgzWFWI="
         }
       ]
     },
     {
-      "Route": "Pages/LogIn.k3nhkh59mz.html",
+      "Route": "Pages/LogIn.ra8oeskefy.html",
       "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\LogIn.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -7896,7 +7896,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "21096"
+          "Value": "17585"
         },
         {
           "Name": "Content-Type",
@@ -7904,11 +7904,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MJe/uydZoNYSGkgzHDy7bA5ixl1SgLmWKR2lbUzPVjU=\""
+          "Value": "\"/UHSlRylh0zexu8BqCWTSLR0MwjnE7RRuI/eVgzWFWI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 14 Oct 2025 06:17:15 GMT"
+          "Value": "Thu, 16 Oct 2025 12:37:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7918,7 +7918,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "k3nhkh59mz"
+          "Value": "ra8oeskefy"
         },
         {
           "Name": "label",
@@ -7926,7 +7926,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MJe/uydZoNYSGkgzHDy7bA5ixl1SgLmWKR2lbUzPVjU="
+          "Value": "sha256-/UHSlRylh0zexu8BqCWTSLR0MwjnE7RRuI/eVgzWFWI="
         }
       ]
     },

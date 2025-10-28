@@ -140,7 +140,8 @@ namespace ServerCRM.Services
                                         dt_EntityType = new DataTable(),
                                         IsRedial = Convert.ToInt32(agentvalue.IsRedial),
                                         CRMType = "1",
-                                        lblcallback = ""
+                                        lblcallback = "",
+                                        IsManualDial=null
 
                                     };
                                     agentSessions[agentId] = agentSession;
@@ -282,10 +283,11 @@ namespace ServerCRM.Services
 
 
                             CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
-                            CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString(), session.CampaignPhone);
+
                         }
                         else
                         {
+
                             session.CampaignPhone = established.DNIS;
                             CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
                             if (session.partyFirstPhone == null)
@@ -298,7 +300,27 @@ namespace ServerCRM.Services
                             session.CurrentStatusID = 3;
 
 
+
                         }
+
+                        if(session.IsManualDial==true)
+                        {
+
+                        }
+                        else
+                        {
+                            if(session.isConforence==true)
+                            {
+
+                            }
+                            else
+                            {
+                                CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString(), session.CampaignPhone == null ? session.partyFirstPhone : session.CampaignPhone);
+                            }
+                                
+                        }
+
+                           
                         if (established.UserData != null)
                         {
                             for (int i = 0; i < established.UserData.Count; i++)
@@ -363,19 +385,26 @@ namespace ServerCRM.Services
                                         session.CurrentStatusID = 3;
                                         CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.partyFirstPhone);
                                     }
-                                    session.distype = "Customer";
-                                    CTIConnectionManager.InsertCallLogApi(session.AgentId);
-
+  
                                 }
                                 else
                                 {
                                     session.isOnCall = false;
                                     session.isConforence = false;
-
+                                    session.distype = "Customer";
                                     session.partyFirstPhone = null;
                                     CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.partyFirstPhone);
                                     AgentStatusMapper.UpdateAgentStatus(4, session, hubContext);
                                     session.CurrentStatusID = 4;
+
+                                    CTIConnectionManager.InsertCallLogApi(session.AgentId);
+
+                                    if (session.IsAutoWrap == 1)
+                                    {
+                                        CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
+
+                                    }
+
                                 }
                             }
                         }
@@ -390,12 +419,8 @@ namespace ServerCRM.Services
                         catch (Exception)
                         {
                         }
-                        if (session.IsAutoWrap == 1)
-                        {
-                            CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
 
-                        }
-
+                        
 
                         break;
                     case EventAgentReady.MessageName:
@@ -465,7 +490,11 @@ namespace ServerCRM.Services
                             {
                                 AgentStatusMapper.UpdateAgentStatus(4, session, hubContext);
                                 session.CurrentStatusID = 4;
+
+
                             }
+
+                            
                         }
                         break;
                     case EventPartyChanged.MessageName:
@@ -1021,7 +1050,10 @@ namespace ServerCRM.Services
                             return "Enter Proper Phone Number..";
                         }
 
+
                         CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
+                        session.IsManualDial = true;
+
                         CTIConnectionManager.GetInfoPageFeilds(session.ProcessName, session.AgentId, session.MyCode.ToString(), DialPhone);
                     }
                 }
@@ -1184,7 +1216,7 @@ namespace ServerCRM.Services
             }
             else
             {
-                if (session.CurrentStatusID == 4)
+                if (session.CurrentStatusID == 4  )
                 {
                     session.upcommingEvent = Convert.ToInt32(brkstatus);
                 }
@@ -1336,10 +1368,10 @@ namespace ServerCRM.Services
                             session.EndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
                             session.distype = "Agent";
                             InsertCallLogApi(session.AgentId);
+
                             if (session.IsAutoWrap == 1)
                             {
                                 CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
-
                             }
 
                         }
@@ -1367,6 +1399,7 @@ namespace ServerCRM.Services
                         session.EndTime = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss tt");
                         session.distype = "Agent";
                         InsertCallLogApi(session.AgentId);
+
                         if (session.IsAutoWrap == 1)
                         {
                             CTIConnectionManager.StartAutoWrap(session.AutoWrapTime, session.AgentId);
@@ -1398,10 +1431,10 @@ namespace ServerCRM.Services
 
             try
             {
-                InfoPageFeilds.InsertHistory(message, session.OPOID, session.ProcessName, Convert.ToDateTime(session.StartTime), Convert.ToDateTime(session.EndTime), session.distype, session.RecordingPath, session.CampaignPhone, session.MyCode.ToString(), session.finishCode, Convert.ToString(session.ConnID), "", session.CampaignName);
+                InfoPageFeilds.InsertHistory(message, session.OPOID, session.ProcessName, Convert.ToDateTime(session.StartTime), Convert.ToDateTime(session.EndTime), session.distype, session.RecordingPath, session.CampaignPhone == null ? session.partyFirstPhone : session.CampaignPhone, session.MyCode.ToString(), session.finishCode, Convert.ToString(session.ConnID), "", session.CampaignName);
 
                 responce = CTIConnectionManager.DisposeCall(AgentID, dispose_code, subdispose_code, CBdatetime , pcb);
-
+                session.IsManualDial = null;
                 session.ConnID = null;
                 if (session.isbreak == false && session.CurrentStatusID == 4)
                 {
@@ -1536,7 +1569,7 @@ namespace ServerCRM.Services
                     return "";
 
                 }
-                else if (session.upcommingEvent == 5 || session.upcommingEvent == 6 || session.upcommingEvent == 7 || session.upcommingEvent == 8 || session.upcommingEvent == 9 || session.upcommingEvent == 19)
+                else if (session.upcommingEvent == 5 || session.upcommingEvent == 6 || session.upcommingEvent == 7 || session.upcommingEvent == 8 || session.upcommingEvent == 9 || session.upcommingEvent == 19 || session.upcommingEvent == 27)
                 {
                     int statusCode = Convert.ToInt32(session.upcommingEvent);
                     string breakReason = AgentStatusMapper.StatusMap.ContainsKey(statusCode) ? AgentStatusMapper.StatusMap[statusCode] : "UNKNOWN";
@@ -1559,11 +1592,14 @@ namespace ServerCRM.Services
                 }
                 else
                 {
-                    CTIConnectionManager.StopAutoWrap();
+                    
                     var str = AgentReady(session.AgentId);
                     session.lblcallback = "";
                     return "Record Saved Successfully";
                 }
+
+
+                CTIConnectionManager.StopAutoWrap();
             }
             else
             {
@@ -1951,6 +1987,7 @@ namespace ServerCRM.Services
             {
                 AutoWrapTimerElapsed(sender, e, logincode);
             };
+
             _autoWrapTimer.Start();
 
             Console.WriteLine($"[CTI] Auto Wrap timer started for {durationInSeconds} seconds.");

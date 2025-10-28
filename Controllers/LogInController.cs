@@ -1,16 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using ServerCRM.Models.Freeswitch;
+using System.Text;
 
 namespace ServerCRM.Controllers
 {
     public class LogInController : Controller
     {
         private readonly CRMSettings _crmSettings;
+   
 
-        public LogInController(IOptions<CRMSettings> crmSettings)
+        public LogInController(IOptions<CRMSettings> crmSettings )
         {
             _crmSettings = crmSettings.Value;
+            
         }
         public IActionResult logInUser()
         {
@@ -32,6 +36,9 @@ namespace ServerCRM.Controllers
         {
             return View();
         }
+       
+
+       
 
         [HttpGet]
         public IActionResult GetSipConfig()

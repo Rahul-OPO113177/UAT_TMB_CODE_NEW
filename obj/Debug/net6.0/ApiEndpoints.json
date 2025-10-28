@@ -219,6 +219,22 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "CheckBio",
+    "RelativePath": "api/Genesys/CheckBioFromCRM",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ServerCRM.Models.BioCheckRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
     "Method": "UserlogInCheckcredentials",
     "RelativePath": "api/Genesys/checkUser",
     "HttpMethod": "POST",

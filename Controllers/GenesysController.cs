@@ -16,6 +16,9 @@ using MailKit.Security;
 using System.Reflection.Emit;
 using System.Net.Sockets;
 using System.Text;
+using Newtonsoft.Json;
+using static ServerCRM.Controllers.LogInController;
+using System.Net.Http;
 
 
 namespace ServerCRM.Controllers
@@ -37,6 +40,34 @@ namespace ServerCRM.Controllers
             _apiService = apiService;
             _auth = authService;
             _logger = logger;
+        }
+
+        [HttpPost("CheckBioFromCRM")]
+        public async Task<IActionResult> CheckBio([FromBody] BioCheckRequest request)
+        {
+            var apiUrl = "http://192.168.0.81:8011/api/CRM/CheckBio";
+            var jsonContent = JsonConvert.SerializeObject(new { username = request.username });
+            var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+            try
+            {
+                using (var httpClient = new HttpClient())
+                {
+                    var response = await httpClient.PostAsync(apiUrl, content);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        return StatusCode((int)response.StatusCode, new { message = "External API error" });
+                    }
+
+                    var responseData = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<BioCheckResponse>(responseData);
+                    return Ok(new { status = result?.Status });
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                return StatusCode(500, new { message = "Server error", detail = ex.Message });
+            }
         }
 
 

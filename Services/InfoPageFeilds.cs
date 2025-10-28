@@ -181,11 +181,12 @@ namespace ServerCRM.Services
                         cmd.Parameters.AddWithValue("p_AGENT_NAME", opoId);
                         cmd.Parameters.AddWithValue("p_BATCHID", BatchID);
                         cmd.Parameters.AddWithValue("p_callbacktime", data.ContainsKey("callBackDateOutcome") && DateTime.TryParse(data["callBackDateOutcome"]?.ToString(), out DateTime cbTime) ? cbTime : (object)DBNull.Value);
-                        cmd.Parameters.AddWithValue("p_DisconnectType", pcb ?? (object)DBNull.Value);
+                        cmd.Parameters.AddWithValue("p_DisconnectType", disType ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_RecPath", recordingPath ?? (object)DBNull.Value);
 
                         cmd.ExecuteNonQuery();
                     }
+
                     var keysToExclude = new HashSet<string>
                     {
                         "disposition",

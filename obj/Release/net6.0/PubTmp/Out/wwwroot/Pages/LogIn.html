@@ -390,127 +390,8 @@
 </html>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!--<script>
-    async function submitLogin() {
-        const empCode = document.getElementById("empCode").value.trim();
-        const password = document.getElementById("password").value.trim();
-
-        let crmstatus = 0;
-
-
-        const crmResponse = await fetch("/TypeOfCRM");
-        if (!crmResponse.ok) {
-            throw new Error("Failed to fetch TypeOfCRM");
-        }
-        crmstatus = await crmResponse.json();
-        console.log("CRM Status:", crmstatus);
-
-
-        if (!empCode || !password) {
-            Swal.fire({
-                icon: 'warning',
-                title: 'Missing Fields',
-                text: 'Please enter both OPO ID and Password'
-            });
-            return;
-        }
-
-        const loginResponse = await fetch('/api/Genesys/checkUser', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ empCode: empCode, password: password })
-        });
-
-        if (loginResponse.ok) {
-            if (crmstatus === 1) {
-                // Genesys CRM path
-                try {
-                    const dialerResponse = await fetch('/api/Genesys/dialer', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ empCode: empCode })
-                    });
-
-                    if (dialerResponse.ok) {
-                        const result = await dialerResponse.json();
-
-                        console.log(JSON.stringify(result));
-                        await Swal.fire({
-                            icon: 'success',
-                            title: 'Login Successful',
-                            text: result.message || 'Welcome!',
-                            confirmButtonText: 'Continue'
-                        });
-                        location.href = "/Pages/CRM.html?empCode=" + encodeURIComponent(result.logincode);
-                    } else {
-                        const error = await dialerResponse.text();
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Login Failed',
-                            text: error.message || 'Invalid credentials'
-                        });
-                    }
-                } catch (err) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Unable to connect to server. Please try again.'
-                    });
-                }
-            }
-            else if (crmstatus === 2) {
-                try {
-                    const dialerResponse = await fetch('/api/FreeswitchDialer/dialer', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ empCode: empCode })
-                    });
-
-                    if (dialerResponse.ok) {
-                        const result = await dialerResponse.json();
-
-                        console.log(JSON.stringify(result));
-                        await Swal.fire({
-                            icon: 'success',
-                            title: 'Login Successful',
-                            text: result.message || 'Welcome!',
-                            confirmButtonText: 'Continue'
-                        });
-                        location.href = "/Pages/FreeSwitch.html?empCode=" + document.getElementById("empCode").value.trim() + "&crmstatus=" + crmstatus;
-                        /*window.location.href = "/FreeSwitch/MakeCall?empcode=" + empCode;*/
-                    } else {
-                        const error = await dialerResponse.text();
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Login Failed',
-                            text: error.message || 'Invalid credentials'
-                        });
-                    }
-                } catch (err) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Unable to connect to server. Please try again.'
-                    });
-                }
-
-
-
-            }
-        } else {
-            const error = await loginResponse.text();
-            Swal.fire({
-                icon: 'error',
-                title: 'Login Failed',
-                text: error.message || 'Invalid credentials'
-            });
-        }
-    }
-
-    // Ensure the function is global
-    window.submitLogin = submitLogin;
-</script>-->
-
+<script src="../js/Common/jquery-3.6.4.min.js"></script>
+<script src="../js/signalr.min.js"></script>
 
 <script>
     async function submitLogin() {
@@ -519,7 +400,7 @@
 
         let crmstatus = 1;
 
-        // --- Get CRM type ---
+
         try {
             const crmResponse = await fetch("/TypeOfCRM");
             if (!crmResponse.ok) throw new Error("Failed to fetch TypeOfCRM");
@@ -534,7 +415,6 @@
             return;
         }
 
-        // --- Validate inputs ---
         if (!empCode || !password) {
             Swal.fire({
                 icon: 'warning',
@@ -544,7 +424,36 @@
             return;
         }
 
-      
+
+        try {
+           
+            const bioResponse = await fetch('/api/Genesys/CheckBioFromCRM', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username: empCode })
+            });
+
+            const bioData = await bioResponse.json();
+            console.log('Biometric check result:', bioData);
+
+            if (bioData.status !== 1) {
+                showWarning_New("Biometric not done By Agent");
+                return;  
+            }
+
+            console.log('Biometric check passed.');
+
+        } catch (err) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'An error occurred while checking biometric.'
+            });
+            return;
+        }
+
+
+
         let loginResponse;
         try {
             loginResponse = await fetch('/api/Genesys/checkUser', {
@@ -562,7 +471,7 @@
             });
             return;
         }
-       
+
         if (!loginResponse.ok) {
             const error = await loginResponse.text();
             Swal.fire({
@@ -573,21 +482,25 @@
             return;
         }
 
-  
+        
+
+
+
+       
         if (crmstatus === 1) {
             try {
-             
+
                 let dialerResponse = await fetch('/api/Genesys/dialer', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ empCode })
                 });
 
-        
+
                 let data = await dialerResponse.json();
                 console.log('Dialer response:', data);
 
-              
+
                 if (dialerResponse.status !== 200) {
                     const error = data.message || 'Invalid credentials';
                     Swal.fire({
@@ -601,7 +514,7 @@
                 if (data.message === 'Agent logged in successfully') {
                     location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}`;
                 } else {
-                   
+
                     Swal.fire({
                         icon: 'error',
                         title: 'Login Failed',
@@ -609,7 +522,7 @@
                     });
                 }
             } catch (err) {
-              
+
                 console.error('Error:', err);
                 Swal.fire({
                     icon: 'error',
@@ -620,7 +533,6 @@
 
         }
 
-        // --- FreeSwitch CRM ---
         else if (crmstatus === 2) {
             try {
                 const dialerResponse = await fetch('/api/FreeswitchDialer/dialer', {
@@ -660,7 +572,6 @@
             }
         }
 
-        // --- Unknown CRM type ---
         else {
             Swal.fire({
                 icon: 'error',
@@ -670,6 +581,24 @@
         }
     }
 
-    // Make sure function is available globally
+    function showWarning_New(message) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Warning',
+            text: message,
+            toast: true,
+            position: 'bottom-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#fff7ed',
+            color: '#92400e',
+            iconColor: '#f59e0b',
+            customClass: {
+                popup: 'shadow-lg rounded-xl'
+            }
+        });
+    }
+
     window.submitLogin = submitLogin;
 </script>
