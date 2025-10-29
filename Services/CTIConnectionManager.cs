@@ -964,11 +964,11 @@ namespace ServerCRM.Services
                     {
                         return "Not allowed to dial without Number";
                     }
-                    if (session.CurrentStatusID == 4)
+                    if (session.CurrentStatusID == 1)
                     {
                         KeyValueCollection reasonCodes = new KeyValueCollection();
                         reasonCodes.Add("ReasonCode", "ManualDialing");
-                        RequestAgentNotReady requestAgentNotReady = RequestAgentNotReady.Create(session.DialAccess, AgentWorkMode.AuxWork, null, reasonCodes, reasonCodes);
+                        RequestAgentNotReady requestAgentNotReady = RequestAgentNotReady.Create(session.DN, AgentWorkMode.AuxWork, null, reasonCodes, reasonCodes);
                         var iMessage = tServer.Request(requestAgentNotReady);
                         if (iMessage.Name == "EventError")
                         {
@@ -1566,6 +1566,8 @@ namespace ServerCRM.Services
                     }
                     agentConnections.TryRemove(session.AgentId, out _);
                     agentSessions.TryRemove(session.AgentId, out _);
+
+                    CTIConnectionManager.StopAutoWrap();
                     return "";
 
                 }
@@ -1588,6 +1590,8 @@ namespace ServerCRM.Services
                         AgentStatusMapper.UpdateAgentStatus(Convert.ToInt32(session.upcommingEvent), session, CTIConnectionManager.HubContext);
                         session.upcommingEvent = null;
                     }
+
+                    CTIConnectionManager.StopAutoWrap();
                     return "Agent on Break";
                 }
                 else
@@ -1595,11 +1599,12 @@ namespace ServerCRM.Services
                     
                     var str = AgentReady(session.AgentId);
                     session.lblcallback = "";
+                    CTIConnectionManager.StopAutoWrap();
                     return "Record Saved Successfully";
                 }
 
 
-                CTIConnectionManager.StopAutoWrap();
+                
             }
             else
             {
@@ -1997,6 +2002,7 @@ namespace ServerCRM.Services
         {
             if (_autoWrapTimer != null)
             {
+
                 _autoWrapTimer.Stop();
                 _autoWrapTimer.Dispose();
                 _autoWrapTimer = null;

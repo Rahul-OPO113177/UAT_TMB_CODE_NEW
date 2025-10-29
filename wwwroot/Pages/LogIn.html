@@ -512,7 +512,7 @@
                 }
 
                 if (data.message === 'Agent logged in successfully') {
-                    location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}`;
+                    location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}&dn=${encodeURIComponent(data.dn)}`;
                 } else {
 
                     Swal.fire({

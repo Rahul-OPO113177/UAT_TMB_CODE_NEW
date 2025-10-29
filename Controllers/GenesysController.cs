@@ -166,7 +166,7 @@ namespace ServerCRM.Controllers
             if (!success)
                 return StatusCode(500, "CTI login failed: " + error);
 
-            return Ok(new { message = "Agent logged in successfully", logincode = agent.login_code });
+            return Ok(new { message = "Agent logged in successfully", logincode = agent.login_code, dn = agent.dn });
 
         }
 
