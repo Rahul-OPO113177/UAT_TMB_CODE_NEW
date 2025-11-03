@@ -3,51 +3,6 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
-      "Route": "Pages/CRM.4849u941kl.html",
-      "AssetFile": "Pages/CRM.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "131201"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 08:18:22 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4849u941kl"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8="
-        },
-        {
-          "Name": "label",
-          "Value": "Pages/CRM.html"
-        }
-      ]
-    },
-    {
       "Route": "Pages/CRM.html",
       "AssetFile": "Pages/CRM.html",
       "Selectors": [],
@@ -62,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "131201"
+          "Value": "130447"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +25,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8=\""
+          "Value": "\"Xc+xHZV7JdkCAmozRTu5oajY88BylX8vZXtxJ+S1l2Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 08:18:22 GMT"
+          "Value": "Thu, 30 Oct 2025 06:45:19 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8="
+          "Value": "sha256-Xc+xHZV7JdkCAmozRTu5oajY88BylX8vZXtxJ+S1l2Y="
+        }
+      ]
+    },
+    {
+      "Route": "Pages/CRM.t0orhnbs5f.html",
+      "AssetFile": "Pages/CRM.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "130447"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Xc+xHZV7JdkCAmozRTu5oajY88BylX8vZXtxJ+S1l2Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 30 Oct 2025 06:45:19 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "t0orhnbs5f"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Xc+xHZV7JdkCAmozRTu5oajY88BylX8vZXtxJ+S1l2Y="
+        },
+        {
+          "Name": "label",
+          "Value": "Pages/CRM.html"
         }
       ]
     },
@@ -249,6 +249,51 @@
       ]
     },
     {
+      "Route": "Pages/LogIn.fjxqdmxmdf.html",
+      "AssetFile": "Pages/LogIn.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17742"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 29 Oct 2025 10:21:51 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fjxqdmxmdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU="
+        },
+        {
+          "Name": "label",
+          "Value": "Pages/LogIn.html"
+        }
+      ]
+    },
+    {
       "Route": "Pages/LogIn.html",
       "AssetFile": "Pages/LogIn.html",
       "Selectors": [],
@@ -263,7 +308,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17619"
+          "Value": "17742"
         },
         {
           "Name": "Content-Type",
@@ -271,62 +316,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs=\""
+          "Value": "\"tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 07:22:38 GMT"
+          "Value": "Wed, 29 Oct 2025 10:21:51 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs="
-        }
-      ]
-    },
-    {
-      "Route": "Pages/LogIn.oy4w02460j.html",
-      "AssetFile": "Pages/LogIn.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "17619"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 07:22:38 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "oy4w02460j"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs="
-        },
-        {
-          "Name": "label",
-          "Value": "Pages/LogIn.html"
+          "Value": "sha256-tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU="
         }
       ]
     },
@@ -521,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 08:51:58 GMT"
+          "Value": "Wed, 29 Oct 2025 10:22:22 GMT"
         }
       ],
       "EndpointProperties": [
@@ -566,7 +566,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 08:51:58 GMT"
+          "Value": "Wed, 29 Oct 2025 10:22:22 GMT"
         }
       ],
       "EndpointProperties": [
@@ -737,6 +737,88 @@
         {
           "Name": "label",
           "Value": "css/site.css"
+        }
+      ]
+    },
+    {
+      "Route": "css/sweetalert2.min.css",
+      "AssetFile": "css/sweetalert2.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35414"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 29 Oct 2025 10:20:30 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/sweetalert2.min.njxbi9hknp.css",
+      "AssetFile": "css/sweetalert2.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35414"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 29 Oct 2025 10:20:30 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "njxbi9hknp"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ="
+        },
+        {
+          "Name": "label",
+          "Value": "css/sweetalert2.min.css"
         }
       ]
     },
@@ -1475,6 +1557,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+        }
+      ]
+    },
+    {
+      "Route": "js/Common/sweetalert2.min.2mkfz6ox65.js",
+      "AssetFile": "js/Common/sweetalert2.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49855"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 29 Oct 2025 10:19:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "2mkfz6ox65"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs="
+        },
+        {
+          "Name": "label",
+          "Value": "js/Common/sweetalert2.min.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/Common/sweetalert2.min.js",
+      "AssetFile": "js/Common/sweetalert2.min.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "49855"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 29 Oct 2025 10:19:38 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs="
         }
       ]
     },

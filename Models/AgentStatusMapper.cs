@@ -80,15 +80,17 @@ namespace ServerCRM.Services
         {
             var agentId = session.OPOID;
             var now = DateTime.UtcNow;
-
+            Console.WriteLine($"Debug ConnID: {session.ConnID?.ToString() ?? "NULL"}");
+            string TostringConnid = session.ConnID?.ToString() ?? "NULL";
             var agentStat = AgentStats.GetOrAdd(agentId, id => new AgentStat
             {
                 AgentId = id,
                 CurrentStatusID = statusId,
                 StatusStartTime = now,
-                ConnID = Convert.ToString( session.ConnID)
+                ConnID = TostringConnid
 
             });
+            agentStat.ConnID = TostringConnid;
 
             if (agentStat.StatusStartTime != default && agentStat.CurrentStatusID != 0)
             {
@@ -140,7 +142,8 @@ namespace ServerCRM.Services
                 command.Parameters.AddWithValue("@StartTime", history.StartTime);
                 command.Parameters.AddWithValue("@EndTime", history.EndTime);
                 command.Parameters.AddWithValue("@Duration", durationSeconds);
-                command.Parameters.AddWithValue("@ConnID", history.ConnID);
+                command.Parameters.AddWithValue("@ConnID", history.ConnID ?? string.Empty);
+
                 command.Parameters.AddWithValue("@CreateTime", DateTime.Now); 
 
                 connection.Open();
