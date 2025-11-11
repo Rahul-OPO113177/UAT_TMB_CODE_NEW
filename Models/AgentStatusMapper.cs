@@ -104,7 +104,7 @@ namespace ServerCRM.Services
                     ConnID= agentStat.ConnID
                 };
 
-               SaveStatusHistoryToDatabase(history);
+               //SaveStatusHistoryToDatabase(history);
                 agentStat.StatusHistory.Add(history);
             }
 

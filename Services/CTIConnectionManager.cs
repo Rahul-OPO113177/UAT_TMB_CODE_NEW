@@ -61,15 +61,17 @@ namespace ServerCRM.Services
 
         public static bool LoginAgent(CL_AgentDet agentvalue, string agentId, string dn, string tServerIp, string tServerPort, string Location, string OPOID, string ProcessName, out string errorMessage)
         {
+            CTIConnectionManager.LogToFile("Start To Log In Genesys", OPOID);
             errorMessage = "";
             try
             {
-                lock (syncLock)
-                {
+                
                     if (agentConnections.ContainsKey(agentId))
                     {
                         errorMessage = "Agent is already connected.";
-                        return true;
+
+                    CTIConnectionManager.LogToFile(" Agent is already connected. To Genesys", OPOID);
+                    return true;
                     }
                     var endpoint = new Genesyslab.Platform.Commons.Protocols.Endpoint(new Uri("tcp://" + tServerIp + ":" + tServerPort));
                     var tServer = new TServerProtocol(endpoint)
@@ -81,18 +83,26 @@ namespace ServerCRM.Services
                     tServer.Open();
                     if (tServer.State == ChannelState.Opened)
                     {
+                        CTIConnectionManager.LogToFile(" Genesys Connection IS Open", OPOID);
                         var register = RequestRegisterAddress.Create(dn, RegisterMode.ModeShare, ControlMode.RegisterDefault, AddressType.DN);
                         IMessage regResponse = tServer.Request(register);
+                        LogToFile("DN Ragister --" + regResponse.Name, OPOID);
+
                         if (regResponse.Name == "EventRegistered")
                         {
                             var login = RequestAgentLogin.Create(dn, AgentWorkMode.ManualIn);
                             login.AgentID = agentId;
                             login.Password = "";
                             IMessage loginResponse = tServer.Request(login);
+                            LogToFile("Agent Log IN --" + loginResponse.Name, OPOID);
+
                             if (loginResponse.Name == "EventAgentLogin")
                             {
                                 var ready = RequestAgentReady.Create(dn, AgentWorkMode.AutoIn);
                                 IMessage readyResponse = tServer.Request(ready);
+
+                                LogToFile("Agent Ready --" + readyResponse.Name, OPOID);
+
                                 if (readyResponse.Name == "EventAgentReady")
                                 {
 
@@ -165,12 +175,14 @@ namespace ServerCRM.Services
                     }
                     else
                     {
+                        CTIConnectionManager.LogToFile(" Genesys Connection IS Not Open", OPOID);
                         return false;
                     }
-                }
+                
             }
             catch (Exception ex)
             {
+                CTIConnectionManager.LogToFile("Error While Log in Genesys", OPOID);
                 errorMessage = $" CTI login failed: {ex.Message}";
                 return false;
             }
@@ -201,7 +213,7 @@ namespace ServerCRM.Services
                     var message = session.TServerProtocol.Receive();
                     if (message != null)
                     {
-                        LogToFile(message.Name, session.AgentId.ToString());
+                        LogToFile(message.Name, session.OPOID.ToString());
                         string log = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] 🔔 Received: {message.GetType().Name}";
                         var status = HandleCtiEvent(message, session, ref connID, out attachedData, _hubContext);
                         if (attachedData != null)
@@ -365,6 +377,8 @@ namespace ServerCRM.Services
                             {
                                 if (session.IVRConnID != null)
                                 {
+
+
                                     RequestReleaseCall releasecall = RequestReleaseCall.Create(session.DN, session.IVRConnID);
                                     var iMessage = Tserver.Request(releasecall);
                                     session.IVRConnID = null;
@@ -1101,6 +1115,8 @@ namespace ServerCRM.Services
             if (session.isOnCall == true)
             {
                 RequestRetrieveCall requestRetrieveCall = RequestRetrieveCall.Create(session.DN, session.ConnID);
+
+                
                 var IMassage = tServer.Request(requestRetrieveCall);
                 if (IMassage.Name == "EventError")
                 {
@@ -1136,7 +1152,7 @@ namespace ServerCRM.Services
                         RequestHoldCall requestHoldCall = RequestHoldCall.Create(session.DN, session.ConnID, extensionData, extensionData);
                         var iMessage = tServer.Request(requestHoldCall);
                         RequestInitiateConference requestic = RequestInitiateConference.Create(session.DN, session.ConnID, Number);
-                        iMessage = tServer.Request(requestic);
+                         iMessage = tServer.Request(requestic);
 
                         if (iMessage.Name == "EventError")
                         {
@@ -1436,6 +1452,14 @@ namespace ServerCRM.Services
                 responce = CTIConnectionManager.DisposeCall(AgentID, dispose_code, subdispose_code, CBdatetime , pcb);
                 session.IsManualDial = null;
                 session.ConnID = null;
+                session.CampaignPhone = "";
+                session.partyFirstPhone = null;
+                session.isConforence= false;
+                session.isMarge = false;
+                session.ConforenceNumber = null;
+                session.isOnCall = false;
+                CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UpdatePhoneInput", session.CampaignPhone);
+
                 if (session.isbreak == false && session.CurrentStatusID == 4)
                 {
                 }
@@ -1866,14 +1890,15 @@ namespace ServerCRM.Services
                     {
                         RequestAgentReady requestAgentReady = RequestAgentReady.Create(session.DN, AgentWorkMode.AutoIn);
                         Imassage = tServer.Request(requestAgentReady);
-                    }
+                        CTIConnectionManager.LogToFile("Now Agent IS aready to take call ----" + Imassage.Name, session.OPOID);
 
 
-                    if (Imassage.Name == "EventError")
-                    {
                     }
-                    else
+
+                    try
                     {
+                        CTIConnectionManager.LogToFile("Now Agent IS UserName 1---" + session.AgentName, session.OPOID);
+                        CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UserName", session.AgentName);
                         session.isbreak = false;
                         session.ConnID = null;
                         session.IVRConnID = null;
@@ -1883,9 +1908,17 @@ namespace ServerCRM.Services
                         session.CurrentStatusID = 1;
                         session.partyFirstPhone = null;
                         session.upcommingEvent = null;
-                        CTIConnectionManager.HubContext.Clients.Group(session.AgentId).SendAsync("UserName", session.AgentName);
-                        AgentStatusMapper.UpdateAgentStatus(Convert.ToInt32(1), session, CTIConnectionManager.HubContext);
                         session.CurrentStatusID = 1;
+
+                        AgentStatusMapper.UpdateAgentStatus(Convert.ToInt32(1), session, CTIConnectionManager.HubContext);
+
+
+                        CTIConnectionManager.LogToFile("Now Agent IS UserName 2---" + session.AgentName, session.OPOID);
+                       
+                    }
+                    catch (Exception ex)
+                    {
+                        CTIConnectionManager.LogToFile("Execption While Agent Ready" + ex, session.OPOID);
                     }
                 }
             }
@@ -1937,6 +1970,8 @@ namespace ServerCRM.Services
 
         public static void LogoutAgent(string agentId)
         {
+
+            ClareAgent(agentId);
             if (agentConnections.TryRemove(agentId, out var tServer))
             {
                 try
@@ -1957,7 +1992,7 @@ namespace ServerCRM.Services
 
         }
 
-        private static void LogToFile(string text, string AgentID)
+        public static void LogToFile(string text, string AgentID)
         {
 
             string logFilePath = @"D:\Logs\" + AgentID + "ServerCRM_Log.txt";
@@ -2069,6 +2104,49 @@ namespace ServerCRM.Services
 
         }
 
+        public static void ClareAgent(string agentId)
+        {
+            AgentSession session23 = GetAgentSession(agentId);
+            try
+            {
+               
+
+                if (agentConnections.TryRemove(agentId, out var tServer))
+                {
+                    try
+                    {
+                        if (tServer != null && tServer.State == ChannelState.Opened)
+                        {
+                            tServer.Close();
+                            CTIConnectionManager.LogToFile($"TServer connection closed for agent {session23.OPOID}", session23.OPOID);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        CTIConnectionManager.LogToFile($"Error closing TServer for {session23.OPOID}: {ex.Message}", session23.OPOID);
+                    }
+                }
+
+                if (agentSessions.TryRemove(agentId, out var session))
+                {
+                    session.IsRunning = false;
+                    CTIConnectionManager.LogToFile($"Agent session removed for {session23.OPOID}", session23.OPOID);
+                }
+
+                lock (syncLock)
+                {
+                    
+                }
+
+                HubContext?.Clients?.All?.SendAsync("AgentCleared", session23.OPOID);
+
+                CTIConnectionManager.LogToFile($"Agent {agentId} cleanup complete.", session23.OPOID);
+            }
+            catch (Exception ex)
+            {
+                CTIConnectionManager.LogToFile($"Error in ClareAgent({agentId}): {ex.Message}", session23.OPOID);
+            }
+        }
 
     }
 }

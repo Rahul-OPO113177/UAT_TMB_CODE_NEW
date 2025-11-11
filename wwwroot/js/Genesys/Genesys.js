@@ -28,25 +28,6 @@ function showWarning_New(message) {
         }
     });
 }
-//function startTimer() {
-//    stopTimer();
-//    seconds = 0;
-//    console.log("Starting call timer..." + new Date().toLocaleString());
-//    timerInterval = setInterval(() => {
-//        seconds++;
-//        document.getElementById("callTimer").innerText = formatTime(seconds);
-//    }, 1000);
-//}
-
-//function stopTimer() {
-//    if (timerInterval) {
-//        console.log("Stopping call timer..." + new Date().toLocaleString());
-//        clearInterval(timerInterval);
-//        timerInterval = null;
-//    }
-//    seconds = 0;
-//    document.getElementById("callTimer").innerText = "00:00:00";
-//}
 
 function startTimer() {
     stopTimer(); 

@@ -3036,11 +3036,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\OneDialer\\ServerCRM\\ServerCRM.csproj",
+      "projectUniqueName": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\ServerCRM.csproj",
       "projectName": "ServerCRM",
-      "projectPath": "D:\\OneDialer\\ServerCRM\\ServerCRM.csproj",
+      "projectPath": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\ServerCRM.csproj",
       "packagesPath": "C:\\Users\\OPO113697\\.nuget\\packages\\",
-      "outputPath": "D:\\OneDialer\\ServerCRM\\obj\\",
+      "outputPath": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

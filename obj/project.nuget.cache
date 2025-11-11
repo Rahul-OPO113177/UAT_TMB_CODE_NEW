@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "H44tDNlK1Yg=",
+  "dgSpecHash": "XO40HoGEwLw=",
   "success": true,
-  "projectFilePath": "D:\\OneDialer\\ServerCRM\\ServerCRM.csproj",
+  "projectFilePath": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\ServerCRM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\OPO113697\\.nuget\\packages\\bouncycastle.cryptography\\2.5.1\\bouncycastle.cryptography.2.5.1.nupkg.sha512",
     "C:\\Users\\OPO113697\\.nuget\\packages\\mailkit\\4.13.0\\mailkit.4.13.0.nupkg.sha512",

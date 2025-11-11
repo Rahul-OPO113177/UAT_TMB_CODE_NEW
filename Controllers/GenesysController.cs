@@ -151,17 +151,20 @@ namespace ServerCRM.Controllers
             CL_AgentDet agent = await _apiService.GetAgentDetailsAsync(request.empCode);
             if (agent == null)
                 return NotFound("Agent not found");
-
+            CTIConnectionManager.LogToFile("Agent Api Is Consumned --  " , request?.empCode);
             HttpContext.Session.SetString("login_code", agent.login_code.ToString());
             HttpContext.Session.SetString("dn", agent.dn ?? "");
             HttpContext.Session.SetString("Prefix", agent.Prefix ?? "");
-
+            HttpContext.Session.SetString("empCode", request?.empCode ?? "");
             HttpContext.Session.SetString("ProcessName", agent.ProcessName ?? "");
 
             string error;
             bool success = CTIConnectionManager.LoginAgent(agent,
                 Convert.ToString(agent.login_code), agent.dn, agent.TserverIP_OFFICE, agent.TserverPort, agent.Location , agent.opoid , agent.ProcessName , out error
             );
+
+
+            CTIConnectionManager.LogToFile("Agent IS Logged Sucessfully with genesysy --  " + success, request?.empCode);
 
             if (!success)
                 return StatusCode(500, "CTI login failed: " + error);
@@ -262,16 +265,25 @@ namespace ServerCRM.Controllers
         [HttpPost("ready")]
         public async Task<IActionResult> AgentReady()
         {
-            string login_code = HttpContext.Session.GetString("login_code");
-            string returnStatus = await CTIConnectionManager.AgentReady(login_code);
-            if (returnStatus != "")
+            try
             {
-                return BadRequest(returnStatus);
+                string login_code = HttpContext.Session.GetString("login_code");
+                string returnStatus = await CTIConnectionManager.AgentReady(login_code);
+                if (returnStatus != "")
+                {
+                    return BadRequest(returnStatus);
+                }
+                else
+                {
+                    return Ok("Agent marked ready");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return Ok("Agent marked ready");
+                return BadRequest();
+
             }
+           
         }
 
         [HttpPost("LogOut")]
@@ -375,11 +387,15 @@ namespace ServerCRM.Controllers
                 return BadRequest(new { message = "Agent ID is required." });
             }
 
+            string empCode = HttpContext.Session.GetString("empCode");
+
+            CTIConnectionManager.LogToFile("Final start To Agent Ready", empCode);
+
             string login_code = HttpContext.Session.GetString("login_code");
             string ProcessName = HttpContext.Session.GetString("ProcessName");
 
-            await CTIConnectionManager.AgentReady(login_code);
-
+            string responce= await CTIConnectionManager.AgentReady(login_code);
+            CTIConnectionManager.LogToFile("Agent Ready Responce -- +" + responce, empCode);
             string processStatus = "1";
                 //InfoPageFeilds.GetProcessType(ProcessName);
 
@@ -538,6 +554,35 @@ namespace ServerCRM.Controllers
             
         }
 
+        [HttpPost("SaveEmpCode")]
+        public async Task<IActionResult> SaveEmpCode()
+        {
+            try
 
+            {
+                using var reader = new StreamReader(Request.Body);
+                var body = await reader.ReadToEndAsync();
+
+                if (string.IsNullOrWhiteSpace(body))
+                    return BadRequest(new { status = "error", message = "Empty body received." });
+
+                var request = JsonConvert.DeserializeObject<EmpCodeRequest>(body);
+                if (request == null || string.IsNullOrEmpty(request.EmpCode))
+                    return BadRequest(new { status = "error", message = "Missing empCode." });
+
+                string empCode = request.EmpCode;
+
+              
+                CTIConnectionManager.LogToFile("Agent Closed Browser", empCode);
+                CTIConnectionManager.ClareAgent(empCode);
+
+                return Ok(new { status = "success", empCode });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Error saving empCode: {ex}");
+                return StatusCode(500, new { status = "error", message = "Internal server error." });
+            }
+        }
     }
 }

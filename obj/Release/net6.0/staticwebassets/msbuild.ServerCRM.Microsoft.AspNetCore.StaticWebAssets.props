@@ -36,6 +36,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sweetalert2.min.css'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ServerCRM</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ServerCRM</BasePath>
+      <RelativePath>css/sweetalert2.min.css</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>njxbi9hknp</Fingerprint>
+      <Integrity>k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\sweetalert2.min.css'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))">
       <SourceType>Package</SourceType>
       <SourceId>ServerCRM</SourceId>
@@ -192,11 +210,29 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>82pbje8hxu</Fingerprint>
-      <Integrity>oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=</Integrity>
+      <Fingerprint>h7sqzptjfv</Fingerprint>
+      <Integrity>Tah8JY7KRg05zbD2FYy/aa9TnQWh0U8bwBFRhRHQIig=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Common\jquery-3.6.4.min.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Common\sweetalert2.min.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ServerCRM</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ServerCRM</BasePath>
+      <RelativePath>js/Common/sweetalert2.min.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>2mkfz6ox65</Fingerprint>
+      <Integrity>5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Common\sweetalert2.min.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Genesys\Genesys.js'))">
       <SourceType>Package</SourceType>
@@ -210,8 +246,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0dtfhhmny5</Fingerprint>
-      <Integrity>ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=</Integrity>
+      <Fingerprint>tz846ebvva</Fingerprint>
+      <Integrity>d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Genesys\Genesys.js'))</OriginalItemSpec>
@@ -1308,8 +1344,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4849u941kl</Fingerprint>
-      <Integrity>pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8=</Integrity>
+      <Fingerprint>erbyoqnqhw</Fingerprint>
+      <Integrity>CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\CRM.html'))</OriginalItemSpec>
@@ -1362,8 +1398,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>oy4w02460j</Fingerprint>
-      <Integrity>IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs=</Integrity>
+      <Fingerprint>fjxqdmxmdf</Fingerprint>
+      <Integrity>tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\LogIn.html'))</OriginalItemSpec>

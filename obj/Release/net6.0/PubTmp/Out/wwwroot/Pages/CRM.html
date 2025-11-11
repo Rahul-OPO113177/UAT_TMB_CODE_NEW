@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <style>
+       
 
 
         .layout {
@@ -1713,6 +1714,11 @@
             justify-content: center;
             cursor: pointer;
         }
+
+
+
+    
+
     </style>
 </head>
 <body>
@@ -2321,29 +2327,6 @@
             <img src="../img/Loading_2.gif" alt="Loading..." style="width: 100px; height: 100px;" />
         </div>
 
-        <!--<div class="action-btn-group-vertical">
-
-            <div class="action-btn" id="getemail" onclick="openPanel('emailPanel')">
-                <div class="action-btn-icon">
-                    <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
-                        <path d="M3 5h15a1 1 0 011 1v9a1 1 0 01-1 1H3a1 1 0 01-1-1V6a1 1 0 011-1zm0 0l7.5 5L18 5"
-                              stroke="#7993A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <div class="action-btn-label">Email</div>
-            </div>
-
-
-            <div class="action-btn" id="getchat" onclick="openPanel('chatPanel')">
-                <div class="action-btn-icon">
-                    <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
-                        <path d="M4 4h13a1 1 0 011 1v8a1 1 0 01-1 1H7l-4 3V5a1 1 0 011-1z"
-                              stroke="#7993A5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <div class="action-btn-label">Chat</div>
-            </div>
-        </div>-->
 
 
 
@@ -2481,7 +2464,9 @@
 
 
     <script src="../js/Genesys/Genesys.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>-->
+    <script src="../js/Common/sweetalert2.min.js"></script>
+    <link href="../css/sweetalert2.min.css" rel="stylesheet" />
 
 
     <script src="../js/Common/jquery-3.6.4.min.js"></script>
@@ -2489,28 +2474,91 @@
     <script src="../js/jssip.min.js"></script>
 
     <script>
+        //let ua;
+        //let activeSession = null;
+
+
+        //function autoRegister() {
+
+
+        //    const urlParams = new URLSearchParams(window.location.search);
+        //    const extension = urlParams.get('dn');
+
+        //    const password = extension;
+
+        //    if (!extension) return alert("Extension not found in URL");
+
+        //    const socket = new JsSIP.WebSocketInterface('wss://webrtclab.1point1.in:8089/ws');
+        //    const SIP_CONFIG = {
+        //        uri: `sip:${extension}@webrtclab.1point1.in`,
+        //        password: password,
+        //        authorization_user: extension,
+        //        display_name: `Agent ${extension}`,
+        //        sockets: [socket],
+        //        session_timers: false,
+        //        register: true
+        //    };
+
+        //    ua = new JsSIP.UA(SIP_CONFIG);
+
+
+        //    ua.on('newRTCSession', (e) => {
+        //        const session = e.session;
+        //        activeSession = session;
+
+        //        if (session.direction === 'incoming') {
+
+        //            session.answer({ mediaConstraints: { audio: true, video: false } });
+        //        }
+
+        //        session.on('confirmed', () => {
+
+        //        });
+
+        //        session.on('ended', () => {
+
+        //            activeSession = null;
+
+        //        });
+
+        //        session.on('failed', () => {
+
+        //            activeSession = null;
+        //        });
+
+        //        session.connection.addEventListener('track', (event) => {
+        //            document.getElementById('remoteAudio').srcObject = event.streams[0];
+        //        });
+        //    });
+
+        //    ua.start();
+        //}
+
+
+
+
+
+
+
         let ua;
         let activeSession = null;
+        let firstCallSession = null;
+        let conferenceSession = null;
 
-       
         function autoRegister() {
-
-
             const urlParams = new URLSearchParams(window.location.search);
-          
-
             const extension = urlParams.get('dn');
-            
             const password = extension;
 
-            if (!extension) return alert("Extension not found in URL");
-
-            
+            if (!extension) {
+                alert("Extension not found in URL");
+                return;
+            }
 
             const socket = new JsSIP.WebSocketInterface('wss://webrtclab.1point1.in:8089/ws');
             const SIP_CONFIG = {
                 uri: `sip:${extension}@webrtclab.1point1.in`,
-                password: password,
+                password,
                 authorization_user: extension,
                 display_name: `Agent ${extension}`,
                 sockets: [socket],
@@ -2520,42 +2568,82 @@
 
             ua = new JsSIP.UA(SIP_CONFIG);
 
-         
             ua.on('newRTCSession', (e) => {
                 const session = e.session;
                 activeSession = session;
 
+                
+                if (!firstCallSession) {
+                    firstCallSession = session;
+                    console.log(`📞 First call session set: ${session.id}`);
+                } else {
+                    conferenceSession = session;
+                    console.log(`🤝 Conference session set: ${session.id}`);
+                }
+
+                
                 if (session.direction === 'incoming') {
-                    
                     session.answer({ mediaConstraints: { audio: true, video: false } });
                 }
 
                 session.on('confirmed', () => {
-                    
+                    console.log(`✅ Call confirmed: ${session.id}`);
                 });
 
-                session.on('ended', () => {
-                    
-                    activeSession = null;
-                });
+                
+                const handleCallRelease = (reason) => {
+                    console.log(`${reason} Call released: ${session.id}`);
 
-                session.on('failed', () => {
                     
-                    activeSession = null;
-                });
+                    if (firstCallSession) {
+                        try {
+                            console.log('⏸️ Putting first call on hold...');
+                            firstCallSession.hold({ useUpdate: true });
+
+                            setTimeout(() => {
+                                if (firstCallSession) {
+                                    console.log('▶️ Unholding first call...');
+                                    firstCallSession.unhold({ useUpdate: true });
+                                }
+                            }, 2000);
+                        } catch (err) {
+                            console.error('⚠️ Error managing hold/unhold:', err);
+                        }
+                    }
+
+                    
+                    if (session === conferenceSession) {
+                        conferenceSession = null;
+                    }
+                    if (session === activeSession) {
+                        activeSession = null;
+                    }
+
+                    
+                    if (session === firstCallSession) {
+                        firstCallSession = null;
+                    }
+                };
+
+                session.on('ended', () => handleCallRelease('❌'));
+                session.on('failed', () => handleCallRelease('⚠️'));
 
                 session.connection.addEventListener('track', (event) => {
-                    document.getElementById('remoteAudio').srcObject = event.streams[0];
+                    const remoteAudio = document.getElementById('remoteAudio');
+                    if (remoteAudio) {
+                        remoteAudio.srcObject = event.streams[0];
+                    } else {
+                        console.warn("⚠️ remoteAudio element not found in DOM.");
+                    }
                 });
             });
 
             ua.start();
         }
 
-       
-
-
         window.onload = autoRegister;
+
+
     </script>
 
     <script>
@@ -2614,29 +2702,29 @@
                     emailItem.dataset.id = index;
 
                     emailItem.innerHTML = `
-                                                <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-                                                <div class="meta">
-                                                    <div class="from">${escapeHtml(email.from)}</div>
-                                                    <div class="subject">${escapeHtml(email.subject)}</div>
-                                                    <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
-                                                </div>
-                                                <div class="time">${new Date().toLocaleTimeString()}</div>
-                                            `;
+                                                                                    <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                                                                    <div class="meta">
+                                                                                        <div class="from">${escapeHtml(email.from)}</div>
+                                                                                        <div class="subject">${escapeHtml(email.subject)}</div>
+                                                                                        <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
+                                                                                    </div>
+                                                                                    <div class="time">${new Date().toLocaleTimeString()}</div>
+                                                                                `;
 
                     emailItem.addEventListener("click", () => {
                         replyForm.innerHTML = "";
                         currentEmailBody = email.body;
                         const emailDetailHTML = `
-                                                    <div class="mail-subject">${escapeHtml(email.subject)}</div>
-                                                    <div class="mail-sender">
-                                                        <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-                                                        <div>
-                                                            <div class="name">${escapeHtml(email.from)}</div>
-                                                            <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
-                                                `;
+                                                                                        <div class="mail-subject">${escapeHtml(email.subject)}</div>
+                                                                                        <div class="mail-sender">
+                                                                                            <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                                                                            <div>
+                                                                                                <div class="name">${escapeHtml(email.from)}</div>
+                                                                                                <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
+                                                                                    `;
 
                         replyForm.innerHTML = emailDetailHTML;
 
@@ -2981,21 +3069,21 @@
                         const botRow = document.createElement("div");
                         botRow.className = "message-row bot";
                         botRow.innerHTML = `
-                                                    <img class="avatar" src="../img/technical-support.png" alt="Bot">
-                                                    <div class="stack bot">
-                                                      <div class="message-header">
-                                                        <span class="name">Bot</span>
-                                                      </div>
+                                                                                        <img class="avatar" src="../img/technical-support.png" alt="Bot">
+                                                                                        <div class="stack bot">
+                                                                                          <div class="message-header">
+                                                                                            <span class="name">Bot</span>
+                                                                                          </div>
 
-                                                      <div class="message-bubble bot">
-                                                        <div class="message-text">${conv.answer}</div>
-                                                      </div>
+                                                                                          <div class="message-bubble bot">
+                                                                                            <div class="message-text">${conv.answer}</div>
+                                                                                          </div>
 
-                                                      <div class="message-time">
-                                                        <span class="">${conv.createddate || ""}</span>
-                                                      </div>
-                                                    </div>
-                                                  `;
+                                                                                          <div class="message-time">
+                                                                                            <span class="">${conv.createddate || ""}</span>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      `;
                         chatBox.appendChild(botRow);
                     }
 
@@ -3003,21 +3091,21 @@
                         const userRow = document.createElement("div");
                         userRow.className = "message-row user";
                         userRow.innerHTML = `
-                                                    <img class="avatar" src="../img/user.png" alt="user">
-                                                    <div class="stack user">
-                                                      <div class="message-header">
-                                                        <span class="name">Customer</span>
-                                                      </div>
+                                                                                        <img class="avatar" src="../img/user.png" alt="user">
+                                                                                        <div class="stack user">
+                                                                                          <div class="message-header">
+                                                                                            <span class="name">Customer</span>
+                                                                                          </div>
 
-                                                      <div class="message-bubble">
-                                                        <div class="message-text">${conv.question}</div>
-                                                      </div>
+                                                                                          <div class="message-bubble">
+                                                                                            <div class="message-text">${conv.question}</div>
+                                                                                          </div>
 
-                                                      <div class="message-time">
-                                                        <span class="">${conv.createddate || ""}</span>
-                                                      </div>
-                                                    </div>
-                                                  `;
+                                                                                          <div class="message-time">
+                                                                                            <span class="">${conv.createddate || ""}</span>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                      `;
                         chatBox.appendChild(userRow);
                     }
                 });
@@ -3088,85 +3176,85 @@
 
         function BindEmailDisposition() {
             const dispositionFormHTML = `
-                                            <h3>Reply</h3>
-                                    <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
+                                                                                <h3>Reply</h3>
+                                                                        <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
 
-                                        <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
-                                        <input type="email" id="replyToCRM" readonly
-                                            style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                            <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
+                                                                            <input type="email" id="replyToCRM" readonly
+                                                                                style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-                                        <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
-                                        <input type="text" id="replySubjectCRM"
-                                            style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                            <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
+                                                                            <input type="text" id="replySubjectCRM"
+                                                                                style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-                                        <label style="font-size:14px; font-weight:500; display:none; color:#333; margin-bottom:4px;">Message:</label>
-                                        <textarea id="replyBodyCRM" rows="8"
-                                            style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                                                                            <label style="font-size:14px; font-weight:500; display:none; color:#333; margin-bottom:4px;">Message:</label>
+                                                                            <textarea id="replyBodyCRM" rows="8"
+                                                                                style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
 
-                                        <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
+                                                                            <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
 
-                                            <div style="flex:1 1 220px; display:flex; flex-direction:column;">
-                                                <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                                                    Disposition <span style="color:red;">*</span>
-                                                </label>
-                                                <select id="disposition" onchange="updateSubDisposition()"
-                                                    style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                                                    <option value="">-- Select Disposition --</option>
-                                                </select>
-                                            </div>
+                                                                                <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                                                                                    <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                                                        Disposition <span style="color:red;">*</span>
+                                                                                    </label>
+                                                                                    <select id="disposition" onchange="updateSubDisposition()"
+                                                                                        style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                        <option value="">-- Select Disposition --</option>
+                                                                                    </select>
+                                                                                </div>
 
-                                            <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
-                                                <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                                                    Sub Disposition <span style="color:red;">*</span>
-                                                </label>
-                                                <select id="subDisposition" onchange="updateSubSubDisposition()"
-                                                    style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                                                    <option value="">-- Select Sub Disposition --</option>
-                                                </select>
-                                            </div>
+                                                                                <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
+                                                                                    <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                                                        Sub Disposition <span style="color:red;">*</span>
+                                                                                    </label>
+                                                                                    <select id="subDisposition" onchange="updateSubSubDisposition()"
+                                                                                        style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                        <option value="">-- Select Sub Disposition --</option>
+                                                                                    </select>
+                                                                                </div>
 
-                                            <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
-                                                <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                                                    Sub Sub Disposition <span style="color:red;">*</span>
-                                                </label>
-                                                <select id="subSubDisposition"
-                                                    style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                                                    <option value="">-- Select Sub Sub Disposition --</option>
-                                                </select>
-                                            </div>
+                                                                                <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
+                                                                                    <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                                                        Sub Sub Disposition <span style="color:red;">*</span>
+                                                                                    </label>
+                                                                                    <select id="subSubDisposition"
+                                                                                        style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                        <option value="">-- Select Sub Sub Disposition --</option>
+                                                                                    </select>
+                                                                                </div>
 
-                                            <div style="flex:1 1 220px; display:flex; flex-direction:column;">
-                                                <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
-                                                    Remark <span style="color:red;">*</span>
-                                                </label>
-                                                <textarea id="remark" placeholder="Enter Remark"
-                                                    style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
-                                            </div>
-                                        </div>
+                                                                                <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                                                                                    <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
+                                                                                        Remark <span style="color:red;">*</span>
+                                                                                    </label>
+                                                                                    <textarea id="remark" placeholder="Enter Remark"
+                                                                                        style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                                                                                </div>
+                                                                            </div>
 
-                                        <div style="margin-top:18px; display:flex; gap:12px;">
-                                              <div class="tooltip">
-                                                <button id="processBtn" onclick="processMessageEmailCRM()"
-                                                      style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
+                                                                            <div style="margin-top:18px; display:flex; gap:12px;">
+                                                                                  <div class="tooltip">
+                                                                                    <button id="processBtn" onclick="processMessageEmailCRM()"
+                                                                                          style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
 
-                                                      <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
-                                                        <!-- Gear SVG -->
-                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                                          <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
-                                                        </svg>
-                                                      </span>
-                                                    </button>
-                                                    <span class="tooltiptext">Process Message</span>
-                                              </div>
-                                            <button onclick="sendReply()"
-                                                style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
-                                                Send Reply
-                                            </button>
-                                        </div>
+                                                                                          <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
+                                                                                            <!-- Gear SVG -->
+                                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                                                              <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
+                                                                                            </svg>
+                                                                                          </span>
+                                                                                        </button>
+                                                                                        <span class="tooltiptext">Process Message</span>
+                                                                                  </div>
+                                                                                <button onclick="sendReply()"
+                                                                                    style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
+                                                                                    Send Reply
+                                                                                </button>
+                                                                            </div>
 
 
-                                    </div>
-                                    `;
+                                                                        </div>
+                                                                        `;
 
             document.getElementById('replyForm').innerHTML += dispositionFormHTML;
         }
@@ -3174,107 +3262,32 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const toggleBtn = document.getElementById('toggleBtn');
-            const layout = document.getElementById('layout');
+            const urlParams = new URLSearchParams(window.location.search);
+            const empCode = urlParams.get('empCode');
 
-            toggleBtn.addEventListener('click', () => {
-                layout.classList.toggle('collapsed');
+            if (!empCode) return;
 
+            // Optional: show warning before leaving
+            window.addEventListener('beforeunload', function (e) {
+                e.preventDefault();
+                e.returnValue = ''; // Needed for some browsers to trigger the dialog
+            });
+
+            // Send empCode when the tab or browser closes
+            window.addEventListener('unload', function () {
+                const payload = JSON.stringify({ empCode });
+
+                const blob = new Blob([payload], { type: 'application/json' });
+
+                // Use an absolute URL (safer) or relative to your MVC route
+                const url = '/api/Genesys/SaveEmpCode';
+
+                navigator.sendBeacon(url, blob);
             });
         });
     </script>
 
-    <script>
-        let wakeLock = null;
 
-        function sendWakeLockSuccess() {
-
-            const requestData = {
-                wakeLock: 'active',
-                timestamp: new Date().toISOString()
-            };
-
-            fetch('/api/genesys/record', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(requestData)
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Network response was not OK");
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log("Server Response:", data);
-                    alert(`Wake lock recorded!\nServer IP log: ${data.ip}`);
-                })
-                .catch(error => {
-                    console.error("Error calling WakeLock API:", error);
-                    alert("Failed to record wake lock.");
-                });
-        }
-
-        async function requestWakeLock() {
-            try {
-                if ('wakeLock' in navigator) {
-                    wakeLock = await navigator.wakeLock.request('screen');
-                    console.log('Wake Lock active.');
-
-                    wakeLock.addEventListener('release', () => {
-                        console.warn('Wake Lock released. Re-requesting...');
-                        requestWakeLock();
-                    });
-                } else {
-                    console.warn('Wake Lock API not supported.');
-                }
-            } catch (err) {
-                console.error(`Wake Lock error: ${err.message}`);
-            }
-        }
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.visibilityState === 'visible') {
-                requestWakeLock();
-            }
-        });
-
-        setTimeout(() => {
-            const startBtn = document.getElementById('start');
-            if (startBtn) {
-                startBtn.click();
-            }
-        }, 1000);
-
-        window.addEventListener('beforeunload', function (e) {
-            e.preventDefault();
-            e.returnValue = '';
-        });
-
-
-        window.addEventListener('unload', function () {
-            //const requestData = {
-            //    wakeLock: 'active',
-            //    timestamp: new Date().toISOString()
-            //};
-
-            //const url = '/api/genesys/record';
-            //const headers = { type: 'application/json' };
-            //const blob = new Blob([JSON.stringify(requestData)], headers);
-
-            //if (navigator.sendBeacon) {
-            //    navigator.sendBeacon(url, blob);
-            //} else {
-
-            //    const xhr = new XMLHttpRequest();
-            //    xhr.open('POST', url, false);
-            //    xhr.setRequestHeader('Content-Type', 'application/json');
-            //    xhr.send(JSON.stringify(requestData));
-            //}
-        });
-    </script>
 
 
 </body>

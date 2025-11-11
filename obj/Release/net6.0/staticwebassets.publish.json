@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pISO7vl1z0xR/8ZnlctwG2/HW2ke2DSZ5o3zDfqP+cI=",
+  "Hash": "lqkHZcTEMbImLsy2SkTVI7UT7j235qIBrvdlArQYh2U=",
   "Source": "ServerCRM",
   "BasePath": "_content/ServerCRM",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ServerCRM\\wwwroot",
       "Source": "ServerCRM",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
       "SourceId": "ServerCRM",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "ServerCRM#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "fudVBS86+yMGIe4Q6S8METH0HmTtPpVmrpnifxw+qDA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css"
+      "OriginalItemSpec": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "SourceId": "ServerCRM",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "ServerCRM#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "fudVBS86+yMGIe4Q6S8METH0HmTtPpVmrpnifxw+qDA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\css\\Common\\Dialer.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "css/Common/Dialer#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Common\\Dialer.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\site.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,31 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
+      "BasePath": "_content/ServerCRM",
+      "RelativePath": "css/sweetalert2.min#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "njxbi9hknp",
+      "Integrity": "k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\sweetalert2.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\favicon.ico",
+      "SourceId": "ServerCRM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -122,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\loader",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\loader",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/loader#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -143,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\img\\loader"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Loading_2.gif",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/Loading_2#[.{fingerprint}]?.gif",
       "AssetKind": "All",
@@ -164,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Loading_2.gif"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Logo 1 Connect.png",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/Logo 1 Connect#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -185,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Logo 1 Connect.png"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\technical-support.png",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/technical-support#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -206,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\img\\technical-support.png"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\user.png",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\user.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/user#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -227,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\img\\user.png"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\Common.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/Common#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -248,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Common\\Common.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/CommonSoftPhone#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -269,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Common\\CommonSoftPhone.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/jquery-3.6.4.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -283,17 +304,38 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "82pbje8hxu",
-      "Integrity": "oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=",
+      "Fingerprint": "h7sqzptjfv",
+      "Integrity": "Tah8JY7KRg05zbD2FYy/aa9TnQWh0U8bwBFRhRHQIig=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Common\\jquery-3.6.4.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
+      "BasePath": "_content/ServerCRM",
+      "RelativePath": "js/Common/sweetalert2.min#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "2mkfz6ox65",
+      "Integrity": "5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\Common\\sweetalert2.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "SourceId": "ServerCRM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Genesys/Genesys#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -304,17 +346,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "0dtfhhmny5",
-      "Integrity": "ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=",
+      "Fingerprint": "tz846ebvva",
+      "Integrity": "d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Genesys\\Genesys.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\jssip.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/jssip.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -332,10 +374,10 @@
       "OriginalItemSpec": "wwwroot\\js\\jssip.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\signalr.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/signalr.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -353,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\js\\signalr.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\site.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -374,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -395,10 +437,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -416,10 +458,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -437,10 +479,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -458,10 +500,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -479,10 +521,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -500,10 +542,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -521,10 +563,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -542,10 +584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -563,10 +605,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -584,10 +626,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -605,10 +647,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -626,10 +668,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -647,10 +689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -668,10 +710,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -689,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -710,10 +752,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -731,10 +773,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -752,10 +794,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -773,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -794,10 +836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -815,10 +857,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -836,10 +878,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -857,10 +899,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -878,10 +920,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -899,10 +941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -920,10 +962,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -941,10 +983,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -962,10 +1004,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -983,10 +1025,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1004,10 +1046,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1025,10 +1067,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1046,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1067,10 +1109,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1088,10 +1130,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1109,10 +1151,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1130,10 +1172,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1151,10 +1193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1172,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1193,10 +1235,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1214,10 +1256,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1235,10 +1277,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1256,10 +1298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1277,10 +1319,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1298,10 +1340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -1319,10 +1361,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1340,10 +1382,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1361,10 +1403,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1382,10 +1424,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1403,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1424,10 +1466,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1445,10 +1487,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1466,10 +1508,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1487,10 +1529,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -1508,10 +1550,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1529,10 +1571,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1550,10 +1592,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1571,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/CRM#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1585,17 +1627,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4849u941kl",
-      "Integrity": "pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8=",
+      "Fingerprint": "erbyoqnqhw",
+      "Integrity": "CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\CRM.html"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CTI.html",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/CTI#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1613,10 +1655,10 @@
       "OriginalItemSpec": "wwwroot\\Pages\\CTI.html"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\Freeswitch.html",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/Freeswitch#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1634,10 +1676,10 @@
       "OriginalItemSpec": "wwwroot\\Pages\\Freeswitch.html"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\LogIn.html",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/LogIn#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1648,17 +1690,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "oy4w02460j",
-      "Integrity": "IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs=",
+      "Fingerprint": "fjxqdmxmdf",
+      "Integrity": "tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\LogIn.html"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\sip.html",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/sip#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1676,10 +1718,10 @@
       "OriginalItemSpec": "wwwroot\\Pages\\sip.html"
     },
     {
-      "Identity": "D:\\OneDialer\\ServerCRM\\wwwroot\\Ringtone\\ringin.wav",
+      "Identity": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\OneDialer\\ServerCRM\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Ringtone/ringin#[.{fingerprint}]?.wav",
       "AssetKind": "All",
@@ -1700,7 +1742,7 @@
   "Endpoints": [
     {
       "Route": "css/Common/Dialer.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\css\\Common\\Dialer.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1721,7 +1763,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 05 Sep 2025 04:52:10 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1737,7 +1779,7 @@
     },
     {
       "Route": "css/Common/Dialer.w0z08r24a3.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\css\\Common\\Dialer.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1758,7 +1800,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 05 Sep 2025 04:52:10 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1782,7 +1824,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1803,7 +1845,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1819,7 +1861,7 @@
     },
     {
       "Route": "css/site.oq8r4nbcb2.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1840,7 +1882,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1863,8 +1905,90 @@
       ]
     },
     {
+      "Route": "css/sweetalert2.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35414"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/sweetalert2.min.njxbi9hknp.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35414"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "njxbi9hknp"
+        },
+        {
+          "Name": "label",
+          "Value": "css/sweetalert2.min.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-k6S9o5GRoT5TVCPOmMMEAYY2E2qn9EcEIPO5RpzGHiQ="
+        }
+      ]
+    },
+    {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1885,7 +2009,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1909,7 +2033,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\favicon.ico",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1930,7 +2054,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1946,7 +2070,7 @@
     },
     {
       "Route": "img/loader",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\loader",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\loader",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1967,7 +2091,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 08:08:38 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1983,7 +2107,7 @@
     },
     {
       "Route": "img/loader.czel8crefw",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\loader",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\loader",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2004,7 +2128,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 08:08:38 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2028,7 +2152,7 @@
     },
     {
       "Route": "img/Loading_2.czel8crefw.gif",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Loading_2.gif",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2049,7 +2173,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 08:10:44 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2073,7 +2197,7 @@
     },
     {
       "Route": "img/Loading_2.gif",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Loading_2.gif",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2094,7 +2218,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 22 Sep 2025 08:10:44 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2110,7 +2234,7 @@
     },
     {
       "Route": "img/Logo 1 Connect.iptb8u29ff.png",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Logo 1 Connect.png",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2131,7 +2255,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2155,7 +2279,7 @@
     },
     {
       "Route": "img/Logo 1 Connect.png",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\Logo 1 Connect.png",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2176,7 +2300,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2192,7 +2316,7 @@
     },
     {
       "Route": "img/technical-support.png",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\technical-support.png",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2213,7 +2337,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 23 Sep 2025 09:49:10 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2229,7 +2353,7 @@
     },
     {
       "Route": "img/technical-support.yym55kdo23.png",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\technical-support.png",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2250,7 +2374,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 23 Sep 2025 09:49:10 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2274,7 +2398,7 @@
     },
     {
       "Route": "img/user.ebs3455yw3.png",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\user.png",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\user.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2295,7 +2419,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 23 Sep 2025 09:49:12 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2319,7 +2443,7 @@
     },
     {
       "Route": "img/user.png",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\img\\user.png",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\img\\user.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2340,7 +2464,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 23 Sep 2025 09:49:12 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2356,7 +2480,7 @@
     },
     {
       "Route": "js/Common/Common.3r8b2a0bt1.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\Common.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2377,7 +2501,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 05 Sep 2025 04:36:46 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2401,7 +2525,7 @@
     },
     {
       "Route": "js/Common/Common.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\Common.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2422,7 +2546,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 05 Sep 2025 04:36:46 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2438,7 +2562,7 @@
     },
     {
       "Route": "js/Common/CommonSoftPhone.70dmkr3ywb.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2459,7 +2583,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 05 Sep 2025 04:58:42 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2483,7 +2607,7 @@
     },
     {
       "Route": "js/Common/CommonSoftPhone.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2504,7 +2628,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 05 Sep 2025 04:58:42 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2519,8 +2643,8 @@
       ]
     },
     {
-      "Route": "js/Common/jquery-3.6.4.min.82pbje8hxu.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "Route": "js/Common/jquery-3.6.4.min.h7sqzptjfv.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2529,7 +2653,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "89795"
+          "Value": "89797"
         },
         {
           "Name": "Content-Type",
@@ -2537,11 +2661,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=\""
+          "Value": "\"Tah8JY7KRg05zbD2FYy/aa9TnQWh0U8bwBFRhRHQIig=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Dec 2023 11:22:56 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2551,7 +2675,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "82pbje8hxu"
+          "Value": "h7sqzptjfv"
         },
         {
           "Name": "label",
@@ -2559,13 +2683,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+          "Value": "sha256-Tah8JY7KRg05zbD2FYy/aa9TnQWh0U8bwBFRhRHQIig="
         }
       ]
     },
     {
       "Route": "js/Common/jquery-3.6.4.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2574,7 +2698,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "89795"
+          "Value": "89797"
         },
         {
           "Name": "Content-Type",
@@ -2582,11 +2706,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=\""
+          "Value": "\"Tah8JY7KRg05zbD2FYy/aa9TnQWh0U8bwBFRhRHQIig=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 18 Dec 2023 11:22:56 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2596,13 +2720,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+          "Value": "sha256-Tah8JY7KRg05zbD2FYy/aa9TnQWh0U8bwBFRhRHQIig="
         }
       ]
     },
     {
-      "Route": "js/Genesys/Genesys.0dtfhhmny5.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Route": "js/Common/sweetalert2.min.2mkfz6ox65.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2611,7 +2735,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39917"
+          "Value": "49855"
         },
         {
           "Name": "Content-Type",
@@ -2619,11 +2743,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=\""
+          "Value": "\"5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 27 Oct 2025 10:43:46 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2633,21 +2757,21 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0dtfhhmny5"
+          "Value": "2mkfz6ox65"
         },
         {
           "Name": "label",
-          "Value": "js/Genesys/Genesys.js"
+          "Value": "js/Common/sweetalert2.min.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M="
+          "Value": "sha256-5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs="
         }
       ]
     },
     {
-      "Route": "js/Genesys/Genesys.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Route": "js/Common/sweetalert2.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2656,7 +2780,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39917"
+          "Value": "49855"
         },
         {
           "Name": "Content-Type",
@@ -2664,11 +2788,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M=\""
+          "Value": "\"5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 27 Oct 2025 10:43:46 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2678,13 +2802,95 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ZPesj/SoCMxSig2iSfigB418KYZz48lWexGGmWoWu+M="
+          "Value": "sha256-5k5a6Lh2emO+kViB1iR0YQ6opVxpJrkAtGVkfK1tfFs="
+        }
+      ]
+    },
+    {
+      "Route": "js/Genesys/Genesys.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39294"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 05 Nov 2025 04:01:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI="
+        }
+      ]
+    },
+    {
+      "Route": "js/Genesys/Genesys.tz846ebvva.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "39294"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 05 Nov 2025 04:01:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "tz846ebvva"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Genesys/Genesys.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI="
         }
       ]
     },
     {
       "Route": "js/jssip.min.23n1vhytrh.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\jssip.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2705,7 +2911,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2729,7 +2935,7 @@
     },
     {
       "Route": "js/jssip.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\jssip.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2750,7 +2956,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2766,7 +2972,7 @@
     },
     {
       "Route": "js/signalr.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\signalr.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2787,7 +2993,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2803,7 +3009,7 @@
     },
     {
       "Route": "js/signalr.min.knb3gi8t3r.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\signalr.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2824,7 +3030,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2848,7 +3054,7 @@
     },
     {
       "Route": "js/site.6b9nfc4n3r.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2869,7 +3075,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2893,7 +3099,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2914,7 +3120,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2930,7 +3136,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2951,7 +3157,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2967,7 +3173,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2988,7 +3194,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3012,7 +3218,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3033,7 +3239,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3049,7 +3255,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3070,7 +3276,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3094,7 +3300,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3115,7 +3321,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3131,7 +3337,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3152,7 +3358,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3176,7 +3382,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3197,7 +3403,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3213,7 +3419,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.ozu22stjof.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3234,7 +3440,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3258,7 +3464,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3279,7 +3485,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3295,7 +3501,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3316,7 +3522,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3340,7 +3546,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3361,7 +3567,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3377,7 +3583,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.gjcw7pocpk.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3398,7 +3604,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3422,7 +3628,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.6l4ir0ityv.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3443,7 +3649,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3467,7 +3673,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3488,7 +3694,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3504,7 +3710,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3525,7 +3731,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3549,7 +3755,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3570,7 +3776,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3586,7 +3792,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3607,7 +3813,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3623,7 +3829,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3644,7 +3850,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3660,7 +3866,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.st1cbwfwo5.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3681,7 +3887,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3705,7 +3911,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.5p029spbuu.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3726,7 +3932,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3750,7 +3956,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3771,7 +3977,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3787,7 +3993,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.5vj65cig9w.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3808,7 +4014,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3832,7 +4038,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3853,7 +4059,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3869,7 +4075,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.nakmwdwsxp.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3890,7 +4096,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3914,7 +4120,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3935,7 +4141,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3951,7 +4157,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.2q4vfeazbq.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3972,7 +4178,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3996,7 +4202,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4017,7 +4223,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4033,7 +4239,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.e6q6xbwqzk.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4054,7 +4260,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4078,7 +4284,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4099,7 +4305,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4115,7 +4321,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4136,7 +4342,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4152,7 +4358,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.o371a8zbv2.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4173,7 +4379,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4197,7 +4403,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.dy6jgresuo.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4218,7 +4424,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4242,7 +4448,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4263,7 +4469,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4279,7 +4485,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.jeal3x0ldm.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4300,7 +4506,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4324,7 +4530,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4345,7 +4551,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4361,7 +4567,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4382,7 +4588,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4398,7 +4604,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4419,7 +4625,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4435,7 +4641,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.okkk44j0xs.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4456,7 +4662,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4480,7 +4686,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.z7kmom2977.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4501,7 +4707,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4525,7 +4731,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.mk8rdyw69w.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4546,7 +4752,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4570,7 +4776,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.97yrjpyf9r.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4591,7 +4797,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4615,7 +4821,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4636,7 +4842,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4652,7 +4858,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.cwzlr5n8x4.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4673,7 +4879,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4697,7 +4903,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4718,7 +4924,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4734,7 +4940,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4755,7 +4961,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4771,7 +4977,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4792,7 +4998,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4808,7 +5014,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.wmug9u23qg.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4829,7 +5035,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4853,7 +5059,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.y53cy5s2zj.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4874,7 +5080,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4898,7 +5104,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4919,7 +5125,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4935,7 +5141,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.j75batdsum.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4956,7 +5162,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4980,7 +5186,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5001,7 +5207,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5017,7 +5223,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.2yn17lgxub.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5038,7 +5244,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5062,7 +5268,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5083,7 +5289,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5099,7 +5305,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5120,7 +5326,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5136,7 +5342,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.vy0bq9ydhf.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5157,7 +5363,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5181,7 +5387,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5202,7 +5408,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5218,7 +5424,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.ab1c3rmv7g.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5239,7 +5445,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5263,7 +5469,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5284,7 +5490,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5300,7 +5506,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5321,7 +5527,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5337,7 +5543,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.56d2bn4wt9.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5358,7 +5564,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5382,7 +5588,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5403,7 +5609,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5419,7 +5625,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.ik6i2hrs65.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5440,7 +5646,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5464,7 +5670,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.ophe14yye5.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5485,7 +5691,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5509,7 +5715,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.z9shlbduue.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5530,7 +5736,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5554,7 +5760,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.1piudyfv7h.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5575,7 +5781,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5599,7 +5805,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.f6zq8v6eb3.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5620,7 +5826,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5644,7 +5850,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5665,7 +5871,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5681,7 +5887,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.kbynt5jhd9.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5702,7 +5908,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5726,7 +5932,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5747,7 +5953,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5763,7 +5969,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.89qbw8ngem.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5784,7 +5990,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5808,7 +6014,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5829,7 +6035,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5845,7 +6051,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.c2nslu3uf3.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5866,7 +6072,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5890,7 +6096,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5911,7 +6117,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5927,7 +6133,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5948,7 +6154,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5964,7 +6170,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.2lgwfvgpvi.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5985,7 +6191,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6009,7 +6215,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6030,7 +6236,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6046,7 +6252,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.jqwzsa9uv6.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6067,7 +6273,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6091,7 +6297,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6112,7 +6318,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6128,7 +6334,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6149,7 +6355,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6165,7 +6371,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.wsezl0heh6.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6186,7 +6392,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6210,7 +6416,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.n5w6o92d9r.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6231,7 +6437,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6255,7 +6461,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6276,7 +6482,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6292,7 +6498,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.6ukhryfubh.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6313,7 +6519,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6337,7 +6543,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6358,7 +6564,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6374,7 +6580,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.4908xmbfjr.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6395,7 +6601,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6419,7 +6625,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6440,7 +6646,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6456,7 +6662,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6477,7 +6683,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6493,7 +6699,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.u33ctipx7g.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6514,7 +6720,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6538,7 +6744,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6559,7 +6765,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6575,7 +6781,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6596,7 +6802,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6620,7 +6826,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6641,7 +6847,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6657,7 +6863,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.dsw5v3fbc5.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6678,7 +6884,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6702,7 +6908,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6723,7 +6929,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6739,7 +6945,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6760,7 +6966,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6776,7 +6982,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.rm8d4uw1xt.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6797,7 +7003,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6821,7 +7027,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.ukz1g2vv03.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6842,7 +7048,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6866,7 +7072,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.afgyafcsqt.txt",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6887,7 +7093,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6911,7 +7117,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6932,7 +7138,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6948,7 +7154,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6969,7 +7175,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -6993,7 +7199,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7014,7 +7220,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7030,7 +7236,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7051,7 +7257,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7075,7 +7281,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7096,7 +7302,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7112,7 +7318,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.6d0lkjaslc.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7133,7 +7339,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7157,7 +7363,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7178,7 +7384,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7194,7 +7400,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7215,7 +7421,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7231,7 +7437,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.l1zq2mitth.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7252,7 +7458,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7276,7 +7482,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7297,7 +7503,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7313,7 +7519,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7334,7 +7540,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7358,7 +7564,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.dvc2bfcndg.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7379,7 +7585,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7403,7 +7609,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7424,7 +7630,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7440,7 +7646,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7461,7 +7667,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7477,7 +7683,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.mt9h37ga6s.js",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7498,7 +7704,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7522,7 +7728,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7543,7 +7749,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7559,7 +7765,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.wqejeusuyq.txt",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7580,7 +7786,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7603,8 +7809,8 @@
       ]
     },
     {
-      "Route": "Pages/CRM.4849u941kl.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
+      "Route": "Pages/CRM.erbyoqnqhw.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7613,7 +7819,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "131201"
+          "Value": "135396"
         },
         {
           "Name": "Content-Type",
@@ -7621,11 +7827,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8=\""
+          "Value": "\"CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 08:18:22 GMT"
+          "Value": "Mon, 10 Nov 2025 13:20:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7635,7 +7841,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "4849u941kl"
+          "Value": "erbyoqnqhw"
         },
         {
           "Name": "label",
@@ -7643,13 +7849,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8="
+          "Value": "sha256-CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY="
         }
       ]
     },
     {
       "Route": "Pages/CRM.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CRM.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7658,7 +7864,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "131201"
+          "Value": "135396"
         },
         {
           "Name": "Content-Type",
@@ -7666,11 +7872,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8=\""
+          "Value": "\"CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 08:18:22 GMT"
+          "Value": "Mon, 10 Nov 2025 13:20:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7680,13 +7886,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pJ+pRe6b0+JQc7x28BFdxyEXxim7uStAQ8r+4vzO9U8="
+          "Value": "sha256-CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY="
         }
       ]
     },
     {
       "Route": "Pages/CTI.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CTI.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7707,7 +7913,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7723,7 +7929,7 @@
     },
     {
       "Route": "Pages/CTI.xoqi6pnqgb.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\CTI.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7744,7 +7950,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7768,7 +7974,7 @@
     },
     {
       "Route": "Pages/Freeswitch.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\Freeswitch.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7789,7 +7995,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 15 Sep 2025 05:32:56 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7805,7 +8011,7 @@
     },
     {
       "Route": "Pages/Freeswitch.oi3zwyz5gv.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\Freeswitch.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7826,7 +8032,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 15 Sep 2025 05:32:56 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7849,8 +8055,8 @@
       ]
     },
     {
-      "Route": "Pages/LogIn.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\LogIn.html",
+      "Route": "Pages/LogIn.fjxqdmxmdf.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7859,7 +8065,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "17619"
+          "Value": "17742"
         },
         {
           "Name": "Content-Type",
@@ -7867,48 +8073,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs=\""
+          "Value": "\"tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 07:22:38 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs="
-        }
-      ]
-    },
-    {
-      "Route": "Pages/LogIn.oy4w02460j.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\LogIn.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "17619"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 29 Oct 2025 07:22:38 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7918,7 +8087,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "oy4w02460j"
+          "Value": "fjxqdmxmdf"
         },
         {
           "Name": "label",
@@ -7926,13 +8095,50 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IOmJdho70OkTTttA9mpYdzQCRs+pcPOnxYAT5d7+WWs="
+          "Value": "sha256-tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU="
+        }
+      ]
+    },
+    {
+      "Route": "Pages/LogIn.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "17742"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU="
         }
       ]
     },
     {
       "Route": "Pages/sip.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\sip.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7953,7 +8159,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7969,7 +8175,7 @@
     },
     {
       "Route": "Pages/sip.ll4deczd8p.html",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Pages\\sip.html",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7990,7 +8196,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8014,7 +8220,7 @@
     },
     {
       "Route": "Ringtone/ringin.2n57amhjfg.wav",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Ringtone\\ringin.wav",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8035,7 +8241,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Sep 2015 12:45:30 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8059,7 +8265,7 @@
     },
     {
       "Route": "Ringtone/ringin.wav",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\wwwroot\\Ringtone\\ringin.wav",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8080,7 +8286,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 30 Sep 2015 12:45:30 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8096,7 +8302,7 @@
     },
     {
       "Route": "ServerCRM.bundle.scp.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8117,7 +8323,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8133,7 +8339,7 @@
     },
     {
       "Route": "ServerCRM.muryem098h.bundle.scp.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8154,7 +8360,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8178,7 +8384,7 @@
     },
     {
       "Route": "ServerCRM.muryem098h.styles.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8199,7 +8405,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8223,7 +8429,7 @@
     },
     {
       "Route": "ServerCRM.styles.css",
-      "AssetFile": "D:\\OneDialer\\ServerCRM\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
+      "AssetFile": "C:\\Users\\OPO113697\\Desktop\\ServerSRM_WEB_RTC\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8244,7 +8450,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Sep 2025 10:40:43 GMT"
+          "Value": "Wed, 05 Nov 2025 03:40:00 GMT"
         },
         {
           "Name": "Cache-Control",

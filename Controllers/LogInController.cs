@@ -46,8 +46,8 @@ namespace ServerCRM.Controllers
         
             var response = new
             {
-                USERNAME = "22",
-                PASSWORD = "22",
+                USERNAME = "101385",
+                PASSWORD = "101385",
                 SIPSERVER = "172.18.16.173:5066"
             };
 
