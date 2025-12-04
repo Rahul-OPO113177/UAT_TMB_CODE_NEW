@@ -24,7 +24,7 @@ namespace ServerCRM.Services
                     "application/json"
                 );
 
-                var response = await client.PostAsync("http://192.168.0.91:8088/API/AgentDetailAPI_NewSetup/Api/AgentDetailsNew", requestBody);
+                var response = await client.PostAsync("http://172.24.11.91:8088/API/AgentDetailAPI_NewSetup_GGN/Api/AgentDetailsNew", requestBody);
                 if (!response.IsSuccessStatusCode)
                     return null;
 

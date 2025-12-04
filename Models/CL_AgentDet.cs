@@ -9,7 +9,7 @@
         public string? dn { get; set; }
         public int? ID { get; set; }
         public string? Prefix { get; set; }
-        public int? ManualPrefix { get; set; }
+        public string? ManualPrefix { get; set; }
         public string? ProcessName { get; set; }
         public string? TserverIP { get; set; }
         public string? TserverIP_OFFICE { get; set; }

@@ -9,65 +9,65 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ServerCRM
 build_property.RootNamespace = ServerCRM
-build_property.ProjectDir = C:\Users\OPO113697\Desktop\ServerSRM_WEB_RTC\OneDialerNEW\
+build_property.ProjectDir = D:\Rahul Project\Rahul Project\~web crm code\Live_code\OneDialerNEW\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\OPO113697\Desktop\ServerSRM_WEB_RTC\OneDialerNEW
+build_property.MSBuildProjectDirectory = D:\Rahul Project\Rahul Project\~web crm code\Live_code\OneDialerNEW
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 6.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/CTI/dialer.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/CTI/dialer.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ1RJXGRpYWxlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/FreeSwitch/Index.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/FreeSwitch/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlZVN3aXRjaFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/FreeSwitch/MakeCall.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/FreeSwitch/MakeCall.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRnJlZVN3aXRjaFxNYWtlQ2FsbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/Home/Index.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/Home/Privacy.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/LogIn/logInUser.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/LogIn/logInUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cbG9nSW5Vc2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/LogIn/SIP.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/LogIn/SIP.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cU0lQLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/LogIn/SIP_new.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/LogIn/SIP_new.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nSW5cU0lQX25ldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/Shared/Error.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/Shared/_ValidationScriptsPartial.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/_ViewImports.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/_ViewStart.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/OPO113697/Desktop/ServerSRM_WEB_RTC/OneDialerNEW/Views/Shared/_Layout.cshtml]
+[D:/Rahul Project/Rahul Project/~web crm code/Live_code/OneDialerNEW/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-v50y8ogi8n

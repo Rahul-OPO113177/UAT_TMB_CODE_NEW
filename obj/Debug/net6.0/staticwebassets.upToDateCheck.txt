@@ -5,6 +5,7 @@ wwwroot\favicon.ico
 wwwroot\img\loader
 wwwroot\img\Loading_2.gif
 wwwroot\img\Logo 1 Connect.png
+wwwroot\img\opoimage-removebg-preview.png
 wwwroot\img\technical-support.png
 wwwroot\img\user.png
 wwwroot\js\Common\Common.js

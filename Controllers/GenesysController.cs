@@ -149,14 +149,23 @@ namespace ServerCRM.Controllers
         public async Task<IActionResult> Dialer([FromBody] LoginRequest request)
         {
             CL_AgentDet agent = await _apiService.GetAgentDetailsAsync(request.empCode);
+
+
             if (agent == null)
                 return NotFound("Agent not found");
-            CTIConnectionManager.LogToFile("Agent Api Is Consumned --  " , request?.empCode);
+
+            string agentJson = JsonConvert.SerializeObject(agent);
+            CTIConnectionManager.LogToFile("Agent Api Is Consumned --  "+ agentJson, request?.empCode);
+
             HttpContext.Session.SetString("login_code", agent.login_code.ToString());
             HttpContext.Session.SetString("dn", agent.dn ?? "");
             HttpContext.Session.SetString("Prefix", agent.Prefix ?? "");
             HttpContext.Session.SetString("empCode", request?.empCode ?? "");
             HttpContext.Session.SetString("ProcessName", agent.ProcessName ?? "");
+
+            CTIConnectionManager.LogToFile("agent.TserverIP_OFFICE --  "+ agent.TserverIP_OFFICE, request?.empCode);
+            CTIConnectionManager.LogToFile("agent.TserverPort --  "+ agent.TserverPort, request?.empCode);
+            CTIConnectionManager.LogToFile("agent.login_code --  "+ agent.login_code.ToString(), request?.empCode);
 
             string error;
             bool success = CTIConnectionManager.LoginAgent(agent,

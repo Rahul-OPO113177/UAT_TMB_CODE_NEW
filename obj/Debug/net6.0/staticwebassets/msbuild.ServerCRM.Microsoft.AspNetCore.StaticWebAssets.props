@@ -126,6 +126,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\Logo 1 Connect.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\opoimage-removebg-preview.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ServerCRM</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ServerCRM</BasePath>
+      <RelativePath>img/opoimage-removebg-preview.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>3kf6jhohj2</Fingerprint>
+      <Integrity>vdSYQnZY71bJmslJSXV6R7cjB+mbpLvps+KD2U+aj5Y=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\opoimage-removebg-preview.png'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\technical-support.png'))">
       <SourceType>Package</SourceType>
       <SourceId>ServerCRM</SourceId>
@@ -246,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>tz846ebvva</Fingerprint>
-      <Integrity>d8tHuuNVys/BxKum9Ts92oNSQDDvgcWJ8Laen96owGI=</Integrity>
+      <Fingerprint>vndl83wb69</Fingerprint>
+      <Integrity>a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Genesys\Genesys.js'))</OriginalItemSpec>
@@ -1344,8 +1362,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>erbyoqnqhw</Fingerprint>
-      <Integrity>CiDyWeqDhOZUZQIVA7+toRgnofL0jPWzC8zEW7H/pMY=</Integrity>
+      <Fingerprint>5vopqww6ul</Fingerprint>
+      <Integrity>IaQKqucw6AQKNjFHPc4oYNMl8MKcItju3lEsnKotc2A=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\CRM.html'))</OriginalItemSpec>
@@ -1398,8 +1416,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>fjxqdmxmdf</Fingerprint>
-      <Integrity>tf4Rmef3svqty+3jfo9IKOtOnxHturjFCMYMr+pdeLU=</Integrity>
+      <Fingerprint>85zyz47k2q</Fingerprint>
+      <Integrity>bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\LogIn.html'))</OriginalItemSpec>

@@ -1,6 +1,7 @@
 ﻿let timerInterval = null;
 let seconds = 0;
 let startTime;
+let selectedPartyId = null;
 function openTab(evt, tabId) {
     document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
     document.querySelectorAll(".nav-tab").forEach(el => el.classList.remove("active"));
@@ -14,7 +15,7 @@ function showWarning_New(message) {
     Swal.fire({
         icon: 'warning',
         title: 'Warning',
-        text: message,
+        text: message, InfoPage ,
         toast: true,
         position: 'bottom-end',
         showConfirmButton: false,
@@ -126,6 +127,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".user-avatar, .profile-avatar").forEach(el => el.innerText = initials);
         document.querySelectorAll(".profile-email").forEach(el => el.innerText = email);
     });
+
+
+  
+
+
 
     connection.on("history", function (data) {
         try {
@@ -240,123 +246,228 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Failed to play audio:", error);
         });
     });
+
+
+    connection.on("IframeEntity", function (data) {
+        console.log("IframeEntity Data:", data);
+
+    
+        if (!data || !data.items || data.items.length === 0) {
+            $("#entityframe").html(`
+            <div style="
+                padding:10px;
+                margin-top:10px;
+                font-size:16px;
+                font-weight:bold;
+                color:#a00;
+            ">
+                No data found
+            </div>
+        `);
+            return;
+        }
+
+        // Start table
+        let tableHtml = `
+        <table id="entityTable" style="width:100%; border-collapse:collapse; margin-top:10px;">
+            <thead>
+                <tr style="background:#f0f0f0; text-align:left;">
+                    <th style="padding:8px; border:1px solid #ccc;">Entity</th>
+                    <th style="padding:8px; border:1px solid #ccc;">Party ID</th>
+                    <th style="padding:8px; border:1px solid #ccc;">
+                        ${data.items[0]._entity === "Account" ? "Organization Name" : "Customer Name"}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+
+        data.items.forEach(item => {
+
+            const displayName = item._entity === "Account"
+                ? item.organizationName ?? ""            // Accounts show Organization Name
+                : `${item.personFirstName ?? ""} ${item.personLastName ?? ""}`.trim();  // Others show person name
+
+            tableHtml += `
+            <tr class="entity-row"
+                data-partyid="${item.partyId}"
+                data-entity="${item._entity}"
+                data-firstname="${item.personFirstName}"
+                data-lastname="${item.personLastName}"
+                style="cursor:pointer;">
+                
+                <td style="padding:8px; border:1px solid #ccc;">${item._entity}</td>
+                <td style="padding:8px; border:1px solid #ccc;">${item.partyId}</td>
+                <td style="padding:8px; border:1px solid #ccc;">${displayName}</td>
+            </tr>
+        `;
+        });
+
+        tableHtml += `
+            </tbody>
+        </table>
+    `;
+
+        // Render table
+        $("#entityframe").html(tableHtml);
+
+        // CLICK EVENT
+        $('#entityframe').off("click").on('click', '.entity-row', function () {
+            let partyId = $(this).data('partyid');
+            let entity = $(this).data('entity');
+
+            selectedPartyId = partyId;
+
+            openOracleRecord(entity, partyId);
+        });
+    });
+
+
+
+
     connection.on("infopagedata", function (data) {
         try {
             console.log("InfoPage fields:", data);
             const fields = JSON.parse(data);
 
-            const displayFields = fields.filter(field => field.CapturableField === "Display");
-            const captureFields = fields.filter(field => field.CapturableField === "Capture");
-
+           
             const tab1Container = $('#tab1').find('div[style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"]');
 
-            displayFields.forEach(field => {
-                const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+            tab1Container.prepend(`
+                    <div style="width:971px;margin-bottom: 48px;" id="entityframe"></div><br><br>
+                `);
 
-                const value = field.DisplaySourceValue || '';
-                tab1Container.append(`
+
+
+            const tab3Container = $('#tab3').find('div[style*="display:flex"][style*="flex-wrap:wrap"][style*="gap:15px"][style*="margin-top:10px"]');
+
+            const parsed = JSON.parse(data);
+            if (parsed.error) {
+                console.log("Nodata");
+            }
+            else {
+                const displayFields = fields.filter(field => field.CapturableField === "Display");
+                const captureFields = fields.filter(field => field.CapturableField === "Capture");
+
+
+               
+
+                displayFields.forEach(field => {
+                    const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+
+                    const value = field.DisplaySourceValue || '';
+                    tab1Container.append(`
                     <div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
                         <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">${field.FieldName} ${required}</label>
                         <input  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="${field.FieldType}" name="${field.FieldName}" value="${value}" readonly />
                     </div>
                 `);
-            });
-            tab1Container.css({
-                "display": "flex",
-                "flex-wrap": "wrap",
-                "gap": "15px"
-            });
+                });
 
-            const tab3Container = $('#tab3').find('div[style*="display:flex"][style*="flex-wrap:wrap"][style*="gap:15px"][style*="margin-top:10px"]');
 
-            captureFields.forEach(field => {
-                const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
-                const isRequiredAttr = field.IsRequired === "YES" ? 'required' : '';
-                let fieldHtml = `<div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
+
+                tab1Container.css({
+                    "display": "flex",
+                    "flex-wrap": "wrap",
+                    "gap": "15px"
+                });
+
+
+
+    
+
+                captureFields.forEach(field => {
+                    const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
+                    const isRequiredAttr = field.IsRequired === "YES" ? 'required' : '';
+                    let fieldHtml = `<div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
                                 <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;" >${field.FieldName} ${required}</label>`;
 
 
-                if (field.FieldType === "DROPDOWN") {
-                    const isDependentTarget = captureFields.some(f => f.FieldDependetName === field.FieldName);
+                    if (field.FieldType === "DROPDOWN") {
+                        const isDependentTarget = captureFields.some(f => f.FieldDependetName === field.FieldName);
 
-                    fieldHtml += `
+                        fieldHtml += `
                     <select  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" name="${field.FieldName}" id="${field.FieldName}_dropdown" ${isRequiredAttr}>
                         <option value="">Select</option>
                         ${!isDependentTarget && field.DependentData
-                            ? field.DependentData.map(option => `<option value="${option.Value}">${option.Text}</option>`).join('')
-                            : ''
-                        }
+                                ? field.DependentData.map(option => `<option value="${option.Value}">${option.Text}</option>`).join('')
+                                : ''
+                            }
                     </select>
                 `;
-                    fieldHtml += '</div>';
-                    tab3Container.append(fieldHtml);
+                        fieldHtml += '</div>';
+                        tab3Container.append(fieldHtml);
 
 
-                    if (field.IsfieldDependent === "YES" && !isDependentTarget) {
-                        $(`#${field.FieldName}_dropdown`).on('change', function () {
-                            const selectedValue = $(this).val();
-                            const dependentFieldName = field.FieldDependetName;
-                            const dependentField = fields.find(f => f.FieldName === dependentFieldName);
+                        if (field.IsfieldDependent === "YES" && !isDependentTarget) {
+                            $(`#${field.FieldName}_dropdown`).on('change', function () {
+                                const selectedValue = $(this).val();
+                                const dependentFieldName = field.FieldDependetName;
+                                const dependentField = fields.find(f => f.FieldName === dependentFieldName);
 
-                            if (dependentField) {
-                                if (dependentField.DependentData) {
-                                    const filteredOptions = dependentField.DependentData.filter(option => option.Value === selectedValue);
-                                    const dependentDropdown = $(`#${dependentFieldName}_dropdown`);
-                                    dependentDropdown.empty();
-                                    dependentDropdown.append('<option value="">Select</option>');
-                                    filteredOptions.forEach(option => {
-                                        dependentDropdown.append(`<option value="${option.Value}">${option.Text}</option>`);
-                                    });
+                                if (dependentField) {
+                                    if (dependentField.DependentData) {
+                                        const filteredOptions = dependentField.DependentData.filter(option => option.Value === selectedValue);
+                                        const dependentDropdown = $(`#${dependentFieldName}_dropdown`);
+                                        dependentDropdown.empty();
+                                        dependentDropdown.append('<option value="">Select</option>');
+                                        filteredOptions.forEach(option => {
+                                            dependentDropdown.append(`<option value="${option.Value}">${option.Text}</option>`);
+                                        });
+                                    }
                                 }
-                            }
-                        });
-                    }
-                } else {
+                            });
+                        }
+                    } else {
 
-                    switch (field.FieldType.toLowerCase()) {
-                        case "datetime":
-                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="datetime-local" name="${field.FieldName}" ${isRequiredAttr} />`;
-                            break;
+                        switch (field.FieldType.toLowerCase()) {
+                            case "datetime":
+                                fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="datetime-local" name="${field.FieldName}" ${isRequiredAttr} />`;
+                                break;
 
-                        case "radio":
-                            fieldHtml += `
+                            case "radio":
+                                fieldHtml += `
                             <label><input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="radio" name="${field.FieldName}" value="Yes" ${isRequiredAttr} /> Yes</label>
                             <label><input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="radio" name="${field.FieldName}" value="No" ${isRequiredAttr} /> No</label>
                         `;
-                            break;
+                                break;
 
-                        case "checkbox":
-                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="checkbox" name="${field.FieldName}" ${isRequiredAttr} />`;
-                            break;
+                            case "checkbox":
+                                fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="checkbox" name="${field.FieldName}" ${isRequiredAttr} />`;
+                                break;
 
-                        default:
-                            fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"  type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
-                            break;
+                            default:
+                                fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"  type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
+                                break;
+                        }
+                        fieldHtml += '</div>';
+                        tab3Container.append(fieldHtml);
                     }
-                    fieldHtml += '</div>';
-                    tab3Container.append(fieldHtml);
-                }
 
 
-                if (field.Isinitaldisplay === "No" && field.DisplaySource && field.DisplaySourceValue) {
-                    const controlField = fields.find(f => f.FieldName === field.DisplaySource);
-                    if (controlField) {
-                        const dropdownId = `#${controlField.FieldName}_dropdown`;
+                    if (field.Isinitaldisplay === "No" && field.DisplaySource && field.DisplaySourceValue) {
+                        const controlField = fields.find(f => f.FieldName === field.DisplaySource);
+                        if (controlField) {
+                            const dropdownId = `#${controlField.FieldName}_dropdown`;
 
-                        $(`#${field.FieldName}_container`).hide();
-                        $(dropdownId).on('change', function () {
-                            const selectedText = $(this).find('option:selected').text();
+                            $(`#${field.FieldName}_container`).hide();
+                            $(dropdownId).on('change', function () {
+                                const selectedText = $(this).find('option:selected').text();
 
 
-                            if (selectedText === field.DisplaySourceValue) {
-                                $(`#${field.FieldName}_container`).show();
-                            } else {
-                                $(`#${field.FieldName}_container`).hide();
-                            }
-                        });
+                                if (selectedText === field.DisplaySourceValue) {
+                                    $(`#${field.FieldName}_container`).show();
+                                } else {
+                                    $(`#${field.FieldName}_container`).hide();
+                                }
+                            });
+                        }
                     }
-                }
-            });
+                });
+            }
+
+
+          
 
             const htmlContent = `
                                 <div style="display:flex; flex-direction:column; flex:1 1 200px;">
@@ -391,19 +502,69 @@ document.addEventListener("DOMContentLoaded", function () {
                                 </div>
                                 <div style="display:flex; flex-direction:column; flex:1 1 200px;">
                                     <label for="remark" style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">Remark  <span style="color:red;">*</span></label>
-                                  <textarea id="remark" placeholder="Enter Remark"
-                                      style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width: 100%; height: 100px; resize: vertical;">
-                            </textarea>
+                                 <textarea id="remark" placeholder="Enter Remark"
+    style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px; width:100%; height:100px; resize:vertical;"></textarea>
 
                                 </div>`;
 
             tab3Container.append(htmlContent);
             BindDispositionAndSubDispo();
 
+
+
         } catch (error) {
             console.error("Error processing the InfoPage data:", error);
         }
+
+     
     });
+
+
+    
+
+
+    //function openOracleRecord(entity, partyId) {
+    //    const baseUrl = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/fscmUI/redwood/cx-sales/application/container";
+    //    let url = "";
+            
+    //    // Optional: entity-specific URLs
+    //    if (entity === "Account") {
+    //        url = `${baseUrl}/accounts/accounts-detail?id=${partyId}`;
+    //    } else if (entity === "Contact") {
+    //        url = `${baseUrl}/contacts/contacts-detail?id=${partyId}`;
+    //    }
+
+    //    if (url) {
+    //        window.open(url, "_blank");
+    //    } else {
+    //        console.error("No URL defined for entity:", entity);
+    //        return;
+    //    }
+
+   
+       
+    //}
+
+    function openOracleRecord(entity, partyId) {
+        const baseUrl = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/fscmUI/redwood/cx-sales/application/container";
+        let url = "";
+
+        switch (entity) {
+            case "Account":
+                url = `${baseUrl}/accounts/accounts-detail?id=${partyId}`;
+                break;
+            case "Contact":
+                url = `${baseUrl}/contacts/contacts-detail?id=${partyId}`;
+                break;
+            default:
+                console.error("No URL defined for entity:", entity);
+                return;
+        }
+
+        window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+
 
     connection.on("UpdatePhoneInput", function (number) {
         if (number == null) {
@@ -600,23 +761,23 @@ function handleAttachedDataUserEvent(data) {
 }
 
 function handleAttachedData(data) {
-    const langInput = document.querySelector('input[name="LANG"]');
-    const menu1Input = document.querySelector('input[name="Menu1"]');
-    const menu2Input = document.querySelector('input[name="Menu2"]');
+    //const langInput = document.querySelector('input[name="LANG"]');
+    //const menu1Input = document.querySelector('input[name="Menu1"]');
+    //const menu2Input = document.querySelector('input[name="Menu2"]');
 
-    if (langInput) langInput.value = data.Cust_Inpute1 || "";
-    if (menu1Input) menu1Input.value = data.Cust_Inpute2 || "";
-    if (menu2Input) menu2Input.value = data.Cust_Inpute3 || "";
-    console.log("Attached data will be : " + JSON.stringify(data));
+    //if (langInput) langInput.value = data.Cust_Inpute1 || "";
+    //if (menu1Input) menu1Input.value = data.Cust_Inpute2 || "";
+    //if (menu2Input) menu2Input.value = data.Cust_Inpute3 || "";
+    //console.log("Attached data will be : " + JSON.stringify(data));
 
-    const campaignElem = document.getElementById("campaignName");
-    if (campaignElem) campaignElem.textContent = data.RTargetObjectSelected || "-";
+    //const campaignElem = document.getElementById("campaignName");
+    //if (campaignElem) campaignElem.textContent = data.RTargetObjectSelected || "-";
 
-    const modeElem = document.getElementById("mode");
-    if (modeElem) modeElem.textContent = data.RStrategyName || "-";
+    //const modeElem = document.getElementById("mode");
+    //if (modeElem) modeElem.textContent = data.RStrategyName || "-";
 
-    const objectElem = document.getElementById("objectId");
-    if (objectElem) objectElem.textContent = data.RTargetAgentSelected || "-";
+    //const objectElem = document.getElementById("objectId");
+    //if (objectElem) objectElem.textContent = data.RTargetAgentSelected || "-";
 }
 
 
@@ -854,7 +1015,9 @@ function submitDisposition() {
         return;
     }
 
-   
+
+
+
 
     let formData = {};
     let isValid = true;
@@ -934,12 +1097,17 @@ function submitDisposition() {
     }
 
     console.log("Sub,mite data : " + JSON.stringify(formData));
+
     let disptypeKey = "dispTypeKey";
     let dispoId = document.getElementById("disposition").value;
     let selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
     let dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
     formData[disptypeKey] = dispType;
 
+
+    // ADD partyId into final payload
+    formData["partyId"] = selectedPartyId;
+    console.log("Submitting data:", JSON.stringify(formData));
     $.ajax({
         url: '/api/Genesys/submit/',
         method: 'POST',
@@ -968,3 +1136,6 @@ function submitDisposition() {
         }
     });
 }
+
+
+

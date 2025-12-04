@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>1point1</title>
     <style>
        
 
@@ -1735,7 +1735,9 @@
 
             <div class="logo-section">
                 <div class="logo-icon">
-                    <img style=" width: 49px;" src="../img/Logo 1 Connect.png" />
+                    <!--<img style=" width: 49px;" src="../img/Logo 1 Connect.png" />-->
+                    <img style=" height: 75px; margin-top: -22px; margin-left: -19px;" src="../img/opoimage-removebg-preview.png" />
+
                 </div>
                 <div class="logo-text">
 
@@ -2144,9 +2146,13 @@
 
                 <div id="tab1" class="tab-content" style="display:block;">
 
-                    <div style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                    <div style="background:#fff;display:none; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
 
                     </div>
+
+                   
+
+
                 </div>
 
                 <div id="tab3" class="tab-content" style="display:none;">
@@ -2317,7 +2323,12 @@
                 </div>
 
 
+                <div id="entityframe">
 
+                  
+                </div>
+
+              
 
             </div>
 
@@ -2540,108 +2551,108 @@
 
 
 
-        let ua;
-        let activeSession = null;
-        let firstCallSession = null;
-        let conferenceSession = null;
+        //let ua;
+        //let activeSession = null;
+        //let firstCallSession = null;
+        //let conferenceSession = null;
 
-        function autoRegister() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const extension = urlParams.get('dn');
-            const password = extension;
+        //function autoRegister() {
+        //    const urlParams = new URLSearchParams(window.location.search);
+        //    const extension = urlParams.get('dn');
+        //    const password = extension;
 
-            if (!extension) {
-                alert("Extension not found in URL");
-                return;
-            }
+        //    if (!extension) {
+        //        alert("Extension not found in URL");
+        //        return;
+        //    }
 
-            const socket = new JsSIP.WebSocketInterface('wss://webrtclab.1point1.in:8089/ws');
-            const SIP_CONFIG = {
-                uri: `sip:${extension}@webrtclab.1point1.in`,
-                password,
-                authorization_user: extension,
-                display_name: `Agent ${extension}`,
-                sockets: [socket],
-                session_timers: false,
-                register: true
-            };
+        //    const socket = new JsSIP.WebSocketInterface('wss://webrtclab.1point1.in:8089/ws');
+        //    const SIP_CONFIG = {
+        //        uri: `sip:${extension}@webrtclab.1point1.in`,
+        //        password,
+        //        authorization_user: extension,
+        //        display_name: `Agent ${extension}`,
+        //        sockets: [socket],
+        //        session_timers: false,
+        //        register: true
+        //    };
 
-            ua = new JsSIP.UA(SIP_CONFIG);
+        //    ua = new JsSIP.UA(SIP_CONFIG);
 
-            ua.on('newRTCSession', (e) => {
-                const session = e.session;
-                activeSession = session;
-
-                
-                if (!firstCallSession) {
-                    firstCallSession = session;
-                    console.log(`📞 First call session set: ${session.id}`);
-                } else {
-                    conferenceSession = session;
-                    console.log(`🤝 Conference session set: ${session.id}`);
-                }
+        //    ua.on('newRTCSession', (e) => {
+        //        const session = e.session;
+        //        activeSession = session;
 
                 
-                if (session.direction === 'incoming') {
-                    session.answer({ mediaConstraints: { audio: true, video: false } });
-                }
-
-                session.on('confirmed', () => {
-                    console.log(`✅ Call confirmed: ${session.id}`);
-                });
+        //        if (!firstCallSession) {
+        //            firstCallSession = session;
+        //            console.log(`📞 First call session set: ${session.id}`);
+        //        } else {
+        //            conferenceSession = session;
+        //            console.log(`🤝 Conference session set: ${session.id}`);
+        //        }
 
                 
-                const handleCallRelease = (reason) => {
-                    console.log(`${reason} Call released: ${session.id}`);
+        //        if (session.direction === 'incoming') {
+        //            session.answer({ mediaConstraints: { audio: true, video: false } });
+        //        }
+
+        //        session.on('confirmed', () => {
+        //            console.log(`✅ Call confirmed: ${session.id}`);
+        //        });
+
+                
+        //        const handleCallRelease = (reason) => {
+        //            console.log(`${reason} Call released: ${session.id}`);
 
                     
-                    if (firstCallSession) {
-                        try {
-                            console.log('⏸️ Putting first call on hold...');
-                            firstCallSession.hold({ useUpdate: true });
+        //            if (firstCallSession) {
+        //                try {
+        //                    console.log('⏸️ Putting first call on hold...');
+        //                    firstCallSession.hold({ useUpdate: true });
 
-                            setTimeout(() => {
-                                if (firstCallSession) {
-                                    console.log('▶️ Unholding first call...');
-                                    firstCallSession.unhold({ useUpdate: true });
-                                }
-                            }, 2000);
-                        } catch (err) {
-                            console.error('⚠️ Error managing hold/unhold:', err);
-                        }
-                    }
-
-                    
-                    if (session === conferenceSession) {
-                        conferenceSession = null;
-                    }
-                    if (session === activeSession) {
-                        activeSession = null;
-                    }
+        //                    setTimeout(() => {
+        //                        if (firstCallSession) {
+        //                            console.log('▶️ Unholding first call...');
+        //                            firstCallSession.unhold({ useUpdate: true });
+        //                        }
+        //                    }, 2000);
+        //                } catch (err) {
+        //                    console.error('⚠️ Error managing hold/unhold:', err);
+        //                }
+        //            }
 
                     
-                    if (session === firstCallSession) {
-                        firstCallSession = null;
-                    }
-                };
+        //            if (session === conferenceSession) {
+        //                conferenceSession = null;
+        //            }
+        //            if (session === activeSession) {
+        //                activeSession = null;
+        //            }
 
-                session.on('ended', () => handleCallRelease('❌'));
-                session.on('failed', () => handleCallRelease('⚠️'));
+                    
+        //            if (session === firstCallSession) {
+        //                firstCallSession = null;
+        //            }
+        //        };
 
-                session.connection.addEventListener('track', (event) => {
-                    const remoteAudio = document.getElementById('remoteAudio');
-                    if (remoteAudio) {
-                        remoteAudio.srcObject = event.streams[0];
-                    } else {
-                        console.warn("⚠️ remoteAudio element not found in DOM.");
-                    }
-                });
-            });
+        //        session.on('ended', () => handleCallRelease('❌'));
+        //        session.on('failed', () => handleCallRelease('⚠️'));
 
-            ua.start();
-        }
+        //        session.connection.addEventListener('track', (event) => {
+        //            const remoteAudio = document.getElementById('remoteAudio');
+        //            if (remoteAudio) {
+        //                remoteAudio.srcObject = event.streams[0];
+        //            } else {
+        //                console.warn("⚠️ remoteAudio element not found in DOM.");
+        //            }
+        //        });
+        //    });
 
-        window.onload = autoRegister;
+        //    ua.start();
+        //}
+
+        //window.onload = autoRegister;
 
 
     </script>

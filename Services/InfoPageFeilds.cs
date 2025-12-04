@@ -6,15 +6,19 @@ using ServerCRM.Models.InfoPage;
 using ServerCRM.Models.Omni;
 using System.Data;
 using System.Diagnostics;
+using System.Net;
+using System.Net.Http.Headers;
 using System.Reflection.Emit;
+using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using static System.Net.WebRequestMethods;
 
 namespace ServerCRM.Services
 {
     public static class InfoPageFeilds
     {
-        private readonly static string connectionString = "Data Source=20.20.20.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
+        private readonly static string connectionString = "Data Source=172.24.11.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
 
 
         public static string GetProcessType(string processName)
@@ -128,10 +132,116 @@ namespace ServerCRM.Services
             return match.Success ? match.Value : null;
         }
 
+        public static async Task CallActivityApiAsync(string partyId,string disposition, string subDisposition)
+        {
+            if (string.IsNullOrEmpty(partyId))
+            {
+                Console.WriteLine("No partyId provided, skipping API call.");
+                return;
+            }
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // Base64 authorization header
+                    var authToken = Convert.ToBase64String(Encoding.UTF8.GetBytes("DCX_Admin_2:DCX_Admin_2"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authToken);
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Add("Preference", "transient");
+
+                    // API payload
+                    var payload = new
+                    {
+                        PrimaryContactId = partyId,
+                        ActivityFunctionCode = "TASK",
+                        Subject = "Call Customer"
+                    };
+
+                    string jsonPayload = System.Text.Json.JsonSerializer.Serialize(payload);
+                    HttpContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                    // API endpoint
+                    string url = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/crmRestApi/resources/11.13.18.05/activities/";
+
+                    // Send POST request
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("API call successful.");
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"API call failed: {response.StatusCode}, {error}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error calling API: {ex.Message}");
+            }
+        }
+
+
+        public static async Task CallInteractionApiAsync(string partyId)
+        {
+            if (string.IsNullOrEmpty(partyId))
+            {
+                Console.WriteLine("No partyId provided, skipping Interaction API call.");
+                return;
+            }
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    // Base64 authorization header
+                    var authToken = Convert.ToBase64String(Encoding.UTF8.GetBytes("DCX_Admin_2:DCX_Admin_2"));
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authToken);
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                    client.DefaultRequestHeaders.Add("Preference", "transient");
+
+                    // API payload
+                    var payload = new
+                    {
+                        ChannelTypeCd = "ORA_SVC_PHONE",
+                        ContactPartyId = partyId,
+                        DirectionCd = "ORA_SVC_OUTBOUND"
+                    };
+
+                    string jsonPayload = System.Text.Json.JsonSerializer.Serialize(payload);
+                    HttpContent content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+                    string url = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/crmRestApi/resources/11.13.18.05/interactions";
+
+                    // Send POST request
+                    HttpResponseMessage response = await client.PostAsync(url, content);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        Console.WriteLine("Interaction API call successful.");
+                    }
+                    else
+                    {
+                        string error = await response.Content.ReadAsStringAsync();
+                        Console.WriteLine($"Interaction API call failed: {response.StatusCode}, {error}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error calling Interaction API: {ex.Message}");
+            }
+        }
+
+
         public static void InsertHistory(Dictionary<string, object> data, string opoId, string processName, DateTime? startTime, DateTime? endTime, string disType, string recordingPath, string campaignPhone, string myCode, string finishCode, string connID, string BatchID, string campaignName)
         {
             try
             {
+                string partyId = data.ContainsKey("partyId") ? data["partyId"]?.ToString()?.Trim() : null;
                 string disposition = data.ContainsKey("disposition") ? data["disposition"]?.ToString()?.Trim() : null;
                 string subDisposition = data.ContainsKey("subDisposition") ? data["subDisposition"]?.ToString()?.Trim() : null;
                 string callBackDateOutcome = data.ContainsKey("callBackDateOutcome") ? data["callBackDateOutcome"]?.ToString()?.Trim() : null;
@@ -145,7 +255,6 @@ namespace ServerCRM.Services
                     using (MySqlCommand cmd = new MySqlCommand("UpdateInputMaster", conn))
                     {
                         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-
                         cmd.Parameters.AddWithValue("p_opoId", opoId);
                         cmd.Parameters.AddWithValue("p_endTime", endTime.HasValue ? endTime.Value : (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_campaignPhone", campaignPhone);
@@ -183,8 +292,13 @@ namespace ServerCRM.Services
                         cmd.Parameters.AddWithValue("p_callbacktime", data.ContainsKey("callBackDateOutcome") && DateTime.TryParse(data["callBackDateOutcome"]?.ToString(), out DateTime cbTime) ? cbTime : (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_DisconnectType", disType ?? (object)DBNull.Value);
                         cmd.Parameters.AddWithValue("p_RecPath", recordingPath ?? (object)DBNull.Value);
-
+                        cmd.Parameters.AddWithValue("p_partyId", partyId);
+                        
                         cmd.ExecuteNonQuery();
+
+                       // CallActivityApiAsync(partyId, disposition,subDisposition);
+
+                      //  CallInteractionApiAsync(partyId);
                     }
 
                     var keysToExclude = new HashSet<string>
@@ -389,10 +503,12 @@ namespace ServerCRM.Services
                 {
                     conn.Open();
 
-                    using (MySqlCommand cmd = new MySqlCommand("GetFieldDataForCBM", conn))
+                    using (MySqlCommand cmd = new MySqlCommand("sp_GetFieldsByLOBType", conn))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@p_Process_Name", Process);
+                        cmd.Parameters.AddWithValue("@p_ProcessName", Process);
+                        cmd.Parameters.AddWithValue("@p_MyCode", MyCode);
+
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -493,11 +609,34 @@ namespace ServerCRM.Services
             }
         }
 
+        public static void WarmUpMySqlConnection()
+        {
+            MySqlConnection conn = null;
+            try
+            {
+                conn = new MySqlConnection(connectionString);
+                conn.Open();  
+                Console.WriteLine("MySQL warm-up connection opened successfully.");
+            }
+            catch (Exception ex)
+            {
+               
+                Console.WriteLine("Warm-up DB failed: " + ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();   
+                    Console.WriteLine("MySQL warm-up connection closed.");
+                }
+            }
+        }
 
 
         public static string getConnectionstring(string Process)
         {
-            string decryptedConn = "Data Source=20.20.20.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
+            string decryptedConn = "Data Source=172.24.11.82; Initial Catalog=CRM_Configuration; Uid=dba; Password=Opo@1234";
 
             string newConnString = "";
             using (MySqlConnection con = new MySqlConnection(decryptedConn))
@@ -722,6 +861,194 @@ namespace ServerCRM.Services
                 return ex.Message;
             }
 
+        }
+
+
+
+        //public static OracleSearchResponse? SearchOracleByPhone(string phone)
+        //{
+        //    try
+        //    {
+
+        //        string Actuaphone = ExtractLast10Digits(phone);
+
+        //        string url = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/crmRestApi/searchResources/11.13.18.05/custom-actions/queries/";
+
+        //        var payload = new
+        //        {
+        //            keywords = "9952290641",
+        //            entities = new
+        //            {
+        //                Account = new
+        //                {
+        //                    fields = new[]
+        //                    {
+        //            "OrganizationName",
+        //            "PrimaryEmail.EmailAddress",
+        //            "PrimaryContact.PartyName",
+        //            "PrimaryContact.PartyId",
+        //            "PrimaryContact.PartyNumber"
+        //        }
+        //                },
+        //                Contact = new
+        //                {
+        //                    fields = new[]
+        //                    {
+        //            "PersonFirstName",
+        //            "PersonLastName",
+        //            "PartyId",
+        //            "PartyNumber"
+        //        }
+        //                }
+        //            }
+        //        };
+
+        //        string json = JsonConvert.SerializeObject(payload);
+
+        //        using (var handler = new HttpClientHandler())
+        //        using (var client = new HttpClient(handler))
+        //        {
+        //            client.DefaultRequestHeaders.Clear();
+        //            client.DefaultRequestHeaders.Add("Preference", "transient");
+
+        //            client.DefaultRequestHeaders.Authorization =
+        //                new AuthenticationHeaderValue("Basic", "NTY4NjpBbmxpQDE5OTI=");
+        //            client.DefaultRequestHeaders.Add("Cookie",
+        //                "ORA_OCIS_CG_RB_idcs-5b8ca8e2715947739964790f326ce747_tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com=YOUR_COOKIE_VALUE");
+        //            client.DefaultRequestHeaders.Add("Cookie",
+        //                "ORA_OCIS_CG_ST_idcs-5b8ca8e2715947739964790f326ce747_tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com=YOUR_COOKIE_VALUE");
+        //            var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+        //            HttpResponseMessage response = client.PostAsync(url, content).GetAwaiter().GetResult();
+        //            string result = response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+        //            return JsonConvert.DeserializeObject<OracleSearchResponse>(result);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        CTIConnectionManager.LogToFile("ifraemAPiResponse API Response Error: " + ex.Message, phone.ToString());
+        //        return null;
+        //    }
+
+        //}
+
+
+
+        public static OracleSearchResponse? SearchOracleByPhone(string phone)
+        {
+            try
+            {
+                string Actuaphone = ExtractLast10Digits(phone);
+
+                string url = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/crmRestApi/searchResources/11.13.18.05/custom-actions/queries/";
+
+                var payload = new
+                {
+                    keywords = "9952290641",
+                    entities = new
+                    {
+                        Account = new
+                        {
+                            fields = new[]
+                            {
+                        "OrganizationName",
+                        "PrimaryEmail.EmailAddress",
+                        "PrimaryContact.PartyName",
+                        "PrimaryContact.PartyId",
+                        "PrimaryContact.PartyNumber"
+                    }
+                        },
+                        Contact = new
+                        {
+                            fields = new[]
+                            {
+                        "PersonFirstName",
+                        "PersonLastName",
+                        "PartyId",
+                        "PartyNumber"
+                    }
+                        }
+                    }
+                };
+
+                string json = JsonConvert.SerializeObject(payload);
+
+                // Enable GZip + Deflate decompression (Fixes binary  error)
+                var handler = new HttpClientHandler
+                {
+                    AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate
+                };
+
+                using (var client = new HttpClient(handler))
+                {
+                    client.DefaultRequestHeaders.Clear();
+                    client.DefaultRequestHeaders.Add("Preference", "transient");
+                    client.DefaultRequestHeaders.Authorization =
+                        new AuthenticationHeaderValue("Basic", "NTY4NjpBbmxpQDE5OTI=");
+
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    HttpResponseMessage response =
+                        client.PostAsync(url, content).GetAwaiter().GetResult();
+
+                    string rawResponse =
+                        response.Content.ReadAsStringAsync().GetAwaiter().GetResult();
+
+                  
+                    CTIConnectionManager.LogToFile("Oracle RAW Response: " + rawResponse, phone);
+
+                    // Check Content-Type before JSON parse
+                    var contentType = response.Content.Headers.ContentType?.MediaType ?? "";
+
+                    if (!contentType.Contains("json"))
+                    {
+                        CTIConnectionManager.LogToFile(
+                            "ERROR: Non-JSON response from Oracle. Content-Type: " + contentType,
+                            phone
+                        );
+                        return null;
+                    }
+
+                    // Safe JSON parsing
+                    try
+                    {
+                        return JsonConvert.DeserializeObject<OracleSearchResponse>(rawResponse);
+                    }
+                    catch (Exception jsonEx)
+                    {
+                        CTIConnectionManager.LogToFile(
+                            "JSON Parse Error: " + jsonEx.Message + " | RAW = " + rawResponse,
+                            phone
+                        );
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                CTIConnectionManager.LogToFile(
+                    "SearchOracleByPhone API Error: " + ex.Message,
+                    phone
+                );
+                return null;
+            }
+        }
+
+
+
+
+        public static string ExtractLast10Digits(string phone)
+        {
+           
+            var digitsOnly = new string(phone.Where(char.IsDigit).ToArray());
+
+            if (digitsOnly.Length >= 10)
+            {
+                return digitsOnly.Substring(digitsOnly.Length - 10); 
+            }
+
+          
+            return digitsOnly;
         }
 
 
