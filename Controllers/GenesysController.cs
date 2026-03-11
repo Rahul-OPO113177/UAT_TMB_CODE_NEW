@@ -131,10 +131,10 @@ namespace ServerCRM.Controllers
         [HttpPost("checkUser")]
         public async Task<IActionResult> UserlogInCheckcredentials([FromBody] CheckCredentials request)
         {
+            bool result = _auth.AuthenticateUser(request.empCode, request.password).Result; 
+          
            
-            var isValid = await _auth.CheckCredentialsAsync(request).ConfigureAwait(false);
-            isValid = true;
-            if (isValid == false)
+            if (result == false)
             {
                 return BadRequest("Username and password not match");
               
@@ -150,6 +150,11 @@ namespace ServerCRM.Controllers
         {
             CL_AgentDet agent = await _apiService.GetAgentDetailsAsync(request.empCode);
 
+            if (agent.login_flag != 1)
+            {
+                return StatusCode(500, "SIP Is Not Activited");
+            }
+
 
             if (agent == null)
                 return NotFound("Agent not found");
@@ -162,7 +167,7 @@ namespace ServerCRM.Controllers
             HttpContext.Session.SetString("Prefix", agent.Prefix ?? "");
             HttpContext.Session.SetString("empCode", request?.empCode ?? "");
             HttpContext.Session.SetString("ProcessName", agent.ProcessName ?? "");
-
+            HttpContext.Session.SetString("SingleStepTransfer", agent.SingleStepTransfer ?? "");
             CTIConnectionManager.LogToFile("agent.TserverIP_OFFICE --  "+ agent.TserverIP_OFFICE, request?.empCode);
             CTIConnectionManager.LogToFile("agent.TserverPort --  "+ agent.TserverPort, request?.empCode);
             CTIConnectionManager.LogToFile("agent.login_code --  "+ agent.login_code.ToString(), request?.empCode);
@@ -174,13 +179,36 @@ namespace ServerCRM.Controllers
 
 
             CTIConnectionManager.LogToFile("Agent IS Logged Sucessfully with genesysy --  " + success, request?.empCode);
-
+            agent.login_flag = null;
             if (!success)
                 return StatusCode(500, "CTI login failed: " + error);
+          
+            using (var client = new HttpClient())
+            {
+                var payload = new
+                {
+                    EmployeedID = request.empCode
+                };
 
-            return Ok(new { message = "Agent logged in successfully", logincode = agent.login_code, dn = agent.dn });
+                var content = new StringContent(
+                    JsonConvert.SerializeObject(payload),
+                    Encoding.UTF8,
+                    "application/json");
+
+                var response = await client.PostAsync("http://172.24.11.91:8088/API/AgentDetailAPI_NewSetup_GGN_Web/Api/CheckLoginFlag", content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return StatusCode(500, "Agent logged in but SIP API failed");
+                }
+            }
+           
+
+            return Ok(new { message = "Agent logged in successfully", logincode = agent.login_code, dn = agent.dn, singleStepTransfer = agent.SingleStepTransfer });
 
         }
+
+
 
         [HttpGet("GetDispositions")]
         public IActionResult GetDispositions([FromQuery] string empCode)
@@ -593,5 +621,28 @@ namespace ServerCRM.Controllers
                 return StatusCode(500, new { status = "error", message = "Internal server error." });
             }
         }
+
+
+        [HttpPost("searchPhoneNumber")]
+        public async Task<IActionResult> SerachPhone([FromBody] PhoneRequest request)
+        {
+            string login_code = HttpContext.Session.GetString("login_code");
+
+            await CTIConnectionManager.SearchOraclePhone(login_code, request.Phone);
+
+            return Ok();
+        }
+
+
+        [HttpPost("CustomerType")]
+        public async Task<IActionResult> CustomerType([FromBody] CustomerType request)
+        {
+            string login_code = HttpContext.Session.GetString("login_code");
+
+           await InfoPageFeilds.SearchPhoneOpenCxPage(login_code, request.Type,request.Mobile,request.Name);
+
+            return Ok();
+        }
+
     }
 }

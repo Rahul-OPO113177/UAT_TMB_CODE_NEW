@@ -405,7 +405,7 @@
         try {
             const crmResponse = await fetch("/TypeOfCRM");
             if (!crmResponse.ok) throw new Error("Failed to fetch TypeOfCRM");
-            crmstatus = parseInt(await crmResponse.json());
+            crmstatu = parseInt(await crmResponse.json());
             console.log("CRM Status:", crmstatus);
         } catch (err) {
             Swal.fire({
@@ -468,7 +468,7 @@
             Swal.fire({
                 icon: 'error',
                 title: 'Error',
-                text: 'Unable to connect to server. Please try again.'
+                text: 'Please verify that your username and password are correct and try again'
             });
             return;
         }
@@ -511,11 +511,9 @@
                 let newTab = window.open('', '_blank');
                 if (data.message === 'Agent logged in successfully') {
 
-                   
                   
-                    newTab.location.href = 'https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/';
-                  
-                    window.location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}&dn=${encodeURIComponent(data.dn)}`;
+                    window.location.href = `/Pages/CRM.html?empCode=${encodeURIComponent(data.logincode)}&dn=${encodeURIComponent(data.dn)}&singleStepTransfer=${encodeURIComponent(data.singleStepTransfer)}`;
+
                 } else {
 
                     Swal.fire({
@@ -530,7 +528,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Unable to connect to Genesys server. Please try again.'
+                    text: 'Unable to connect to Genesys server. Please try again also check sip is active or not.'
                 });
             }
 
@@ -570,7 +568,7 @@
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: 'Unable to connect to FreeSwitch server. Please try again.'
+                    text: 'Unable to connect to the Genesys server. Please try again. Also, kindly ensure that your SIP is active'
                 });
             }
         }
@@ -604,4 +602,13 @@
     }
 
     window.submitLogin = submitLogin;
+
+    window.addEventListener("load", function () {
+
+        const sipUrl = "http://172.24.11.91:8088/Utility/Dynamic_Sip/Genesyslab.Sip.Endpoint.QuickStart.Win.application";
+
+    
+        window.open("microsoft-edge:" + sipUrl, "_blank");
+
+    });
 </script>

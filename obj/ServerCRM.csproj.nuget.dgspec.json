@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\ServerCRM.csproj": {}
+    "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\ServerCRM.csproj": {}
   },
   "projects": {
-    "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\ServerCRM.csproj": {
+    "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\ServerCRM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\ServerCRM.csproj",
+        "projectUniqueName": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\ServerCRM.csproj",
         "projectName": "ServerCRM",
-        "projectPath": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\ServerCRM.csproj",
+        "projectPath": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\ServerCRM.csproj",
         "packagesPath": "C:\\Users\\opo113177\\.nuget\\packages\\",
-        "outputPath": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\",
+        "outputPath": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[2.4.0, )"
             },
+            "Novell.Directory.Ldap.NETStandard": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.9.0, )"
@@ -74,6 +78,10 @@
             "System.DirectoryServices.AccountManagement": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "jose-jwt": {
+              "target": "Package",
+              "version": "[5.2.0, )"
             }
           },
           "imports": [

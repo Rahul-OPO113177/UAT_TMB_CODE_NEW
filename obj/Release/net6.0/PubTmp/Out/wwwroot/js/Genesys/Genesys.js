@@ -2,6 +2,13 @@
 let seconds = 0;
 let startTime;
 let selectedPartyId = null;
+let entityId = null;
+let TypeOfcustomer = null;
+let partynumber = null;
+let subdisptypesave = null;
+let waitingInterval = null;
+let captureFields;
+let oracleTab = null;
 function openTab(evt, tabId) {
     document.querySelectorAll(".tab-content").forEach(el => el.style.display = "none");
     document.querySelectorAll(".nav-tab").forEach(el => el.classList.remove("active"));
@@ -129,10 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-  
-
-
-
     connection.on("history", function (data) {
         try {
             console.log("History data received:", data);
@@ -249,9 +252,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     connection.on("IframeEntity", function (data) {
+
         console.log("IframeEntity Data:", data);
 
-    
+        entityId = data.items[0]._entity ?? "";
+        selectedPartyId = data.items[0].partyId ?? "";
+        partynumber = data.items[0].partyNumber ?? "";
+      
+
         if (!data || !data.items || data.items.length === 0) {
             $("#entityframe").html(`
             <div style="
@@ -267,6 +275,8 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+      
+
         // Start table
         let tableHtml = `
         <table id="entityTable" style="width:100%; border-collapse:collapse; margin-top:10px;">
@@ -277,6 +287,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     <th style="padding:8px; border:1px solid #ccc;">
                         ${data.items[0]._entity === "Account" ? "Organization Name" : "Customer Name"}
                     </th>
+                    <th style="padding:8px; border:1px solid #ccc;">Party Number</th>
                 </tr>
             </thead>
             <tbody>
@@ -284,14 +295,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         data.items.forEach(item => {
 
+            
+
+
             const displayName = item._entity === "Account"
-                ? item.organizationName ?? ""            // Accounts show Organization Name
-                : `${item.personFirstName ?? ""} ${item.personLastName ?? ""}`.trim();  // Others show person name
+                ? item.organizationName ?? ""           
+                : `${item.personFirstName ?? ""} ${item.personLastName ?? ""}`.trim();  
 
             tableHtml += `
             <tr class="entity-row"
                 data-partyid="${item.partyId}"
                 data-entity="${item._entity}"
+                data-partynumber="${item.partyNumber}"
                 data-firstname="${item.personFirstName}"
                 data-lastname="${item.personLastName}"
                 style="cursor:pointer;">
@@ -299,6 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td style="padding:8px; border:1px solid #ccc;">${item._entity}</td>
                 <td style="padding:8px; border:1px solid #ccc;">${item.partyId}</td>
                 <td style="padding:8px; border:1px solid #ccc;">${displayName}</td>
+                <td style="padding:8px; border:1px solid #ccc;">${item.partyNumber}</td>
             </tr>
         `;
         });
@@ -311,17 +327,44 @@ document.addEventListener("DOMContentLoaded", function () {
         // Render table
         $("#entityframe").html(tableHtml);
 
+        console.log("tableHtml:", tableHtml);
         // CLICK EVENT
         $('#entityframe').off("click").on('click', '.entity-row', function () {
             let partyId = $(this).data('partyid');
             let entity = $(this).data('entity');
+            let partyNumberid = $(this).data('partynumber');
+
 
             selectedPartyId = partyId;
+            entityId = entity;
+            // partynumber = partyNumberid
 
-            openOracleRecord(entity, partyId);
+            
+            openOracleRecord(entity, partyId, partyNumberid);
         });
     });
 
+    connection.on("Registeredcustno", function (data) {
+        try {
+
+            const result = typeof data === "string" ? JSON.parse(data) : data;
+
+            console.log("Registeredcustno data received:", result);
+
+            if (result.desc) {
+                showSuccess(result.desc);
+            }
+            else if (result.details) {
+                showWarning_Required("Registered Customer API call failed");
+            }
+            else if (result.error) {
+                showWarning_Required("Registered Customer API call failed");
+            }
+
+        } catch (error) {
+            console.error("Error processing the Registeredcustno data:", error);
+        }
+    });
 
 
 
@@ -332,12 +375,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
            
             const tab1Container = $('#tab1').find('div[style="background:#fff; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);"]');
+          
+          
 
-            tab1Container.prepend(`
-                    <div style="width:971px;margin-bottom: 48px;" id="entityframe"></div><br><br>
-                `);
+      
+                tab1Container.prepend(`
+                <div style="width:971px;margin-bottom:48px;" id="entityframe"></div><br><br></div>
+            `);
+         
 
+            if ($('#phoneSearch').length === 0) {
+                tab1Container.prepend(`
+        <div style="display:flex; flex-direction:row; align-items:center; gap:20px; margin-bottom:20px;">
+            <input id="phoneSearch"
+                style="flex:1; padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"
+                type="password"
+                name="extra"
+                placeholder="Enter The Number"
+                oncopy="return false"
+                onpaste="return false"
+                oncut="return false"
+                maxlength="10"
+                oninput="this.value=this.value.replace(/[^0-9]/g,'');"
+            />
+            <button type="button"
+                style="padding:6px 14px; font-size:13px; border:none; border-radius:4px; background:#007bff; color:#fff; cursor:pointer; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.2); margin-left:10px;"
+                onclick="searchPhoneNumber()">
+                Open Cx
+            </button>
+        </div>
+    `);
+            }
 
+            if (fields.error) {
+                console.log("No data available");
+                return;
+            }
 
             const tab3Container = $('#tab3').find('div[style*="display:flex"][style*="flex-wrap:wrap"][style*="gap:15px"][style*="margin-top:10px"]');
 
@@ -347,10 +420,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             else {
                 const displayFields = fields.filter(field => field.CapturableField === "Display");
-                const captureFields = fields.filter(field => field.CapturableField === "Capture");
-
-
                
+                 captureFields = fields.filter(field => field.CapturableField === "Capture");
 
                 displayFields.forEach(field => {
                     const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
@@ -361,10 +432,11 @@ document.addEventListener("DOMContentLoaded", function () {
                         <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;">${field.FieldName} ${required}</label>
                         <input  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="${field.FieldType}" name="${field.FieldName}" value="${value}" readonly />
                     </div>
+                    
                 `);
+
+                    
                 });
-
-
 
                 tab1Container.css({
                     "display": "flex",
@@ -372,19 +444,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     "gap": "15px"
                 });
 
-
-
-    
-
                 captureFields.forEach(field => {
                     const required = field.IsRequired === "YES" ? '<span style="color:red">*</span>' : '';
                     const isRequiredAttr = field.IsRequired === "YES" ? 'required' : '';
                     let fieldHtml = `<div style="display:flex; flex-direction:column; flex:1 1 200px;" id="${field.FieldName}_container">
                                 <label style="font-size:13px; margin-bottom:3px; font-weight:500; color:#444;" >${field.FieldName} ${required}</label>`;
-
-
+                   
                     if (field.FieldType === "DROPDOWN") {
                         const isDependentTarget = captureFields.some(f => f.FieldDependetName === field.FieldName);
+
+                      
 
                         fieldHtml += `
                     <select  style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" name="${field.FieldName}" id="${field.FieldName}_dropdown" ${isRequiredAttr}>
@@ -402,9 +471,14 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (field.IsfieldDependent === "YES" && !isDependentTarget) {
                             $(`#${field.FieldName}_dropdown`).on('change', function () {
                                 const selectedValue = $(this).val();
+
+                                const selectedText = $(this).find("option:selected").text(); // text
+
+                                TypeOfcustomer = selectedText;
+
                                 const dependentFieldName = field.FieldDependetName;
                                 const dependentField = fields.find(f => f.FieldName === dependentFieldName);
-
+                              
                                 if (dependentField) {
                                     if (dependentField.DependentData) {
                                         const filteredOptions = dependentField.DependentData.filter(option => option.Value === selectedValue);
@@ -437,7 +511,10 @@ document.addEventListener("DOMContentLoaded", function () {
                                 break;
 
                             default:
-                                fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;"  type="text" name="${field.FieldName}" ${isRequiredAttr} />`;
+                                let inputType = field.FieldName === "Mobile_Number" ? "password" : "text";
+
+                                fieldHtml += `<input style="padding:5px 8px; font-size:13px; border:1px solid #ccc; border-radius:4px;" type="${inputType}" name="${field.FieldName}" ${isRequiredAttr} />`;
+                              
                                 break;
                         }
                         fieldHtml += '</div>';
@@ -454,6 +531,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             $(dropdownId).on('change', function () {
                                 const selectedText = $(this).find('option:selected').text();
 
+                               
 
                                 if (selectedText === field.DisplaySourceValue) {
                                     $(`#${field.FieldName}_container`).show();
@@ -465,9 +543,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 });
             }
-
-
-          
 
             const htmlContent = `
                                 <div style="display:flex; flex-direction:column; flex:1 1 200px;">
@@ -520,51 +595,33 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    
-
-
-    //function openOracleRecord(entity, partyId) {
-    //    const baseUrl = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/fscmUI/redwood/cx-sales/application/container";
-    //    let url = "";
-            
-    //    // Optional: entity-specific URLs
-    //    if (entity === "Account") {
-    //        url = `${baseUrl}/accounts/accounts-detail?id=${partyId}`;
-    //    } else if (entity === "Contact") {
-    //        url = `${baseUrl}/contacts/contacts-detail?id=${partyId}`;
-    //    }
-
-    //    if (url) {
-    //        window.open(url, "_blank");
-    //    } else {
-    //        console.error("No URL defined for entity:", entity);
-    //        return;
-    //    }
-
-   
-       
-    //}
-
-    function openOracleRecord(entity, partyId) {
-        const baseUrl = "https://tmb-vms-test-iacciz-dev2.fa.ocs.oraclecloud.com/fscmUI/redwood/cx-sales/application/container";
+    function openOracleRecord(entity, partyId, partyNumber) {
+        
+        const baseUrl = "https://tmbhcm-iacciz-test.fa.ocs.oraclecloud.com/fscmUI/redwood/cx-sales/application/container";
         let url = "";
 
         switch (entity) {
             case "Account":
-                url = `${baseUrl}/accounts/accounts-detail?id=${partyId}`;
+                url = `${baseUrl}/accounts/accounts-detail?view=foldout&puid=${partyNumber}`;
                 break;
+
             case "Contact":
-                url = `${baseUrl}/contacts/contacts-detail?id=${partyId}`;
+                url = `${baseUrl}/contacts/contacts-detail?view=foldout&puid=${partyNumber}`;
                 break;
+
             default:
                 console.error("No URL defined for entity:", entity);
                 return;
         }
 
-        window.open(url, "_blank", "noopener,noreferrer");
+       
+        if (oracleTab && !oracleTab.closed) {
+            oracleTab.location.href = url;
+            oracleTab.focus();
+        } else {
+            oracleTab = window.open(url, "_blank");
+        }
     }
-
-
 
     connection.on("UpdatePhoneInput", function (number) {
         if (number == null) {
@@ -577,6 +634,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 let inputEl = document.getElementById("phoneInput");
                 if (inputEl) {
                     inputEl.value = last10;
+
                 } else {
                     console.warn("phoneInput element not found.");
                 }
@@ -585,10 +643,67 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         }
-       
+
     });
 
 
+   
+    connection.on("opencxpage", (data) => {
+        try {
+            const result = typeof data === "string" ? JSON.parse(data) : data;
+            const partyNumber = result?.PartyNumber;
+
+            if (!partyNumber) {
+                console.error("PartyNumber not found in data");
+                return;
+            }
+
+            const entity = TypeOfcustomer === "Non-Individual" ? "Account" : "Contact";
+
+            openOracleRecord(entity, null, partyNumber);
+
+        } catch (error) {
+            console.error("Error processing opencxpage data:", error);
+        }
+    });
+
+   
+
+    //connection.on("UpdatePhoneInput", function (number) {
+
+    //    console.log("Received number:", number);
+
+    //    if (!number) {
+    //        console.warn("Received null or undefined number");
+    //        return;
+    //    }
+
+    //    try {
+
+    //        let cleanNumber = number.toString().replace(/\D/g, "");
+
+
+    //        let last4 = cleanNumber.slice(-4);
+
+
+    //        let masked = "******" + last4;
+
+    //        let inputEl = document.getElementById("phoneInput");
+
+    //        if (inputEl) {
+    //            inputEl.value = masked;
+    //            console.log("Textbox updated with:", masked);
+    //        } else {
+    //            console.warn("phoneInput element not found.");
+    //        }
+
+    //    } catch (error) {
+    //        console.error("Error in UpdatePhoneInput handler:", error);
+    //    }
+    //});
+
+
+    
     connection.on("AutoWrap", function (number) {
 
         connection.on("AutoWrap", function (number) {
@@ -691,6 +806,9 @@ function handleStatusUpdate(message) {
     const statusElem = document.getElementById("status");
     if (statusElem) statusElem.innerText = message;
     const msg = message.toLowerCase();
+
+   
+
     updateStatusText(message);
     $("#dialGroup, #hold, #unhold, #confo, #merge, #party").hide();
     $("#break, #getnext").addClass("disabled").css({ "pointer-events": "none", "opacity": "0.5" });
@@ -700,6 +818,9 @@ function handleStatusUpdate(message) {
         $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
         $("#dialGroup").css("display", "flex");
         $("#getnext").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
+        $("#btnReadys").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
+
+        
     }
 
     if (msg.includes("talking") || msg.includes("established") || msg.includes("outbound call established") || msg.includes("inbound call established")) {
@@ -715,8 +836,8 @@ function handleStatusUpdate(message) {
         $("#hold, #unhold, #confo, #merge, #party").hide();
         $("#getnext").addClass("disabled").css({ "pointer-events": "none", "opacity": "0.5" });
         $("#break").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
+        $("#btnReadys").addClass("disabled").css({ "pointer-events": "none", "opacity": "0.5" });
     }
-
 
     if (msg.includes("dialing")) {
         $("#party").css("display", "flex");
@@ -730,11 +851,21 @@ function handleStatusUpdate(message) {
         stopTimer();
     }
 
+
+    if (msg.includes("training") || msg.includes("quality") || msg.includes("lunch") || msg.includes("bio break") || msg.includes("tea") || msg.includes("vatbreak") || msg.includes("tl_feedback")) {
+        stopTimer();
+        startTimer();
+        $("#btnReadys").removeClass("disabled").css({ "pointer-events": "auto", "opacity": "1" });
+    }
+
+
     if (msg.includes("break")) {
         stopTimer();
         startTimer();
     }
     if (msg.includes("logout")) {
+
+       
 
         Swal.fire({
             title: 'Logged Out',
@@ -820,6 +951,7 @@ function clearFeilds() {
 }
 function makeCall() {
     const phone = document.getElementById("phoneInput").value.trim();
+   
     if (!/^\d{10}$/.test(phone)) { showWarning_New("Phone number must be exactly 10 digits."); return; }
     clearFeilds();
     callAPI("/api/Genesys/makecall", "POST", { phone });
@@ -829,7 +961,7 @@ function openConferencePrompt() {
     Swal.fire({
         title: 'Enter conference number',
         input: 'text',
-        inputPlaceholder: 'e.g. 7058053821',
+        inputPlaceholder: 'e.g. 9021292629',
         showCancelButton: true,
         confirmButtonText: 'Join',
         inputValidator: value => (!value || !/^\d{10}$/.test(value)) ? 'Enter valid 10-digit number!' : null
@@ -928,11 +1060,11 @@ function updateSubDisposition() {
             }
 
 
-            if (dispType === "PCB" || dispType === "CCB") {
-                if (callBackDateDiv) {
-                    callBackDateDiv.style.display = "flex";
-                }
-            }
+            //if (dispType === "PCB" || dispType === "CCB") {
+            //    if (callBackDateDiv) {
+            //        callBackDateDiv.style.display = "flex";
+            //    }
+            //}
         }
     }
 }
@@ -942,9 +1074,14 @@ function updateSubSubDisposition() {
     const subDispoId = document.getElementById("subDisposition").value;
     const subSubDispoDiv = document.getElementById("SubSubDispo");
     const subSubDispoSelect = document.getElementById("subSubDisposition");
-
+    const callBackDateDiv = document.getElementById("callBackDateDiv");
     subSubDispoSelect.innerHTML = '<option value="">-- Select Sub SubDisposition --</option>';
     subSubDispoDiv.style.display = "none";
+
+    if (callBackDateDiv) {
+        callBackDateDiv.style.display = "none";
+    }
+
     if (dispoId && subDispoId) {
 
         const selectedDisposition = dispo.dispositions.find(d => d.id === parseInt(dispoId));
@@ -959,6 +1096,17 @@ function updateSubSubDisposition() {
         if (!selectedSubDispo) {
             console.log("No matching sub disposition found.");
             return;
+        }
+
+        var str = JSON.stringify(selectedSubDispo);
+        var obj = JSON.parse(str);
+        var subdisptype = obj.disP_TYPE;
+        subdisptypesave = subdisptype;
+
+        if (subdisptype === "PCB" || subdisptype === "CCB") {
+            if (callBackDateDiv) {
+                callBackDateDiv.style.display = "flex";
+            }
         }
 
 
@@ -1000,6 +1148,16 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    var disposition = document.getElementById("subDisposition");
+    if (disposition) {
+        disposition.addEventListener("change", function () {
+            updateSubSubDisposition();
+            toggleCallBackDateField();
+        });
+    }
+});
+
 
 
 function submitDisposition() {
@@ -1014,9 +1172,6 @@ function submitDisposition() {
         });
         return;
     }
-
-
-
 
 
     let formData = {};
@@ -1102,11 +1257,14 @@ function submitDisposition() {
     let dispoId = document.getElementById("disposition").value;
     let selectedOption = document.querySelector(`#disposition option[value="${dispoId}"]`);
     let dispType = selectedOption ? selectedOption.getAttribute("data-disp-type") : null;
-    formData[disptypeKey] = dispType;
+    formData[disptypeKey] = subdisptypesave;
 
 
     // ADD partyId into final payload
     formData["partyId"] = selectedPartyId;
+
+    formData["entity"] = entityId;
+
     console.log("Submitting data:", JSON.stringify(formData));
     $.ajax({
         url: '/api/Genesys/submit/',
@@ -1136,6 +1294,141 @@ function submitDisposition() {
         }
     });
 }
+
+
+function searchPhoneNumber() {
+
+    var phoneNumber = document.getElementById("phoneSearch").value;
+
+    if (!phoneNumber) {
+        showWarning_Required("Please Enter Mobile Number");
+        return;
+    }
+
+
+    console.log("Searching for:", phoneNumber);
+
+    fetch("/api/Genesys/searchPhoneNumber", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ phone: phoneNumber })
+    })
+        .then(response => {
+            if (response.ok) {
+                console.log("Search request sent successfully");
+                return response.json(); 
+            }
+        })
+        .then(data => {
+            console.log("API Response:", data);
+           
+            document.getElementById("entityframe").innerHTML = JSON.stringify(data);
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
+
+
+function GetCustomerType() {
+
+    let formDatas = {};
+    var CustomerType = TypeOfcustomer;
+
+    captureFields.forEach(field => {
+       
+        if (field.FieldName === "Name" || field.FieldName === "Mobile_Number") {
+
+            const value = $(`input[name='${field.FieldName}']`).val();
+          
+            formDatas[field.FieldName] = value;
+        }
+
+    });
+    var FirstName = formDatas.Name;
+    var MobileNO = formDatas.Mobile_Number;
+
+    console.log("Collected Values:", formDatas);
+
+    if (!CustomerType) {
+        showWarning_Required("Please Select Custonmer Type");
+        return;
+    }
+
+    if (!FirstName) {
+        showWarning_Required("Please Enter The Name");
+        return;
+    }
+
+    if (!MobileNO) {
+        showWarning_Required("Please Enter Mobile Number");
+        return;
+    }
+
+    fetch("/api/Genesys/CustomerType", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            Type: CustomerType,
+            Name: FirstName,
+            Mobile: MobileNO })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log("Search request sent successfully");
+                return response.json();
+            }
+        })
+       
+        .catch(error => {
+            console.error("Error:", error);
+        });
+   
+}
+
+
+function showWarning_Required(message) {
+    Swal.fire({
+        icon: 'warning',
+        title: 'Warning',
+        text: message,
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 50000,
+        timerProgressBar: true,
+        background: '#fff7ed',
+        color: '#92400e',
+        iconColor: '#f59e0b',
+        customClass: {
+            popup: 'shadow-lg rounded-xl'
+        }
+    });
+}
+
+function showSuccess(message) {
+    Swal.fire({
+        icon: 'success', 
+        title: 'Success',
+        text: message,
+        toast: true,
+        position: 'bottom-end',
+        showConfirmButton: false,
+        timer: 50000,
+        timerProgressBar: true,
+        background: '#d1fae5', 
+        color: '#065f46',      
+        iconColor: '#10b981',  
+        customClass: {
+            popup: 'shadow-lg rounded-xl'
+        }
+    });
+}
+
 
 
 

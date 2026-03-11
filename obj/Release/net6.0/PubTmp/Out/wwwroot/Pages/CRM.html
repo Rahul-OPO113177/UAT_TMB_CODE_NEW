@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>1point1</title>
     <style>
        
 
@@ -1914,16 +1914,16 @@
                                 <label style="font-size: 12px; color: #7993A5; font-weight: 500; margin-top: 5px; display:block;">
                                     📌 Route
                                 </label>
-                                <select class="form-select form-select-sm" style="width:100%;padding:6px 8px;border:1px solid #cfd9e3;border-radius:6px;font-size:13px;color:#444;
-                                background:#f9fbfd;outline:none;transition:0.2s;" onchange="sendTransfer(this)">
-                                    <option disabled selected>⏬ Select route</option>
-                                    <option value="3000002">3000002</option>
+                                <select class="form-select form-select-sm" id="transferDropdown" style="width:100%;padding:6px 8px;border:1px solid #cfd9e3;border-radius:6px;font-size:13px;color:#444;
+                                          background:#f9fbfd;outline:none;transition:0.2s;" onchange="sendTransfer(this)">
+                                    <!--<option disabled selected>⏬ Select route</option>
+                                           <option value="224060">224060</option>-->
                                 </select>
                             </div>
 
                         </div>
 
-                        <div class="action-btn">
+                        <div id="btnReadys" class="action-btn">
                             <div class="action-btn-icon" onclick="callAPI('/api/Genesys/ready')">
                                 <svg width="21" height="21" fill="none" viewBox="0 0 21 21">
                                     <circle cx="10.5" cy="10.5" r="9" stroke="#7993A5" stroke-width="1.5" fill="none" />
@@ -1977,13 +1977,12 @@
 
                                     <div class="recipient-info">
                                         <div class="recipient-name" id="status"> </div>
-                                        <input id="phoneInput" style="height:34px; border:none; border-radius:10px; text-align:center; width:290px; font-size:16px;" pattern="[0-9]*" inputmode="numeric" style="height: 34px; border: none; border-radius: 10px;" class="recipient-phone" placeholder="  Enter Phone Number" />
-
+                                        <input id="phoneInput"  type="password" style="height:34px; border:none; border-radius:10px; text-align:center; width:290px; font-size:16px;" pattern="[0-9]*" inputmode="numeric" style="height: 34px; border: none; border-radius: 10px;" class="recipient-phone" placeholder="  Enter Phone Number" />
+                                        
                                     </div>
                                 </div>
                             </div>
                         </div>
-
 
                     </div>
                 </div>
@@ -2135,6 +2134,10 @@
                     <div class="nav-tab inactive">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab4')">Manual Data</span>
                     </div>
+
+                    <div class="nav-tab active" style="display:none">
+                        <span class="nav-tab-text" onclick="openTab(event, 'tab7')">Open Url</span>
+                    </div>
                     <div class="nav-tab inactive" style="display:none">
                         <span class="nav-tab-text" onclick="openTab(event, 'tab5')">Supervisor Data</span>
                     </div>
@@ -2150,9 +2153,6 @@
 
                     </div>
 
-                   
-
-
                 </div>
 
                 <div id="tab3" class="tab-content" style="display:none;">
@@ -2164,13 +2164,20 @@
 
                         </div>
 
-                        <div style="display: flex; justify-content: flex-end; margin-top:15px;">
+                      
+                        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:15px;">
+
                             <button onclick="submitDisposition()"
                                     style="padding:6px 14px; font-size:13px; border:none; border-radius:4px; background:#007bff; color:#fff; cursor:pointer; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.2);">
                                 <i class="fa-solid fa-paper-plane" style="margin-right:5px;"></i> Submit
                             </button>
-                        </div>
 
+                            <button onclick="GetCustomerType()"
+                                    style="padding:6px 14px; font-size:13px; border:none; border-radius:4px; background:#007bff; color:#fff; cursor:pointer; font-weight:500; box-shadow:0 1px 3px rgba(0,0,0,0.2);">
+                                <i class="fa-solid fa-paper-plane" style="margin-right:5px;"></i> Open Cx
+                            </button>
+
+                        </div>
                     </div>
                 </div>
 
@@ -2195,6 +2202,22 @@
                             Manual Data
                         </h6>
                         <p style="font-size:14px; color:#555;">Enter manual data here…</p>
+                    </div>
+                </div>
+
+
+                <div id="tab7" class="tab-content" style="display:none;">
+                    <div style="background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);">
+                        <h6 style="font-size:16px; font-weight:600; color:#333; margin-bottom:15px;">
+                            <i class="fa-solid fa-history" style="margin-right:6px; color:#007bff;"></i>
+                            URL
+                        </h6>
+
+                        <div style="overflow-x:auto;" id="openurl">
+                            <!-- iframe will be inserted here -->
+                        </div>
+
+                        <button type="button" onclick="loadOracleLogin()" style="margin-top:10px; padding:5px 10px;">Load Login</button>
                     </div>
                 </div>
 
@@ -2325,10 +2348,8 @@
 
                 <div id="entityframe">
 
-                  
-                </div>
 
-              
+                </div>
 
             </div>
 
@@ -2583,7 +2604,7 @@
         //        const session = e.session;
         //        activeSession = session;
 
-                
+
         //        if (!firstCallSession) {
         //            firstCallSession = session;
         //            console.log(`📞 First call session set: ${session.id}`);
@@ -2592,7 +2613,7 @@
         //            console.log(`🤝 Conference session set: ${session.id}`);
         //        }
 
-                
+
         //        if (session.direction === 'incoming') {
         //            session.answer({ mediaConstraints: { audio: true, video: false } });
         //        }
@@ -2601,11 +2622,11 @@
         //            console.log(`✅ Call confirmed: ${session.id}`);
         //        });
 
-                
+
         //        const handleCallRelease = (reason) => {
         //            console.log(`${reason} Call released: ${session.id}`);
 
-                    
+
         //            if (firstCallSession) {
         //                try {
         //                    console.log('⏸️ Putting first call on hold...');
@@ -2622,7 +2643,7 @@
         //                }
         //            }
 
-                    
+
         //            if (session === conferenceSession) {
         //                conferenceSession = null;
         //            }
@@ -2630,7 +2651,7 @@
         //                activeSession = null;
         //            }
 
-                    
+
         //            if (session === firstCallSession) {
         //                firstCallSession = null;
         //            }
@@ -2713,29 +2734,29 @@
                     emailItem.dataset.id = index;
 
                     emailItem.innerHTML = `
-                                                                                    <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-                                                                                    <div class="meta">
-                                                                                        <div class="from">${escapeHtml(email.from)}</div>
-                                                                                        <div class="subject">${escapeHtml(email.subject)}</div>
-                                                                                        <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
-                                                                                    </div>
-                                                                                    <div class="time">${new Date().toLocaleTimeString()}</div>
-                                                                                `;
+                                                                                        <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                                                                        <div class="meta">
+                                                                                            <div class="from">${escapeHtml(email.from)}</div>
+                                                                                            <div class="subject">${escapeHtml(email.subject)}</div>
+                                                                                            <div class="preview">${escapeHtml(email.body.substring(0, 50))}...</div>
+                                                                                        </div>
+                                                                                        <div class="time">${new Date().toLocaleTimeString()}</div>
+                                                                                    `;
 
                     emailItem.addEventListener("click", () => {
                         replyForm.innerHTML = "";
                         currentEmailBody = email.body;
                         const emailDetailHTML = `
-                                                                                        <div class="mail-subject">${escapeHtml(email.subject)}</div>
-                                                                                        <div class="mail-sender">
-                                                                                            <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
-                                                                                            <div>
-                                                                                                <div class="name">${escapeHtml(email.from)}</div>
-                                                                                                <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
+                                                                                            <div class="mail-subject">${escapeHtml(email.subject)}</div>
+                                                                                            <div class="mail-sender">
+                                                                                                <div class="avatar">${email.from.split(' ').map(x => x[0]).slice(0, 2).join('')}</div>
+                                                                                                <div>
+                                                                                                    <div class="name">${escapeHtml(email.from)}</div>
+                                                                                                    <div class="email">${extractEmailAddress(email.from)} · ${new Date().toLocaleDateString()}</div>
+                                                                                                </div>
                                                                                             </div>
-                                                                                        </div>
-                                                                                        <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
-                                                                                    `;
+                                                                                            <div class="mail-body">${escapeHtml(email.body).replace(/\r\n/g, "<br/>")}</div>
+                                                                                        `;
 
                         replyForm.innerHTML = emailDetailHTML;
 
@@ -3080,21 +3101,21 @@
                         const botRow = document.createElement("div");
                         botRow.className = "message-row bot";
                         botRow.innerHTML = `
-                                                                                        <img class="avatar" src="../img/technical-support.png" alt="Bot">
-                                                                                        <div class="stack bot">
-                                                                                          <div class="message-header">
-                                                                                            <span class="name">Bot</span>
-                                                                                          </div>
+                                                                                            <img class="avatar" src="../img/technical-support.png" alt="Bot">
+                                                                                            <div class="stack bot">
+                                                                                              <div class="message-header">
+                                                                                                <span class="name">Bot</span>
+                                                                                              </div>
 
-                                                                                          <div class="message-bubble bot">
-                                                                                            <div class="message-text">${conv.answer}</div>
-                                                                                          </div>
+                                                                                              <div class="message-bubble bot">
+                                                                                                <div class="message-text">${conv.answer}</div>
+                                                                                              </div>
 
-                                                                                          <div class="message-time">
-                                                                                            <span class="">${conv.createddate || ""}</span>
-                                                                                          </div>
-                                                                                        </div>
-                                                                                      `;
+                                                                                              <div class="message-time">
+                                                                                                <span class="">${conv.createddate || ""}</span>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          `;
                         chatBox.appendChild(botRow);
                     }
 
@@ -3102,21 +3123,21 @@
                         const userRow = document.createElement("div");
                         userRow.className = "message-row user";
                         userRow.innerHTML = `
-                                                                                        <img class="avatar" src="../img/user.png" alt="user">
-                                                                                        <div class="stack user">
-                                                                                          <div class="message-header">
-                                                                                            <span class="name">Customer</span>
-                                                                                          </div>
+                                                                                            <img class="avatar" src="../img/user.png" alt="user">
+                                                                                            <div class="stack user">
+                                                                                              <div class="message-header">
+                                                                                                <span class="name">Customer</span>
+                                                                                              </div>
 
-                                                                                          <div class="message-bubble">
-                                                                                            <div class="message-text">${conv.question}</div>
-                                                                                          </div>
+                                                                                              <div class="message-bubble">
+                                                                                                <div class="message-text">${conv.question}</div>
+                                                                                              </div>
 
-                                                                                          <div class="message-time">
-                                                                                            <span class="">${conv.createddate || ""}</span>
-                                                                                          </div>
-                                                                                        </div>
-                                                                                      `;
+                                                                                              <div class="message-time">
+                                                                                                <span class="">${conv.createddate || ""}</span>
+                                                                                              </div>
+                                                                                            </div>
+                                                                                          `;
                         chatBox.appendChild(userRow);
                     }
                 });
@@ -3187,85 +3208,85 @@
 
         function BindEmailDisposition() {
             const dispositionFormHTML = `
-                                                                                <h3>Reply</h3>
-                                                                        <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
+                                                                                    <h3>Reply</h3>
+                                                                            <div style="margin-top:15px; display:flex; flex-direction:column; gap:12px; font-family:'Segoe UI', Roboto, sans-serif;">
 
-                                                                            <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
-                                                                            <input type="email" id="replyToCRM" readonly
-                                                                                style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">To:</label>
+                                                                                <input type="email" id="replyToCRM" readonly
+                                                                                    style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-                                                                            <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
-                                                                            <input type="text" id="replySubjectCRM"
-                                                                                style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                <label style="font-size:14px; display:none; font-weight:500; color:#333; margin-bottom:4px;">Subject:</label>
+                                                                                <input type="text" id="replySubjectCRM"
+                                                                                    style="width:100%; display:none; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
 
-                                                                            <label style="font-size:14px; font-weight:500; display:none; color:#333; margin-bottom:4px;">Message:</label>
-                                                                            <textarea id="replyBodyCRM" rows="8"
-                                                                                style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                                                                                <label style="font-size:14px; font-weight:500; display:none; color:#333; margin-bottom:4px;">Message:</label>
+                                                                                <textarea id="replyBodyCRM" rows="8"
+                                                                                    style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
 
-                                                                            <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
+                                                                                <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px;">
 
-                                                                                <div style="flex:1 1 220px; display:flex; flex-direction:column;">
-                                                                                    <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                                                                                        Disposition <span style="color:red;">*</span>
-                                                                                    </label>
-                                                                                    <select id="disposition" onchange="updateSubDisposition()"
-                                                                                        style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                                                                                        <option value="">-- Select Disposition --</option>
-                                                                                    </select>
+                                                                                    <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                                                                                        <label for="disposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                                                            Disposition <span style="color:red;">*</span>
+                                                                                        </label>
+                                                                                        <select id="disposition" onchange="updateSubDisposition()"
+                                                                                            style="width:100%;     font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                            <option value="">-- Select Disposition --</option>
+                                                                                        </select>
+                                                                                    </div>
+
+                                                                                    <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
+                                                                                        <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                                                            Sub Disposition <span style="color:red;">*</span>
+                                                                                        </label>
+                                                                                        <select id="subDisposition" onchange="updateSubSubDisposition()"
+                                                                                            style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                            <option value="">-- Select Sub Disposition --</option>
+                                                                                        </select>
+                                                                                    </div>
+
+                                                                                    <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
+                                                                                        <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
+                                                                                            Sub Sub Disposition <span style="color:red;">*</span>
+                                                                                        </label>
+                                                                                        <select id="subSubDisposition"
+                                                                                            style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
+                                                                                            <option value="">-- Select Sub Sub Disposition --</option>
+                                                                                        </select>
+                                                                                    </div>
+
+                                                                                    <div style="flex:1 1 220px; display:flex; flex-direction:column;">
+                                                                                        <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
+                                                                                            Remark <span style="color:red;">*</span>
+                                                                                        </label>
+                                                                                        <textarea id="remark" placeholder="Enter Remark"
+                                                                                            style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
+                                                                                    </div>
                                                                                 </div>
 
-                                                                                <div id="SubDispositiondiv" style="flex:1 1 220px; display:none; flex-direction:column;">
-                                                                                    <label for="subDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                                                                                        Sub Disposition <span style="color:red;">*</span>
-                                                                                    </label>
-                                                                                    <select id="subDisposition" onchange="updateSubSubDisposition()"
-                                                                                        style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                                                                                        <option value="">-- Select Sub Disposition --</option>
-                                                                                    </select>
+                                                                                <div style="margin-top:18px; display:flex; gap:12px;">
+                                                                                      <div class="tooltip">
+                                                                                        <button id="processBtn" onclick="processMessageEmailCRM()"
+                                                                                              style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
+
+                                                                                              <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
+                                                                                                <!-- Gear SVG -->
+                                                                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                                                                                  <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
+                                                                                                </svg>
+                                                                                              </span>
+                                                                                            </button>
+                                                                                            <span class="tooltiptext">Process Message</span>
+                                                                                      </div>
+                                                                                    <button onclick="sendReply()"
+                                                                                        style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
+                                                                                        Send Reply
+                                                                                    </button>
                                                                                 </div>
 
-                                                                                <div id="SubSubDispo" style="flex:1 1 220px; display:none; flex-direction:column;">
-                                                                                    <label for="subSubDisposition" style="font-size:14px;  color:#333; margin-bottom:4px;">
-                                                                                        Sub Sub Disposition <span style="color:red;">*</span>
-                                                                                    </label>
-                                                                                    <select id="subSubDisposition"
-                                                                                        style="width:100%;  font-family: 'Segoe UI';  padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px;">
-                                                                                        <option value="">-- Select Sub Sub Disposition --</option>
-                                                                                    </select>
-                                                                                </div>
 
-                                                                                <div style="flex:1 1 220px; display:flex; flex-direction:column;">
-                                                                                    <label for="remark" style="font-size:14px; color:#333; margin-bottom:4px;">
-                                                                                        Remark <span style="color:red;">*</span>
-                                                                                    </label>
-                                                                                    <textarea id="remark" placeholder="Enter Remark"
-                                                                                        style="width:100%;  font-family: 'Segoe UI'; padding:8px 10px; font-size:14px; border:1px solid #ccc; border-radius:6px; resize:vertical; min-height:100px; line-height:1.5;"></textarea>
-                                                                                </div>
                                                                             </div>
-
-                                                                            <div style="margin-top:18px; display:flex; gap:12px;">
-                                                                                  <div class="tooltip">
-                                                                                    <button id="processBtn" onclick="processMessageEmailCRM()"
-                                                                                          style="padding:8px; border-radius:6px; cursor:pointer; border:1px solid #ddd; background:#f3f3f3; color:#333; display:flex; align-items:center; justify-content:center;">
-
-                                                                                          <span id="processIcon" style="display:inline-block; width:18px; height:18px;">
-                                                                                            <!-- Gear SVG -->
-                                                                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                                                                              <path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.5.5 0 0 0 .12-.65l-1.92-3.32a.5.5 0 0 0-.61-.22l-2.39.96a7.14 7.14 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54c-.6.23-1.15.54-1.63.94l-2.39-.96a.5.5 0 0 0-.61.22L2.7 9.47a.5.5 0 0 0 .12.65l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.5.5 0 0 0-.12.65l1.92 3.32c.14.24.43.34.7.22l2.39-.96c.48.4 1.03.71 1.63.94l.36 2.54c.04.25.25.42.5.42h3.84c.25 0 .46-.17.5-.42l.36-2.54c.6-.23 1.15-.54 1.63-.94l2.39.96c.27.11.56.02.7-.22l1.92-3.32a.5.5 0 0 0-.12-.65l-2.03-1.58ZM12 15.6a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2Z"/>
-                                                                                            </svg>
-                                                                                          </span>
-                                                                                        </button>
-                                                                                        <span class="tooltiptext">Process Message</span>
-                                                                                  </div>
-                                                                                <button onclick="sendReply()"
-                                                                                    style="padding:8px 14px; font-size:14px; font-weight:500; border-radius:6px; cursor:pointer; border:none; background:#007bff; color:#fff; display:inline-flex; align-items:center; gap:6px;">
-                                                                                    Send Reply
-                                                                                </button>
-                                                                            </div>
-
-
-                                                                        </div>
-                                                                        `;
+                                                                            `;
 
             document.getElementById('replyForm').innerHTML += dispositionFormHTML;
         }
@@ -3298,6 +3319,56 @@
         });
     </script>
 
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const singleStepTransfer = urlParams.get("singleStepTransfer") || "";
+
+
+            const hiddenInput = document.getElementById("singleStepTransferValue");
+            if (hiddenInput) hiddenInput.value = singleStepTransfer;
+
+            const dropdown = document.getElementById("transferDropdown");
+            if (!dropdown) return;
+
+
+            dropdown.innerHTML = "";
+
+
+            const defaultOption = document.createElement("option");
+            defaultOption.text = "⏬ Select route";
+            defaultOption.value = "";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            dropdown.appendChild(defaultOption);
+
+
+            if (singleStepTransfer) {
+                const items = singleStepTransfer.split(",");
+
+                items.forEach(item => {
+                    if (item.includes(":")) {
+                        const [text, value] = item.split(":");
+
+                        const option = document.createElement("option");
+                        option.value = value;
+                        option.text = text;
+                        dropdown.appendChild(option);
+                    }
+                });
+            }
+        });
+
+
+
+
+
+
+       
+
+
+    </script>
 
 
 

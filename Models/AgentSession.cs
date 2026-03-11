@@ -48,6 +48,8 @@ namespace ServerCRM.Models
         public int AutoWrapTime { get; set; }
         public  string? DialAccess { get; set; }
 
+        public string? GetnextDialAccess { get; set; }
+
         public string? StartTime { get; set; }
         public string? EndTime   { get; set; }
         public string? RecordingPath { get; set; }
@@ -59,5 +61,9 @@ namespace ServerCRM.Models
         public DataTable? dt_EntityType { get; set; }
 
         public object LockObj { get; } = new object();
+
+        public string? CallUuid { get; set; }
+
+        public string? Call_Type { get; set; }
     }
 }

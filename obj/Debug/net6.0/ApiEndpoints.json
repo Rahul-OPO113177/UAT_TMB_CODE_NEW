@@ -267,6 +267,22 @@
   },
   {
     "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "CustomerType",
+    "RelativePath": "api/Genesys/CustomerType",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ServerCRM.Models.CustomerType",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
     "Method": "Dialer",
     "RelativePath": "api/Genesys/dialer",
     "HttpMethod": "POST",
@@ -421,6 +437,22 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ServerCRM.Controllers.GenesysController",
+    "Method": "SerachPhone",
+    "RelativePath": "api/Genesys/searchPhoneNumber",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "ServerCRM.Models.PhoneRequest",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

@@ -1,331 +1,331 @@
 {
   "Files": [
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "PackagePath": "staticwebassets\\ServerCRM.muryem098h.bundle.scp.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\CRM.html",
       "PackagePath": "staticwebassets\\Pages\\CRM.html"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\CTI.html",
       "PackagePath": "staticwebassets\\Pages\\CTI.html"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\Freeswitch.html",
       "PackagePath": "staticwebassets\\Pages\\Freeswitch.html"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\LogIn.html",
       "PackagePath": "staticwebassets\\Pages\\LogIn.html"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\sip.html",
       "PackagePath": "staticwebassets\\Pages\\sip.html"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Ringtone\\ringin.wav",
       "PackagePath": "staticwebassets\\Ringtone\\ringin.wav"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\css\\Common\\Dialer.css",
       "PackagePath": "staticwebassets\\css\\Common\\Dialer.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\site.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\css\\sweetalert2.min.css",
       "PackagePath": "staticwebassets\\css\\sweetalert2.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\favicon.ico",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\img\\Loading_2.gif",
       "PackagePath": "staticwebassets\\img\\Loading_2.gif"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\img\\Logo 1 Connect.png",
       "PackagePath": "staticwebassets\\img\\Logo 1 Connect.png"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\loader",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\img\\loader",
       "PackagePath": "staticwebassets\\img"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\opoimage-removebg-preview.png",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\img\\opoimage-removebg-preview.png",
       "PackagePath": "staticwebassets\\img\\opoimage-removebg-preview.png"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\img\\technical-support.png",
       "PackagePath": "staticwebassets\\img\\technical-support.png"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\user.png",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\img\\user.png",
       "PackagePath": "staticwebassets\\img\\user.png"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\Common.js",
       "PackagePath": "staticwebassets\\js\\Common\\Common.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "PackagePath": "staticwebassets\\js\\Common\\CommonSoftPhone.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "PackagePath": "staticwebassets\\js\\Common\\jquery-3.6.4.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "PackagePath": "staticwebassets\\js\\Common\\sweetalert2.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
       "PackagePath": "staticwebassets\\js\\Genesys\\Genesys.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\jssip.min.js",
       "PackagePath": "staticwebassets\\js\\jssip.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\signalr.min.js",
       "PackagePath": "staticwebassets\\js\\signalr.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\site.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

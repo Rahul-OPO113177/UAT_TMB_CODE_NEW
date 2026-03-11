@@ -65,5 +65,7 @@
         public int? IsAsterisk { get; set; }
         public int? Break_Limit { get; set; }
         public int? Check_CRM_For_Bio { get; set; }
+        public int? login_flag { get; set; }
+        
     }
 }

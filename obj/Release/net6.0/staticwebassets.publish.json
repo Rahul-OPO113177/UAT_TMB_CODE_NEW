@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OZ28MGpZl1REBFzHn1/M/ztGtwR7W/Oo35Jstywet5E=",
+  "Hash": "LwcygzoMw1AxmttJ+Dl1fJU25IdgQEWq2/Uzc9w3R9U=",
   "Source": "ServerCRM",
   "BasePath": "_content/ServerCRM",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "ServerCRM\\wwwroot",
       "Source": "ServerCRM",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
       "SourceId": "ServerCRM",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "ServerCRM#[.{fingerprint}]?.styles.css",
       "AssetKind": "All",
@@ -35,13 +35,13 @@
       "Integrity": "fudVBS86+yMGIe4Q6S8METH0HmTtPpVmrpnifxw+qDA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css"
+      "OriginalItemSpec": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "SourceId": "ServerCRM",
       "SourceType": "Computed",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "ServerCRM#[.{fingerprint}]!.bundle.scp.css",
       "AssetKind": "All",
@@ -56,13 +56,13 @@
       "Integrity": "fudVBS86+yMGIe4Q6S8METH0HmTtPpVmrpnifxw+qDA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css"
+      "OriginalItemSpec": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\Common\\Dialer.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "css/Common/Dialer#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\Common\\Dialer.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\site.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\site.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -101,10 +101,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\sweetalert2.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "css/sweetalert2.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -122,10 +122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\sweetalert2.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\favicon.ico",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\favicon.ico",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "favicon#[.{fingerprint}]?.ico",
       "AssetKind": "All",
@@ -143,10 +143,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\loader",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\loader",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/loader#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -164,10 +164,10 @@
       "OriginalItemSpec": "wwwroot\\img\\loader"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\Loading_2.gif",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/Loading_2#[.{fingerprint}]?.gif",
       "AssetKind": "All",
@@ -185,10 +185,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Loading_2.gif"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\Logo 1 Connect.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/Logo 1 Connect#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -206,10 +206,10 @@
       "OriginalItemSpec": "wwwroot\\img\\Logo 1 Connect.png"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\opoimage-removebg-preview.png",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\opoimage-removebg-preview.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/opoimage-removebg-preview#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -227,10 +227,10 @@
       "OriginalItemSpec": "wwwroot\\img\\opoimage-removebg-preview.png"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\technical-support.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/technical-support#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -248,10 +248,10 @@
       "OriginalItemSpec": "wwwroot\\img\\technical-support.png"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\user.png",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\user.png",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "img/user#[.{fingerprint}]?.png",
       "AssetKind": "All",
@@ -269,10 +269,10 @@
       "OriginalItemSpec": "wwwroot\\img\\user.png"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\Common.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/Common#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -290,10 +290,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Common\\Common.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/CommonSoftPhone#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -311,10 +311,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Common\\CommonSoftPhone.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/jquery-3.6.4.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -332,10 +332,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Common\\jquery-3.6.4.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Common/sweetalert2.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -353,10 +353,10 @@
       "OriginalItemSpec": "wwwroot\\js\\Common\\sweetalert2.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/Genesys/Genesys#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -367,17 +367,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "vndl83wb69",
-      "Integrity": "a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw=",
+      "Fingerprint": "nrri0jf2xs",
+      "Integrity": "7QZ5HldlqqaGhdOyS7zWdJ7QZioXi9lHSmQ6X70CrZE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Genesys\\Genesys.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\jssip.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/jssip.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -395,10 +395,10 @@
       "OriginalItemSpec": "wwwroot\\js\\jssip.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\signalr.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/signalr.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\js\\signalr.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\site.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\site.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -437,10 +437,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -458,10 +458,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -479,10 +479,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -500,10 +500,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -521,10 +521,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -542,10 +542,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -563,10 +563,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -584,10 +584,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -605,10 +605,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -626,10 +626,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -647,10 +647,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -668,10 +668,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -689,10 +689,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -710,10 +710,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -731,10 +731,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -752,10 +752,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -773,10 +773,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -794,10 +794,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -836,10 +836,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -857,10 +857,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -878,10 +878,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -899,10 +899,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -920,10 +920,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -941,10 +941,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -962,10 +962,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -983,10 +983,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1004,10 +1004,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1025,10 +1025,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1046,10 +1046,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1067,10 +1067,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -1088,10 +1088,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1109,10 +1109,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1130,10 +1130,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1151,10 +1151,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1172,10 +1172,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1193,10 +1193,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1235,10 +1235,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1256,10 +1256,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1277,10 +1277,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1298,10 +1298,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1319,10 +1319,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1340,10 +1340,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1361,10 +1361,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/bootstrap/LICENSE#[.{fingerprint}]?",
       "AssetKind": "All",
@@ -1382,10 +1382,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/dist/jquery#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1403,10 +1403,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1424,10 +1424,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/dist/jquery.min#[.{fingerprint}]?.map",
       "AssetKind": "All",
@@ -1445,10 +1445,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1466,10 +1466,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/additional-methods#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1487,10 +1487,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1508,10 +1508,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1529,10 +1529,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1550,10 +1550,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation/LICENSE#[.{fingerprint}]?.md",
       "AssetKind": "All",
@@ -1571,10 +1571,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1592,10 +1592,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -1613,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE#[.{fingerprint}]?.txt",
       "AssetKind": "All",
@@ -1634,10 +1634,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\CRM.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/CRM#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1648,17 +1648,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q5ndc2sfj7",
-      "Integrity": "fgp9XRdQnWcI9525xlVmHrFAuRCQKtlCx/Zk7M5xyUA=",
+      "Fingerprint": "r6nay5zuy8",
+      "Integrity": "49kg2bHMQYJaY5jtuonqSO0vA9Xqp58hJca/nyILkDc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\CRM.html"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\CTI.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/CTI#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1676,10 +1676,10 @@
       "OriginalItemSpec": "wwwroot\\Pages\\CTI.html"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\Freeswitch.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/Freeswitch#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1697,10 +1697,10 @@
       "OriginalItemSpec": "wwwroot\\Pages\\Freeswitch.html"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\LogIn.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/LogIn#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1711,17 +1711,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "85zyz47k2q",
-      "Integrity": "bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4=",
+      "Fingerprint": "n2xhz1yaxj",
+      "Integrity": "rwg0kJJ6ZEF4PK960daHEjKGBiZj2xQ+hUhBS+9IfZ4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\LogIn.html"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\sip.html",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Pages/sip#[.{fingerprint}]?.html",
       "AssetKind": "All",
@@ -1739,10 +1739,10 @@
       "OriginalItemSpec": "wwwroot\\Pages\\sip.html"
     },
     {
-      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
+      "Identity": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Ringtone\\ringin.wav",
       "SourceId": "ServerCRM",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\",
+      "ContentRoot": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\",
       "BasePath": "_content/ServerCRM",
       "RelativePath": "Ringtone/ringin#[.{fingerprint}]?.wav",
       "AssetKind": "All",
@@ -1763,7 +1763,7 @@
   "Endpoints": [
     {
       "Route": "css/Common/Dialer.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\Common\\Dialer.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1800,7 +1800,7 @@
     },
     {
       "Route": "css/Common/Dialer.w0z08r24a3.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\Common\\Dialer.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\Common\\Dialer.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1845,7 +1845,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\site.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1882,7 +1882,7 @@
     },
     {
       "Route": "css/site.oq8r4nbcb2.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\site.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1927,7 +1927,7 @@
     },
     {
       "Route": "css/sweetalert2.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\sweetalert2.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1964,7 +1964,7 @@
     },
     {
       "Route": "css/sweetalert2.min.njxbi9hknp.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\css\\sweetalert2.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\css\\sweetalert2.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2009,7 +2009,7 @@
     },
     {
       "Route": "favicon.61n19gt1b8.ico",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\favicon.ico",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2054,7 +2054,7 @@
     },
     {
       "Route": "favicon.ico",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\favicon.ico",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\favicon.ico",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2091,7 +2091,7 @@
     },
     {
       "Route": "img/loader",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\loader",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\loader",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2128,7 +2128,7 @@
     },
     {
       "Route": "img/loader.czel8crefw",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\loader",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\loader",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2173,7 +2173,7 @@
     },
     {
       "Route": "img/Loading_2.czel8crefw.gif",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\Loading_2.gif",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2218,7 +2218,7 @@
     },
     {
       "Route": "img/Loading_2.gif",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Loading_2.gif",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\Loading_2.gif",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2255,7 +2255,7 @@
     },
     {
       "Route": "img/Logo 1 Connect.iptb8u29ff.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\Logo 1 Connect.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2300,7 +2300,7 @@
     },
     {
       "Route": "img/Logo 1 Connect.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\Logo 1 Connect.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\Logo 1 Connect.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2337,7 +2337,7 @@
     },
     {
       "Route": "img/opoimage-removebg-preview.3kf6jhohj2.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\opoimage-removebg-preview.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\opoimage-removebg-preview.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2382,7 +2382,7 @@
     },
     {
       "Route": "img/opoimage-removebg-preview.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\opoimage-removebg-preview.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\opoimage-removebg-preview.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2419,7 +2419,7 @@
     },
     {
       "Route": "img/technical-support.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\technical-support.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2456,7 +2456,7 @@
     },
     {
       "Route": "img/technical-support.yym55kdo23.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\technical-support.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\technical-support.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2501,7 +2501,7 @@
     },
     {
       "Route": "img/user.ebs3455yw3.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\user.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\user.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2546,7 +2546,7 @@
     },
     {
       "Route": "img/user.png",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\img\\user.png",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\img\\user.png",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2583,7 +2583,7 @@
     },
     {
       "Route": "js/Common/Common.3r8b2a0bt1.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\Common.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2628,7 +2628,7 @@
     },
     {
       "Route": "js/Common/Common.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\Common.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\Common.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2665,7 +2665,7 @@
     },
     {
       "Route": "js/Common/CommonSoftPhone.70dmkr3ywb.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2710,7 +2710,7 @@
     },
     {
       "Route": "js/Common/CommonSoftPhone.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\CommonSoftPhone.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\CommonSoftPhone.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2747,7 +2747,7 @@
     },
     {
       "Route": "js/Common/jquery-3.6.4.min.h7sqzptjfv.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2792,7 +2792,7 @@
     },
     {
       "Route": "js/Common/jquery-3.6.4.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\jquery-3.6.4.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2829,7 +2829,7 @@
     },
     {
       "Route": "js/Common/sweetalert2.min.2mkfz6ox65.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2874,7 +2874,7 @@
     },
     {
       "Route": "js/Common/sweetalert2.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Common\\sweetalert2.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Common\\sweetalert2.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2911,7 +2911,7 @@
     },
     {
       "Route": "js/Genesys/Genesys.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2920,7 +2920,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "44233"
+          "Value": "53156"
         },
         {
           "Name": "Content-Type",
@@ -2928,11 +2928,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw=\""
+          "Value": "\"7QZ5HldlqqaGhdOyS7zWdJ7QZioXi9lHSmQ6X70CrZE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Dec 2025 05:46:53 GMT"
+          "Value": "Wed, 11 Mar 2026 07:32:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2942,13 +2942,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw="
+          "Value": "sha256-7QZ5HldlqqaGhdOyS7zWdJ7QZioXi9lHSmQ6X70CrZE="
         }
       ]
     },
     {
-      "Route": "js/Genesys/Genesys.vndl83wb69.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Route": "js/Genesys/Genesys.nrri0jf2xs.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2957,7 +2957,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "44233"
+          "Value": "53156"
         },
         {
           "Name": "Content-Type",
@@ -2965,11 +2965,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw=\""
+          "Value": "\"7QZ5HldlqqaGhdOyS7zWdJ7QZioXi9lHSmQ6X70CrZE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 04 Dec 2025 05:46:53 GMT"
+          "Value": "Wed, 11 Mar 2026 07:32:46 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2979,7 +2979,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "vndl83wb69"
+          "Value": "nrri0jf2xs"
         },
         {
           "Name": "label",
@@ -2987,13 +2987,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw="
+          "Value": "sha256-7QZ5HldlqqaGhdOyS7zWdJ7QZioXi9lHSmQ6X70CrZE="
         }
       ]
     },
     {
       "Route": "js/jssip.min.23n1vhytrh.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\jssip.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3038,7 +3038,7 @@
     },
     {
       "Route": "js/jssip.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\jssip.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\jssip.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3075,7 +3075,7 @@
     },
     {
       "Route": "js/signalr.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\signalr.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3112,7 +3112,7 @@
     },
     {
       "Route": "js/signalr.min.knb3gi8t3r.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\signalr.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\signalr.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3157,7 +3157,7 @@
     },
     {
       "Route": "js/site.6b9nfc4n3r.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\site.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3202,7 +3202,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\js\\site.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3239,7 +3239,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3276,7 +3276,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.73kdqttayv.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3321,7 +3321,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3358,7 +3358,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3403,7 +3403,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3440,7 +3440,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3485,7 +3485,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3522,7 +3522,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.ozu22stjof.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3567,7 +3567,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3604,7 +3604,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.4gxs3k148c.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3649,7 +3649,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3686,7 +3686,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.gjcw7pocpk.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3731,7 +3731,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.6l4ir0ityv.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3776,7 +3776,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3813,7 +3813,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.fctod5rc9n.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3858,7 +3858,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3895,7 +3895,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3932,7 +3932,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3969,7 +3969,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.css.st1cbwfwo5.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4014,7 +4014,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.5p029spbuu.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4059,7 +4059,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4096,7 +4096,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.5vj65cig9w.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4141,7 +4141,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4178,7 +4178,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.nakmwdwsxp.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4223,7 +4223,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4260,7 +4260,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.2q4vfeazbq.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4305,7 +4305,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4342,7 +4342,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.e6q6xbwqzk.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4387,7 +4387,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4424,7 +4424,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4461,7 +4461,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.o371a8zbv2.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4506,7 +4506,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.dy6jgresuo.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4551,7 +4551,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4588,7 +4588,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.jeal3x0ldm.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4633,7 +4633,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4670,7 +4670,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4707,7 +4707,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4744,7 +4744,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.okkk44j0xs.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4789,7 +4789,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.min.z7kmom2977.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4834,7 +4834,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.mk8rdyw69w.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4879,7 +4879,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.97yrjpyf9r.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4924,7 +4924,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4961,7 +4961,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.cwzlr5n8x4.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5006,7 +5006,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5043,7 +5043,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5080,7 +5080,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5117,7 +5117,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.wmug9u23qg.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5162,7 +5162,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.y53cy5s2zj.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5207,7 +5207,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5244,7 +5244,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.j75batdsum.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5289,7 +5289,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5326,7 +5326,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.2yn17lgxub.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5371,7 +5371,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5408,7 +5408,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5445,7 +5445,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.vy0bq9ydhf.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5490,7 +5490,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5527,7 +5527,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.ab1c3rmv7g.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5572,7 +5572,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5609,7 +5609,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5646,7 +5646,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.56d2bn4wt9.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5691,7 +5691,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5728,7 +5728,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.ik6i2hrs65.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5773,7 +5773,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.ophe14yye5.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5818,7 +5818,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/css/bootstrap-utilities.z9shlbduue.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5863,7 +5863,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.1piudyfv7h.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5908,7 +5908,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.f6zq8v6eb3.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5953,7 +5953,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5990,7 +5990,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.kbynt5jhd9.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6035,7 +6035,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6072,7 +6072,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.89qbw8ngem.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6117,7 +6117,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6154,7 +6154,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.c2nslu3uf3.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6199,7 +6199,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6236,7 +6236,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6273,7 +6273,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.2lgwfvgpvi.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6318,7 +6318,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6355,7 +6355,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.jqwzsa9uv6.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6400,7 +6400,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6437,7 +6437,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6474,7 +6474,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.min.js.wsezl0heh6.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6519,7 +6519,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.esm.n5w6o92d9r.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6564,7 +6564,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6601,7 +6601,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.6ukhryfubh.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6646,7 +6646,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.js.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6683,7 +6683,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.4908xmbfjr.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6728,7 +6728,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6765,7 +6765,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6802,7 +6802,7 @@
     },
     {
       "Route": "lib/bootstrap/dist/js/bootstrap.min.js.u33ctipx7g.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6847,7 +6847,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6884,7 +6884,7 @@
     },
     {
       "Route": "lib/bootstrap/LICENSE.81b7ukuj9c",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\bootstrap\\LICENSE",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6929,7 +6929,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -6966,7 +6966,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.dsw5v3fbc5.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7011,7 +7011,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7048,7 +7048,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.map",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7085,7 +7085,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.min.rm8d4uw1xt.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7130,7 +7130,7 @@
     },
     {
       "Route": "lib/jquery/dist/jquery.ukz1g2vv03.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7175,7 +7175,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.afgyafcsqt.txt",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7220,7 +7220,7 @@
     },
     {
       "Route": "lib/jquery/LICENSE.txt",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7257,7 +7257,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.ay5nd8zt9x.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7302,7 +7302,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7339,7 +7339,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.9oaff4kq20.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7384,7 +7384,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/additional-methods.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7421,7 +7421,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.6d0lkjaslc.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7466,7 +7466,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7503,7 +7503,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7540,7 +7540,7 @@
     },
     {
       "Route": "lib/jquery-validation/dist/jquery.validate.min.l1zq2mitth.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7585,7 +7585,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.md",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7622,7 +7622,7 @@
     },
     {
       "Route": "lib/jquery-validation/LICENSE.x0q3zqp4vz.md",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7667,7 +7667,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.dvc2bfcndg.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7712,7 +7712,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7749,7 +7749,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7786,7 +7786,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.mt9h37ga6s.js",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7831,7 +7831,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.txt",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7868,7 +7868,7 @@
     },
     {
       "Route": "lib/jquery-validation-unobtrusive/LICENSE.wqejeusuyq.txt",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7913,7 +7913,7 @@
     },
     {
       "Route": "Pages/CRM.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\CRM.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7922,7 +7922,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "135839"
+          "Value": "139183"
         },
         {
           "Name": "Content-Type",
@@ -7930,11 +7930,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fgp9XRdQnWcI9525xlVmHrFAuRCQKtlCx/Zk7M5xyUA=\""
+          "Value": "\"49kg2bHMQYJaY5jtuonqSO0vA9Xqp58hJca/nyILkDc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Dec 2025 07:10:57 GMT"
+          "Value": "Sat, 07 Mar 2026 07:52:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7944,13 +7944,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-fgp9XRdQnWcI9525xlVmHrFAuRCQKtlCx/Zk7M5xyUA="
+          "Value": "sha256-49kg2bHMQYJaY5jtuonqSO0vA9Xqp58hJca/nyILkDc="
         }
       ]
     },
     {
-      "Route": "Pages/CRM.q5ndc2sfj7.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CRM.html",
+      "Route": "Pages/CRM.r6nay5zuy8.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\CRM.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -7959,7 +7959,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "135839"
+          "Value": "139183"
         },
         {
           "Name": "Content-Type",
@@ -7967,11 +7967,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"fgp9XRdQnWcI9525xlVmHrFAuRCQKtlCx/Zk7M5xyUA=\""
+          "Value": "\"49kg2bHMQYJaY5jtuonqSO0vA9Xqp58hJca/nyILkDc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Dec 2025 07:10:57 GMT"
+          "Value": "Sat, 07 Mar 2026 07:52:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7981,7 +7981,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q5ndc2sfj7"
+          "Value": "r6nay5zuy8"
         },
         {
           "Name": "label",
@@ -7989,13 +7989,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-fgp9XRdQnWcI9525xlVmHrFAuRCQKtlCx/Zk7M5xyUA="
+          "Value": "sha256-49kg2bHMQYJaY5jtuonqSO0vA9Xqp58hJca/nyILkDc="
         }
       ]
     },
     {
       "Route": "Pages/CTI.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\CTI.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8032,7 +8032,7 @@
     },
     {
       "Route": "Pages/CTI.xoqi6pnqgb.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\CTI.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\CTI.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8077,7 +8077,7 @@
     },
     {
       "Route": "Pages/Freeswitch.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\Freeswitch.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8114,7 +8114,7 @@
     },
     {
       "Route": "Pages/Freeswitch.oi3zwyz5gv.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\Freeswitch.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\Freeswitch.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8158,53 +8158,8 @@
       ]
     },
     {
-      "Route": "Pages/LogIn.85zyz47k2q.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "18047"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 03 Dec 2025 08:31:07 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "85zyz47k2q"
-        },
-        {
-          "Name": "label",
-          "Value": "Pages/LogIn.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4="
-        }
-      ]
-    },
-    {
       "Route": "Pages/LogIn.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\LogIn.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\LogIn.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8213,7 +8168,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18047"
+          "Value": "18805"
         },
         {
           "Name": "Content-Type",
@@ -8221,11 +8176,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4=\""
+          "Value": "\"rwg0kJJ6ZEF4PK960daHEjKGBiZj2xQ+hUhBS+9IfZ4=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 03 Dec 2025 08:31:07 GMT"
+          "Value": "Wed, 11 Mar 2026 07:14:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8235,13 +8190,58 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4="
+          "Value": "sha256-rwg0kJJ6ZEF4PK960daHEjKGBiZj2xQ+hUhBS+9IfZ4="
+        }
+      ]
+    },
+    {
+      "Route": "Pages/LogIn.n2xhz1yaxj.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\LogIn.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18805"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"rwg0kJJ6ZEF4PK960daHEjKGBiZj2xQ+hUhBS+9IfZ4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Mar 2026 07:14:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n2xhz1yaxj"
+        },
+        {
+          "Name": "label",
+          "Value": "Pages/LogIn.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-rwg0kJJ6ZEF4PK960daHEjKGBiZj2xQ+hUhBS+9IfZ4="
         }
       ]
     },
     {
       "Route": "Pages/sip.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\sip.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8278,7 +8278,7 @@
     },
     {
       "Route": "Pages/sip.ll4deczd8p.html",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Pages\\sip.html",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Pages\\sip.html",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8323,7 +8323,7 @@
     },
     {
       "Route": "Ringtone/ringin.2n57amhjfg.wav",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Ringtone\\ringin.wav",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8368,7 +8368,7 @@
     },
     {
       "Route": "Ringtone/ringin.wav",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\wwwroot\\Ringtone\\ringin.wav",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\wwwroot\\Ringtone\\ringin.wav",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8405,7 +8405,7 @@
     },
     {
       "Route": "ServerCRM.bundle.scp.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8442,7 +8442,7 @@
     },
     {
       "Route": "ServerCRM.muryem098h.bundle.scp.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\ServerCRM.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8487,7 +8487,7 @@
     },
     {
       "Route": "ServerCRM.muryem098h.styles.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8532,7 +8532,7 @@
     },
     {
       "Route": "ServerCRM.styles.css",
-      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
+      "AssetFile": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\TMB_Live\\WebCrmTmb_UAT_withDomain\\OneDialerNEW_UAT\\obj\\Release\\net6.0\\scopedcss\\bundle\\ServerCRM.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
         {

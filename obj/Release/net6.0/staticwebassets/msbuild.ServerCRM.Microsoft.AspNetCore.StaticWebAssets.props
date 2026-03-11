@@ -264,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>vndl83wb69</Fingerprint>
-      <Integrity>a+xk1tWyJ1lnlXpdynPbYSJLGEH1Sk+cPYzXG6boWIw=</Integrity>
+      <Fingerprint>nrri0jf2xs</Fingerprint>
+      <Integrity>7QZ5HldlqqaGhdOyS7zWdJ7QZioXi9lHSmQ6X70CrZE=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Genesys\Genesys.js'))</OriginalItemSpec>
@@ -1362,8 +1362,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q5ndc2sfj7</Fingerprint>
-      <Integrity>fgp9XRdQnWcI9525xlVmHrFAuRCQKtlCx/Zk7M5xyUA=</Integrity>
+      <Fingerprint>r6nay5zuy8</Fingerprint>
+      <Integrity>49kg2bHMQYJaY5jtuonqSO0vA9Xqp58hJca/nyILkDc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\CRM.html'))</OriginalItemSpec>
@@ -1416,8 +1416,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>85zyz47k2q</Fingerprint>
-      <Integrity>bOlUtZpRgmd98J1gski+mJkkwohSnhbjSlZvBW+nJJ4=</Integrity>
+      <Fingerprint>n2xhz1yaxj</Fingerprint>
+      <Integrity>rwg0kJJ6ZEF4PK960daHEjKGBiZj2xQ+hUhBS+9IfZ4=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Pages\LogIn.html'))</OriginalItemSpec>

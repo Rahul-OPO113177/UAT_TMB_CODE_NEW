@@ -15,6 +15,15 @@
           }
         }
       },
+      "jose-jwt/5.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/jose-jwt.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/jose-jwt.dll": {}
+        }
+      },
       "MailKit/4.13.0": {
         "type": "package",
         "dependencies": {
@@ -791,6 +800,22 @@
           }
         }
       },
+      "Novell.Directory.Ldap.NETStandard/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.4"
+        },
+        "compile": {
+          "lib/net6.0/Novell.Directory.Ldap.NETStandard.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Novell.Directory.Ldap.NETStandard.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "runtime.native.System.Data.SqlClient.sni/4.4.0": {
         "type": "package",
         "dependencies": {
@@ -1329,6 +1354,25 @@
         "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
         "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
         "packageIcon.png"
+      ]
+    },
+    "jose-jwt/5.2.0": {
+      "sha512": "wCpQXj+i7qJpS6QC/dlNJM2AtJ0OGL1hbml/Lo0K5JzN1+HtvUVKCP4f9KvcwE9vLLQdaeSPjuRe+LPDja6xsA==",
+      "type": "package",
+      "path": "jose-jwt/5.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "jose-jwt.5.2.0.nupkg.sha512",
+        "jose-jwt.nuspec",
+        "lib/net40/jose-jwt.dll",
+        "lib/net461/jose-jwt.dll",
+        "lib/net472/jose-jwt.dll",
+        "lib/net6.0/jose-jwt.dll",
+        "lib/netstandard1.4/jose-jwt.dll",
+        "lib/netstandard2.1/jose-jwt.dll"
       ]
     },
     "MailKit/4.13.0": {
@@ -2211,6 +2255,29 @@
         "newtonsoft.json.nuspec"
       ]
     },
+    "Novell.Directory.Ldap.NETStandard/4.0.0": {
+      "sha512": "qyaOhuyv5nhp35yK3X0cBa+pnuVyOqec37LKQDzRSmFPECn6d1cnxBCrJdaqgaWuvOQtWa1rqlEaZyp+lpcXZQ==",
+      "type": "package",
+      "path": "novell.directory.ldap.netstandard/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net6.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/net7.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net7.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/net8.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net8.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/net9.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/net9.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/netstandard2.0/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/netstandard2.0/Novell.Directory.Ldap.NETStandard.xml",
+        "lib/netstandard2.1/Novell.Directory.Ldap.NETStandard.dll",
+        "lib/netstandard2.1/Novell.Directory.Ldap.NETStandard.xml",
+        "novell.directory.ldap.netstandard.4.0.0.nupkg.sha512",
+        "novell.directory.ldap.netstandard.nuspec"
+      ]
+    },
     "runtime.native.System.Data.SqlClient.sni/4.4.0": {
       "sha512": "A8v6PGmk+UGbfWo5Ixup0lPM4swuSwOiayJExZwKIOjTlFFQIsu3QnDXECosBEyrWSPryxBVrdqtJyhK3BaupQ==",
       "type": "package",
@@ -3025,8 +3092,10 @@
       "Microsoft.AspNetCore.Authentication >= 2.3.0",
       "Microsoft.AspNetCore.SignalR >= 1.2.0",
       "MySqlConnector >= 2.4.0",
+      "Novell.Directory.Ldap.NETStandard >= 4.0.0",
       "System.Data.SqlClient >= 4.9.0",
-      "System.DirectoryServices.AccountManagement >= 6.0.0"
+      "System.DirectoryServices.AccountManagement >= 6.0.0",
+      "jose-jwt >= 5.2.0"
     ]
   },
   "packageFolders": {
@@ -3036,11 +3105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\ServerCRM.csproj",
+      "projectUniqueName": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\ServerCRM.csproj",
       "projectName": "ServerCRM",
-      "projectPath": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\ServerCRM.csproj",
+      "projectPath": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\ServerCRM.csproj",
       "packagesPath": "C:\\Users\\opo113177\\.nuget\\packages\\",
-      "outputPath": "D:\\Rahul Project\\Rahul Project\\~web crm code\\Live_code\\OneDialerNEW\\obj\\",
+      "outputPath": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3096,6 +3165,10 @@
             "target": "Package",
             "version": "[2.4.0, )"
           },
+          "Novell.Directory.Ldap.NETStandard": {
+            "target": "Package",
+            "version": "[4.0.0, )"
+          },
           "System.Data.SqlClient": {
             "target": "Package",
             "version": "[4.9.0, )"
@@ -3103,6 +3176,10 @@
           "System.DirectoryServices.AccountManagement": {
             "target": "Package",
             "version": "[6.0.0, )"
+          },
+          "jose-jwt": {
+            "target": "Package",
+            "version": "[5.2.0, )"
           }
         },
         "imports": [

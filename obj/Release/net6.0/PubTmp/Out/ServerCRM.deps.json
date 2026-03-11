@@ -12,8 +12,10 @@
           "Microsoft.AspNetCore.Authentication": "2.3.0",
           "Microsoft.AspNetCore.SignalR": "1.2.0",
           "MySqlConnector": "2.4.0",
+          "Novell.Directory.Ldap.NETStandard": "4.0.0",
           "System.Data.SqlClient": "4.9.0",
           "System.DirectoryServices.AccountManagement": "6.0.0",
+          "jose-jwt": "5.2.0",
           "Genesyslab.Core": "7.6.0.9",
           "Genesyslab.Platform.ApplicationBlocks.SipEndpoint": "7.6.0.8",
           "Genesyslab.Platform.Commons.Collections": "7.6.0.6",
@@ -32,6 +34,14 @@
           "lib/net6.0/BouncyCastle.Cryptography.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.5.1.28965"
+          }
+        }
+      },
+      "jose-jwt/5.2.0": {
+        "runtime": {
+          "lib/net6.0/jose-jwt.dll": {
+            "assemblyVersion": "5.2.0.0",
+            "fileVersion": "5.2.0.0"
           }
         }
       },
@@ -401,6 +411,17 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "11.0.0.0",
             "fileVersion": "11.0.2.21924"
+          }
+        }
+      },
+      "Novell.Directory.Ldap.NETStandard/4.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.2"
+        },
+        "runtime": {
+          "lib/net6.0/Novell.Directory.Ldap.NETStandard.dll": {
+            "assemblyVersion": "4.0.0.0",
+            "fileVersion": "4.0.0.0"
           }
         }
       },
@@ -812,6 +833,13 @@
       "path": "bouncycastle.cryptography/2.5.1",
       "hashPath": "bouncycastle.cryptography.2.5.1.nupkg.sha512"
     },
+    "jose-jwt/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wCpQXj+i7qJpS6QC/dlNJM2AtJ0OGL1hbml/Lo0K5JzN1+HtvUVKCP4f9KvcwE9vLLQdaeSPjuRe+LPDja6xsA==",
+      "path": "jose-jwt/5.2.0",
+      "hashPath": "jose-jwt.5.2.0.nupkg.sha512"
+    },
     "MailKit/4.13.0": {
       "type": "package",
       "serviceable": true,
@@ -1105,6 +1133,13 @@
       "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "path": "newtonsoft.json/11.0.2",
       "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+    },
+    "Novell.Directory.Ldap.NETStandard/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qyaOhuyv5nhp35yK3X0cBa+pnuVyOqec37LKQDzRSmFPECn6d1cnxBCrJdaqgaWuvOQtWa1rqlEaZyp+lpcXZQ==",
+      "path": "novell.directory.ldap.netstandard/4.0.0",
+      "hashPath": "novell.directory.ldap.netstandard.4.0.0.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.4.0": {
       "type": "package",
