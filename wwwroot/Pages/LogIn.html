@@ -460,7 +460,7 @@
             loginResponse = await fetch('/api/Genesys/checkUser', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ empCode, password })
+                body: JSON.stringify({ EmpCode, password })
             });
             const data = await loginResponse.json();
             console.log('Login successful:', data);

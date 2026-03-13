@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "iCUgzq0xz25ZTraL5Gzs0wAUf6cW3M104+OtoXf+bI0=",
+  "Hash": "/jzLGE7M5jAVjQCQG0udyD3niMcD7QZ1zf3yku4j//s=",
   "Source": "ServerCRM",
   "BasePath": "_content/ServerCRM",
   "Mode": "Default",
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "voil9095mi",
-      "Integrity": "ITVNoJMlObOaNjHoixQAz7Bk6zgoWfjLGF/t3TwlM7s=",
+      "Fingerprint": "jg09aqwhl6",
+      "Integrity": "k5ycXkV4cFEaRxoukizpEefTv4AL8i/KojppHuxMJ9M=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\Genesys\\Genesys.js"
@@ -1669,8 +1669,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xoqi6pnqgb",
-      "Integrity": "oRHaHMad/IgJk31+CMuB+vkBND062plJtiWMS4CIg/s=",
+      "Fingerprint": "y9hplpk4x0",
+      "Integrity": "tpwNR3MQhaRjHzPLFYsmjJmpi+417n1mWEWCvnx6U+U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\CTI.html"
@@ -1711,8 +1711,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "gqxd1dwxlo",
-      "Integrity": "CCFrvF9FE/xwJxdvJu380pY0FW6URQUOfTRHXqBkIhs=",
+      "Fingerprint": "8knl1utwkj",
+      "Integrity": "eOwauE2MW0usOZLTxZMWisQoMOUFb3j+BBisaTgyA18=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Pages\\LogIn.html"
@@ -2910,6 +2910,51 @@
       ]
     },
     {
+      "Route": "js/Genesys/Genesys.jg09aqwhl6.js",
+      "AssetFile": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52447"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"k5ycXkV4cFEaRxoukizpEefTv4AL8i/KojppHuxMJ9M=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 13 Mar 2026 10:13:34 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jg09aqwhl6"
+        },
+        {
+          "Name": "label",
+          "Value": "js/Genesys/Genesys.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-k5ycXkV4cFEaRxoukizpEefTv4AL8i/KojppHuxMJ9M="
+        }
+      ]
+    },
+    {
       "Route": "js/Genesys/Genesys.js",
       "AssetFile": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
       "Selectors": [],
@@ -2920,7 +2965,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "52454"
+          "Value": "52447"
         },
         {
           "Name": "Content-Type",
@@ -2928,11 +2973,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ITVNoJMlObOaNjHoixQAz7Bk6zgoWfjLGF/t3TwlM7s=\""
+          "Value": "\"k5ycXkV4cFEaRxoukizpEefTv4AL8i/KojppHuxMJ9M=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:58:50 GMT"
+          "Value": "Fri, 13 Mar 2026 10:13:34 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2942,52 +2987,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ITVNoJMlObOaNjHoixQAz7Bk6zgoWfjLGF/t3TwlM7s="
-        }
-      ]
-    },
-    {
-      "Route": "js/Genesys/Genesys.voil9095mi.js",
-      "AssetFile": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\js\\Genesys\\Genesys.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "52454"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"ITVNoJMlObOaNjHoixQAz7Bk6zgoWfjLGF/t3TwlM7s=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:58:50 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "voil9095mi"
-        },
-        {
-          "Name": "label",
-          "Value": "js/Genesys/Genesys.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-ITVNoJMlObOaNjHoixQAz7Bk6zgoWfjLGF/t3TwlM7s="
+          "Value": "sha256-k5ycXkV4cFEaRxoukizpEefTv4AL8i/KojppHuxMJ9M="
         }
       ]
     },
@@ -8004,7 +8004,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "27336"
+          "Value": "27338"
         },
         {
           "Name": "Content-Type",
@@ -8012,11 +8012,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oRHaHMad/IgJk31+CMuB+vkBND062plJtiWMS4CIg/s=\""
+          "Value": "\"tpwNR3MQhaRjHzPLFYsmjJmpi+417n1mWEWCvnx6U+U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Nov 2025 07:49:37 GMT"
+          "Value": "Fri, 13 Mar 2026 10:13:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8026,12 +8026,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oRHaHMad/IgJk31+CMuB+vkBND062plJtiWMS4CIg/s="
+          "Value": "sha256-tpwNR3MQhaRjHzPLFYsmjJmpi+417n1mWEWCvnx6U+U="
         }
       ]
     },
     {
-      "Route": "Pages/CTI.xoqi6pnqgb.html",
+      "Route": "Pages/CTI.y9hplpk4x0.html",
       "AssetFile": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\CTI.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -8041,7 +8041,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "27336"
+          "Value": "27338"
         },
         {
           "Name": "Content-Type",
@@ -8049,11 +8049,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oRHaHMad/IgJk31+CMuB+vkBND062plJtiWMS4CIg/s=\""
+          "Value": "\"tpwNR3MQhaRjHzPLFYsmjJmpi+417n1mWEWCvnx6U+U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 27 Nov 2025 07:49:37 GMT"
+          "Value": "Fri, 13 Mar 2026 10:13:37 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8063,7 +8063,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xoqi6pnqgb"
+          "Value": "y9hplpk4x0"
         },
         {
           "Name": "label",
@@ -8071,7 +8071,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oRHaHMad/IgJk31+CMuB+vkBND062plJtiWMS4CIg/s="
+          "Value": "sha256-tpwNR3MQhaRjHzPLFYsmjJmpi+417n1mWEWCvnx6U+U="
         }
       ]
     },
@@ -8158,7 +8158,7 @@
       ]
     },
     {
-      "Route": "Pages/LogIn.gqxd1dwxlo.html",
+      "Route": "Pages/LogIn.8knl1utwkj.html",
       "AssetFile": "D:\\TMB_Project\\TMB\\OneDialerNEW_UAT\\wwwroot\\Pages\\LogIn.html",
       "Selectors": [],
       "ResponseHeaders": [
@@ -8176,11 +8176,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"CCFrvF9FE/xwJxdvJu380pY0FW6URQUOfTRHXqBkIhs=\""
+          "Value": "\"eOwauE2MW0usOZLTxZMWisQoMOUFb3j+BBisaTgyA18=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:55:17 GMT"
+          "Value": "Fri, 13 Mar 2026 10:13:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8190,7 +8190,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "gqxd1dwxlo"
+          "Value": "8knl1utwkj"
         },
         {
           "Name": "label",
@@ -8198,7 +8198,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-CCFrvF9FE/xwJxdvJu380pY0FW6URQUOfTRHXqBkIhs="
+          "Value": "sha256-eOwauE2MW0usOZLTxZMWisQoMOUFb3j+BBisaTgyA18="
         }
       ]
     },
@@ -8221,11 +8221,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"CCFrvF9FE/xwJxdvJu380pY0FW6URQUOfTRHXqBkIhs=\""
+          "Value": "\"eOwauE2MW0usOZLTxZMWisQoMOUFb3j+BBisaTgyA18=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:55:17 GMT"
+          "Value": "Fri, 13 Mar 2026 10:13:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8235,7 +8235,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-CCFrvF9FE/xwJxdvJu380pY0FW6URQUOfTRHXqBkIhs="
+          "Value": "sha256-eOwauE2MW0usOZLTxZMWisQoMOUFb3j+BBisaTgyA18="
         }
       ]
     },
@@ -8426,7 +8426,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:59:52 GMT"
+          "Value": "Fri, 13 Mar 2026 10:14:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8463,7 +8463,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:59:52 GMT"
+          "Value": "Fri, 13 Mar 2026 10:14:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8508,7 +8508,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:59:52 GMT"
+          "Value": "Fri, 13 Mar 2026 10:14:23 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8553,7 +8553,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Mar 2026 08:59:52 GMT"
+          "Value": "Fri, 13 Mar 2026 10:14:23 GMT"
         },
         {
           "Name": "Cache-Control",

@@ -125,9 +125,9 @@ document.addEventListener("DOMContentLoaded", function () {
     connection.on("UserName", function (number) {
 
         console.log("UserName : " + number);
-        const parts = number.split(".");
+        const parts = number.split(",");
         const initials = parts.map(p => p.charAt(0).toUpperCase()).join("");
-        const emails == number + "@1point1.in";
+        const emails = number + "@1point1.in";
         const usernameEl = document.getElementById("username");
         if (usernameEl) usernameEl.innerText = number;
 
@@ -255,9 +255,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("IframeEntity Data:", data);
 
-        entityId = data.items[0]._entity ?? "";
-        selectedPartyId = data.items[0].partyId ?? "";
-        partynumber = data.items[0].partyNumber ?? "";
+        entityId = data.items[0]._entity;
+        selectedPartyId = data.items[1].partyId ?? "";
+        partynumber = data.items[2].partyNumber ?? "";
       
 
         if (!data || !data.items || data.items.length === 0) {
@@ -279,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     
         let tableHtml = `
-        <table id="entityTable" style="width:100%; border-collapse:collapse; margin-top:10px;">
+        <table id="entityTable" style="width:100% border-collapse:collapse; margin-top:10px;">
             <thead>
                 <tr style="background:#f0f0f0; text-align:left;">
                     <th style="padding:8px; border:1px solid #ccc;">Entity</th>
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <tr class="entity-row"
                 data-partyid="${item.partyId}"
                 data-entity="${item._entity}"
-                data-partynumber="${item.partyNumber}"
+                data-partynumber="${item.partyNumbers}"
                 data-firstname="${item.personFirstName}"
                 data-lastname="${item.personLastName}"
                 style="cursor:pointer;">

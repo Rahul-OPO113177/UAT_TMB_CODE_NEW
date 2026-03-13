@@ -281,7 +281,7 @@
 
             });
             connection.on("UpdatePhoneInput", function (number) {
-                let last10 = number.substring(number.length - 10);
+                const last10 = number.substring(number.length - 10);
                 console.log(last10);
                 document.getElementById("phoneInput").value = last10;
                 ;
@@ -499,7 +499,7 @@
             Swal.fire({
                 title: 'Enter conference number',
                 input: 'text',
-                inputPlaceholder: 'e.g. 7058053821',
+                inputPlaceholder: 'e.g. 9021292629',
                 showCancelButton: true,
                 confirmButtonText: 'Join',
                 inputValidator: (value) => {
